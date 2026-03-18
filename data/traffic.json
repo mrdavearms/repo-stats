@@ -151,7 +151,7 @@
           {
             "referrer": "github.com",
             "count": 25,
-            "unique": null
+            "unique": 0
           }
         ]
       }
@@ -366,7 +366,7 @@
           {
             "referrer": "github.com",
             "count": 29,
-            "unique": null
+            "unique": 0
           }
         ]
       }

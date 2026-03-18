@@ -1,0 +1,184 @@
+name: Collect Repo Stats
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # 06:00 UTC daily (16:00 AEST)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Collect traffic and release data
+        env:
+          GH_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          REPOS=("mrdavearms/bulk-pdf-extractor-and-generator" "mrdavearms/student-doc-redactor")
+          TODAY=$(date -u +%Y-%m-%d)
+
+          TRAFFIC_FILE="data/traffic.json"
+          RELEASES_FILE="data/releases.json"
+
+          # Initialize files if empty or missing
+          if [ ! -s "$TRAFFIC_FILE" ]; then
+            echo '{}' > "$TRAFFIC_FILE"
+          fi
+          if [ ! -s "$RELEASES_FILE" ]; then
+            echo '{}' > "$RELEASES_FILE"
+          fi
+
+          for FULL_REPO in "${REPOS[@]}"; do
+            REPO_NAME=$(echo "$FULL_REPO" | cut -d'/' -f2)
+            echo "=== Collecting data for $REPO_NAME ==="
+
+            # --- Traffic: Views ---
+            echo "  Fetching views..."
+            VIEWS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${FULL_REPO}/traffic/views" || echo '{"views":[]}')
+
+            # --- Traffic: Clones ---
+            echo "  Fetching clones..."
+            CLONES=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${FULL_REPO}/traffic/clones" || echo '{"clones":[]}')
+
+            # --- Traffic: Referrers ---
+            echo "  Fetching referrers..."
+            REFERRERS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${FULL_REPO}/traffic/popular/referrers" || echo '[]')
+
+            # --- Traffic: Popular Paths ---
+            echo "  Fetching popular paths..."
+            PATHS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${FULL_REPO}/traffic/popular/paths" || echo '[]')
+
+            # --- Merge views into traffic.json ---
+            EXISTING=$(cat "$TRAFFIC_FILE")
+            EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" '
+              if .[$repo] == null then
+                .[$repo] = {"views":[],"clones":[],"referrers":[],"popular_paths":[]}
+              else . end
+            ')
+
+            # Merge daily views (deduplicate by date, keep latest)
+            EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --argjson new_views "$VIEWS" '
+              .[$repo].views = (
+                [.[$repo].views[], ($new_views.views // [] | .[] | {
+                  date: (.timestamp | split("T")[0]),
+                  total: .count,
+                  unique: .uniques
+                })]
+                | group_by(.date)
+                | map(last)
+                | sort_by(.date)
+              )
+            ')
+
+            # Merge daily clones (deduplicate by date, keep latest)
+            EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --argjson new_clones "$CLONES" '
+              .[$repo].clones = (
+                [.[$repo].clones[], ($new_clones.clones // [] | .[] | {
+                  date: (.timestamp | split("T")[0]),
+                  total: .count,
+                  unique: .uniques
+                })]
+                | group_by(.date)
+                | map(last)
+                | sort_by(.date)
+              )
+            ')
+
+            # Store today's referrer snapshot (replace if same date)
+            EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson refs "$REFERRERS" '
+              .[$repo].referrers = (
+                [(.[$repo].referrers // [] | .[] | select(.date != $today)),
+                 {date: $today, sources: ($refs | map({referrer, count, unique}))}]
+                | sort_by(.date)
+              )
+            ')
+
+            # Store today's popular paths snapshot (replace if same date)
+            EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson paths "$PATHS" '
+              .[$repo].popular_paths = (
+                [(.[$repo].popular_paths // [] | .[] | select(.date != $today)),
+                 {date: $today, paths: ($paths | map({path, count: .count, unique: .uniques}))}]
+                | sort_by(.date)
+              )
+            ')
+
+            echo "$EXISTING" > "$TRAFFIC_FILE"
+
+            # --- Releases ---
+            echo "  Fetching releases..."
+            RELEASES=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${FULL_REPO}/releases" || echo '[]')
+
+            EXISTING_REL=$(cat "$RELEASES_FILE")
+            if ! echo "$EXISTING_REL" | jq -e --arg repo "$REPO_NAME" '.[$repo]' > /dev/null 2>&1; then
+              EXISTING_REL=$(echo "$EXISTING_REL" | jq --arg repo "$REPO_NAME" '.[$repo] = {"releases":[],"history":[]}')
+            fi
+
+            # Build current release snapshot
+            RELEASE_DATA=$(echo "$RELEASES" | jq '[.[] | {
+              tag: .tag_name,
+              name: .name,
+              published_at: .published_at,
+              assets: [.assets[] | {
+                name: .name,
+                download_count: .download_count,
+                size_bytes: .size
+              }]
+            }]')
+
+            # Calculate total downloads across all releases
+            TOTAL_DL=$(echo "$RELEASE_DATA" | jq '[.[].assets[].download_count] | add // 0')
+
+            # Update releases and history
+            EXISTING_REL=$(echo "$EXISTING_REL" | jq \
+              --arg repo "$REPO_NAME" \
+              --argjson rel "$RELEASE_DATA" \
+              --argjson total "$TOTAL_DL" \
+              --arg today "$TODAY" '
+              .[$repo].releases = $rel |
+              .[$repo].history = (
+                [(.[$repo].history // [] | .[] | select(.date != $today)),
+                 {date: $today, total_downloads: $total}]
+                | sort_by(.date)
+              )
+            ')
+
+            echo "$EXISTING_REL" > "$RELEASES_FILE"
+
+            echo "  Done with $REPO_NAME"
+          done
+
+          # Pretty-print the JSON files
+          jq '.' "$TRAFFIC_FILE" > tmp.json && mv tmp.json "$TRAFFIC_FILE"
+          jq '.' "$RELEASES_FILE" > tmp.json && mv tmp.json "$RELEASES_FILE"
+
+          echo "=== Collection complete ==="
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update stats data for $(date -u +%Y-%m-%d)"
+            git push
+          fi

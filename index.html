@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Repo Stats</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3"></script>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent2: #3fb950;
+      --accent3: #d2a8ff;
+      --card-bg: #161b22;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      padding: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    header h1 { font-size: 1.5rem; font-weight: 600; }
+    .last-updated { color: var(--text-muted); font-size: 0.85rem; }
+
+    .controls {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .controls button {
+      padding: 0.4rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.15s;
+    }
+
+    .controls button:hover { border-color: var(--accent); color: var(--text); }
+    .controls button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    .label {
+      display: flex;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-right: 0.25rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .summary-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .card .card-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .card .card-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .chart-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .chart-container h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .chart-wrapper {
+      position: relative;
+      height: 280px;
+    }
+
+    .tables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      overflow-x: auto;
+    }
+
+    .table-container h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    th {
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .empty-state {
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+      header { flex-direction: column; align-items: flex-start; }
+      .card .card-value { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GitHub Repo Stats</h1>
+    <div class="last-updated" id="lastUpdated"></div>
+  </header>
+
+  <div class="controls">
+    <span class="label">Repo:</span>
+    <button class="repo-btn active" data-repo="all">All</button>
+    <button class="repo-btn" data-repo="bulk-pdf-extractor-and-generator">Bulk PDF</button>
+    <button class="repo-btn" data-repo="student-doc-redactor">Doc Redactor</button>
+    <span class="label" style="margin-left: 0.75rem;">Range:</span>
+    <button class="range-btn" data-range="7">7d</button>
+    <button class="range-btn" data-range="30">30d</button>
+    <button class="range-btn" data-range="90">90d</button>
+    <button class="range-btn active" data-range="all">All</button>
+  </div>
+
+  <div class="summary-cards">
+    <div class="card"><div class="card-label">Total Downloads</div><div class="card-value" id="totalDownloads">—</div></div>
+    <div class="card"><div class="card-label">Total Page Views</div><div class="card-value" id="totalViews">—</div></div>
+    <div class="card"><div class="card-label">Unique Visitors</div><div class="card-value" id="uniqueVisitors">—</div></div>
+    <div class="card"><div class="card-label">Total Clones</div><div class="card-value" id="totalClones">—</div></div>
+  </div>
+
+  <div class="charts-grid">
+    <div class="chart-container">
+      <h3>Downloads Over Time</h3>
+      <div class="chart-wrapper"><canvas id="downloadsChart"></canvas></div>
+    </div>
+    <div class="chart-container">
+      <h3>Page Views Over Time</h3>
+      <div class="chart-wrapper"><canvas id="viewsChart"></canvas></div>
+    </div>
+    <div class="chart-container">
+      <h3>Clones Over Time</h3>
+      <div class="chart-wrapper"><canvas id="clonesChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="tables-grid">
+    <div class="table-container">
+      <h3>Referral Sources</h3>
+      <div id="referrersTable"></div>
+    </div>
+    <div class="table-container">
+      <h3>Popular Paths</h3>
+      <div id="pathsTable"></div>
+    </div>
+    <div class="table-container">
+      <h3>Release Assets</h3>
+      <div id="releasesTable"></div>
+    </div>
+  </div>
+
+  <script>
+    let trafficData = {};
+    let releasesData = {};
+    let selectedRepo = 'all';
+    let selectedRange = 'all';
+    let charts = {};
+
+    const REPO_NAMES = ['bulk-pdf-extractor-and-generator', 'student-doc-redactor'];
+
+    // Chart.js defaults for dark theme
+    Chart.defaults.color = '#8b949e';
+    Chart.defaults.borderColor = '#30363d';
+    Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
+
+    async function init() {
+      try {
+        const [trafficRes, releasesRes] = await Promise.all([
+          fetch('data/traffic.json').then(r => r.json()),
+          fetch('data/releases.json').then(r => r.json())
+        ]);
+        trafficData = trafficRes;
+        releasesData = releasesRes;
+      } catch (e) {
+        document.querySelector('.summary-cards').textContent = '';
+        const msg = document.createElement('div');
+        msg.className = 'empty-state';
+        msg.style.gridColumn = '1/-1';
+        msg.textContent = 'No data yet. Run the GitHub Action to collect initial data.';
+        document.querySelector('.summary-cards').appendChild(msg);
+        return;
+      }
+
+      updateLastUpdated();
+      setupControls();
+      render();
+    }
+
+    function updateLastUpdated() {
+      let latest = '';
+      for (const repo of REPO_NAMES) {
+        const views = trafficData[repo]?.views || [];
+        if (views.length > 0) {
+          const last = views[views.length - 1].date;
+          if (last > latest) latest = last;
+        }
+      }
+      document.getElementById('lastUpdated').textContent = latest
+        ? 'Last updated: ' + formatDate(latest)
+        : '';
+    }
+
+    function setupControls() {
+      document.querySelectorAll('.repo-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.repo-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          selectedRepo = btn.dataset.repo;
+          render();
+        });
+      });
+      document.querySelectorAll('.range-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.range-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          selectedRange = btn.dataset.range;
+          render();
+        });
+      });
+    }
+
+    function getRepos() {
+      return selectedRepo === 'all' ? REPO_NAMES : [selectedRepo];
+    }
+
+    function filterByRange(entries) {
+      if (selectedRange === 'all') return entries;
+      const days = parseInt(selectedRange);
+      const cutoff = new Date();
+      cutoff.setDate(cutoff.getDate() - days);
+      const cutoffStr = cutoff.toISOString().split('T')[0];
+      return entries.filter(e => e.date >= cutoffStr);
+    }
+
+    function render() {
+      renderSummary();
+      renderCharts();
+      renderTables();
+    }
+
+    function renderSummary() {
+      const repos = getRepos();
+      let downloads = 0, views = 0, unique = 0, clones = 0;
+
+      for (const repo of repos) {
+        const hist = releasesData[repo]?.history || [];
+        if (hist.length > 0) downloads += hist[hist.length - 1].total_downloads;
+
+        const filteredViews = filterByRange(trafficData[repo]?.views || []);
+        views += filteredViews.reduce((s, v) => s + v.total, 0);
+        unique += filteredViews.reduce((s, v) => s + v.unique, 0);
+
+        const filteredClones = filterByRange(trafficData[repo]?.clones || []);
+        clones += filteredClones.reduce((s, v) => s + v.total, 0);
+      }
+
+      document.getElementById('totalDownloads').textContent = downloads.toLocaleString();
+      document.getElementById('totalViews').textContent = views.toLocaleString();
+      document.getElementById('uniqueVisitors').textContent = unique.toLocaleString();
+      document.getElementById('totalClones').textContent = clones.toLocaleString();
+    }
+
+    function renderCharts() {
+      renderDownloadsChart();
+      renderViewsChart();
+      renderClonesChart();
+    }
+
+    function makeChartOptions() {
+      return {
+        responsive: true,
+        maintainAspectRatio: false,
+        interaction: { intersect: false, mode: 'index' },
+        plugins: {
+          legend: { position: 'top', labels: { boxWidth: 12, padding: 16 } },
+          tooltip: {
+            backgroundColor: '#1c2129',
+            borderColor: '#30363d',
+            borderWidth: 1,
+            titleColor: '#e6edf3',
+            bodyColor: '#e6edf3',
+            padding: 10,
+            cornerRadius: 6
+          }
+        },
+        scales: {
+          x: {
+            type: 'time',
+            time: { unit: 'day', tooltipFormat: 'MMM d, yyyy' },
+            grid: { display: false }
+          },
+          y: {
+            beginAtZero: true,
+            ticks: { precision: 0 },
+            grid: { color: '#21262d' }
+          }
+        }
+      };
+    }
+
+    function renderDownloadsChart() {
+      const ctx = document.getElementById('downloadsChart');
+      if (charts.downloads) charts.downloads.destroy();
+
+      const repos = getRepos();
+      const datasets = [];
+      const colors = ['#58a6ff', '#3fb950'];
+
+      for (let i = 0; i < repos.length; i++) {
+        const history = filterByRange(releasesData[repos[i]]?.history || []);
+        datasets.push({
+          label: repos[i].replace(/-/g, ' '),
+          data: history.map(h => ({ x: h.date, y: h.total_downloads })),
+          borderColor: colors[i],
+          backgroundColor: colors[i] + '20',
+          fill: true,
+          tension: 0.3,
+          pointRadius: 2
+        });
+      }
+
+      charts.downloads = new Chart(ctx, {
+        type: 'line',
+        data: { datasets },
+        options: makeChartOptions()
+      });
+    }
+
+    function renderViewsChart() {
+      const ctx = document.getElementById('viewsChart');
+      if (charts.views) charts.views.destroy();
+
+      const repos = getRepos();
+      const datasets = [];
+
+      if (selectedRepo === 'all') {
+        const merged = mergeByDate(repos.map(r => trafficData[r]?.views || []));
+        const filtered = filterByRange(merged);
+        datasets.push(
+          { label: 'Total Views', data: filtered.map(v => ({ x: v.date, y: v.total })), borderColor: '#58a6ff', backgroundColor: '#58a6ff20', fill: true, tension: 0.3, pointRadius: 2 },
+          { label: 'Unique Visitors', data: filtered.map(v => ({ x: v.date, y: v.unique })), borderColor: '#d2a8ff', backgroundColor: '#d2a8ff20', fill: true, tension: 0.3, pointRadius: 2 }
+        );
+      } else {
+        const filtered = filterByRange(trafficData[selectedRepo]?.views || []);
+        datasets.push(
+          { label: 'Total Views', data: filtered.map(v => ({ x: v.date, y: v.total })), borderColor: '#58a6ff', backgroundColor: '#58a6ff20', fill: true, tension: 0.3, pointRadius: 2 },
+          { label: 'Unique Visitors', data: filtered.map(v => ({ x: v.date, y: v.unique })), borderColor: '#d2a8ff', backgroundColor: '#d2a8ff20', fill: true, tension: 0.3, pointRadius: 2 }
+        );
+      }
+
+      charts.views = new Chart(ctx, {
+        type: 'line',
+        data: { datasets },
+        options: makeChartOptions()
+      });
+    }
+
+    function renderClonesChart() {
+      const ctx = document.getElementById('clonesChart');
+      if (charts.clones) charts.clones.destroy();
+
+      const repos = getRepos();
+      const datasets = [];
+
+      if (selectedRepo === 'all') {
+        const merged = mergeByDate(repos.map(r => trafficData[r]?.clones || []));
+        const filtered = filterByRange(merged);
+        datasets.push(
+          { label: 'Total Clones', data: filtered.map(v => ({ x: v.date, y: v.total })), borderColor: '#3fb950', backgroundColor: '#3fb95020', fill: true, tension: 0.3, pointRadius: 2 },
+          { label: 'Unique Clones', data: filtered.map(v => ({ x: v.date, y: v.unique })), borderColor: '#f0883e', backgroundColor: '#f0883e20', fill: true, tension: 0.3, pointRadius: 2 }
+        );
+      } else {
+        const filtered = filterByRange(trafficData[selectedRepo]?.clones || []);
+        datasets.push(
+          { label: 'Total Clones', data: filtered.map(v => ({ x: v.date, y: v.total })), borderColor: '#3fb950', backgroundColor: '#3fb95020', fill: true, tension: 0.3, pointRadius: 2 },
+          { label: 'Unique Clones', data: filtered.map(v => ({ x: v.date, y: v.unique })), borderColor: '#f0883e', backgroundColor: '#f0883e20', fill: true, tension: 0.3, pointRadius: 2 }
+        );
+      }
+
+      charts.clones = new Chart(ctx, {
+        type: 'line',
+        data: { datasets },
+        options: makeChartOptions()
+      });
+    }
+
+    function mergeByDate(arrays) {
+      const map = {};
+      for (const arr of arrays) {
+        for (const entry of arr) {
+          if (!map[entry.date]) map[entry.date] = { date: entry.date, total: 0, unique: 0 };
+          map[entry.date].total += entry.total;
+          map[entry.date].unique += entry.unique;
+        }
+      }
+      return Object.values(map).sort((a, b) => a.date.localeCompare(b.date));
+    }
+
+    function renderTables() {
+      renderReferrersTable();
+      renderPathsTable();
+      renderReleasesTable();
+    }
+
+    // Safe table builder using DOM methods (no innerHTML with dynamic data)
+    function buildTable(headers, rows) {
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      const headerRow = document.createElement('tr');
+      for (const h of headers) {
+        const th = document.createElement('th');
+        th.textContent = h;
+        headerRow.appendChild(th);
+      }
+      thead.appendChild(headerRow);
+      table.appendChild(thead);
+
+      const tbody = document.createElement('tbody');
+      for (const row of rows) {
+        const tr = document.createElement('tr');
+        for (const cell of row) {
+          const td = document.createElement('td');
+          if (cell.wordBreak) td.style.wordBreak = 'break-all';
+          td.textContent = cell.text !== undefined ? cell.text : cell;
+          tr.appendChild(td);
+        }
+        tbody.appendChild(tr);
+      }
+      table.appendChild(tbody);
+      return table;
+    }
+
+    function setEmptyState(containerId, message) {
+      const container = document.getElementById(containerId);
+      container.textContent = '';
+      const div = document.createElement('div');
+      div.className = 'empty-state';
+      div.textContent = message;
+      container.appendChild(div);
+    }
+
+    function renderReferrersTable() {
+      const repos = getRepos();
+      const sources = {};
+
+      for (const repo of repos) {
+        const refs = trafficData[repo]?.referrers || [];
+        const latest = refs.length > 0 ? refs[refs.length - 1].sources : [];
+        for (const s of latest) {
+          if (!sources[s.referrer]) sources[s.referrer] = { count: 0, unique: 0 };
+          sources[s.referrer].count += s.count;
+          sources[s.referrer].unique += s.unique;
+        }
+      }
+
+      const rows = Object.entries(sources).sort((a, b) => b[1].count - a[1].count);
+
+      if (rows.length === 0) {
+        setEmptyState('referrersTable', 'No referrer data yet');
+        return;
+      }
+
+      const container = document.getElementById('referrersTable');
+      container.textContent = '';
+      container.appendChild(
+        buildTable(['Source', 'Views', 'Unique'],
+          rows.map(([ref, data]) => [ref, String(data.count), String(data.unique)])
+        )
+      );
+    }
+
+    function renderPathsTable() {
+      const repos = getRepos();
+      const paths = {};
+
+      for (const repo of repos) {
+        const pp = trafficData[repo]?.popular_paths || [];
+        const latest = pp.length > 0 ? pp[pp.length - 1].paths : [];
+        for (const p of latest) {
+          if (!paths[p.path]) paths[p.path] = { count: 0, unique: 0 };
+          paths[p.path].count += p.count;
+          paths[p.path].unique += p.unique;
+        }
+      }
+
+      const rows = Object.entries(paths).sort((a, b) => b[1].count - a[1].count);
+
+      if (rows.length === 0) {
+        setEmptyState('pathsTable', 'No path data yet');
+        return;
+      }
+
+      const container = document.getElementById('pathsTable');
+      container.textContent = '';
+      container.appendChild(
+        buildTable(['Path', 'Views', 'Unique'],
+          rows.map(([path, data]) => [
+            { text: path, wordBreak: true },
+            String(data.count),
+            String(data.unique)
+          ])
+        )
+      );
+    }
+
+    function renderReleasesTable() {
+      const repos = getRepos();
+      const rows = [];
+
+      for (const repo of repos) {
+        const releases = releasesData[repo]?.releases || [];
+        const label = repo === 'bulk-pdf-extractor-and-generator' ? 'Bulk PDF' : 'Doc Redactor';
+        for (const rel of releases) {
+          for (const asset of rel.assets) {
+            rows.push([
+              label + ' ' + rel.tag,
+              asset.name,
+              String(asset.download_count),
+              formatBytes(asset.size_bytes)
+            ]);
+          }
+        }
+      }
+
+      if (rows.length === 0) {
+        setEmptyState('releasesTable', 'No release data yet');
+        return;
+      }
+
+      const container = document.getElementById('releasesTable');
+      container.textContent = '';
+      container.appendChild(
+        buildTable(['Release', 'Asset', 'Downloads', 'Size'], rows)
+      );
+    }
+
+    // Utilities
+    function formatDate(dateStr) {
+      const d = new Date(dateStr + 'T00:00:00');
+      return d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
+    function formatBytes(bytes) {
+      if (bytes === 0) return '0 B';
+      const k = 1024;
+      const sizes = ['B', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    }
+
+    init();
+  </script>
+</body>
+</html>

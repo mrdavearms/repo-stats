@@ -246,7 +246,7 @@ jobs:
           TODAY=$(date -u +%Y-%m-%d)
           DISPLAY_DATE=$(date -u +"%d %b %Y")
 
-          BODY=""
+          REPO_ROWS=""
           for REPO_NAME in "bulk-pdf-extractor-and-generator" "student-doc-redactor"; do
             if [ "$REPO_NAME" = "bulk-pdf-extractor-and-generator" ]; then
               LABEL="Bulk PDF Extractor"
@@ -255,76 +255,114 @@ jobs:
             fi
 
             # Today's views
-            VIEWS=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" \
-              '(.[$repo].views[] | select(.date == $d) | "\(.total) (\(.unique) unique)") // "0 (0 unique)"' \
-              data/traffic.json)
-            [ -z "$VIEWS" ] && VIEWS="0 (0 unique)"
+            TODAY_VIEWS=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" \
+              '(.[$repo].views[] | select(.date == $d) | .total) // 0' data/traffic.json)
+            TODAY_VIEWS_U=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" \
+              '(.[$repo].views[] | select(.date == $d) | .unique) // 0' data/traffic.json)
 
             # Today's clones
-            CLONES=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" \
-              '(.[$repo].clones[] | select(.date == $d) | "\(.total) (\(.unique) unique)") // "0 (0 unique)"' \
-              data/traffic.json)
-            [ -z "$CLONES" ] && CLONES="0 (0 unique)"
+            TODAY_CLONES=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" \
+              '(.[$repo].clones[] | select(.date == $d) | .total) // 0' data/traffic.json)
+            TODAY_CLONES_U=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" \
+              '(.[$repo].clones[] | select(.date == $d) | .unique) // 0' data/traffic.json)
 
-            # Total downloads (cumulative)
+            # Cumulative downloads
             DOWNLOADS=$(jq -r --arg repo "$REPO_NAME" \
-              '(.[$repo].history | last | .total_downloads) // 0' \
-              data/releases.json)
+              '(.[$repo].history | last | .total_downloads) // 0' data/releases.json)
 
-            # All-time totals
+            # All-time views
             TOTAL_VIEWS=$(jq -r --arg repo "$REPO_NAME" \
-              '[.[$repo].views[].total] | add // 0' \
-              data/traffic.json)
+              '[.[$repo].views[].total] | add // 0' data/traffic.json)
             TOTAL_UNIQUE=$(jq -r --arg repo "$REPO_NAME" \
-              '[.[$repo].views[].unique] | add // 0' \
-              data/traffic.json)
+              '[.[$repo].views[].unique] | add // 0' data/traffic.json)
 
             # Stars
             STAR_COUNT=$(jq -r --arg repo "$REPO_NAME" \
-              '(.[$repo].stars | last | .count) // 0' \
-              data/traffic.json)
+              '(.[$repo].stars | last | .count) // 0' data/traffic.json)
 
             # 7-day view trend
             WEEK_AGO=$(date -u -d "7 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-7d +%Y-%m-%d)
             TWO_WEEKS_AGO=$(date -u -d "14 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-14d +%Y-%m-%d)
-            THIS_WEEK_VIEWS=$(jq -r --arg repo "$REPO_NAME" --arg from "$WEEK_AGO" \
-              '[.[$repo].views[] | select(.date >= $from) | .total] | add // 0' \
-              data/traffic.json)
-            LAST_WEEK_VIEWS=$(jq -r --arg repo "$REPO_NAME" --arg from "$TWO_WEEKS_AGO" --arg to "$WEEK_AGO" \
-              '[.[$repo].views[] | select(.date >= $from and .date < $to) | .total] | add // 0' \
-              data/traffic.json)
+            THIS_WEEK=$(jq -r --arg repo "$REPO_NAME" --arg from "$WEEK_AGO" \
+              '[.[$repo].views[] | select(.date >= $from) | .total] | add // 0' data/traffic.json)
+            LAST_WEEK=$(jq -r --arg repo "$REPO_NAME" --arg from "$TWO_WEEKS_AGO" --arg to "$WEEK_AGO" \
+              '[.[$repo].views[] | select(.date >= $from and .date < $to) | .total] | add // 0' data/traffic.json)
 
-            if [ "$LAST_WEEK_VIEWS" -gt 0 ] 2>/dev/null; then
-              PCT=$(( (THIS_WEEK_VIEWS - LAST_WEEK_VIEWS) * 100 / LAST_WEEK_VIEWS ))
+            TREND_HTML=""
+            if [ "$LAST_WEEK" -gt 0 ] 2>/dev/null; then
+              PCT=$(( (THIS_WEEK - LAST_WEEK) * 100 / LAST_WEEK ))
               if [ "$PCT" -ge 0 ]; then
-                TREND="(+${PCT}% vs last week)"
+                TREND_HTML="<span style=\"color:#3fb950;\">&#9650; +${PCT}%</span> vs last week"
               else
-                TREND="(${PCT}% vs last week)"
+                TREND_HTML="<span style=\"color:#f85149;\">&#9660; ${PCT}%</span> vs last week"
               fi
-            else
-              TREND=""
             fi
 
-            BODY=$(printf '%s%s  [%s stars]\n  Today:     Views: %s  |  Clones: %s\n  All-time:  Views: %s (%s unique)  |  Downloads: %s\n  7d trend:  %s views %s\n\n' \
-              "$BODY" "$LABEL" "$STAR_COUNT" "$VIEWS" "$CLONES" "$TOTAL_VIEWS" "$TOTAL_UNIQUE" "$DOWNLOADS" "$THIS_WEEK_VIEWS" "$TREND")
+            REPO_ROWS="${REPO_ROWS}
+            <tr><td colspan=\"3\" style=\"padding:16px 0 8px 0;border-bottom:none;\">
+              <strong style=\"font-size:16px;color:#e6edf3;\">${LABEL}</strong>
+              <span style=\"color:#8b949e;font-size:13px;margin-left:8px;\">${STAR_COUNT} stars</span>
+            </td></tr>
+            <tr style=\"background:#161b22;\">
+              <td style=\"padding:10px 14px;border-radius:6px 0 0 0;\">
+                <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Views Today</div>
+                <div style=\"font-size:22px;font-weight:700;color:#58a6ff;\">${TODAY_VIEWS}</div>
+                <div style=\"color:#8b949e;font-size:12px;\">${TODAY_VIEWS_U} unique</div>
+              </td>
+              <td style=\"padding:10px 14px;\">
+                <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Clones Today</div>
+                <div style=\"font-size:22px;font-weight:700;color:#3fb950;\">${TODAY_CLONES}</div>
+                <div style=\"color:#8b949e;font-size:12px;\">${TODAY_CLONES_U} unique</div>
+              </td>
+              <td style=\"padding:10px 14px;border-radius:0 6px 0 0;\">
+                <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Downloads</div>
+                <div style=\"font-size:22px;font-weight:700;color:#d2a8ff;\">${DOWNLOADS}</div>
+                <div style=\"color:#8b949e;font-size:12px;\">all time</div>
+              </td>
+            </tr>
+            <tr style=\"background:#161b22;\">
+              <td colspan=\"2\" style=\"padding:6px 14px 10px;border-radius:0 0 0 6px;color:#8b949e;font-size:12px;\">
+                All-time views: ${TOTAL_VIEWS} (${TOTAL_UNIQUE} unique)
+              </td>
+              <td style=\"padding:6px 14px 10px;border-radius:0 0 6px 0;color:#8b949e;font-size:12px;text-align:right;\">
+                ${TREND_HTML}
+              </td>
+            </tr>
+            <tr><td colspan=\"3\" style=\"padding:4px;border-bottom:none;\"></td></tr>"
           done
 
-          # Token expiry warning
+          # Token warning banner
+          TOKEN_BANNER=""
           if [ "$TOKEN_WARNING" = "true" ]; then
-            BODY=$(printf '%s>>> TOKEN WARNING\nYour GH_STATS_TOKEN expires on %s (%s days remaining).\nRotate it at https://github.com/settings/tokens\nUpdate the secret at https://github.com/mrdavearms/repo-stats/settings/secrets/actions\n\n' \
-              "$BODY" "$TOKEN_EXPIRY_DATE" "$TOKEN_DAYS_LEFT")
+            TOKEN_BANNER="<tr><td colspan=\"3\" style=\"padding:12px 14px;background:#f8514922;border:1px solid #f85149;border-radius:6px;color:#f85149;font-size:13px;\">
+              <strong>Token Expiry Warning</strong><br>
+              Your GH_STATS_TOKEN expires on ${TOKEN_EXPIRY_DATE} (${TOKEN_DAYS_LEFT} days remaining).<br>
+              <a href=\"https://github.com/settings/tokens\" style=\"color:#58a6ff;\">Rotate token</a> then
+              <a href=\"https://github.com/mrdavearms/repo-stats/settings/secrets/actions\" style=\"color:#58a6ff;\">update the secret</a>.
+            </td></tr>
+            <tr><td colspan=\"3\" style=\"padding:4px;border-bottom:none;\"></td></tr>"
           fi
 
-          BODY="${BODY}Dashboard: https://mrdavearms.github.io/repo-stats/"
+          # Build full HTML email body
+          HTML_BODY="<!DOCTYPE html><html><body style=\"margin:0;padding:0;background:#0d1117;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;\"><table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#0d1117;padding:20px;\"><tr><td align=\"center\"><table width=\"600\" cellpadding=\"0\" cellspacing=\"0\" style=\"background:#0d1117;\"><tr><td style=\"padding:0 0 16px 0;border-bottom:1px solid #30363d;\"><span style=\"font-size:20px;font-weight:600;color:#e6edf3;\">Repo Stats</span><span style=\"float:right;color:#8b949e;font-size:13px;line-height:28px;\">${DISPLAY_DATE}</span></td></tr>${TOKEN_BANNER}${REPO_ROWS}<tr><td colspan=\"3\" style=\"padding:16px 0 0 0;text-align:center;\"><a href=\"https://mrdavearms.github.io/repo-stats/\" style=\"display:inline-block;padding:8px 20px;background:#58a6ff;color:#fff;text-decoration:none;border-radius:6px;font-size:13px;font-weight:600;\">View Dashboard</a></td></tr></table></td></tr></table></body></html>"
 
-          # Send via Gmail SMTP using curl
-          printf 'From: Repo Stats <%s>\r\nTo: %s\r\nSubject: Repo Stats — %s\r\nContent-Type: text/plain; charset=UTF-8\r\n\r\n%s\r\n' \
-            "$GMAIL_ADDRESS" "$GMAIL_ADDRESS" "$DISPLAY_DATE" "$BODY" | \
+          # Assemble email with headers
+          {
+            printf 'From: Repo Stats <%s>\r\n' "$GMAIL_ADDRESS"
+            printf 'To: %s\r\n' "$GMAIL_ADDRESS"
+            printf 'Subject: Repo Stats %s\r\n' "$DISPLAY_DATE"
+            printf 'MIME-Version: 1.0\r\n'
+            printf 'Content-Type: text/html; charset=UTF-8\r\n'
+            printf '\r\n'
+            printf '%s' "$HTML_BODY"
+          } > /tmp/email.txt
+
+          # Send via Gmail SMTP
           curl -s --url "smtps://smtp.gmail.com:465" \
             --ssl-reqd \
             --mail-from "$GMAIL_ADDRESS" \
             --mail-rcpt "$GMAIL_ADDRESS" \
             --user "${GMAIL_ADDRESS}:${GMAIL_APP_PASSWORD}" \
-            -T -
+            -T /tmp/email.txt
 
           echo "Email sent to $GMAIL_ADDRESS"

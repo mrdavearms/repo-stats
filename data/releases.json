@@ -1,1 +1,20 @@
-{}
+{
+  "bulk-pdf-extractor-and-generator": {
+    "releases": [],
+    "history": [
+      {
+        "date": "2026-03-18",
+        "total_downloads": 0
+      }
+    ]
+  },
+  "student-doc-redactor": {
+    "releases": [],
+    "history": [
+      {
+        "date": "2026-03-18",
+        "total_downloads": 0
+      }
+    ]
+  }
+}

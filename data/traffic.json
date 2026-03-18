@@ -1,1 +1,34 @@
-{}
+{
+  "bulk-pdf-extractor-and-generator": {
+    "views": [],
+    "clones": [],
+    "referrers": [
+      {
+        "date": "2026-03-18",
+        "sources": []
+      }
+    ],
+    "popular_paths": [
+      {
+        "date": "2026-03-18",
+        "paths": []
+      }
+    ]
+  },
+  "student-doc-redactor": {
+    "views": [],
+    "clones": [],
+    "referrers": [
+      {
+        "date": "2026-03-18",
+        "sources": []
+      }
+    ],
+    "popular_paths": [
+      {
+        "date": "2026-03-18",
+        "paths": []
+      }
+    ]
+  }
+}

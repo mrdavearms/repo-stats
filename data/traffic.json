@@ -1,33 +1,431 @@
 {
   "bulk-pdf-extractor-and-generator": {
-    "views": [],
-    "clones": [],
+    "views": [
+      {
+        "date": "2026-03-04",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-05",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-06",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-07",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-08",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-09",
+        "total": 36,
+        "unique": 2
+      },
+      {
+        "date": "2026-03-10",
+        "total": 4,
+        "unique": 1
+      },
+      {
+        "date": "2026-03-11",
+        "total": 3,
+        "unique": 1
+      },
+      {
+        "date": "2026-03-12",
+        "total": 5,
+        "unique": 1
+      },
+      {
+        "date": "2026-03-13",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-14",
+        "total": 6,
+        "unique": 1
+      },
+      {
+        "date": "2026-03-15",
+        "total": 2,
+        "unique": 2
+      },
+      {
+        "date": "2026-03-16",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-17",
+        "total": 6,
+        "unique": 1
+      }
+    ],
+    "clones": [
+      {
+        "date": "2026-03-04",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-05",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-06",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-07",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-08",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-09",
+        "total": 43,
+        "unique": 24
+      },
+      {
+        "date": "2026-03-10",
+        "total": 30,
+        "unique": 15
+      },
+      {
+        "date": "2026-03-11",
+        "total": 3,
+        "unique": 3
+      },
+      {
+        "date": "2026-03-12",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-13",
+        "total": 31,
+        "unique": 17
+      },
+      {
+        "date": "2026-03-14",
+        "total": 1,
+        "unique": 1
+      },
+      {
+        "date": "2026-03-15",
+        "total": 36,
+        "unique": 21
+      },
+      {
+        "date": "2026-03-16",
+        "total": 3,
+        "unique": 3
+      },
+      {
+        "date": "2026-03-17",
+        "total": 63,
+        "unique": 17
+      }
+    ],
     "referrers": [
       {
         "date": "2026-03-18",
-        "sources": []
+        "sources": [
+          {
+            "referrer": "github.com",
+            "count": 25,
+            "unique": null
+          }
+        ]
       }
     ],
     "popular_paths": [
       {
         "date": "2026-03-18",
-        "paths": []
+        "paths": [
+          {
+            "path": "/mrdavearms/Bulk-PDF-generator-for-Vic-schools",
+            "count": 10,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 9,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases",
+            "count": 6,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.5.6",
+            "count": 5,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/Bulk-PDF-generator-for-Vic-schools/blob/main/README.md",
+            "count": 4,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/Bulk-PDF-generator-for-Vic-schools/blob/main/app_visualisation.png",
+            "count": 3,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.6",
+            "count": 3,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/Bulk-PDF-generator-for-Vic-schools/edit/main/README.md",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/Bulk-PDF-generator-for-Vic-schools/releases/tag/v2.5",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/blob/main/README.md",
+            "count": 2,
+            "unique": 1
+          }
+        ]
       }
     ]
   },
   "student-doc-redactor": {
-    "views": [],
-    "clones": [],
+    "views": [
+      {
+        "date": "2026-03-04",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-05",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-06",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-07",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-08",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-09",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-10",
+        "total": 3,
+        "unique": 1
+      },
+      {
+        "date": "2026-03-11",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-12",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-13",
+        "total": 5,
+        "unique": 1
+      },
+      {
+        "date": "2026-03-14",
+        "total": 18,
+        "unique": 1
+      },
+      {
+        "date": "2026-03-15",
+        "total": 15,
+        "unique": 2
+      },
+      {
+        "date": "2026-03-16",
+        "total": 22,
+        "unique": 3
+      },
+      {
+        "date": "2026-03-17",
+        "total": 1,
+        "unique": 1
+      }
+    ],
+    "clones": [
+      {
+        "date": "2026-03-04",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-05",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-06",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-07",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-08",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-09",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-10",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-11",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-12",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-03-13",
+        "total": 4,
+        "unique": 1
+      },
+      {
+        "date": "2026-03-14",
+        "total": 128,
+        "unique": 31
+      },
+      {
+        "date": "2026-03-15",
+        "total": 67,
+        "unique": 30
+      },
+      {
+        "date": "2026-03-16",
+        "total": 103,
+        "unique": 50
+      },
+      {
+        "date": "2026-03-17",
+        "total": 0,
+        "unique": 0
+      }
+    ],
     "referrers": [
       {
         "date": "2026-03-18",
-        "sources": []
+        "sources": [
+          {
+            "referrer": "github.com",
+            "count": 29,
+            "unique": null
+          }
+        ]
       }
     ],
     "popular_paths": [
       {
         "date": "2026-03-18",
-        "paths": []
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 35,
+            "unique": 4
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 13,
+            "unique": 3
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/blob/main/README.md",
+            "count": 4,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/actions/runs/23164520911",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/edit/main/README.md",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/blob/main/docs/screenshots/screenshot-redacting-progress.png",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/issues",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases/tag/v1.1.0",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/tags",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/tree/main/desktop",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ]
   }

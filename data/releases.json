@@ -1,15 +1,284 @@
 {
   "bulk-pdf-extractor-and-generator": {
-    "releases": [],
+    "releases": [
+      {
+        "tag": "v2.7.1",
+        "name": "v2.7.1",
+        "published_at": "2026-03-17T04:53:54Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0,
+            "size_bytes": 60103501
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "download_count": 0,
+            "size_bytes": 169457160
+          }
+        ]
+      },
+      {
+        "tag": "v2.7",
+        "name": "v2.7",
+        "published_at": "2026-03-17T04:00:06Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0,
+            "size_bytes": 60104068
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "download_count": 0,
+            "size_bytes": 169457036
+          }
+        ]
+      },
+      {
+        "tag": "v2.6",
+        "name": "Bulk PDF Generator v2.6",
+        "published_at": "2026-03-15T06:34:44Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0,
+            "size_bytes": 60100789
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "download_count": 0,
+            "size_bytes": 169453346
+          }
+        ]
+      },
+      {
+        "tag": "v2.5.6",
+        "name": "Bulk PDF Generator v2.5.6 — macOS & Windows",
+        "published_at": "2026-03-10T20:46:42Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0,
+            "size_bytes": 63043288
+          },
+          {
+            "name": "Bulk.PDF.Generator.Mac.dmg",
+            "download_count": 0,
+            "size_bytes": 66067727
+          }
+        ]
+      },
+      {
+        "tag": "v2.5.5",
+        "name": "Bulk PDF Generator v2.5.5",
+        "published_at": "2026-03-10T10:28:58Z",
+        "assets": []
+      },
+      {
+        "tag": "v2.5.4",
+        "name": "Bulk PDF Generator v2.5.4 — Security patch",
+        "published_at": "2026-03-09T20:42:00Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 1,
+            "size_bytes": 63033996
+          }
+        ]
+      },
+      {
+        "tag": "v2.5.3",
+        "name": "Bulk PDF Generator v2.5 — Windows",
+        "published_at": "2026-03-09T20:29:47Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0,
+            "size_bytes": 63036192
+          }
+        ]
+      },
+      {
+        "tag": "v2.5",
+        "name": "Bulk PDF Generator v2.5",
+        "published_at": "2026-03-09T10:43:59Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.Mac.dmg",
+            "download_count": 0,
+            "size_bytes": 66067851
+          }
+        ]
+      },
+      {
+        "tag": "v2.1",
+        "name": "v2.1 — Sheet picker + stability improvements",
+        "published_at": "2026-02-22T09:28:29Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0,
+            "size_bytes": 62243463
+          },
+          {
+            "name": "Duis_Ex_Evidence.Application.Wangaratta.High.School.2026.pdf",
+            "download_count": 0,
+            "size_bytes": 560890
+          },
+          {
+            "name": "Evidence.Application.sample.PDF.from.VCAA.pdf",
+            "download_count": 0,
+            "size_bytes": 544425
+          },
+          {
+            "name": "Evidence.Application.spreadsheet.with.data.xlsx",
+            "download_count": 0,
+            "size_bytes": 15686
+          },
+          {
+            "name": "Minim_Elit_Evidence.Application.Wangaratta.High.School.2026.pdf",
+            "download_count": 0,
+            "size_bytes": 560898
+          },
+          {
+            "name": "sample.data.xlsx",
+            "download_count": 0,
+            "size_bytes": 15195
+          },
+          {
+            "name": "Sample.Files.zip",
+            "download_count": 0,
+            "size_bytes": 2067641
+          },
+          {
+            "name": "Sunt_Culpa_Evidence.Application.Wangaratta.High.School.2026.pdf",
+            "download_count": 0,
+            "size_bytes": 560881
+          }
+        ]
+      },
+      {
+        "tag": "v2.0",
+        "name": "Bulk PDF Generator v2.0",
+        "published_at": "2026-02-22T09:04:17Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0,
+            "size_bytes": 62240475
+          }
+        ]
+      }
+    ],
     "history": [
       {
         "date": "2026-03-18",
-        "total_downloads": 0
+        "total_downloads": 1
       }
     ]
   },
   "student-doc-redactor": {
-    "releases": [],
+    "releases": [
+      {
+        "tag": "v1.1.1",
+        "name": "1.1.1",
+        "published_at": null,
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 0,
+            "size_bytes": 357
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 0,
+            "size_bytes": 357
+          },
+          {
+            "name": "Redaction-Tool-1.1.1-arm64.dmg",
+            "download_count": 0,
+            "size_bytes": 708454211
+          },
+          {
+            "name": "Redaction-Tool-1.1.1-arm64.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 739144
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.1.1.exe",
+            "download_count": 0,
+            "size_bytes": 711204144
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.1.1.exe.blockmap",
+            "download_count": 0,
+            "size_bytes": 742313
+          }
+        ]
+      },
+      {
+        "tag": "v1.1.0",
+        "name": "1.1.0",
+        "published_at": "2026-03-15T00:13:23Z",
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 0,
+            "size_bytes": 357
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 0,
+            "size_bytes": 357
+          },
+          {
+            "name": "Redaction-Tool-1.1.0-arm64.dmg",
+            "download_count": 0,
+            "size_bytes": 710528103
+          },
+          {
+            "name": "Redaction-Tool-1.1.0-arm64.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 740645
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.1.0.exe",
+            "download_count": 0,
+            "size_bytes": 710998050
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.1.0.exe.blockmap",
+            "download_count": 0,
+            "size_bytes": 742313
+          }
+        ]
+      },
+      {
+        "tag": "v1.0.0",
+        "name": "Redaction Tool v1.0.0",
+        "published_at": "2026-03-14T09:01:40Z",
+        "assets": [
+          {
+            "name": "Redaction.Tool-1.0.0-arm64.dmg",
+            "download_count": 0,
+            "size_bytes": 769157684
+          }
+        ]
+      },
+      {
+        "tag": "v0.1.0",
+        "name": "v0.1.0 — Mac Preview (Apple Silicon)",
+        "published_at": "2026-03-13T10:01:48Z",
+        "assets": [
+          {
+            "name": "Redaction.Tool-0.1.0-arm64.dmg",
+            "download_count": 0,
+            "size_bytes": 1054525007
+          }
+        ]
+      }
+    ],
     "history": [
       {
         "date": "2026-03-18",

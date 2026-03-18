@@ -305,38 +305,26 @@ jobs:
               TREND=""
             fi
 
-            BODY="${BODY}${LABEL}  [${STAR_COUNT} stars]
-  Today:     Views: ${VIEWS}  |  Clones: ${CLONES}
-  All-time:  Views: ${TOTAL_VIEWS} (${TOTAL_UNIQUE} unique)  |  Downloads: ${DOWNLOADS}
-  7d trend:  ${THIS_WEEK_VIEWS} views ${TREND}
-
-"
+            BODY=$(printf '%s%s  [%s stars]\n  Today:     Views: %s  |  Clones: %s\n  All-time:  Views: %s (%s unique)  |  Downloads: %s\n  7d trend:  %s views %s\n\n' \
+              "$BODY" "$LABEL" "$STAR_COUNT" "$VIEWS" "$CLONES" "$TOTAL_VIEWS" "$TOTAL_UNIQUE" "$DOWNLOADS" "$THIS_WEEK_VIEWS" "$TREND")
           done
 
           # Token expiry warning
           if [ "$TOKEN_WARNING" = "true" ]; then
-            BODY="${BODY}>>> TOKEN WARNING: Your GH_STATS_TOKEN expires on ${TOKEN_EXPIRY_DATE} (${TOKEN_DAYS_LEFT} days remaining).
-Rotate it at: https://github.com/settings/tokens
-Then update the secret at: https://github.com/mrdavearms/repo-stats/settings/secrets/actions
-
-"
+            BODY=$(printf '%s>>> TOKEN WARNING\nYour GH_STATS_TOKEN expires on %s (%s days remaining).\nRotate it at https://github.com/settings/tokens\nUpdate the secret at https://github.com/mrdavearms/repo-stats/settings/secrets/actions\n\n' \
+              "$BODY" "$TOKEN_EXPIRY_DATE" "$TOKEN_DAYS_LEFT")
           fi
 
           BODY="${BODY}Dashboard: https://mrdavearms.github.io/repo-stats/"
 
           # Send via Gmail SMTP using curl
+          printf 'From: Repo Stats <%s>\r\nTo: %s\r\nSubject: Repo Stats — %s\r\nContent-Type: text/plain; charset=UTF-8\r\n\r\n%s\r\n' \
+            "$GMAIL_ADDRESS" "$GMAIL_ADDRESS" "$DISPLAY_DATE" "$BODY" | \
           curl -s --url "smtps://smtp.gmail.com:465" \
             --ssl-reqd \
             --mail-from "$GMAIL_ADDRESS" \
             --mail-rcpt "$GMAIL_ADDRESS" \
             --user "${GMAIL_ADDRESS}:${GMAIL_APP_PASSWORD}" \
-            -T - <<MAILEOF
-From: Repo Stats <${GMAIL_ADDRESS}>
-To: ${GMAIL_ADDRESS}
-Subject: Repo Stats — ${DISPLAY_DATE}
-Content-Type: text/plain; charset=UTF-8
-
-${BODY}
-MAILEOF
+            -T -
 
           echo "Email sent to $GMAIL_ADDRESS"

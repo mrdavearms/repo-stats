@@ -17,6 +17,8 @@
       --accent2: #3fb950;
       --accent3: #d2a8ff;
       --card-bg: #161b22;
+      --trend-up: #3fb950;
+      --trend-down: #f85149;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -50,6 +52,7 @@
       gap: 0.5rem;
       flex-wrap: wrap;
       margin-bottom: 1.5rem;
+      align-items: center;
     }
 
     .controls button {
@@ -65,6 +68,17 @@
 
     .controls button:hover { border-color: var(--accent); color: var(--text); }
     .controls button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    .controls .export-btn {
+      margin-left: auto;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      padding: 0.35rem 0.7rem;
+    }
+
+    .controls .export-btn:hover { border-color: var(--accent); color: var(--text); }
 
     .label {
       display: flex;
@@ -103,6 +117,15 @@
       font-size: 1.75rem;
       font-weight: 700;
     }
+
+    .card .card-trend {
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+
+    .card .card-trend.up { color: var(--trend-up); }
+    .card .card-trend.down { color: var(--trend-down); }
+    .card .card-trend.flat { color: var(--text-muted); }
 
     .charts-grid {
       display: grid;
@@ -185,6 +208,7 @@
       body { padding: 1rem; }
       header { flex-direction: column; align-items: flex-start; }
       .card .card-value { font-size: 1.4rem; }
+      .controls .export-btn { margin-left: 0; }
     }
   </style>
 </head>
@@ -204,13 +228,35 @@
     <button class="range-btn" data-range="30">30d</button>
     <button class="range-btn" data-range="90">90d</button>
     <button class="range-btn active" data-range="all">All</button>
+    <button class="export-btn" id="exportCsv">Export CSV</button>
   </div>
 
   <div class="summary-cards">
-    <div class="card"><div class="card-label">Total Downloads</div><div class="card-value" id="totalDownloads">—</div></div>
-    <div class="card"><div class="card-label">Total Page Views</div><div class="card-value" id="totalViews">—</div></div>
-    <div class="card"><div class="card-label">Unique Visitors</div><div class="card-value" id="uniqueVisitors">—</div></div>
-    <div class="card"><div class="card-label">Total Clones</div><div class="card-value" id="totalClones">—</div></div>
+    <div class="card">
+      <div class="card-label">Total Downloads</div>
+      <div class="card-value" id="totalDownloads">—</div>
+      <div class="card-trend" id="trendDownloads"></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Total Page Views</div>
+      <div class="card-value" id="totalViews">—</div>
+      <div class="card-trend" id="trendViews"></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Unique Visitors</div>
+      <div class="card-value" id="uniqueVisitors">—</div>
+      <div class="card-trend" id="trendUnique"></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Total Clones</div>
+      <div class="card-value" id="totalClones">—</div>
+      <div class="card-trend" id="trendClones"></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Stars</div>
+      <div class="card-value" id="totalStars">—</div>
+      <div class="card-trend" id="trendStars"></div>
+    </div>
   </div>
 
   <div class="charts-grid">
@@ -311,6 +357,7 @@
           render();
         });
       });
+      document.getElementById('exportCsv').addEventListener('click', exportCsv);
     }
 
     function getRepos() {
@@ -326,32 +373,122 @@
       return entries.filter(e => e.date >= cutoffStr);
     }
 
+    function getPriorRange(entries) {
+      // Get the range just before the current filter for trend comparison
+      if (selectedRange === 'all') return entries;
+      const days = parseInt(selectedRange);
+      const cutoff = new Date();
+      cutoff.setDate(cutoff.getDate() - days);
+      const cutoffStr = cutoff.toISOString().split('T')[0];
+      const priorCutoff = new Date(cutoff);
+      priorCutoff.setDate(priorCutoff.getDate() - days);
+      const priorStr = priorCutoff.toISOString().split('T')[0];
+      return entries.filter(e => e.date >= priorStr && e.date < cutoffStr);
+    }
+
     function render() {
       renderSummary();
       renderCharts();
       renderTables();
     }
 
+    function calcTrend(current, prior) {
+      if (prior === 0 && current === 0) return { pct: 0, label: 'No change', cls: 'flat' };
+      if (prior === 0) return { pct: 100, label: '+' + current + ' new', cls: 'up' };
+      const pct = Math.round(((current - prior) / prior) * 100);
+      if (pct > 0) return { pct, label: '+' + pct + '% vs prior period', cls: 'up' };
+      if (pct < 0) return { pct, label: pct + '% vs prior period', cls: 'down' };
+      return { pct: 0, label: 'No change', cls: 'flat' };
+    }
+
+    function setTrend(elementId, trend) {
+      const el = document.getElementById(elementId);
+      el.textContent = trend.label;
+      el.className = 'card-trend ' + trend.cls;
+    }
+
     function renderSummary() {
       const repos = getRepos();
-      let downloads = 0, views = 0, unique = 0, clones = 0;
+      let downloads = 0, views = 0, unique = 0, clones = 0, stars = 0;
+      let priorViews = 0, priorUnique = 0, priorClones = 0;
 
       for (const repo of repos) {
         const hist = releasesData[repo]?.history || [];
         if (hist.length > 0) downloads += hist[hist.length - 1].total_downloads;
 
-        const filteredViews = filterByRange(trafficData[repo]?.views || []);
+        const allViews = trafficData[repo]?.views || [];
+        const filteredViews = filterByRange(allViews);
         views += filteredViews.reduce((s, v) => s + v.total, 0);
         unique += filteredViews.reduce((s, v) => s + v.unique, 0);
+        const priorViewsData = getPriorRange(allViews);
+        priorViews += priorViewsData.reduce((s, v) => s + v.total, 0);
+        priorUnique += priorViewsData.reduce((s, v) => s + v.unique, 0);
 
-        const filteredClones = filterByRange(trafficData[repo]?.clones || []);
+        const allClones = trafficData[repo]?.clones || [];
+        const filteredClones = filterByRange(allClones);
         clones += filteredClones.reduce((s, v) => s + v.total, 0);
+        const priorClonesData = getPriorRange(allClones);
+        priorClones += priorClonesData.reduce((s, v) => s + v.total, 0);
+
+        // Stars: latest count
+        const starData = trafficData[repo]?.stars || [];
+        if (starData.length > 0) stars += starData[starData.length - 1].count;
       }
 
       document.getElementById('totalDownloads').textContent = downloads.toLocaleString();
       document.getElementById('totalViews').textContent = views.toLocaleString();
       document.getElementById('uniqueVisitors').textContent = unique.toLocaleString();
       document.getElementById('totalClones').textContent = clones.toLocaleString();
+      document.getElementById('totalStars').textContent = stars.toLocaleString();
+
+      // Trend indicators
+      setTrend('trendViews', calcTrend(views, priorViews));
+      setTrend('trendUnique', calcTrend(unique, priorUnique));
+      setTrend('trendClones', calcTrend(clones, priorClones));
+
+      // Download trend (compare last two history entries)
+      let dlCurrent = 0, dlPrior = 0;
+      for (const repo of repos) {
+        const hist = releasesData[repo]?.history || [];
+        if (hist.length >= 2) {
+          dlCurrent += hist[hist.length - 1].total_downloads;
+          dlPrior += hist[hist.length - 2].total_downloads;
+        }
+      }
+      if (dlPrior > 0) {
+        const dlDelta = dlCurrent - dlPrior;
+        if (dlDelta > 0) {
+          setTrend('trendDownloads', { label: '+' + dlDelta + ' since yesterday', cls: 'up' });
+        } else if (dlDelta === 0) {
+          setTrend('trendDownloads', { label: 'No new downloads', cls: 'flat' });
+        } else {
+          setTrend('trendDownloads', { label: dlDelta + ' since yesterday', cls: 'down' });
+        }
+      } else {
+        document.getElementById('trendDownloads').textContent = '';
+      }
+
+      // Star trend (compare first and last entries)
+      let starFirst = 0, starLast = 0;
+      for (const repo of repos) {
+        const starData = trafficData[repo]?.stars || [];
+        if (starData.length >= 2) {
+          starFirst += starData[0].count;
+          starLast += starData[starData.length - 1].count;
+        }
+      }
+      if (starFirst > 0) {
+        const starDelta = starLast - starFirst;
+        if (starDelta > 0) {
+          setTrend('trendStars', { label: '+' + starDelta + ' since tracking', cls: 'up' });
+        } else if (starDelta === 0) {
+          setTrend('trendStars', { label: 'No change', cls: 'flat' });
+        } else {
+          setTrend('trendStars', { label: starDelta + ' since tracking', cls: 'down' });
+        }
+      } else {
+        document.getElementById('trendStars').textContent = '';
+      }
     }
 
     function renderCharts() {
@@ -626,6 +763,65 @@
       container.appendChild(
         buildTable(['Release', 'Asset', 'Downloads', 'Size'], rows)
       );
+    }
+
+    // CSV Export
+    function exportCsv() {
+      const repos = getRepos();
+      const rows = [['Date', 'Repo', 'Views', 'Unique Views', 'Clones', 'Unique Clones', 'Total Downloads', 'Stars']];
+
+      // Collect all dates across all data types
+      const allDates = new Set();
+      for (const repo of repos) {
+        (trafficData[repo]?.views || []).forEach(v => allDates.add(v.date));
+        (trafficData[repo]?.clones || []).forEach(c => allDates.add(c.date));
+        (releasesData[repo]?.history || []).forEach(h => allDates.add(h.date));
+        (trafficData[repo]?.stars || []).forEach(s => allDates.add(s.date));
+      }
+
+      const sortedDates = [...allDates].sort();
+      const filteredDates = filterByRange(sortedDates.map(d => ({ date: d }))).map(d => d.date);
+
+      for (const repo of repos) {
+        const viewsMap = {};
+        (trafficData[repo]?.views || []).forEach(v => { viewsMap[v.date] = v; });
+        const clonesMap = {};
+        (trafficData[repo]?.clones || []).forEach(c => { clonesMap[c.date] = c; });
+        const dlMap = {};
+        (releasesData[repo]?.history || []).forEach(h => { dlMap[h.date] = h; });
+        const starsMap = {};
+        (trafficData[repo]?.stars || []).forEach(s => { starsMap[s.date] = s; });
+
+        for (const date of filteredDates) {
+          const v = viewsMap[date];
+          const c = clonesMap[date];
+          const d = dlMap[date];
+          const s = starsMap[date];
+          rows.push([
+            date,
+            repo,
+            v ? v.total : '',
+            v ? v.unique : '',
+            c ? c.total : '',
+            c ? c.unique : '',
+            d ? d.total_downloads : '',
+            s ? s.count : ''
+          ]);
+        }
+      }
+
+      const csv = rows.map(r => r.map(cell => {
+        const str = String(cell);
+        return str.includes(',') || str.includes('"') ? '"' + str.replace(/"/g, '""') + '"' : str;
+      }).join(',')).join('\n');
+
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'repo-stats-' + new Date().toISOString().split('T')[0] + '.csv';
+      a.click();
+      URL.revokeObjectURL(url);
     }
 
     // Utilities

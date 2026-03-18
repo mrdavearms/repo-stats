@@ -64,12 +64,20 @@ jobs:
               -H "Accept: application/vnd.github+json" \
               "https://api.github.com/repos/${FULL_REPO}/traffic/popular/paths" || echo '[]')
 
+            # --- Stars ---
+            echo "  Fetching star count..."
+            STARS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${FULL_REPO}" | jq '.stargazers_count // 0')
+
             # --- Merge views into traffic.json ---
             EXISTING=$(cat "$TRAFFIC_FILE")
             EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" '
               if .[$repo] == null then
-                .[$repo] = {"views":[],"clones":[],"referrers":[],"popular_paths":[]}
-              else . end
+                .[$repo] = {"views":[],"clones":[],"referrers":[],"popular_paths":[],"stars":[]}
+              else
+                if .[$repo].stars == null then .[$repo].stars = [] else . end
+              end
             ')
 
             # Merge daily views (deduplicate by date, keep latest)
@@ -114,6 +122,15 @@ jobs:
               .[$repo].popular_paths = (
                 [(.[$repo].popular_paths // [] | .[] | select(.date != $today)),
                  {date: $today, paths: ($paths | map({path, count: .count, unique: .uniques}))}]
+                | sort_by(.date)
+              )
+            ')
+
+            # Store today's star count (replace if same date)
+            EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson stars "$STARS" '
+              .[$repo].stars = (
+                [(.[$repo].stars // [] | .[] | select(.date != $today)),
+                 {date: $today, count: $stars}]
                 | sort_by(.date)
               )
             ')
@@ -171,6 +188,40 @@ jobs:
 
           echo "=== Collection complete ==="
 
+      - name: Check token expiry
+        id: token_check
+        env:
+          GH_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
+        run: |
+          # Make an API call and capture the token expiry header
+          EXPIRY_HEADER=$(curl -sI -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/rate_limit" | grep -i "github-authentication-token-expiration" | tr -d '\r')
+
+          if [ -n "$EXPIRY_HEADER" ]; then
+            # Header format: github-authentication-token-expiration: 2027-03-18 06:00:00 UTC
+            EXPIRY_DATE=$(echo "$EXPIRY_HEADER" | sed 's/.*: //' | cut -d' ' -f1)
+            TODAY=$(date -u +%Y-%m-%d)
+            EXPIRY_EPOCH=$(date -d "$EXPIRY_DATE" +%s 2>/dev/null || date -j -f "%Y-%m-%d" "$EXPIRY_DATE" +%s 2>/dev/null || echo "0")
+            TODAY_EPOCH=$(date -u +%s)
+            DAYS_LEFT=$(( (EXPIRY_EPOCH - TODAY_EPOCH) / 86400 ))
+
+            echo "Token expires: $EXPIRY_DATE ($DAYS_LEFT days remaining)"
+            echo "days_left=$DAYS_LEFT" >> "$GITHUB_OUTPUT"
+            echo "expiry_date=$EXPIRY_DATE" >> "$GITHUB_OUTPUT"
+
+            if [ "$DAYS_LEFT" -le 30 ]; then
+              echo "warning=true" >> "$GITHUB_OUTPUT"
+            else
+              echo "warning=false" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            echo "Could not determine token expiry (token may not have an expiration)"
+            echo "days_left=-1" >> "$GITHUB_OUTPUT"
+            echo "expiry_date=none" >> "$GITHUB_OUTPUT"
+            echo "warning=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
@@ -188,6 +239,9 @@ jobs:
         env:
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          TOKEN_DAYS_LEFT: ${{ steps.token_check.outputs.days_left }}
+          TOKEN_EXPIRY_DATE: ${{ steps.token_check.outputs.expiry_date }}
+          TOKEN_WARNING: ${{ steps.token_check.outputs.warning }}
         run: |
           TODAY=$(date -u +%Y-%m-%d)
           DISPLAY_DATE=$(date -u +"%d %b %Y")
@@ -225,12 +279,48 @@ jobs:
               '[.[$repo].views[].unique] | add // 0' \
               data/traffic.json)
 
-            BODY="${BODY}${LABEL}
-            Today:  Views: ${VIEWS}  |  Clones: ${CLONES}
-            All-time:  Views: ${TOTAL_VIEWS} (${TOTAL_UNIQUE} unique)  |  Downloads: ${DOWNLOADS}
+            # Stars
+            STAR_COUNT=$(jq -r --arg repo "$REPO_NAME" \
+              '(.[$repo].stars | last | .count) // 0' \
+              data/traffic.json)
 
-          "
+            # 7-day view trend
+            WEEK_AGO=$(date -u -d "7 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-7d +%Y-%m-%d)
+            TWO_WEEKS_AGO=$(date -u -d "14 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-14d +%Y-%m-%d)
+            THIS_WEEK_VIEWS=$(jq -r --arg repo "$REPO_NAME" --arg from "$WEEK_AGO" \
+              '[.[$repo].views[] | select(.date >= $from) | .total] | add // 0' \
+              data/traffic.json)
+            LAST_WEEK_VIEWS=$(jq -r --arg repo "$REPO_NAME" --arg from "$TWO_WEEKS_AGO" --arg to "$WEEK_AGO" \
+              '[.[$repo].views[] | select(.date >= $from and .date < $to) | .total] | add // 0' \
+              data/traffic.json)
+
+            if [ "$LAST_WEEK_VIEWS" -gt 0 ] 2>/dev/null; then
+              PCT=$(( (THIS_WEEK_VIEWS - LAST_WEEK_VIEWS) * 100 / LAST_WEEK_VIEWS ))
+              if [ "$PCT" -ge 0 ]; then
+                TREND="(+${PCT}% vs last week)"
+              else
+                TREND="(${PCT}% vs last week)"
+              fi
+            else
+              TREND=""
+            fi
+
+            BODY="${BODY}${LABEL}  [${STAR_COUNT} stars]
+  Today:     Views: ${VIEWS}  |  Clones: ${CLONES}
+  All-time:  Views: ${TOTAL_VIEWS} (${TOTAL_UNIQUE} unique)  |  Downloads: ${DOWNLOADS}
+  7d trend:  ${THIS_WEEK_VIEWS} views ${TREND}
+
+"
           done
+
+          # Token expiry warning
+          if [ "$TOKEN_WARNING" = "true" ]; then
+            BODY="${BODY}>>> TOKEN WARNING: Your GH_STATS_TOKEN expires on ${TOKEN_EXPIRY_DATE} (${TOKEN_DAYS_LEFT} days remaining).
+Rotate it at: https://github.com/settings/tokens
+Then update the secret at: https://github.com/mrdavearms/repo-stats/settings/secrets/actions
+
+"
+          fi
 
           BODY="${BODY}Dashboard: https://mrdavearms.github.io/repo-stats/"
 
@@ -241,12 +331,12 @@ jobs:
             --mail-rcpt "$GMAIL_ADDRESS" \
             --user "${GMAIL_ADDRESS}:${GMAIL_APP_PASSWORD}" \
             -T - <<MAILEOF
-          From: Repo Stats <${GMAIL_ADDRESS}>
-          To: ${GMAIL_ADDRESS}
-          Subject: Repo Stats — ${DISPLAY_DATE}
-          Content-Type: text/plain; charset=UTF-8
+From: Repo Stats <${GMAIL_ADDRESS}>
+To: ${GMAIL_ADDRESS}
+Subject: Repo Stats — ${DISPLAY_DATE}
+Content-Type: text/plain; charset=UTF-8
 
-          ${BODY}
-          MAILEOF
+${BODY}
+MAILEOF
 
           echo "Email sent to $GMAIL_ADDRESS"

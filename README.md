@@ -245,6 +245,22 @@ GitHub's traffic API does not reveal whether visitors are logged-in GitHub users
 ### GitHub Pages Caching
 After the Action pushes new data, the GitHub Pages site may take 1-2 minutes to reflect the update due to CDN caching. Hard-refresh (Cmd+Shift+R) if the dashboard seems stale.
 
+## Download Badges for Repo READMEs
+
+You can add live download count badges to each tracked repo's README. These use shields.io's dynamic JSON badge feature, reading directly from the GitHub Pages data files.
+
+**Bulk PDF Extractor** — add to that repo's README:
+```markdown
+![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fmrdavearms.github.io%2Frepo-stats%2Fdata%2Freleases.json&query=%24%5B%22bulk-pdf-extractor-and-generator%22%5D.history%5B-1%3A%5D.total_downloads&label=downloads&color=blue)
+```
+
+**Student Doc Redactor** — add to that repo's README:
+```markdown
+![Downloads](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fmrdavearms.github.io%2Frepo-stats%2Fdata%2Freleases.json&query=%24%5B%22student-doc-redactor%22%5D.history%5B-1%3A%5D.total_downloads&label=downloads&color=blue)
+```
+
+These badges update automatically as the Action collects new data.
+
 ## Tech Stack
 
 - **Data collection**: Bash, `curl`, `jq` (all available on GitHub Actions runners by default — no dependencies to install)

@@ -182,3 +182,71 @@ jobs:
             git commit -m "Update stats data for $(date -u +%Y-%m-%d)"
             git push
           fi
+
+      - name: Send daily email summary
+        if: env.GMAIL_ADDRESS != '' && env.GMAIL_APP_PASSWORD != ''
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          DISPLAY_DATE=$(date -u +"%d %b %Y")
+
+          BODY=""
+          for REPO_NAME in "bulk-pdf-extractor-and-generator" "student-doc-redactor"; do
+            if [ "$REPO_NAME" = "bulk-pdf-extractor-and-generator" ]; then
+              LABEL="Bulk PDF Extractor"
+            else
+              LABEL="Student Doc Redactor"
+            fi
+
+            # Today's views
+            VIEWS=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" \
+              '(.[$repo].views[] | select(.date == $d) | "\(.total) (\(.unique) unique)") // "0 (0 unique)"' \
+              data/traffic.json)
+            [ -z "$VIEWS" ] && VIEWS="0 (0 unique)"
+
+            # Today's clones
+            CLONES=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" \
+              '(.[$repo].clones[] | select(.date == $d) | "\(.total) (\(.unique) unique)") // "0 (0 unique)"' \
+              data/traffic.json)
+            [ -z "$CLONES" ] && CLONES="0 (0 unique)"
+
+            # Total downloads (cumulative)
+            DOWNLOADS=$(jq -r --arg repo "$REPO_NAME" \
+              '(.[$repo].history | last | .total_downloads) // 0' \
+              data/releases.json)
+
+            # All-time totals
+            TOTAL_VIEWS=$(jq -r --arg repo "$REPO_NAME" \
+              '[.[$repo].views[].total] | add // 0' \
+              data/traffic.json)
+            TOTAL_UNIQUE=$(jq -r --arg repo "$REPO_NAME" \
+              '[.[$repo].views[].unique] | add // 0' \
+              data/traffic.json)
+
+            BODY="${BODY}${LABEL}
+            Today:  Views: ${VIEWS}  |  Clones: ${CLONES}
+            All-time:  Views: ${TOTAL_VIEWS} (${TOTAL_UNIQUE} unique)  |  Downloads: ${DOWNLOADS}
+
+          "
+          done
+
+          BODY="${BODY}Dashboard: https://mrdavearms.github.io/repo-stats/"
+
+          # Send via Gmail SMTP using curl
+          curl -s --url "smtps://smtp.gmail.com:465" \
+            --ssl-reqd \
+            --mail-from "$GMAIL_ADDRESS" \
+            --mail-rcpt "$GMAIL_ADDRESS" \
+            --user "${GMAIL_ADDRESS}:${GMAIL_APP_PASSWORD}" \
+            -T - <<MAILEOF
+          From: Repo Stats <${GMAIL_ADDRESS}>
+          To: ${GMAIL_ADDRESS}
+          Subject: Repo Stats — ${DISPLAY_DATE}
+          Content-Type: text/plain; charset=UTF-8
+
+          ${BODY}
+          MAILEOF
+
+          echo "Email sent to $GMAIL_ADDRESS"

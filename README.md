@@ -50,6 +50,7 @@ For each tracked repo, the Action calls these GitHub REST API endpoints:
 | Clones (total + unique per day) | `GET /repos/{owner}/{repo}/traffic/clones` | Yes |
 | Top referral sources (snapshot) | `GET /repos/{owner}/{repo}/traffic/popular/referrers` | Yes |
 | Most viewed paths (snapshot) | `GET /repos/{owner}/{repo}/traffic/popular/paths` | Yes |
+| Star count | `GET /repos/{owner}/{repo}` | Yes |
 | Release assets + download counts | `GET /repos/{owner}/{repo}/releases` | No (but token used anyway) |
 
 ### Deduplication and Merging
@@ -92,6 +93,9 @@ This means the JSON files grow over time, accumulating history that GitHub's API
           { "path": "/mrdavearms/bulk-pdf-extractor-and-generator", "count": 10, "unique": 5 }
         ]
       }
+    ],
+    "stars": [
+      { "date": "2026-03-18", "count": 3 }
     ]
   }
 }
@@ -126,7 +130,8 @@ The `history` array records the cumulative download total each day. The dashboar
 - **Dark mode** UI styled to match GitHub's aesthetic
 - **Repo selector** — toggle between individual repos or view combined "All" data
 - **Date range filter** — last 7 days, 30 days, 90 days, or all time
-- **Summary cards** — total downloads, page views, unique visitors, total clones
+- **Summary cards** — total downloads, page views, unique visitors, total clones, stars
+- **Trend indicators** — each card shows percentage change vs the prior period (e.g., "+23% vs prior period" in green, "-15%" in red)
 - **Charts** (Chart.js):
   - Downloads over time (cumulative, one line per repo)
   - Page views over time (total views + unique visitors)
@@ -135,7 +140,17 @@ The `history` array records the cumulative download total each day. The dashboar
   - Referral sources (most recent snapshot)
   - Popular paths (most recent snapshot)
   - Release assets with download counts and file sizes
+- **CSV export** — button exports all data for current repo/date range selection
 - **Mobile responsive**
+
+## Daily Email Report
+
+After each data collection run, an HTML email is sent via Gmail SMTP with:
+
+- Per-repo cards showing today's views, clones, and cumulative downloads
+- Star counts and 7-day view trends with percentage change
+- A "View Dashboard" button linking to the live site
+- **Token expiry warning** — if the `GH_STATS_TOKEN` is within 30 days of expiring, a red alert banner appears with direct links to rotate the token and update the secret
 
 ## Setup (If Starting Fresh)
 
@@ -152,12 +167,17 @@ The GitHub traffic API requires authentication, even for your own public repos.
 5. Expiration: 1 year. **Set a calendar reminder to rotate it.**
 6. Copy the token immediately (you can't see it again)
 
-### 2. Repository Secret
+### 2. Repository Secrets
 
-1. Go to this repo's Settings > Secrets and variables > Actions
-2. New repository secret
-3. Name: `GH_STATS_TOKEN`
-4. Value: paste the token
+Go to this repo's Settings > Secrets and variables > Actions and add three secrets:
+
+| Secret | Value |
+|--------|-------|
+| `GH_STATS_TOKEN` | The PAT from step 1 |
+| `GMAIL_ADDRESS` | Your Gmail address (for daily email reports) |
+| `GMAIL_APP_PASSWORD` | A Gmail App Password ([create one here](https://myaccount.google.com/apppasswords)) |
+
+The email secrets are optional — the Action skips the email step if they're missing.
 
 ### 3. GitHub Pages
 
@@ -197,7 +217,7 @@ Wait ~30 seconds, then check the dashboard.
 
 ### Token Rotation
 
-The PAT expires after 1 year. When it expires:
+The PAT expires after the duration you set when creating it. The Action automatically checks the token's expiry date on every run and **includes a warning in the daily email when 30 days or fewer remain**. When it does expire:
 - The Action will fail silently (API calls return errors, but the script uses `|| echo '...'` fallbacks so it won't crash — it just won't collect real data)
 - Generate a new token following the steps above
 - Update the `GH_STATS_TOKEN` secret in this repo's settings

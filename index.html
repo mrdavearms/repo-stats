@@ -542,8 +542,8 @@
         const latest = refs.length > 0 ? refs[refs.length - 1].sources : [];
         for (const s of latest) {
           if (!sources[s.referrer]) sources[s.referrer] = { count: 0, unique: 0 };
-          sources[s.referrer].count += s.count;
-          sources[s.referrer].unique += s.unique;
+          sources[s.referrer].count += s.count || 0;
+          sources[s.referrer].unique += s.unique || 0;
         }
       }
 
@@ -558,7 +558,7 @@
       container.textContent = '';
       container.appendChild(
         buildTable(['Source', 'Views', 'Unique'],
-          rows.map(([ref, data]) => [ref, String(data.count), String(data.unique)])
+          rows.map(([ref, data]) => [ref, String(data.count), data.unique ? String(data.unique) : '—'])
         )
       );
     }

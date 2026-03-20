@@ -2,6 +2,57 @@
   "bulk-pdf-extractor-and-generator": {
     "releases": [
       {
+        "tag": "v2.7.4",
+        "name": "v2.7.4",
+        "published_at": "2026-03-20T01:14:56Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0,
+            "size_bytes": 60253883
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 0,
+            "size_bytes": 57770480
+          }
+        ]
+      },
+      {
+        "tag": "v2.7.3",
+        "name": "v2.7.3",
+        "published_at": "2026-03-20T00:33:53Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0,
+            "size_bytes": 60254842
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 0,
+            "size_bytes": 63718522
+          }
+        ]
+      },
+      {
+        "tag": "v2.7.2",
+        "name": "v2.7.2",
+        "published_at": "2026-03-19T11:13:04Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0,
+            "size_bytes": 60254325
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "download_count": 0,
+            "size_bytes": 169757958
+          }
+        ]
+      },
+      {
         "tag": "v2.7.1",
         "name": "v2.7.1",
         "published_at": "2026-03-17T04:53:54Z",
@@ -179,6 +230,10 @@
       {
         "date": "2026-03-19",
         "total_downloads": 1
+      },
+      {
+        "date": "2026-03-20",
+        "total_downloads": 1
       }
     ]
   },
@@ -290,6 +345,10 @@
       },
       {
         "date": "2026-03-19",
+        "total_downloads": 0
+      },
+      {
+        "date": "2026-03-20",
         "total_downloads": 0
       }
     ]

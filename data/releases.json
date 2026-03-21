@@ -2,8 +2,25 @@
   "bulk-pdf-extractor-and-generator": {
     "releases": [
       {
+        "tag": "v2.7.5",
+        "name": "v2.7.5 — macOS dialog fixes and faster startup",
+        "published_at": "2026-03-20T10:04:08Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0,
+            "size_bytes": 60254394
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 0,
+            "size_bytes": 57769635
+          }
+        ]
+      },
+      {
         "tag": "v2.7.4",
-        "name": "v2.7.4",
+        "name": "v2.7.4 — Polished macOS DMG and code signing",
         "published_at": "2026-03-20T01:14:56Z",
         "assets": [
           {
@@ -20,7 +37,7 @@
       },
       {
         "tag": "v2.7.3",
-        "name": "v2.7.3",
+        "name": "v2.7.3 — macOS SSL certificate fix",
         "published_at": "2026-03-20T00:33:53Z",
         "assets": [
           {
@@ -37,7 +54,7 @@
       },
       {
         "tag": "v2.7.2",
-        "name": "v2.7.2",
+        "name": "v2.7.2 — macOS update checker fix",
         "published_at": "2026-03-19T11:13:04Z",
         "assets": [
           {
@@ -54,7 +71,7 @@
       },
       {
         "tag": "v2.7.1",
-        "name": "v2.7.1",
+        "name": "v2.7.1 — Fix crash on first launch",
         "published_at": "2026-03-17T04:53:54Z",
         "assets": [
           {
@@ -71,7 +88,7 @@
       },
       {
         "tag": "v2.7",
-        "name": "v2.7",
+        "name": "v2.7 — Check for Updates and network folder fix",
         "published_at": "2026-03-17T04:00:06Z",
         "assets": [
           {
@@ -88,7 +105,7 @@
       },
       {
         "tag": "v2.6",
-        "name": "Bulk PDF Generator v2.6",
+        "name": "v2.6 — Automated CI/CD with GitHub Actions",
         "published_at": "2026-03-15T06:34:44Z",
         "assets": [
           {
@@ -105,7 +122,7 @@
       },
       {
         "tag": "v2.5.6",
-        "name": "Bulk PDF Generator v2.5.6 — macOS & Windows",
+        "name": "v2.5.6 — GitHub migration updates",
         "published_at": "2026-03-10T20:46:42Z",
         "assets": [
           {
@@ -122,13 +139,13 @@
       },
       {
         "tag": "v2.5.5",
-        "name": "Bulk PDF Generator v2.5.5",
+        "name": "v2.5.5 — Field Mapping Editor",
         "published_at": "2026-03-10T10:28:58Z",
         "assets": []
       },
       {
         "tag": "v2.5.4",
-        "name": "Bulk PDF Generator v2.5.4 — Security patch",
+        "name": "v2.5.4 — Security patch (pypdf)",
         "published_at": "2026-03-09T20:42:00Z",
         "assets": [
           {
@@ -140,7 +157,7 @@
       },
       {
         "tag": "v2.5.3",
-        "name": "Bulk PDF Generator v2.5 — Windows",
+        "name": "v2.5.3 — Windows build for v2.5",
         "published_at": "2026-03-09T20:29:47Z",
         "assets": [
           {
@@ -152,7 +169,7 @@
       },
       {
         "tag": "v2.5",
-        "name": "Bulk PDF Generator v2.5",
+        "name": "v2.5 — Smart field types and audit dialog",
         "published_at": "2026-03-09T10:43:59Z",
         "assets": [
           {
@@ -164,7 +181,7 @@
       },
       {
         "tag": "v2.1",
-        "name": "v2.1 — Sheet picker + stability improvements",
+        "name": "v2.1 — Sheet picker and stability improvements",
         "published_at": "2026-02-22T09:28:29Z",
         "assets": [
           {
@@ -211,7 +228,7 @@
       },
       {
         "tag": "v2.0",
-        "name": "Bulk PDF Generator v2.0",
+        "name": "v2.0 — Initial release",
         "published_at": "2026-02-22T09:04:17Z",
         "assets": [
           {
@@ -233,6 +250,10 @@
       },
       {
         "date": "2026-03-20",
+        "total_downloads": 1
+      },
+      {
+        "date": "2026-03-21",
         "total_downloads": 1
       }
     ]
@@ -349,6 +370,10 @@
       },
       {
         "date": "2026-03-20",
+        "total_downloads": 0
+      },
+      {
+        "date": "2026-03-21",
         "total_downloads": 0
       }
     ]

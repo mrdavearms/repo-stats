@@ -305,6 +305,10 @@
       {
         "date": "2026-03-25",
         "total_downloads": 1
+      },
+      {
+        "date": "2026-03-26",
+        "total_downloads": 1
       }
     ]
   },
@@ -359,7 +363,7 @@
           },
           {
             "name": "latest.yml",
-            "download_count": 0,
+            "download_count": 1,
             "size_bytes": 357
           },
           {
@@ -441,6 +445,10 @@
       {
         "date": "2026-03-25",
         "total_downloads": 0
+      },
+      {
+        "date": "2026-03-26",
+        "total_downloads": 1
       }
     ]
   }

@@ -2,9 +2,26 @@
   "bulk-pdf-extractor-and-generator": {
     "releases": [
       {
+        "tag": "v2.10",
+        "name": "v2.10",
+        "published_at": "2026-03-26T09:52:58Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 1,
+            "size_bytes": 60263331
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 1,
+            "size_bytes": 57765391
+          }
+        ]
+      },
+      {
         "tag": "v2.9",
         "name": "v2.9",
-        "published_at": null,
+        "published_at": "2026-03-26T09:50:49Z",
         "assets": [
           {
             "name": "Bulk.PDF.Generator.exe",
@@ -115,7 +132,7 @@
           },
           {
             "name": "Bulk.PDF.Generator.macOS.zip",
-            "download_count": 0,
+            "download_count": 1,
             "size_bytes": 169457160
           }
         ]
@@ -309,6 +326,10 @@
       {
         "date": "2026-03-26",
         "total_downloads": 1
+      },
+      {
+        "date": "2026-03-27",
+        "total_downloads": 4
       }
     ]
   },
@@ -332,22 +353,59 @@
           {
             "name": "Redaction-Tool-1.1.1-arm64.dmg",
             "download_count": 0,
-            "size_bytes": 708454211
+            "size_bytes": 594636253
           },
           {
             "name": "Redaction-Tool-1.1.1-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 739144
+            "size_bytes": 622836
           },
           {
             "name": "Redaction-Tool-Setup-1.1.1.exe",
             "download_count": 0,
-            "size_bytes": 711204144
+            "size_bytes": 551548599
           },
           {
             "name": "Redaction-Tool-Setup-1.1.1.exe.blockmap",
             "download_count": 0,
-            "size_bytes": 742313
+            "size_bytes": 576537
+          }
+        ]
+      },
+      {
+        "tag": "v1.2.0",
+        "name": "1.2.0",
+        "published_at": "2026-03-26T10:55:31Z",
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 3,
+            "size_bytes": 357
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 0,
+            "size_bytes": 357
+          },
+          {
+            "name": "Redaction-Tool-1.2.0-arm64.dmg",
+            "download_count": 2,
+            "size_bytes": 594636423
+          },
+          {
+            "name": "Redaction-Tool-1.2.0-arm64.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 623036
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.2.0.exe",
+            "download_count": 0,
+            "size_bytes": 551549461
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.2.0.exe.blockmap",
+            "download_count": 0,
+            "size_bytes": 576838
           }
         ]
       },
@@ -449,6 +507,10 @@
       {
         "date": "2026-03-26",
         "total_downloads": 1
+      },
+      {
+        "date": "2026-03-27",
+        "total_downloads": 6
       }
     ]
   }

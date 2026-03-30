@@ -338,48 +338,15 @@
       {
         "date": "2026-03-29",
         "total_downloads": 4
+      },
+      {
+        "date": "2026-03-30",
+        "total_downloads": 4
       }
     ]
   },
   "student-doc-redactor": {
     "releases": [
-      {
-        "tag": "v1.1.1",
-        "name": "1.1.1",
-        "published_at": null,
-        "assets": [
-          {
-            "name": "latest-mac.yml",
-            "download_count": 0,
-            "size_bytes": 357
-          },
-          {
-            "name": "latest.yml",
-            "download_count": 0,
-            "size_bytes": 357
-          },
-          {
-            "name": "Redaction-Tool-1.1.1-arm64.dmg",
-            "download_count": 0,
-            "size_bytes": 594636253
-          },
-          {
-            "name": "Redaction-Tool-1.1.1-arm64.dmg.blockmap",
-            "download_count": 0,
-            "size_bytes": 622836
-          },
-          {
-            "name": "Redaction-Tool-Setup-1.1.1.exe",
-            "download_count": 0,
-            "size_bytes": 551548599
-          },
-          {
-            "name": "Redaction-Tool-Setup-1.1.1.exe.blockmap",
-            "download_count": 0,
-            "size_bytes": 576537
-          }
-        ]
-      },
       {
         "tag": "v1.2.0",
         "name": "1.2.0",
@@ -387,12 +354,12 @@
         "assets": [
           {
             "name": "latest-mac.yml",
-            "download_count": 3,
+            "download_count": 4,
             "size_bytes": 357
           },
           {
             "name": "latest.yml",
-            "download_count": 0,
+            "download_count": 2,
             "size_bytes": 357
           },
           {
@@ -407,12 +374,12 @@
           },
           {
             "name": "Redaction-Tool-Setup-1.2.0.exe",
-            "download_count": 0,
+            "download_count": 4,
             "size_bytes": 551549461
           },
           {
             "name": "Redaction-Tool-Setup-1.2.0.exe.blockmap",
-            "download_count": 0,
+            "download_count": 1,
             "size_bytes": 576838
           }
         ]
@@ -429,7 +396,7 @@
           },
           {
             "name": "latest.yml",
-            "download_count": 1,
+            "download_count": 2,
             "size_bytes": 357
           },
           {
@@ -444,12 +411,12 @@
           },
           {
             "name": "Redaction-Tool-Setup-1.1.0.exe",
-            "download_count": 0,
+            "download_count": 1,
             "size_bytes": 710998050
           },
           {
             "name": "Redaction-Tool-Setup-1.1.0.exe.blockmap",
-            "download_count": 0,
+            "download_count": 1,
             "size_bytes": 742313
           }
         ]
@@ -527,6 +494,10 @@
       {
         "date": "2026-03-29",
         "total_downloads": 6
+      },
+      {
+        "date": "2026-03-30",
+        "total_downloads": 17
       }
     ]
   }

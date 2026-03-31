@@ -342,6 +342,10 @@
       {
         "date": "2026-03-30",
         "total_downloads": 4
+      },
+      {
+        "date": "2026-03-31",
+        "total_downloads": 4
       }
     ]
   },
@@ -497,6 +501,10 @@
       },
       {
         "date": "2026-03-30",
+        "total_downloads": 17
+      },
+      {
+        "date": "2026-03-31",
         "total_downloads": 17
       }
     ]

@@ -125,6 +125,11 @@
         "date": "2026-03-28",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-03-29",
+        "total": 1,
+        "unique": 1
       }
     ],
     "clones": [
@@ -251,6 +256,11 @@
       {
         "date": "2026-03-28",
         "total": 1,
+        "unique": 1
+      },
+      {
+        "date": "2026-03-29",
+        "total": 2,
         "unique": 1
       }
     ],
@@ -466,6 +476,31 @@
           {
             "referrer": "github.com",
             "count": 17,
+            "unique": 0
+          },
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 3,
+            "unique": 0
+          },
+          {
+            "referrer": "DuckDuckGo",
+            "count": 1,
+            "unique": 0
+          },
+          {
+            "referrer": "doubao.com",
+            "count": 1,
+            "unique": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-03-31",
+        "sources": [
+          {
+            "referrer": "github.com",
+            "count": 15,
             "unique": 0
           },
           {
@@ -1201,6 +1236,61 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-03-31",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 19,
+            "unique": 5
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases",
+            "count": 5,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.6",
+            "count": 3,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.8",
+            "count": 3,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/blob/main/app_visualisation.png",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.7.3",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.7.4",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/blob/main/ARCHITECTURE.md",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/pull/5",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.10",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -1254,6 +1344,10 @@
       },
       {
         "date": "2026-03-30",
+        "count": 1
+      },
+      {
+        "date": "2026-03-31",
         "count": 1
       }
     ]
@@ -1666,6 +1760,21 @@
       },
       {
         "date": "2026-03-30",
+        "sources": [
+          {
+            "referrer": "github.com",
+            "count": 21,
+            "unique": 0
+          },
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 1,
+            "unique": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-03-31",
         "sources": [
           {
             "referrer": "github.com",
@@ -2395,6 +2504,61 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-03-31",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 21,
+            "unique": 5
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 10,
+            "unique": 4
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/blob/main/README.md",
+            "count": 4,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/actions",
+            "count": 2,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/actions/runs/23164520911",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/edit/main/README.md",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/actions/runs/23590146188",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/actions/runs/23590146188/job/68693990465",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/blob/3c63daad7ddd7538bbaa11cb33112a275786f281/CLAUDE.md",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/blob/main/docs/screenshots/screenshot-redacting-progress.png",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -2448,6 +2612,10 @@
       },
       {
         "date": "2026-03-30",
+        "count": 1
+      },
+      {
+        "date": "2026-03-31",
         "count": 1
       }
     ]

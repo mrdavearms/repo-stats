@@ -47,7 +47,7 @@
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
-            "download_count": 0,
+            "download_count": 1,
             "size_bytes": 57769075
           }
         ]
@@ -127,12 +127,12 @@
         "assets": [
           {
             "name": "Bulk.PDF.Generator.exe",
-            "download_count": 0,
+            "download_count": 1,
             "size_bytes": 60103501
           },
           {
             "name": "Bulk.PDF.Generator.macOS.zip",
-            "download_count": 1,
+            "download_count": 2,
             "size_bytes": 169457160
           }
         ]
@@ -166,7 +166,7 @@
           },
           {
             "name": "Bulk.PDF.Generator.macOS.zip",
-            "download_count": 0,
+            "download_count": 1,
             "size_bytes": 169453346
           }
         ]
@@ -378,6 +378,10 @@
       {
         "date": "2026-04-08",
         "total_downloads": 4
+      },
+      {
+        "date": "2026-04-09",
+        "total_downloads": 8
       }
     ]
   },
@@ -569,6 +573,10 @@
       },
       {
         "date": "2026-04-08",
+        "total_downloads": 25
+      },
+      {
+        "date": "2026-04-09",
         "total_downloads": 25
       }
     ]

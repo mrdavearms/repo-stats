@@ -161,7 +161,7 @@
         "assets": [
           {
             "name": "Bulk.PDF.Generator.exe",
-            "download_count": 0,
+            "download_count": 1,
             "size_bytes": 60100789
           },
           {
@@ -382,6 +382,10 @@
       {
         "date": "2026-04-09",
         "total_downloads": 8
+      },
+      {
+        "date": "2026-04-10",
+        "total_downloads": 9
       }
     ]
   },
@@ -577,6 +581,10 @@
       },
       {
         "date": "2026-04-09",
+        "total_downloads": 25
+      },
+      {
+        "date": "2026-04-10",
         "total_downloads": 25
       }
     ]

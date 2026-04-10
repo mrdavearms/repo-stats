@@ -180,6 +180,11 @@
         "date": "2026-04-08",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-04-09",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -360,6 +365,11 @@
       },
       {
         "date": "2026-04-08",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-04-09",
         "total": 0,
         "unique": 0
       }
@@ -811,6 +821,21 @@
           {
             "referrer": "github.com",
             "count": 7,
+            "unique": 0
+          },
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 1,
+            "unique": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-04-10",
+        "sources": [
+          {
+            "referrer": "github.com",
+            "count": 1,
             "unique": 0
           },
           {
@@ -2066,6 +2091,21 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-04-10",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 2,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/discussions/3",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -2159,6 +2199,10 @@
       },
       {
         "date": "2026-04-09",
+        "count": 1
+      },
+      {
+        "date": "2026-04-10",
         "count": 1
       }
     ]
@@ -2339,6 +2383,16 @@
         "date": "2026-04-07",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-04-08",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-04-09",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -2516,6 +2570,16 @@
         "date": "2026-04-07",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-04-08",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-04-09",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -2810,6 +2874,16 @@
           {
             "referrer": "github.com",
             "count": 5,
+            "unique": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-04-10",
+        "sources": [
+          {
+            "referrer": "github.com",
+            "count": 2,
             "unique": 0
           }
         ]
@@ -4080,6 +4154,51 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-04-10",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 10,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 3,
+            "unique": 3
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/actions",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/actions/runs/23590146188",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/actions/runs/23590146188/job/68693990465",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/projects",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/pulls",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases/tag/v1.2.0",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -4173,6 +4292,10 @@
       },
       {
         "date": "2026-04-09",
+        "count": 2
+      },
+      {
+        "date": "2026-04-10",
         "count": 2
       }
     ]

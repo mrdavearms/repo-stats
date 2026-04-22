@@ -30,7 +30,7 @@
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
-            "download_count": 6,
+            "download_count": 7,
             "size_bytes": 57765391
           }
         ]
@@ -447,6 +447,10 @@
       {
         "date": "2026-04-21",
         "total_downloads": 21
+      },
+      {
+        "date": "2026-04-22",
+        "total_downloads": 22
       }
     ]
   },
@@ -690,6 +694,10 @@
       },
       {
         "date": "2026-04-21",
+        "total_downloads": 25
+      },
+      {
+        "date": "2026-04-22",
         "total_downloads": 25
       }
     ]

@@ -270,6 +270,11 @@
         "date": "2026-04-26",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-04-27",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -542,6 +547,11 @@
         "date": "2026-04-26",
         "total": 231,
         "unique": 25
+      },
+      {
+        "date": "2026-04-27",
+        "total": 1,
+        "unique": 1
       }
     ],
     "referrers": [
@@ -1135,6 +1145,16 @@
       },
       {
         "date": "2026-04-27",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 2,
+            "unique": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-04-28",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -2594,6 +2614,26 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-04-28",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 2,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/blob/main/samples/Evidence Application sample PDF from VCAA.pdf",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.11",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -2759,6 +2799,10 @@
       },
       {
         "date": "2026-04-27",
+        "count": 1
+      },
+      {
+        "date": "2026-04-28",
         "count": 1
       }
     ]
@@ -3034,6 +3078,11 @@
         "date": "2026-04-26",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-04-27",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -3306,6 +3355,11 @@
         "date": "2026-04-26",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-04-27",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -3692,6 +3746,10 @@
       },
       {
         "date": "2026-04-27",
+        "sources": []
+      },
+      {
+        "date": "2026-04-28",
         "sources": []
       }
     ],
@@ -5147,6 +5205,10 @@
       {
         "date": "2026-04-27",
         "paths": []
+      },
+      {
+        "date": "2026-04-28",
+        "paths": []
       }
     ],
     "stars": [
@@ -5312,6 +5374,10 @@
       },
       {
         "date": "2026-04-27",
+        "count": 2
+      },
+      {
+        "date": "2026-04-28",
         "count": 2
       }
     ]

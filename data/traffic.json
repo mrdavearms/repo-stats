@@ -305,6 +305,11 @@
         "date": "2026-05-03",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-05-04",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -610,6 +615,11 @@
       },
       {
         "date": "2026-05-03",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-05-04",
         "total": 0,
         "unique": 0
       }
@@ -1315,6 +1325,26 @@
       },
       {
         "date": "2026-05-04",
+        "sources": [
+          {
+            "referrer": "DuckDuckGo",
+            "count": 5,
+            "unique": 0
+          },
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 3,
+            "unique": 0
+          },
+          {
+            "referrer": "github.com",
+            "count": 1,
+            "unique": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-05-05",
         "sources": [
           {
             "referrer": "DuckDuckGo",
@@ -2924,6 +2954,26 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-05-05",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 9,
+            "unique": 7
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/blob/main/samples/Evidence Application sample PDF from VCAA.pdf",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.11",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -3117,6 +3167,10 @@
       },
       {
         "date": "2026-05-04",
+        "count": 1
+      },
+      {
+        "date": "2026-05-05",
         "count": 1
       }
     ]
@@ -3427,6 +3481,11 @@
         "date": "2026-05-03",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-05-04",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -3732,6 +3791,11 @@
       },
       {
         "date": "2026-05-03",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-05-04",
         "total": 0,
         "unique": 0
       }
@@ -4172,6 +4236,16 @@
       },
       {
         "date": "2026-05-04",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 2,
+            "unique": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-05-05",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -5691,6 +5765,16 @@
             "unique": 3
           }
         ]
+      },
+      {
+        "date": "2026-05-05",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 3,
+            "unique": 3
+          }
+        ]
       }
     ],
     "stars": [
@@ -5884,6 +5968,10 @@
       },
       {
         "date": "2026-05-04",
+        "count": 2
+      },
+      {
+        "date": "2026-05-05",
         "count": 2
       }
     ]

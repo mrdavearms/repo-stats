@@ -499,6 +499,10 @@
       {
         "date": "2026-05-04",
         "total_downloads": 25
+      },
+      {
+        "date": "2026-05-05",
+        "total_downloads": 25
       }
     ]
   },
@@ -794,6 +798,10 @@
       },
       {
         "date": "2026-05-04",
+        "total_downloads": 27
+      },
+      {
+        "date": "2026-05-05",
         "total_downloads": 27
       }
     ]

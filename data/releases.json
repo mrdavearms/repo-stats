@@ -503,6 +503,10 @@
       {
         "date": "2026-05-05",
         "total_downloads": 25
+      },
+      {
+        "date": "2026-05-06",
+        "total_downloads": 25
       }
     ]
   },
@@ -515,7 +519,7 @@
         "assets": [
           {
             "name": "latest-mac.yml",
-            "download_count": 4,
+            "download_count": 5,
             "size_bytes": 357
           },
           {
@@ -525,7 +529,7 @@
           },
           {
             "name": "Redaction-Tool-1.2.0-arm64.dmg",
-            "download_count": 2,
+            "download_count": 6,
             "size_bytes": 594636423
           },
           {
@@ -803,6 +807,10 @@
       {
         "date": "2026-05-05",
         "total_downloads": 27
+      },
+      {
+        "date": "2026-05-06",
+        "total_downloads": 32
       }
     ]
   }

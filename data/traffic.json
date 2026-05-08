@@ -320,6 +320,11 @@
         "date": "2026-05-06",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-05-07",
+        "total": 5,
+        "unique": 1
       }
     ],
     "clones": [
@@ -640,6 +645,11 @@
       },
       {
         "date": "2026-05-06",
+        "total": 2,
+        "unique": 2
+      },
+      {
+        "date": "2026-05-07",
         "total": 2,
         "unique": 2
       }
@@ -1418,6 +1428,31 @@
           },
           {
             "referrer": "github.com",
+            "count": 1,
+            "unique": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-05-08",
+        "sources": [
+          {
+            "referrer": "DuckDuckGo",
+            "count": 5,
+            "unique": 0
+          },
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 4,
+            "unique": 0
+          },
+          {
+            "referrer": "github.com",
+            "count": 1,
+            "unique": 0
+          },
+          {
+            "referrer": "mrdavearms.github.io",
             "count": 1,
             "unique": 0
           }
@@ -3074,6 +3109,26 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-05-08",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 10,
+            "unique": 6
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/commit/849fe7f39d98a60a9515fb7744aecb5792b312ba",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.11",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -3279,6 +3334,10 @@
       },
       {
         "date": "2026-05-07",
+        "count": 1
+      },
+      {
+        "date": "2026-05-08",
         "count": 1
       }
     ]
@@ -3604,6 +3663,11 @@
         "date": "2026-05-06",
         "total": 3,
         "unique": 2
+      },
+      {
+        "date": "2026-05-07",
+        "total": 11,
+        "unique": 3
       }
     ],
     "clones": [
@@ -3926,6 +3990,11 @@
         "date": "2026-05-06",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-05-07",
+        "total": 119,
+        "unique": 34
       }
     ],
     "referrers": [
@@ -4398,6 +4467,21 @@
           {
             "referrer": "whs.vic.edu.au",
             "count": 3,
+            "unique": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-05-08",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 8,
+            "unique": 0
+          },
+          {
+            "referrer": "github.com",
+            "count": 1,
             "unique": 0
           }
         ]
@@ -5948,6 +6032,21 @@
             "unique": 2
           }
         ]
+      },
+      {
+        "date": "2026-05-08",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 10,
+            "unique": 7
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 7,
+            "unique": 4
+          }
+        ]
       }
     ],
     "stars": [
@@ -6153,6 +6252,10 @@
       },
       {
         "date": "2026-05-07",
+        "count": 2
+      },
+      {
+        "date": "2026-05-08",
         "count": 2
       }
     ]

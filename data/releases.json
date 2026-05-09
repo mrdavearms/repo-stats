@@ -2,6 +2,23 @@
   "bulk-pdf-extractor-and-generator": {
     "releases": [
       {
+        "tag": "v2.11.1",
+        "name": "v2.11.1",
+        "published_at": "2026-05-08T21:57:15Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0,
+            "size_bytes": 60333635
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 0,
+            "size_bytes": 57807380
+          }
+        ]
+      },
+      {
         "tag": "v2.11",
         "name": "v2.11",
         "published_at": "2026-04-18T07:33:46Z",
@@ -149,7 +166,7 @@
           },
           {
             "name": "Bulk.PDF.Generator.macOS.zip",
-            "download_count": 2,
+            "download_count": 3,
             "size_bytes": 169457160
           }
         ]
@@ -515,6 +532,10 @@
       {
         "date": "2026-05-08",
         "total_downloads": 27
+      },
+      {
+        "date": "2026-05-09",
+        "total_downloads": 28
       }
     ]
   },
@@ -863,6 +884,10 @@
       },
       {
         "date": "2026-05-08",
+        "total_downloads": 45
+      },
+      {
+        "date": "2026-05-09",
         "total_downloads": 45
       }
     ]

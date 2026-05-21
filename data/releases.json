@@ -115,7 +115,7 @@
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
-            "download_count": 0,
+            "download_count": 3,
             "size_bytes": 57770480
           }
         ]
@@ -132,7 +132,7 @@
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
-            "download_count": 0,
+            "download_count": 2,
             "size_bytes": 63718522
           }
         ]
@@ -580,6 +580,10 @@
       {
         "date": "2026-05-20",
         "total_downloads": 35
+      },
+      {
+        "date": "2026-05-21",
+        "total_downloads": 40
       }
     ]
   },
@@ -976,6 +980,10 @@
       },
       {
         "date": "2026-05-20",
+        "total_downloads": 50
+      },
+      {
+        "date": "2026-05-21",
         "total_downloads": 50
       }
     ]

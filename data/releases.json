@@ -584,6 +584,10 @@
       {
         "date": "2026-05-21",
         "total_downloads": 40
+      },
+      {
+        "date": "2026-05-22",
+        "total_downloads": 40
       }
     ]
   },
@@ -707,7 +711,7 @@
         "assets": [
           {
             "name": "Redaction.Tool-1.0.0-arm64.dmg",
-            "download_count": 0,
+            "download_count": 1,
             "size_bytes": 769157684
           }
         ]
@@ -985,6 +989,10 @@
       {
         "date": "2026-05-21",
         "total_downloads": 50
+      },
+      {
+        "date": "2026-05-22",
+        "total_downloads": 51
       }
     ]
   }

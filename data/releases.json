@@ -30,7 +30,7 @@
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
-            "download_count": 1,
+            "download_count": 2,
             "size_bytes": 57851427
           }
         ]
@@ -47,7 +47,7 @@
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
-            "download_count": 8,
+            "download_count": 9,
             "size_bytes": 57765391
           }
         ]
@@ -81,7 +81,7 @@
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
-            "download_count": 2,
+            "download_count": 3,
             "size_bytes": 57769075
           }
         ]
@@ -98,7 +98,7 @@
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
-            "download_count": 0,
+            "download_count": 1,
             "size_bytes": 57769635
           }
         ]
@@ -115,7 +115,7 @@
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
-            "download_count": 3,
+            "download_count": 4,
             "size_bytes": 57770480
           }
         ]
@@ -588,6 +588,10 @@
       {
         "date": "2026-05-22",
         "total_downloads": 40
+      },
+      {
+        "date": "2026-05-23",
+        "total_downloads": 45
       }
     ]
   },
@@ -992,6 +996,10 @@
       },
       {
         "date": "2026-05-22",
+        "total_downloads": 51
+      },
+      {
+        "date": "2026-05-23",
         "total_downloads": 51
       }
     ]

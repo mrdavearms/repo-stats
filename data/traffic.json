@@ -415,6 +415,11 @@
         "date": "2026-05-25",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-05-26",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -832,6 +837,11 @@
         "date": "2026-05-25",
         "total": 3,
         "unique": 3
+      },
+      {
+        "date": "2026-05-26",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -1980,6 +1990,21 @@
       },
       {
         "date": "2026-05-26",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 2,
+            "unique": 0
+          },
+          {
+            "referrer": "Bing",
+            "count": 2,
+            "unique": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-05-27",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -4059,6 +4084,21 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-05-27",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 3,
+            "unique": 3
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.11.1",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -4340,6 +4380,10 @@
       },
       {
         "date": "2026-05-26",
+        "count": 1
+      },
+      {
+        "date": "2026-05-27",
         "count": 1
       }
     ]
@@ -4760,6 +4804,11 @@
         "date": "2026-05-25",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-05-26",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -5177,6 +5226,11 @@
         "date": "2026-05-25",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-05-26",
+        "total": 2,
+        "unique": 2
       }
     ],
     "referrers": [
@@ -5905,6 +5959,16 @@
       },
       {
         "date": "2026-05-26",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 2,
+            "unique": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-05-27",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -7884,6 +7948,21 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-05-27",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 2,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -8165,6 +8244,10 @@
       },
       {
         "date": "2026-05-26",
+        "count": 2
+      },
+      {
+        "date": "2026-05-27",
         "count": 2
       }
     ]

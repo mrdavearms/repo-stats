@@ -420,6 +420,11 @@
         "date": "2026-05-26",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-05-27",
+        "total": 1,
+        "unique": 1
       }
     ],
     "clones": [
@@ -840,6 +845,11 @@
       },
       {
         "date": "2026-05-26",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-05-27",
         "total": 0,
         "unique": 0
       }
@@ -2023,7 +2033,7 @@
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
-            "count": 2,
+            "count": 3,
             "unique": 0
           },
           {
@@ -4120,8 +4130,8 @@
         "paths": [
           {
             "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
-            "count": 3,
-            "unique": 3
+            "count": 4,
+            "unique": 4
           },
           {
             "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.11.1",
@@ -4843,6 +4853,11 @@
         "date": "2026-05-26",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-05-27",
+        "total": 9,
+        "unique": 1
       }
     ],
     "clones": [
@@ -5265,6 +5280,11 @@
         "date": "2026-05-26",
         "total": 2,
         "unique": 2
+      },
+      {
+        "date": "2026-05-27",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -6016,7 +6036,7 @@
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
-            "count": 2,
+            "count": 8,
             "unique": 0
           }
         ]
@@ -8013,11 +8033,41 @@
         "paths": [
           {
             "path": "/mrdavearms/student-doc-redactor",
+            "count": 4,
+            "unique": 3
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
             "count": 2,
             "unique": 2
           },
           {
-            "path": "/mrdavearms/student-doc-redactor/releases",
+            "path": "/mrdavearms/student-doc-redactor/actions",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/issues",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/projects",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/pulls",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/pulse",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/security",
             "count": 1,
             "unique": 1
           }

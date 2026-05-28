@@ -39,7 +39,7 @@ The workflow checks token expiry via the `github-authentication-token-expiration
 
 When adding a new public repo, update both files.
 
-**Private / email-only repos** (e.g. `naplan-cohort-tracker`) are handled differently to keep them off the public dashboard and out of git: they are NOT in the `REPOS` array or the dashboard. Instead, a dedicated block in the "Send daily email summary" step fetches their stats fresh from the API at send time and appends an email row. Nothing is persisted. View history for these is limited to GitHub's rolling 14-day traffic window (the email labels their summary line "Last 14 days" rather than "All-time"). The email step needs `GH_TOKEN` in its `env:` for this.
+**Private / email-only repos** (e.g. `naplan-cohort-tracker`) are handled differently to keep them off the public dashboard and out of git: they are NOT in the `REPOS` array or the dashboard. Instead, a dedicated block in the "Send daily email summary" step fetches their stats fresh from the API at send time and appends an email row (built with the shared `build_repo_row` helper). Nothing is persisted. View history for these is limited to GitHub's rolling 14-day traffic window (the email labels their summary line "Last 14 days" rather than "All-time"). The email step needs `GH_TOKEN` in its `env:` for this. If a fetch fails (e.g. token lacks `repo` scope), the email shows a visible warning row instead of silently reporting zeros.
 
 ## Data Shapes
 

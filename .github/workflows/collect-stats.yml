@@ -248,6 +248,63 @@ jobs:
           DISPLAY_DATE=$(date -u +"%d %b %Y")
 
           REPO_ROWS=""
+          WEEK_AGO=$(date -u -d "7 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-7d +%Y-%m-%d)
+          TWO_WEEKS_AGO=$(date -u -d "14 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-14d +%Y-%m-%d)
+
+          # Coloured up/down trend span from this-week vs last-week view totals (empty if no prior week).
+          trend_html() {
+            local this_week="$1" last_week="$2" pct
+            if [ "$last_week" -gt 0 ] 2>/dev/null; then
+              pct=$(( (this_week - last_week) * 100 / last_week ))
+              if [ "$pct" -ge 0 ]; then
+                printf '<span style="color:#3fb950;">&#9650; +%s%%</span> vs last week' "$pct"
+              else
+                printf '<span style="color:#f85149;">&#9660; %s%%</span> vs last week' "$pct"
+              fi
+            fi
+          }
+
+          # Append one repo's HTML card to REPO_ROWS. Positional args:
+          #   1 label  2 stars_text  3 views_today  4 views_today_unique
+          #   5 clones_today  6 clones_today_unique  7 downloads
+          #   8 summary_label  9 total_views  10 total_unique  11 trend_span
+          build_repo_row() {
+            local label="$1" stars_text="$2" tv="$3" tvu="$4" tc="$5" tcu="$6" \
+                  dl="$7" sum_label="$8" tot_v="$9" tot_u="${10}" trend="${11}"
+            REPO_ROWS="${REPO_ROWS}
+            <tr><td colspan=\"3\" style=\"padding:16px 0 8px 0;border-bottom:none;\">
+              <strong style=\"font-size:16px;color:#e6edf3;\">${label}</strong>
+              <span style=\"color:#8b949e;font-size:13px;margin-left:8px;\">${stars_text}</span>
+            </td></tr>
+            <tr style=\"background:#161b22;\">
+              <td style=\"padding:10px 14px;border-radius:6px 0 0 0;\">
+                <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Views Today</div>
+                <div style=\"font-size:22px;font-weight:700;color:#58a6ff;\">${tv}</div>
+                <div style=\"color:#8b949e;font-size:12px;\">${tvu} unique</div>
+              </td>
+              <td style=\"padding:10px 14px;\">
+                <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Clones Today</div>
+                <div style=\"font-size:22px;font-weight:700;color:#3fb950;\">${tc}</div>
+                <div style=\"color:#8b949e;font-size:12px;\">${tcu} unique</div>
+              </td>
+              <td style=\"padding:10px 14px;border-radius:0 6px 0 0;\">
+                <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Downloads</div>
+                <div style=\"font-size:22px;font-weight:700;color:#d2a8ff;\">${dl}</div>
+                <div style=\"color:#8b949e;font-size:12px;\">all time</div>
+              </td>
+            </tr>
+            <tr style=\"background:#161b22;\">
+              <td colspan=\"2\" style=\"padding:6px 14px 10px;border-radius:0 0 0 6px;color:#8b949e;font-size:12px;\">
+                ${sum_label}: ${tot_v} views (${tot_u} unique)
+              </td>
+              <td style=\"padding:6px 14px 10px;border-radius:0 0 6px 0;color:#8b949e;font-size:12px;text-align:right;\">
+                ${trend}
+              </td>
+            </tr>
+            <tr><td colspan=\"3\" style=\"padding:4px;border-bottom:none;\"></td></tr>"
+          }
+
+          # Public repos: read from the committed data/*.json files.
           for REPO_NAME in "bulk-pdf-extractor-and-generator" "student-doc-redactor"; do
             if [ "$REPO_NAME" = "bulk-pdf-extractor-and-generator" ]; then
               LABEL="Bulk PDF Extractor"
@@ -255,151 +312,58 @@ jobs:
               LABEL="Student Doc Redactor"
             fi
 
-            # Today's views
-            TODAY_VIEWS=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" \
-              '(.[$repo].views[] | select(.date == $d) | .total) // 0' data/traffic.json)
-            TODAY_VIEWS_U=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" \
-              '(.[$repo].views[] | select(.date == $d) | .unique) // 0' data/traffic.json)
+            TODAY_VIEWS=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" '(.[$repo].views[] | select(.date == $d) | .total) // 0' data/traffic.json)
+            TODAY_VIEWS_U=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" '(.[$repo].views[] | select(.date == $d) | .unique) // 0' data/traffic.json)
+            TODAY_CLONES=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" '(.[$repo].clones[] | select(.date == $d) | .total) // 0' data/traffic.json)
+            TODAY_CLONES_U=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" '(.[$repo].clones[] | select(.date == $d) | .unique) // 0' data/traffic.json)
+            DOWNLOADS=$(jq -r --arg repo "$REPO_NAME" '(.[$repo].history | last | .total_downloads) // 0' data/releases.json)
+            TOTAL_VIEWS=$(jq -r --arg repo "$REPO_NAME" '[.[$repo].views[].total] | add // 0' data/traffic.json)
+            TOTAL_UNIQUE=$(jq -r --arg repo "$REPO_NAME" '[.[$repo].views[].unique] | add // 0' data/traffic.json)
+            STAR_COUNT=$(jq -r --arg repo "$REPO_NAME" '(.[$repo].stars | last | .count) // 0' data/traffic.json)
+            THIS_WEEK=$(jq -r --arg repo "$REPO_NAME" --arg from "$WEEK_AGO" '[.[$repo].views[] | select(.date >= $from) | .total] | add // 0' data/traffic.json)
+            LAST_WEEK=$(jq -r --arg repo "$REPO_NAME" --arg from "$TWO_WEEKS_AGO" --arg to "$WEEK_AGO" '[.[$repo].views[] | select(.date >= $from and .date < $to) | .total] | add // 0' data/traffic.json)
 
-            # Today's clones
-            TODAY_CLONES=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" \
-              '(.[$repo].clones[] | select(.date == $d) | .total) // 0' data/traffic.json)
-            TODAY_CLONES_U=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" \
-              '(.[$repo].clones[] | select(.date == $d) | .unique) // 0' data/traffic.json)
-
-            # Cumulative downloads
-            DOWNLOADS=$(jq -r --arg repo "$REPO_NAME" \
-              '(.[$repo].history | last | .total_downloads) // 0' data/releases.json)
-
-            # All-time views
-            TOTAL_VIEWS=$(jq -r --arg repo "$REPO_NAME" \
-              '[.[$repo].views[].total] | add // 0' data/traffic.json)
-            TOTAL_UNIQUE=$(jq -r --arg repo "$REPO_NAME" \
-              '[.[$repo].views[].unique] | add // 0' data/traffic.json)
-
-            # Stars
-            STAR_COUNT=$(jq -r --arg repo "$REPO_NAME" \
-              '(.[$repo].stars | last | .count) // 0' data/traffic.json)
-
-            # 7-day view trend
-            WEEK_AGO=$(date -u -d "7 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-7d +%Y-%m-%d)
-            TWO_WEEKS_AGO=$(date -u -d "14 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-14d +%Y-%m-%d)
-            THIS_WEEK=$(jq -r --arg repo "$REPO_NAME" --arg from "$WEEK_AGO" \
-              '[.[$repo].views[] | select(.date >= $from) | .total] | add // 0' data/traffic.json)
-            LAST_WEEK=$(jq -r --arg repo "$REPO_NAME" --arg from "$TWO_WEEKS_AGO" --arg to "$WEEK_AGO" \
-              '[.[$repo].views[] | select(.date >= $from and .date < $to) | .total] | add // 0' data/traffic.json)
-
-            TREND_HTML=""
-            if [ "$LAST_WEEK" -gt 0 ] 2>/dev/null; then
-              PCT=$(( (THIS_WEEK - LAST_WEEK) * 100 / LAST_WEEK ))
-              if [ "$PCT" -ge 0 ]; then
-                TREND_HTML="<span style=\"color:#3fb950;\">&#9650; +${PCT}%</span> vs last week"
-              else
-                TREND_HTML="<span style=\"color:#f85149;\">&#9660; ${PCT}%</span> vs last week"
-              fi
-            fi
-
-            REPO_ROWS="${REPO_ROWS}
-            <tr><td colspan=\"3\" style=\"padding:16px 0 8px 0;border-bottom:none;\">
-              <strong style=\"font-size:16px;color:#e6edf3;\">${LABEL}</strong>
-              <span style=\"color:#8b949e;font-size:13px;margin-left:8px;\">${STAR_COUNT} stars</span>
-            </td></tr>
-            <tr style=\"background:#161b22;\">
-              <td style=\"padding:10px 14px;border-radius:6px 0 0 0;\">
-                <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Views Today</div>
-                <div style=\"font-size:22px;font-weight:700;color:#58a6ff;\">${TODAY_VIEWS}</div>
-                <div style=\"color:#8b949e;font-size:12px;\">${TODAY_VIEWS_U} unique</div>
-              </td>
-              <td style=\"padding:10px 14px;\">
-                <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Clones Today</div>
-                <div style=\"font-size:22px;font-weight:700;color:#3fb950;\">${TODAY_CLONES}</div>
-                <div style=\"color:#8b949e;font-size:12px;\">${TODAY_CLONES_U} unique</div>
-              </td>
-              <td style=\"padding:10px 14px;border-radius:0 6px 0 0;\">
-                <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Downloads</div>
-                <div style=\"font-size:22px;font-weight:700;color:#d2a8ff;\">${DOWNLOADS}</div>
-                <div style=\"color:#8b949e;font-size:12px;\">all time</div>
-              </td>
-            </tr>
-            <tr style=\"background:#161b22;\">
-              <td colspan=\"2\" style=\"padding:6px 14px 10px;border-radius:0 0 0 6px;color:#8b949e;font-size:12px;\">
-                All-time views: ${TOTAL_VIEWS} (${TOTAL_UNIQUE} unique)
-              </td>
-              <td style=\"padding:6px 14px 10px;border-radius:0 0 6px 0;color:#8b949e;font-size:12px;text-align:right;\">
-                ${TREND_HTML}
-              </td>
-            </tr>
-            <tr><td colspan=\"3\" style=\"padding:4px;border-bottom:none;\"></td></tr>"
+            build_repo_row "$LABEL" "${STAR_COUNT} stars" "$TODAY_VIEWS" "$TODAY_VIEWS_U" "$TODAY_CLONES" "$TODAY_CLONES_U" "$DOWNLOADS" "All-time" "$TOTAL_VIEWS" "$TOTAL_UNIQUE" "$(trend_html "$THIS_WEEK" "$LAST_WEEK")"
           done
 
           # --- NAPLAN Cohort Tracker (private repo) ---
           # Fetched fresh from the API at send time and NEVER persisted to the public
           # data/*.json files, so its numbers stay private. View history is therefore
-          # limited to GitHub's rolling 14-day traffic window.
+          # limited to GitHub's rolling 14-day traffic window. If any fetch fails
+          # (e.g. the token lacks 'repo' scope) we emit a visible warning row rather
+          # than silently reporting zeros that look like a quiet traffic day.
           NAPLAN_REPO="mrdavearms/naplan-cohort-tracker"
-          WEEK_AGO=$(date -u -d "7 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-7d +%Y-%m-%d)
-          TWO_WEEKS_AGO=$(date -u -d "14 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-14d +%Y-%m-%d)
+          NAPLAN_OK=1
+          N_VIEWS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}/traffic/views") || NAPLAN_OK=0
+          N_CLONES=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}/traffic/clones") || NAPLAN_OK=0
+          N_RELEASES=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}/releases") || NAPLAN_OK=0
+          N_REPO=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}") || NAPLAN_OK=0
 
-          N_VIEWS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${NAPLAN_REPO}/traffic/views" || echo '{"count":0,"uniques":0,"views":[]}')
-          N_CLONES=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${NAPLAN_REPO}/traffic/clones" || echo '{"count":0,"uniques":0,"clones":[]}')
-          N_RELEASES=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${NAPLAN_REPO}/releases" || echo '[]')
-          STAR_COUNT=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${NAPLAN_REPO}" | jq '.stargazers_count // 0' || echo 0)
+          if [ "$NAPLAN_OK" -eq 1 ]; then
+            TODAY_VIEWS=$(echo "$N_VIEWS" | jq -r --arg d "$TODAY" '[.views[] | select((.timestamp|split("T")[0]) == $d) | .count] | add // 0')
+            TODAY_VIEWS_U=$(echo "$N_VIEWS" | jq -r --arg d "$TODAY" '[.views[] | select((.timestamp|split("T")[0]) == $d) | .uniques] | add // 0')
+            TODAY_CLONES=$(echo "$N_CLONES" | jq -r --arg d "$TODAY" '[.clones[] | select((.timestamp|split("T")[0]) == $d) | .count] | add // 0')
+            TODAY_CLONES_U=$(echo "$N_CLONES" | jq -r --arg d "$TODAY" '[.clones[] | select((.timestamp|split("T")[0]) == $d) | .uniques] | add // 0')
+            DOWNLOADS=$(echo "$N_RELEASES" | jq -r '[.[].assets[].download_count] | add // 0')
+            TOTAL_VIEWS=$(echo "$N_VIEWS" | jq -r '.count // 0')
+            TOTAL_UNIQUE=$(echo "$N_VIEWS" | jq -r '.uniques // 0')
+            STAR_COUNT=$(echo "$N_REPO" | jq -r '.stargazers_count // 0')
+            THIS_WEEK=$(echo "$N_VIEWS" | jq -r --arg from "$WEEK_AGO" '[.views[] | select((.timestamp|split("T")[0]) >= $from) | .count] | add // 0')
+            LAST_WEEK=$(echo "$N_VIEWS" | jq -r --arg from "$TWO_WEEKS_AGO" --arg to "$WEEK_AGO" '[.views[] | select((.timestamp|split("T")[0]) >= $from and (.timestamp|split("T")[0]) < $to) | .count] | add // 0')
 
-          TODAY_VIEWS=$(echo "$N_VIEWS" | jq -r --arg d "$TODAY" '[.views[] | select((.timestamp|split("T")[0]) == $d) | .count] | add // 0')
-          TODAY_VIEWS_U=$(echo "$N_VIEWS" | jq -r --arg d "$TODAY" '[.views[] | select((.timestamp|split("T")[0]) == $d) | .uniques] | add // 0')
-          TODAY_CLONES=$(echo "$N_CLONES" | jq -r --arg d "$TODAY" '[.clones[] | select((.timestamp|split("T")[0]) == $d) | .count] | add // 0')
-          TODAY_CLONES_U=$(echo "$N_CLONES" | jq -r --arg d "$TODAY" '[.clones[] | select((.timestamp|split("T")[0]) == $d) | .uniques] | add // 0')
-          DOWNLOADS=$(echo "$N_RELEASES" | jq -r '[.[].assets[].download_count] | add // 0')
-          TOTAL_VIEWS=$(echo "$N_VIEWS" | jq -r '.count // 0')
-          TOTAL_UNIQUE=$(echo "$N_VIEWS" | jq -r '.uniques // 0')
-          THIS_WEEK=$(echo "$N_VIEWS" | jq -r --arg from "$WEEK_AGO" '[.views[] | select((.timestamp|split("T")[0]) >= $from) | .count] | add // 0')
-          LAST_WEEK=$(echo "$N_VIEWS" | jq -r --arg from "$TWO_WEEKS_AGO" --arg to "$WEEK_AGO" '[.views[] | select((.timestamp|split("T")[0]) >= $from and (.timestamp|split("T")[0]) < $to) | .count] | add // 0')
-
-          TREND_HTML=""
-          if [ "$LAST_WEEK" -gt 0 ] 2>/dev/null; then
-            PCT=$(( (THIS_WEEK - LAST_WEEK) * 100 / LAST_WEEK ))
-            if [ "$PCT" -ge 0 ]; then
-              TREND_HTML="<span style=\"color:#3fb950;\">&#9650; +${PCT}%</span> vs last week"
-            else
-              TREND_HTML="<span style=\"color:#f85149;\">&#9660; ${PCT}%</span> vs last week"
-            fi
+            build_repo_row "NAPLAN Cohort Tracker" "${STAR_COUNT} stars &middot; private" "$TODAY_VIEWS" "$TODAY_VIEWS_U" "$TODAY_CLONES" "$TODAY_CLONES_U" "$DOWNLOADS" "Last 14 days" "$TOTAL_VIEWS" "$TOTAL_UNIQUE" "$(trend_html "$THIS_WEEK" "$LAST_WEEK")"
+          else
+            echo "WARNING: could not fetch stats for ${NAPLAN_REPO} (token scope or network?)" >&2
+            REPO_ROWS="${REPO_ROWS}
+            <tr><td colspan=\"3\" style=\"padding:16px 0 8px 0;border-bottom:none;\">
+              <strong style=\"font-size:16px;color:#e6edf3;\">NAPLAN Cohort Tracker</strong>
+              <span style=\"color:#8b949e;font-size:13px;margin-left:8px;\">private</span>
+            </td></tr>
+            <tr><td colspan=\"3\" style=\"padding:12px 14px;background:#bb800922;border:1px solid #bb8009;border-radius:6px;color:#d29922;font-size:13px;\">
+              &#9888; Couldn't fetch stats. Check that <strong>GH_STATS_TOKEN</strong> has full <strong>repo</strong> scope (required to read private repos).
+            </td></tr>
+            <tr><td colspan=\"3\" style=\"padding:4px;border-bottom:none;\"></td></tr>"
           fi
-
-          REPO_ROWS="${REPO_ROWS}
-          <tr><td colspan=\"3\" style=\"padding:16px 0 8px 0;border-bottom:none;\">
-            <strong style=\"font-size:16px;color:#e6edf3;\">NAPLAN Cohort Tracker</strong>
-            <span style=\"color:#8b949e;font-size:13px;margin-left:8px;\">${STAR_COUNT} stars &middot; private</span>
-          </td></tr>
-          <tr style=\"background:#161b22;\">
-            <td style=\"padding:10px 14px;border-radius:6px 0 0 0;\">
-              <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Views Today</div>
-              <div style=\"font-size:22px;font-weight:700;color:#58a6ff;\">${TODAY_VIEWS}</div>
-              <div style=\"color:#8b949e;font-size:12px;\">${TODAY_VIEWS_U} unique</div>
-            </td>
-            <td style=\"padding:10px 14px;\">
-              <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Clones Today</div>
-              <div style=\"font-size:22px;font-weight:700;color:#3fb950;\">${TODAY_CLONES}</div>
-              <div style=\"color:#8b949e;font-size:12px;\">${TODAY_CLONES_U} unique</div>
-            </td>
-            <td style=\"padding:10px 14px;border-radius:0 6px 0 0;\">
-              <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Downloads</div>
-              <div style=\"font-size:22px;font-weight:700;color:#d2a8ff;\">${DOWNLOADS}</div>
-              <div style=\"color:#8b949e;font-size:12px;\">all time</div>
-            </td>
-          </tr>
-          <tr style=\"background:#161b22;\">
-            <td colspan=\"2\" style=\"padding:6px 14px 10px;border-radius:0 0 0 6px;color:#8b949e;font-size:12px;\">
-              Last 14 days: ${TOTAL_VIEWS} views (${TOTAL_UNIQUE} unique)
-            </td>
-            <td style=\"padding:6px 14px 10px;border-radius:0 0 6px 0;color:#8b949e;font-size:12px;text-align:right;\">
-              ${TREND_HTML}
-            </td>
-          </tr>
-          <tr><td colspan=\"3\" style=\"padding:4px;border-bottom:none;\"></td></tr>"
 
           # Token warning banner
           TOKEN_BANNER=""

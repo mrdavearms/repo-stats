@@ -69,6 +69,7 @@ Each repo has: `releases[]` (current snapshot of all releases/assets), `history[
 - **Don't put colons at the start of lines in workflow `run:` blocks** — YAML interprets them as mapping keys. Use `printf` instead.
 - **The workflow commits to `main` directly** (via the bot). If you're working on changes locally, pull before pushing to avoid conflicts.
 - **GitHub Pages CDN caches** for 1-2 minutes after a push. Hard-refresh if the dashboard seems stale.
+- **A green workflow run ≠ a correct email.** The email step renders a warning row (not a failure) when a private-repo fetch (e.g. `naplan-cohort-tracker`) fails, so `success` can hide a broken/under-scoped token. Grep the email-step log for `could not fetch stats for` to confirm private fetches worked.
 
 ## Common Tasks
 
@@ -84,4 +85,15 @@ gh run view <run-id> --repo mrdavearms/repo-stats --log
 
 # Count collected data points
 jq '.["bulk-pdf-extractor-and-generator"].views | length' data/traffic.json
+
+# Validate workflow YAML (no yamllint/pyyaml on this machine; ruby is present)
+ruby -ryaml -e "YAML.load_file('.github/workflows/collect-stats.yml'); puts 'OK'"
+
+# Watch a run to completion (non-zero exit if it fails)
+gh run watch <run-id> --repo mrdavearms/repo-stats --exit-status
+
+# Offline-test the email step (no real mail/API): extract its run: script, then
+# source it with a stubbed curl() — sample JSON for github URLs, return 0 for smtps://.
+ruby -ryaml -e 'puts YAML.load_file(".github/workflows/collect-stats.yml")["jobs"]["collect"]["steps"].find{|s| s["name"]=="Send daily email summary"}["run"]' > /tmp/email_step.sh
+bash -n /tmp/email_step.sh
 ```

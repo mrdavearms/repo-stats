@@ -11,6 +11,16 @@ permissions:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    env:
+      # Single source of truth for what counts as a real "download" (a human
+      # installing the app). Matches installer/package assets by extension,
+      # case-insensitively. Auto-updater manifests (latest.json / latest*.yml),
+      # detached signatures (.sig), electron diff blockmaps (.blockmap) and the
+      # Tauri/electron update bundles (.tar.gz) are deliberately NOT installers —
+      # they are fetched automatically and must not inflate the count.
+      # NOTE: .zip is assumed to be an app package; a sample-data .zip attached to
+      # a release would be counted (acceptable — see CLAUDE.md "Download counting").
+      INSTALLER_REGEX: '\.(dmg|exe|msi|pkg|appimage|deb|rpm|zip)$'
 
     steps:
       - name: Checkout repo
@@ -161,7 +171,7 @@ jobs:
             }]')
 
             # Calculate total downloads across all releases
-            TOTAL_DL=$(echo "$RELEASE_DATA" | jq '[.[].assets[].download_count] | add // 0')
+            TOTAL_DL=$(echo "$RELEASE_DATA" | jq --arg re "$INSTALLER_REGEX" '[.[].assets[] | select((.name // "") | test($re; "i")) | .download_count] | add // 0')
 
             # Update releases and history
             EXISTING_REL=$(echo "$EXISTING_REL" | jq \
@@ -344,7 +354,7 @@ jobs:
             TODAY_VIEWS_U=$(echo "$N_VIEWS" | jq -r --arg d "$TODAY" '[.views[] | select((.timestamp|split("T")[0]) == $d) | .uniques] | add // 0')
             TODAY_CLONES=$(echo "$N_CLONES" | jq -r --arg d "$TODAY" '[.clones[] | select((.timestamp|split("T")[0]) == $d) | .count] | add // 0')
             TODAY_CLONES_U=$(echo "$N_CLONES" | jq -r --arg d "$TODAY" '[.clones[] | select((.timestamp|split("T")[0]) == $d) | .uniques] | add // 0')
-            DOWNLOADS=$(echo "$N_RELEASES" | jq -r '[.[].assets[].download_count] | add // 0')
+            DOWNLOADS=$(echo "$N_RELEASES" | jq -r --arg re "$INSTALLER_REGEX" '[.[].assets[] | select((.name // "") | test($re; "i")) | .download_count] | add // 0')
             TOTAL_VIEWS=$(echo "$N_VIEWS" | jq -r '.count // 0')
             TOTAL_UNIQUE=$(echo "$N_VIEWS" | jq -r '.uniques // 0')
             STAR_COUNT=$(echo "$N_REPO" | jq -r '.stargazers_count // 0')

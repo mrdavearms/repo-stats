@@ -2,7 +2,7 @@
 
 ## What This Is
 
-A self-hosted GitHub Pages dashboard tracking traffic (views, clones, referrers, paths), release downloads, and star counts for two public repos. No backend, no database, no build step.
+A self-hosted GitHub Pages dashboard tracking traffic (views, clones, referrers, paths), release downloads, and star counts for two public repos. No backend, no database, no build step. A third repo (`naplan-cohort-tracker`, private) is **email-only**: its stats are fetched fresh during the email step and never written to the public `data/*.json` files or the dashboard, so they stay private. The PAT needs `repo` scope to read private-repo traffic.
 
 **Live:** https://mrdavearms.github.io/repo-stats/
 **Repo:** https://github.com/mrdavearms/repo-stats
@@ -33,11 +33,13 @@ The workflow checks token expiry via the `github-authentication-token-expiration
 
 ## Tracked Repos
 
-Defined in two places that must stay in sync:
+**Public repos** (persisted to `data/*.json` + shown on dashboard + emailed) are defined in two places that must stay in sync:
 1. **Workflow**: `REPOS` array (line ~25) and email loop repo list
 2. **Dashboard**: `REPO_NAMES` array and the repo selector buttons in HTML
 
-When adding a new repo, update both files.
+When adding a new public repo, update both files.
+
+**Private / email-only repos** (e.g. `naplan-cohort-tracker`) are handled differently to keep them off the public dashboard and out of git: they are NOT in the `REPOS` array or the dashboard. Instead, a dedicated block in the "Send daily email summary" step fetches their stats fresh from the API at send time and appends an email row. Nothing is persisted. View history for these is limited to GitHub's rolling 14-day traffic window (the email labels their summary line "Last 14 days" rather than "All-time"). The email step needs `GH_TOKEN` in its `env:` for this.
 
 ## Data Shapes
 

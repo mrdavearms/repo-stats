@@ -2,6 +2,23 @@
   "bulk-pdf-extractor-and-generator": {
     "releases": [
       {
+        "tag": "v2.12.2",
+        "name": "v2.12.2",
+        "published_at": "2026-05-31T22:54:46Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0,
+            "size_bytes": 60340329
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 0,
+            "size_bytes": 57805292
+          }
+        ]
+      },
+      {
         "tag": "v2.12.1",
         "name": "v2.12.1",
         "published_at": "2026-05-31T03:10:45Z",
@@ -658,6 +675,10 @@
       {
         "date": "2026-05-31",
         "total_downloads": 96
+      },
+      {
+        "date": "2026-06-01",
+        "total_downloads": 96
       }
     ]
   },
@@ -680,7 +701,7 @@
           },
           {
             "name": "Redaction-Tool-1.3.2-arm64.dmg",
-            "download_count": 2,
+            "download_count": 3,
             "size_bytes": 594757353
           },
           {
@@ -690,7 +711,7 @@
           },
           {
             "name": "Redaction-Tool-Setup-1.3.2.exe",
-            "download_count": 4,
+            "download_count": 5,
             "size_bytes": 552221639
           },
           {
@@ -1173,6 +1194,10 @@
       {
         "date": "2026-05-31",
         "total_downloads": 156
+      },
+      {
+        "date": "2026-06-01",
+        "total_downloads": 158
       }
     ]
   }

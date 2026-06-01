@@ -257,6 +257,16 @@
       <div class="card-value" id="totalStars">—</div>
       <div class="card-trend" id="trendStars"></div>
     </div>
+    <div class="card">
+      <div class="card-label">Forks</div>
+      <div class="card-value" id="totalForks">—</div>
+      <div class="card-trend" id="trendForks"></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Watchers</div>
+      <div class="card-value" id="totalWatchers">—</div>
+      <div class="card-trend" id="trendWatchers"></div>
+    </div>
   </div>
 
   <div class="charts-grid">
@@ -286,6 +296,10 @@
     <div class="table-container">
       <h3>Release Assets</h3>
       <div id="releasesTable"></div>
+    </div>
+    <div class="table-container">
+      <h3>Recent Stars</h3>
+      <div id="starsTable"></div>
     </div>
   </div>
 
@@ -409,12 +423,18 @@
 
     function renderSummary() {
       const repos = getRepos();
-      let downloads = 0, views = 0, unique = 0, clones = 0, stars = 0;
+      let downloads = 0, views = 0, unique = 0, clones = 0, stars = 0, forks = 0, watchers = 0;
       let priorViews = 0, priorUnique = 0, priorClones = 0;
 
       for (const repo of repos) {
         const hist = releasesData[repo]?.history || [];
         if (hist.length > 0) downloads += hist[hist.length - 1].total_downloads;
+
+        // Forks / watchers: latest daily count
+        const forkData = trafficData[repo]?.forks || [];
+        if (forkData.length > 0) forks += forkData[forkData.length - 1].count;
+        const watchData = trafficData[repo]?.watchers || [];
+        if (watchData.length > 0) watchers += watchData[watchData.length - 1].count;
 
         const allViews = trafficData[repo]?.views || [];
         const filteredViews = filterByRange(allViews);
@@ -440,6 +460,8 @@
       document.getElementById('uniqueVisitors').textContent = unique.toLocaleString();
       document.getElementById('totalClones').textContent = clones.toLocaleString();
       document.getElementById('totalStars').textContent = stars.toLocaleString();
+      document.getElementById('totalForks').textContent = forks.toLocaleString();
+      document.getElementById('totalWatchers').textContent = watchers.toLocaleString();
 
       // Trend indicators
       setTrend('trendViews', calcTrend(views, priorViews));
@@ -488,6 +510,30 @@
         }
       } else {
         document.getElementById('trendStars').textContent = '';
+      }
+
+      // Forks / watchers trend (first vs last tracked count)
+      setSinceTrackingTrend('trendForks', repos, 'forks');
+      setSinceTrackingTrend('trendWatchers', repos, 'watchers');
+    }
+
+    // Set a "since tracking" trend on a card from a {date,count}[] series in trafficData.
+    function setSinceTrackingTrend(elementId, repos, key) {
+      let first = 0, last = 0;
+      for (const repo of repos) {
+        const series = trafficData[repo]?.[key] || [];
+        if (series.length >= 2) {
+          first += series[0].count;
+          last += series[series.length - 1].count;
+        }
+      }
+      if (first > 0) {
+        const delta = last - first;
+        if (delta > 0) setTrend(elementId, { label: '+' + delta + ' since tracking', cls: 'up' });
+        else if (delta === 0) setTrend(elementId, { label: 'No change', cls: 'flat' });
+        else setTrend(elementId, { label: delta + ' since tracking', cls: 'down' });
+      } else {
+        document.getElementById(elementId).textContent = '';
       }
     }
 
@@ -631,6 +677,7 @@
       renderReferrersTable();
       renderPathsTable();
       renderReleasesTable();
+      renderStarsTable();
     }
 
     // Safe table builder using DOM methods (no innerHTML with dynamic data)
@@ -765,10 +812,36 @@
       );
     }
 
+    function renderStarsTable() {
+      const repos = getRepos();
+      const events = [];
+      for (const repo of repos) {
+        const label = repo === 'bulk-pdf-extractor-and-generator' ? 'Bulk PDF' : 'Doc Redactor';
+        for (const ev of (trafficData[repo]?.star_events || [])) {
+          events.push({ date: ev.date, login: ev.login || '—', repo: label });
+        }
+      }
+      // Most recent first
+      events.sort((a, b) => b.date.localeCompare(a.date));
+
+      if (events.length === 0) {
+        setEmptyState('starsTable', 'No star data yet');
+        return;
+      }
+
+      const container = document.getElementById('starsTable');
+      container.textContent = '';
+      container.appendChild(
+        buildTable(['Starred', 'User', 'Repo'],
+          events.slice(0, 20).map(e => [formatDate(e.date), e.login, e.repo])
+        )
+      );
+    }
+
     // CSV Export
     function exportCsv() {
       const repos = getRepos();
-      const rows = [['Date', 'Repo', 'Views', 'Unique Views', 'Clones', 'Unique Clones', 'Total Downloads', 'Stars']];
+      const rows = [['Date', 'Repo', 'Views', 'Unique Views', 'Clones', 'Unique Clones', 'Total Downloads', 'Stars', 'Forks', 'Watchers']];
 
       // Collect all dates across all data types
       const allDates = new Set();
@@ -791,12 +864,18 @@
         (releasesData[repo]?.history || []).forEach(h => { dlMap[h.date] = h; });
         const starsMap = {};
         (trafficData[repo]?.stars || []).forEach(s => { starsMap[s.date] = s; });
+        const forksMap = {};
+        (trafficData[repo]?.forks || []).forEach(f => { forksMap[f.date] = f; });
+        const watchMap = {};
+        (trafficData[repo]?.watchers || []).forEach(w => { watchMap[w.date] = w; });
 
         for (const date of filteredDates) {
           const v = viewsMap[date];
           const c = clonesMap[date];
           const d = dlMap[date];
           const s = starsMap[date];
+          const f = forksMap[date];
+          const w = watchMap[date];
           rows.push([
             date,
             repo,
@@ -805,7 +884,9 @@
             c ? c.total : '',
             c ? c.unique : '',
             d ? d.total_downloads : '',
-            s ? s.count : ''
+            s ? s.count : '',
+            f ? f.count : '',
+            w ? w.count : ''
           ]);
         }
       }

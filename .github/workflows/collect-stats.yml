@@ -74,19 +74,36 @@ jobs:
               -H "Accept: application/vnd.github+json" \
               "https://api.github.com/repos/${FULL_REPO}/traffic/popular/paths" || echo '[]')
 
-            # --- Stars ---
-            echo "  Fetching star count..."
-            STARS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
+            # --- Repo meta: stars, forks, watchers (subscribers) ---
+            # One call to the repo object gives all three engagement counters.
+            # NOTE: the API's "watchers_count" is a legacy alias of stars; the real
+            # "Watch" count is "subscribers_count".
+            echo "  Fetching repo meta (stars/forks/watchers)..."
+            REPO_JSON=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
               -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${FULL_REPO}" | jq '.stargazers_count // 0')
+              "https://api.github.com/repos/${FULL_REPO}" || echo '{}')
+            STARS=$(echo "$REPO_JSON" | jq '.stargazers_count // 0')
+            FORKS=$(echo "$REPO_JSON" | jq '.forks_count // 0')
+            WATCHERS=$(echo "$REPO_JSON" | jq '.subscribers_count // 0')
+
+            # --- Star events (when each user starred) ---
+            # The star+json media type adds a "starred_at" timestamp per stargazer.
+            # One page of 100 is plenty for these low-star repos.
+            echo "  Fetching stargazers (with timestamps)..."
+            STARGAZERS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github.star+json" \
+              "https://api.github.com/repos/${FULL_REPO}/stargazers?per_page=100" || echo '[]')
 
             # --- Merge views into traffic.json ---
             EXISTING=$(cat "$TRAFFIC_FILE")
             EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" '
               if .[$repo] == null then
-                .[$repo] = {"views":[],"clones":[],"referrers":[],"popular_paths":[],"stars":[]}
+                .[$repo] = {"views":[],"clones":[],"referrers":[],"popular_paths":[],"stars":[],"forks":[],"watchers":[],"star_events":[]}
               else
-                if .[$repo].stars == null then .[$repo].stars = [] else . end
+                .[$repo].stars = (.[$repo].stars // [])
+                | .[$repo].forks = (.[$repo].forks // [])
+                | .[$repo].watchers = (.[$repo].watchers // [])
+                | .[$repo].star_events = (.[$repo].star_events // [])
               end
             ')
 
@@ -122,7 +139,7 @@ jobs:
             EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson refs "$REFERRERS" '
               .[$repo].referrers = (
                 [(.[$repo].referrers // [] | .[] | select(.date != $today)),
-                 {date: $today, sources: ($refs | map({referrer, count: (.count // 0), unique: (.unique // 0)}))}]
+                 {date: $today, sources: ($refs | map({referrer, count: (.count // 0), unique: (.uniques // 0)}))}]
                 | sort_by(.date)
               )
             ')
@@ -141,6 +158,39 @@ jobs:
               .[$repo].stars = (
                 [(.[$repo].stars // [] | .[] | select(.date != $today)),
                  {date: $today, count: $stars}]
+                | sort_by(.date)
+              )
+            ')
+
+            # Store today's fork count (replace if same date)
+            EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson forks "$FORKS" '
+              .[$repo].forks = (
+                [(.[$repo].forks // [] | .[] | select(.date != $today)),
+                 {date: $today, count: $forks}]
+                | sort_by(.date)
+              )
+            ')
+
+            # Store today's watcher (subscriber) count (replace if same date)
+            EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson watchers "$WATCHERS" '
+              .[$repo].watchers = (
+                [(.[$repo].watchers // [] | .[] | select(.date != $today)),
+                 {date: $today, count: $watchers}]
+                | sort_by(.date)
+              )
+            ')
+
+            # Merge star events (one row per stargazer: when they starred + who).
+            # Dedup by login (keep latest seen), so re-runs never duplicate. Stargazers
+            # of a public repo are already public, so storing the login is not a leak.
+            EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --argjson sg "$STARGAZERS" '
+              .[$repo].star_events = (
+                ([.[$repo].star_events // [] | .[]]
+                 + [$sg | if type == "array" then .[] else empty end
+                      | select(.starred_at != null)
+                      | {date: (.starred_at | split("T")[0]), login: (.user.login // "")}])
+                | group_by(.login)
+                | map(last)
                 | sort_by(.date)
               )
             ')
@@ -178,11 +228,19 @@ jobs:
               --arg repo "$REPO_NAME" \
               --argjson rel "$RELEASE_DATA" \
               --argjson total "$TOTAL_DL" \
+              --arg re "$INSTALLER_REGEX" \
               --arg today "$TODAY" '
               .[$repo].releases = $rel |
               .[$repo].history = (
                 [(.[$repo].history // [] | .[] | select(.date != $today)),
                  {date: $today, total_downloads: $total}]
+                | sort_by(.date)
+              ) |
+              .[$repo].asset_history = (
+                [(.[$repo].asset_history // [] | .[] | select(.date != $today)),
+                 {date: $today, assets: [$rel[].assets[]
+                    | select((.name // "") | test($re; "i"))
+                    | {name, download_count}]}]
                 | sort_by(.date)
               )
             ')
@@ -258,6 +316,7 @@ jobs:
           DISPLAY_DATE=$(date -u +"%d %b %Y")
 
           REPO_ROWS=""
+          YESTERDAY=$(date -u -d "1 day ago" +%Y-%m-%d 2>/dev/null || date -u -v-1d +%Y-%m-%d)
           WEEK_AGO=$(date -u -d "7 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-7d +%Y-%m-%d)
           TWO_WEEKS_AGO=$(date -u -d "14 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-14d +%Y-%m-%d)
 
@@ -274,41 +333,70 @@ jobs:
             fi
           }
 
+          # Coloured download delta (new installs since the previous snapshot).
+          dl_delta_html() {
+            local delta="$1"
+            if [ "$delta" -gt 0 ] 2>/dev/null; then
+              printf '<span style="color:#3fb950;">&#9650; +%s today</span>' "$delta"
+            elif [ "$delta" -lt 0 ] 2>/dev/null; then
+              printf '<span style="color:#f85149;">&#9660; %s today</span>' "$delta"
+            else
+              printf 'no change today'
+            fi
+          }
+
+          # Build the muted "Top sources / Top pages" line from a JSON array.
+          # $1 = field name (referrer|path), $2 = JSON array of {<field>,count,...}
+          top3_line() {
+            echo "$2" | jq -r --arg k "$1" '
+              if (type == "array" and length > 0) then
+                (sort_by(-(.count // 0))[:3] | map("\(.[$k]) (\(.count))") | join(", "))
+              else "&mdash;" end' 2>/dev/null || echo "&mdash;"
+          }
+
           # Append one repo's HTML card to REPO_ROWS. Positional args:
-          #   1 label  2 stars_text  3 views_today  4 views_today_unique
-          #   5 clones_today  6 clones_today_unique  7 downloads
-          #   8 summary_label  9 total_views  10 total_unique  11 trend_span
+          #   1 label  2 meta_text (stars/forks/watching)
+          #   3 views_yday  4 views_yday_unique  5 clones_yday  6 clones_yday_unique
+          #   7 downloads  8 dl_sub_html (delta or "all time")
+          #   9 summary_html (left cell, may contain <br>)  10 trend_span
+          #   11 ref_line  12 path_line
           build_repo_row() {
-            local label="$1" stars_text="$2" tv="$3" tvu="$4" tc="$5" tcu="$6" \
-                  dl="$7" sum_label="$8" tot_v="$9" tot_u="${10}" trend="${11}"
+            local label="$1" meta="$2" vy="$3" vyu="$4" cy="$5" cyu="$6" \
+                  dl="$7" dl_sub="$8" summary="$9" trend="${10}" ref_line="${11}" path_line="${12}"
             REPO_ROWS="${REPO_ROWS}
             <tr><td colspan=\"3\" style=\"padding:16px 0 8px 0;border-bottom:none;\">
               <strong style=\"font-size:16px;color:#e6edf3;\">${label}</strong>
-              <span style=\"color:#8b949e;font-size:13px;margin-left:8px;\">${stars_text}</span>
+              <span style=\"color:#8b949e;font-size:13px;margin-left:8px;\">${meta}</span>
             </td></tr>
             <tr style=\"background:#161b22;\">
               <td style=\"padding:10px 14px;border-radius:6px 0 0 0;\">
-                <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Views Today</div>
-                <div style=\"font-size:22px;font-weight:700;color:#58a6ff;\">${tv}</div>
-                <div style=\"color:#8b949e;font-size:12px;\">${tvu} unique</div>
+                <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Views (yesterday)</div>
+                <div style=\"font-size:22px;font-weight:700;color:#58a6ff;\">${vy}</div>
+                <div style=\"color:#8b949e;font-size:12px;\">${vyu} unique</div>
               </td>
               <td style=\"padding:10px 14px;\">
-                <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Clones Today</div>
-                <div style=\"font-size:22px;font-weight:700;color:#3fb950;\">${tc}</div>
-                <div style=\"color:#8b949e;font-size:12px;\">${tcu} unique</div>
+                <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Clones (yesterday)</div>
+                <div style=\"font-size:22px;font-weight:700;color:#3fb950;\">${cy}</div>
+                <div style=\"color:#8b949e;font-size:12px;\">${cyu} unique</div>
               </td>
               <td style=\"padding:10px 14px;border-radius:0 6px 0 0;\">
                 <div style=\"color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;\">Downloads</div>
                 <div style=\"font-size:22px;font-weight:700;color:#d2a8ff;\">${dl}</div>
-                <div style=\"color:#8b949e;font-size:12px;\">all time</div>
+                <div style=\"color:#8b949e;font-size:12px;\">${dl_sub}</div>
               </td>
             </tr>
             <tr style=\"background:#161b22;\">
-              <td colspan=\"2\" style=\"padding:6px 14px 10px;border-radius:0 0 0 6px;color:#8b949e;font-size:12px;\">
-                ${sum_label}: ${tot_v} views (${tot_u} unique)
+              <td colspan=\"2\" style=\"padding:6px 14px 8px;color:#8b949e;font-size:12px;line-height:1.6;\">
+                ${summary}
               </td>
-              <td style=\"padding:6px 14px 10px;border-radius:0 0 6px 0;color:#8b949e;font-size:12px;text-align:right;\">
+              <td style=\"padding:6px 14px 8px;color:#8b949e;font-size:12px;text-align:right;vertical-align:bottom;\">
                 ${trend}
+              </td>
+            </tr>
+            <tr style=\"background:#161b22;\">
+              <td colspan=\"3\" style=\"padding:0 14px 10px;border-radius:0 0 6px 6px;color:#8b949e;font-size:12px;line-height:1.7;\">
+                <span style=\"color:#6e7681;\">Top sources:</span> ${ref_line}<br>
+                <span style=\"color:#6e7681;\">Top pages:</span> ${path_line}
               </td>
             </tr>
             <tr><td colspan=\"3\" style=\"padding:4px;border-bottom:none;\"></td></tr>"
@@ -322,18 +410,37 @@ jobs:
               LABEL="Student Doc Redactor"
             fi
 
-            TODAY_VIEWS=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" '(.[$repo].views[] | select(.date == $d) | .total) // 0' data/traffic.json)
-            TODAY_VIEWS_U=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" '(.[$repo].views[] | select(.date == $d) | .unique) // 0' data/traffic.json)
-            TODAY_CLONES=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" '(.[$repo].clones[] | select(.date == $d) | .total) // 0' data/traffic.json)
-            TODAY_CLONES_U=$(jq -r --arg repo "$REPO_NAME" --arg d "$TODAY" '(.[$repo].clones[] | select(.date == $d) | .unique) // 0' data/traffic.json)
+            # Yesterday = last COMPLETE UTC day (today's bucket is partial + lags, so it
+            # reads ~0 and is misleading; yesterday is the most recent reliable daily figure).
+            YDAY_VIEWS=$(jq -r --arg repo "$REPO_NAME" --arg d "$YESTERDAY" '(.[$repo].views[] | select(.date == $d) | .total) // 0' data/traffic.json)
+            YDAY_VIEWS_U=$(jq -r --arg repo "$REPO_NAME" --arg d "$YESTERDAY" '(.[$repo].views[] | select(.date == $d) | .unique) // 0' data/traffic.json)
+            YDAY_CLONES=$(jq -r --arg repo "$REPO_NAME" --arg d "$YESTERDAY" '(.[$repo].clones[] | select(.date == $d) | .total) // 0' data/traffic.json)
+            YDAY_CLONES_U=$(jq -r --arg repo "$REPO_NAME" --arg d "$YESTERDAY" '(.[$repo].clones[] | select(.date == $d) | .unique) // 0' data/traffic.json)
+
+            # Rolling 7-day windows
+            VIEWS_7D=$(jq -r --arg repo "$REPO_NAME" --arg from "$WEEK_AGO" '[.[$repo].views[] | select(.date >= $from) | .total] | add // 0' data/traffic.json)
+            VIEWS_7D_U=$(jq -r --arg repo "$REPO_NAME" --arg from "$WEEK_AGO" '[.[$repo].views[] | select(.date >= $from) | .unique] | add // 0' data/traffic.json)
+            CLONES_7D=$(jq -r --arg repo "$REPO_NAME" --arg from "$WEEK_AGO" '[.[$repo].clones[] | select(.date >= $from) | .total] | add // 0' data/traffic.json)
+
             DOWNLOADS=$(jq -r --arg repo "$REPO_NAME" '(.[$repo].history | last | .total_downloads) // 0' data/releases.json)
+            DL_DELTA=$(jq -r --arg repo "$REPO_NAME" '(.[$repo].history // []) as $h | if ($h | length) >= 2 then ($h[-1].total_downloads - $h[-2].total_downloads) else 0 end' data/releases.json)
             TOTAL_VIEWS=$(jq -r --arg repo "$REPO_NAME" '[.[$repo].views[].total] | add // 0' data/traffic.json)
             TOTAL_UNIQUE=$(jq -r --arg repo "$REPO_NAME" '[.[$repo].views[].unique] | add // 0' data/traffic.json)
             STAR_COUNT=$(jq -r --arg repo "$REPO_NAME" '(.[$repo].stars | last | .count) // 0' data/traffic.json)
-            THIS_WEEK=$(jq -r --arg repo "$REPO_NAME" --arg from "$WEEK_AGO" '[.[$repo].views[] | select(.date >= $from) | .total] | add // 0' data/traffic.json)
+            FORK_COUNT=$(jq -r --arg repo "$REPO_NAME" '(.[$repo].forks | last | .count) // 0' data/traffic.json)
+            WATCH_COUNT=$(jq -r --arg repo "$REPO_NAME" '(.[$repo].watchers | last | .count) // 0' data/traffic.json)
+            THIS_WEEK="$VIEWS_7D"
             LAST_WEEK=$(jq -r --arg repo "$REPO_NAME" --arg from "$TWO_WEEKS_AGO" --arg to "$WEEK_AGO" '[.[$repo].views[] | select(.date >= $from and .date < $to) | .total] | add // 0' data/traffic.json)
 
-            build_repo_row "$LABEL" "${STAR_COUNT} stars" "$TODAY_VIEWS" "$TODAY_VIEWS_U" "$TODAY_CLONES" "$TODAY_CLONES_U" "$DOWNLOADS" "All-time" "$TOTAL_VIEWS" "$TOTAL_UNIQUE" "$(trend_html "$THIS_WEEK" "$LAST_WEEK")"
+            REFS_JSON=$(jq -c --arg repo "$REPO_NAME" '((.[$repo].referrers // []) | last | .sources?) // []' data/traffic.json)
+            PATHS_JSON=$(jq -c --arg repo "$REPO_NAME" '((.[$repo].popular_paths // []) | last | .paths?) // []' data/traffic.json)
+            REF_LINE=$(top3_line referrer "$REFS_JSON")
+            PATH_LINE=$(top3_line path "$PATHS_JSON")
+
+            META="${STAR_COUNT} stars &middot; ${FORK_COUNT} forks &middot; ${WATCH_COUNT} watching"
+            SUMMARY="Last 7d: ${VIEWS_7D} views (${VIEWS_7D_U} unique) &middot; ${CLONES_7D} clones<br>All-time: ${TOTAL_VIEWS} views (${TOTAL_UNIQUE} unique)"
+
+            build_repo_row "$LABEL" "$META" "$YDAY_VIEWS" "$YDAY_VIEWS_U" "$YDAY_CLONES" "$YDAY_CLONES_U" "$DOWNLOADS" "$(dl_delta_html "$DL_DELTA")" "$SUMMARY" "$(trend_html "$THIS_WEEK" "$LAST_WEEK")" "$REF_LINE" "$PATH_LINE"
           done
 
           # --- NAPLAN Cohort Tracker (private repo) ---
@@ -348,20 +455,32 @@ jobs:
           N_CLONES=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}/traffic/clones") || NAPLAN_OK=0
           N_RELEASES=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}/releases") || NAPLAN_OK=0
           N_REPO=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}") || NAPLAN_OK=0
+          N_REFS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}/traffic/popular/referrers") || NAPLAN_OK=0
+          N_PATHS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}/traffic/popular/paths") || NAPLAN_OK=0
 
           if [ "$NAPLAN_OK" -eq 1 ]; then
-            TODAY_VIEWS=$(echo "$N_VIEWS" | jq -r --arg d "$TODAY" '[.views[] | select((.timestamp|split("T")[0]) == $d) | .count] | add // 0')
-            TODAY_VIEWS_U=$(echo "$N_VIEWS" | jq -r --arg d "$TODAY" '[.views[] | select((.timestamp|split("T")[0]) == $d) | .uniques] | add // 0')
-            TODAY_CLONES=$(echo "$N_CLONES" | jq -r --arg d "$TODAY" '[.clones[] | select((.timestamp|split("T")[0]) == $d) | .count] | add // 0')
-            TODAY_CLONES_U=$(echo "$N_CLONES" | jq -r --arg d "$TODAY" '[.clones[] | select((.timestamp|split("T")[0]) == $d) | .uniques] | add // 0')
+            YDAY_VIEWS=$(echo "$N_VIEWS" | jq -r --arg d "$YESTERDAY" '[.views[] | select((.timestamp|split("T")[0]) == $d) | .count] | add // 0')
+            YDAY_VIEWS_U=$(echo "$N_VIEWS" | jq -r --arg d "$YESTERDAY" '[.views[] | select((.timestamp|split("T")[0]) == $d) | .uniques] | add // 0')
+            YDAY_CLONES=$(echo "$N_CLONES" | jq -r --arg d "$YESTERDAY" '[.clones[] | select((.timestamp|split("T")[0]) == $d) | .count] | add // 0')
+            YDAY_CLONES_U=$(echo "$N_CLONES" | jq -r --arg d "$YESTERDAY" '[.clones[] | select((.timestamp|split("T")[0]) == $d) | .uniques] | add // 0')
+            VIEWS_7D=$(echo "$N_VIEWS" | jq -r --arg from "$WEEK_AGO" '[.views[] | select((.timestamp|split("T")[0]) >= $from) | .count] | add // 0')
+            VIEWS_7D_U=$(echo "$N_VIEWS" | jq -r --arg from "$WEEK_AGO" '[.views[] | select((.timestamp|split("T")[0]) >= $from) | .uniques] | add // 0')
+            CLONES_7D=$(echo "$N_CLONES" | jq -r --arg from "$WEEK_AGO" '[.clones[] | select((.timestamp|split("T")[0]) >= $from) | .count] | add // 0')
             DOWNLOADS=$(echo "$N_RELEASES" | jq -r --arg re "$INSTALLER_REGEX" '[.[].assets[] | select((.name // "") | test($re; "i")) | .download_count] | add // 0')
             TOTAL_VIEWS=$(echo "$N_VIEWS" | jq -r '.count // 0')
             TOTAL_UNIQUE=$(echo "$N_VIEWS" | jq -r '.uniques // 0')
             STAR_COUNT=$(echo "$N_REPO" | jq -r '.stargazers_count // 0')
-            THIS_WEEK=$(echo "$N_VIEWS" | jq -r --arg from "$WEEK_AGO" '[.views[] | select((.timestamp|split("T")[0]) >= $from) | .count] | add // 0')
+            FORK_COUNT=$(echo "$N_REPO" | jq -r '.forks_count // 0')
+            WATCH_COUNT=$(echo "$N_REPO" | jq -r '.subscribers_count // 0')
+            THIS_WEEK="$VIEWS_7D"
             LAST_WEEK=$(echo "$N_VIEWS" | jq -r --arg from "$TWO_WEEKS_AGO" --arg to "$WEEK_AGO" '[.views[] | select((.timestamp|split("T")[0]) >= $from and (.timestamp|split("T")[0]) < $to) | .count] | add // 0')
+            REF_LINE=$(top3_line referrer "$N_REFS")
+            PATH_LINE=$(top3_line path "$N_PATHS")
 
-            build_repo_row "NAPLAN Cohort Tracker" "${STAR_COUNT} stars &middot; private" "$TODAY_VIEWS" "$TODAY_VIEWS_U" "$TODAY_CLONES" "$TODAY_CLONES_U" "$DOWNLOADS" "Last 14 days" "$TOTAL_VIEWS" "$TOTAL_UNIQUE" "$(trend_html "$THIS_WEEK" "$LAST_WEEK")"
+            META="${STAR_COUNT} stars &middot; ${FORK_COUNT} forks &middot; ${WATCH_COUNT} watching &middot; private"
+            SUMMARY="Last 7d: ${VIEWS_7D} views (${VIEWS_7D_U} unique) &middot; ${CLONES_7D} clones<br>Last 14 days: ${TOTAL_VIEWS} views (${TOTAL_UNIQUE} unique)"
+
+            build_repo_row "NAPLAN Cohort Tracker" "$META" "$YDAY_VIEWS" "$YDAY_VIEWS_U" "$YDAY_CLONES" "$YDAY_CLONES_U" "$DOWNLOADS" "all time" "$SUMMARY" "$(trend_html "$THIS_WEEK" "$LAST_WEEK")" "$REF_LINE" "$PATH_LINE"
           else
             echo "WARNING: could not fetch stats for ${NAPLAN_REPO} (token scope or network?)" >&2
             REPO_ROWS="${REPO_ROWS}

@@ -44,25 +44,36 @@ When adding a new public repo, update both files.
 ## Data Shapes
 
 ### traffic.json
-Each repo has: `views[]`, `clones[]`, `referrers[]`, `popular_paths[]`, `stars[]`
+Each repo has: `views[]`, `clones[]`, `referrers[]`, `popular_paths[]`, `stars[]`, `forks[]`, `watchers[]`, `star_events[]`
 - views/clones: `{date, total, unique}` — daily entries, sorted by date
-- referrers: `{date, sources: [{referrer, count, unique}]}` — daily snapshots of top 10
+- referrers: `{date, sources: [{referrer, count, unique}]}` — daily snapshots of top 10. NOTE: GitHub's referrers API returns the unique field as `uniques` (plural); the collector reads `.uniques` (a long-standing bug read `.unique`, recording 0 for every referrer — fixed; historical points stay 0).
 - popular_paths: `{date, paths: [{path, count, unique}]}` — daily snapshots of top 10
-- stars: `{date, count}` — daily star count
+- stars / forks / watchers: `{date, count}` — daily count. Watchers = the repo's `subscribers_count` (the real "Watch" count), NOT the API's legacy `watchers_count` (which aliases stars).
+- star_events: `[{date, login}]` — one row per stargazer (when they starred + who), deduped by login. Built from the `stargazers` endpoint with the `application/vnd.github.star+json` media type, which adds `starred_at`. This is true historical star timing (not just a daily count). Stargazers of a public repo are already public, so the login is not a leak.
 
 ### releases.json
-Each repo has: `releases[]` (current snapshot of all releases/assets), `history[]` (`{date, total_downloads}` — cumulative daily)
+Each repo has: `releases[]` (current snapshot of all releases/assets), `history[]` (`{date, total_downloads}` — cumulative daily), `asset_history[]` (`{date, assets: [{name, download_count}]}` — daily per-installer-asset snapshot, filtered by `INSTALLER_REGEX`, so you can see which installer/platform people choose over time)
 
 **Download counting (important).** `total_downloads` (and the NAPLAN email figure) counts only real **installer/package** assets — those matching `INSTALLER_REGEX` (job-level env in the workflow: `.dmg/.exe/.msi/.pkg/.appimage/.deb/.rpm/.zip`, case-insensitive). Auto-updater manifests (`latest.json`, `latest*.yml`), detached signatures (`.sig`), electron diff blockmaps (`.blockmap`) and Tauri/electron update bundles (`.tar.gz`) are **excluded** — they are fetched automatically by installed apps/CI and would otherwise inflate the count several-fold (e.g. a Tauri app with 8 assets reported 8× its real installs). `releases[]` still stores **all** assets (the dashboard's Release Assets table shows everything); only the aggregate total is filtered. The filter is defined once in `INSTALLER_REGEX` and used by both the public-repo collection and the NAPLAN email block. Caveat: `.zip` is assumed to be an app package, so a sample-data `.zip` attached to a release would be miscounted as an install. This filter applies **going forward only** — historical `history[]` points collected before the fix remain inflated and are not recomputed (per-asset history was never stored, so they can't be reconstructed without fabricating data). Expected one-time artefact: on the first run after the fix, the corrected (lower) total replaces the inflated one, so the dashboard's "since yesterday" download trend shows a transient negative delta for ~1–2 days (e.g. student-doc-redactor 159 → 134). This is the metric correction, not lost downloads.
 
 ## Dashboard Features
 
 - Repo selector (All / individual) and date range filter (7d / 30d / 90d / All)
-- 5 summary cards with trend indicators (views, unique visitors, clones, downloads, stars)
+- 7 summary cards with trend indicators (views, unique visitors, clones, downloads, stars, forks, watchers)
 - 3 charts (downloads, views, clones over time)
-- 3 tables (referrers, popular paths, release assets)
-- CSV export button (respects current filters)
+- 4 tables (referrers, popular paths, release assets, recent stars)
+- CSV export button (respects current filters; includes forks/watchers columns)
 - Dark mode, mobile responsive
+
+## Email Report
+
+The daily email (`build_repo_row` helper) shows per repo:
+- Meta line: stars · forks · watching (· private for NAPLAN)
+- 3 cards: **Views (yesterday)**, **Clones (yesterday)**, **Downloads** (all-time, with a coloured "▲ +N today" delta from the last two `history` points)
+- Summary line: **Last 7d** views/unique/clones + **All-time** (NAPLAN: "Last 14 days" instead of all-time)
+- Engagement line: **Top sources** + **Top pages** (top 3 each, from the latest referrer/path snapshot)
+
+**Why "yesterday", not "today":** GitHub buckets traffic by UTC midnight and lags by hours, so the current-UTC-day ("today") count reads ~0 and is misleading. Yesterday is the most recent *complete* day. The 7-day window uses `date >= WEEK_AGO`.
 
 ## Things to Watch Out For
 

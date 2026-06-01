@@ -2139,17 +2139,17 @@
           {
             "referrer": "whs.vic.edu.au",
             "count": 7,
-            "unique": 0
+            "unique": 5
           },
           {
             "referrer": "github.com",
             "count": 2,
-            "unique": 0
+            "unique": 2
           },
           {
             "referrer": "Google",
             "count": 1,
-            "unique": 0
+            "unique": 1
           }
         ]
       }
@@ -4651,6 +4651,24 @@
         "date": "2026-06-01",
         "count": 1
       }
+    ],
+    "forks": [
+      {
+        "date": "2026-06-01",
+        "count": 0
+      }
+    ],
+    "watchers": [
+      {
+        "date": "2026-06-01",
+        "count": 0
+      }
+    ],
+    "star_events": [
+      {
+        "date": "2026-03-20",
+        "login": "mrdavearms"
+      }
     ]
   },
   "student-doc-redactor": {
@@ -6363,17 +6381,17 @@
           {
             "referrer": "whs.vic.edu.au",
             "count": 16,
-            "unique": 0
+            "unique": 9
           },
           {
             "referrer": "github.com",
             "count": 10,
-            "unique": 0
+            "unique": 3
           },
           {
             "referrer": "doubao.com",
             "count": 3,
-            "unique": 0
+            "unique": 1
           }
         ]
       }
@@ -8924,6 +8942,32 @@
       {
         "date": "2026-06-01",
         "count": 3
+      }
+    ],
+    "forks": [
+      {
+        "date": "2026-06-01",
+        "count": 0
+      }
+    ],
+    "watchers": [
+      {
+        "date": "2026-06-01",
+        "count": 0
+      }
+    ],
+    "star_events": [
+      {
+        "date": "2026-03-20",
+        "login": "mrdavearms"
+      },
+      {
+        "date": "2026-04-01",
+        "login": "amosmills"
+      },
+      {
+        "date": "2026-05-29",
+        "login": "adricl"
       }
     ]
   }

@@ -13,7 +13,7 @@
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
-            "download_count": 0,
+            "download_count": 2,
             "size_bytes": 57805292
           }
         ]
@@ -683,6 +683,10 @@
       {
         "date": "2026-06-02",
         "total_downloads": 96
+      },
+      {
+        "date": "2026-06-03",
+        "total_downloads": 98
       }
     ],
     "asset_history": [
@@ -853,6 +857,163 @@
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 1
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 3
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 2
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 47
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 4
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 2
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 3
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 9
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 3
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 2
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 3
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 1
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 4
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 2
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 2
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "download_count": 3
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 2
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "download_count": 2
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.Mac.dmg",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 1
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.Mac.dmg",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Sample.Files.zip",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-06-03",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 2
           },
           {
             "name": "Bulk.PDF.Generator.exe",
@@ -1522,6 +1683,10 @@
       {
         "date": "2026-06-02",
         "total_downloads": 158
+      },
+      {
+        "date": "2026-06-03",
+        "total_downloads": 158
       }
     ],
     "asset_history": [
@@ -1580,6 +1745,59 @@
       },
       {
         "date": "2026-06-02",
+        "assets": [
+          {
+            "name": "Redaction-Tool-1.3.2-arm64.dmg",
+            "download_count": 3
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.3.2.exe",
+            "download_count": 5
+          },
+          {
+            "name": "Redaction-Tool-1.3.1-arm64.dmg",
+            "download_count": 0
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.3.1.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Redaction-Tool-1.3.0-arm64.dmg",
+            "download_count": 121
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.3.0.exe",
+            "download_count": 3
+          },
+          {
+            "name": "Redaction-Tool-1.2.0-arm64.dmg",
+            "download_count": 9
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.2.0.exe",
+            "download_count": 13
+          },
+          {
+            "name": "Redaction-Tool-1.1.0-arm64.dmg",
+            "download_count": 1
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.1.0.exe",
+            "download_count": 1
+          },
+          {
+            "name": "Redaction.Tool-1.0.0-arm64.dmg",
+            "download_count": 1
+          },
+          {
+            "name": "Redaction.Tool-0.1.0-arm64.dmg",
+            "download_count": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-06-03",
         "assets": [
           {
             "name": "Redaction-Tool-1.3.2-arm64.dmg",

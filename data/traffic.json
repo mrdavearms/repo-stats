@@ -455,6 +455,11 @@
         "date": "2026-06-02",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-06-03",
+        "total": 8,
+        "unique": 4
       }
     ],
     "clones": [
@@ -911,6 +916,11 @@
       {
         "date": "2026-06-02",
         "total": 2,
+        "unique": 2
+      },
+      {
+        "date": "2026-06-03",
+        "total": 3,
         "unique": 2
       }
     ],
@@ -2205,6 +2215,31 @@
             "referrer": "github.com",
             "count": 2,
             "unique": 2
+          },
+          {
+            "referrer": "Google",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-06-04",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 17,
+            "unique": 10
+          },
+          {
+            "referrer": "github.com",
+            "count": 4,
+            "unique": 4
+          },
+          {
+            "referrer": "mrdavearms.github.io",
+            "count": 2,
+            "unique": 1
           },
           {
             "referrer": "Google",
@@ -4474,6 +4509,61 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-06-04",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 24,
+            "unique": 17
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.12.2",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/discussions",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/projects",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/pull/16",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/pulls",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.11.1",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.12.1",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/tree/main",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/tree/main/samples",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -4788,6 +4878,10 @@
       {
         "date": "2026-06-03",
         "count": 1
+      },
+      {
+        "date": "2026-06-04",
+        "count": 1
       }
     ],
     "forks": [
@@ -4802,6 +4896,10 @@
       {
         "date": "2026-06-03",
         "count": 0
+      },
+      {
+        "date": "2026-06-04",
+        "count": 0
       }
     ],
     "watchers": [
@@ -4815,6 +4913,10 @@
       },
       {
         "date": "2026-06-03",
+        "count": 0
+      },
+      {
+        "date": "2026-06-04",
         "count": 0
       }
     ],
@@ -5281,6 +5383,11 @@
         "date": "2026-06-02",
         "total": 7,
         "unique": 4
+      },
+      {
+        "date": "2026-06-03",
+        "total": 2,
+        "unique": 2
       }
     ],
     "clones": [
@@ -5738,6 +5845,11 @@
         "date": "2026-06-02",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-06-03",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -6601,6 +6713,26 @@
             "referrer": "github.com",
             "count": 10,
             "unique": 3
+          },
+          {
+            "referrer": "doubao.com",
+            "count": 3,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-06-04",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 21,
+            "unique": 12
+          },
+          {
+            "referrer": "github.com",
+            "count": 11,
+            "unique": 4
           },
           {
             "referrer": "doubao.com",
@@ -8960,6 +9092,61 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-06-04",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 22,
+            "unique": 16
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 8,
+            "unique": 5
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/actions",
+            "count": 3,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/issues",
+            "count": 3,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/projects",
+            "count": 3,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/pulls",
+            "count": 2,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/tree/main/desktop",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/blob/main/docs/screenshots/screenshot-select-folder.png",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/pulse",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/security",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -9274,6 +9461,10 @@
       {
         "date": "2026-06-03",
         "count": 3
+      },
+      {
+        "date": "2026-06-04",
+        "count": 3
       }
     ],
     "forks": [
@@ -9288,6 +9479,10 @@
       {
         "date": "2026-06-03",
         "count": 0
+      },
+      {
+        "date": "2026-06-04",
+        "count": 0
       }
     ],
     "watchers": [
@@ -9301,6 +9496,10 @@
       },
       {
         "date": "2026-06-03",
+        "count": 0
+      },
+      {
+        "date": "2026-06-04",
         "count": 0
       }
     ],

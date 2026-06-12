@@ -9,7 +9,7 @@ A self-hosted GitHub Pages dashboard tracking traffic (views, clones, referrers,
 
 ## Architecture
 
-- **Single workflow** (`.github/workflows/collect-stats.yml`) — pure bash/curl/jq, no external Actions beyond `actions/checkout@v4`. Runs daily at 06:00 UTC via cron + manual `workflow_dispatch`.
+- **Single workflow** (`.github/workflows/collect-stats.yml`) — pure bash/curl/jq, no external Actions beyond `actions/checkout@v5`. Runs daily at 06:00 UTC via cron + manual `workflow_dispatch`.
 - **Two JSON data files** (`data/traffic.json`, `data/releases.json`) — the "database". The Action reads, merges, deduplicates, and commits them back. Git history is the backup.
 - **Single HTML dashboard** (`index.html`) — vanilla HTML/CSS/JS + Chart.js from CDN. No npm, no framework, no build.
 - **HTML email** — sent after each collection run via Gmail SMTP (curl). Dark themed with card layout.
@@ -81,6 +81,9 @@ The daily email (`build_repo_row` helper) shows per repo:
 - **Clone counts include your own git pulls/fetches.** The "unique" count is more meaningful for external interest.
 - **Don't put colons at the start of lines in workflow `run:` blocks** — YAML interprets them as mapping keys. Use `printf` instead.
 - **The workflow commits to `main` directly** (via the bot). If you're working on changes locally, pull before pushing to avoid conflicts.
+- **A stale local clone makes the data look "frozen" even when nothing is broken.** The bot pushes a new data commit every day, so a local checkout goes out of date fast. Before concluding the pipeline is dead because the latest date looks old, `git fetch` and compare `HEAD` vs `origin/main` — the live data lives on the remote, not your working copy. (This is the usual cause of a "my stats stopped updating / look wrong" scare.)
+- **Views/clones lag GitHub's API by ~1–2 days**, so the newest `views`/`clones` date is normally a couple of days behind today's `stars`/`forks`/`watchers` date (those are written with `$TODAY` every run). This is GitHub's traffic pipeline, not a collection bug.
+- **`actions/checkout` is pinned to `@v5`** (bumped from v4 on 2026-06-13, ahead of GitHub forcing Node 20 actions off after 2026-06-16). It's the only external Action; keep it current.
 - **GitHub Pages CDN caches** for 1-2 minutes after a push. Hard-refresh if the dashboard seems stale.
 - **A green workflow run ≠ a correct email.** The email step renders a warning row (not a failure) when a private-repo fetch (e.g. `naplan-cohort-tracker`) fails, so `success` can hide a broken/under-scoped token. Grep the email-step log for `could not fetch stats for` to confirm private fetches worked.
 

@@ -525,6 +525,11 @@
         "date": "2026-06-16",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-06-17",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -1052,6 +1057,11 @@
         "date": "2026-06-16",
         "total": 2,
         "unique": 2
+      },
+      {
+        "date": "2026-06-17",
+        "total": 35,
+        "unique": 10
       }
     ],
     "referrers": [
@@ -2675,6 +2685,16 @@
             "referrer": "mrdavearms.github.io",
             "count": 2,
             "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-06-18",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 10,
+            "unique": 4
           }
         ]
       }
@@ -5644,6 +5664,31 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-06-18",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 12,
+            "unique": 7
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.12.2",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/pull/16",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/tree/main/.github",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -6014,6 +6059,10 @@
       {
         "date": "2026-06-17",
         "count": 1
+      },
+      {
+        "date": "2026-06-18",
+        "count": 1
       }
     ],
     "forks": [
@@ -6084,6 +6133,10 @@
       {
         "date": "2026-06-17",
         "count": 0
+      },
+      {
+        "date": "2026-06-18",
+        "count": 0
       }
     ],
     "watchers": [
@@ -6153,6 +6206,10 @@
       },
       {
         "date": "2026-06-17",
+        "count": 0
+      },
+      {
+        "date": "2026-06-18",
         "count": 0
       }
     ],
@@ -6689,6 +6746,11 @@
         "date": "2026-06-16",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-06-17",
+        "total": 1,
+        "unique": 1
       }
     ],
     "clones": [
@@ -7216,6 +7278,11 @@
         "date": "2026-06-16",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-06-17",
+        "total": 9,
+        "unique": 3
       }
     ],
     "referrers": [
@@ -8339,6 +8406,16 @@
             "referrer": "github.com",
             "count": 1,
             "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-06-18",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 16,
+            "unique": 12
           }
         ]
       }
@@ -11288,6 +11365,26 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-06-18",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 16,
+            "unique": 12
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 9,
+            "unique": 6
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/tree/main/desktop",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -11658,6 +11755,10 @@
       {
         "date": "2026-06-17",
         "count": 3
+      },
+      {
+        "date": "2026-06-18",
+        "count": 3
       }
     ],
     "forks": [
@@ -11728,6 +11829,10 @@
       {
         "date": "2026-06-17",
         "count": 0
+      },
+      {
+        "date": "2026-06-18",
+        "count": 0
       }
     ],
     "watchers": [
@@ -11797,6 +11902,10 @@
       },
       {
         "date": "2026-06-17",
+        "count": 0
+      },
+      {
+        "date": "2026-06-18",
         "count": 0
       }
     ],

@@ -610,6 +610,11 @@
         "date": "2026-07-03",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-07-04",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -1222,6 +1227,11 @@
         "date": "2026-07-03",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-07-04",
+        "total": 2,
+        "unique": 2
       }
     ],
     "referrers": [
@@ -3010,6 +3020,21 @@
       },
       {
         "date": "2026-07-04",
+        "sources": [
+          {
+            "referrer": "Google",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-07-05",
         "sources": [
           {
             "referrer": "Google",
@@ -6304,6 +6329,21 @@
             "unique": 2
           }
         ]
+      },
+      {
+        "date": "2026-07-05",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 2,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.12.2",
+            "count": 2,
+            "unique": 2
+          }
+        ]
       }
     ],
     "stars": [
@@ -6742,6 +6782,10 @@
       {
         "date": "2026-07-04",
         "count": 1
+      },
+      {
+        "date": "2026-07-05",
+        "count": 1
       }
     ],
     "forks": [
@@ -6880,6 +6924,10 @@
       {
         "date": "2026-07-04",
         "count": 0
+      },
+      {
+        "date": "2026-07-05",
+        "count": 0
       }
     ],
     "watchers": [
@@ -7017,6 +7065,10 @@
       },
       {
         "date": "2026-07-04",
+        "count": 0
+      },
+      {
+        "date": "2026-07-05",
         "count": 0
       }
     ],
@@ -7638,6 +7690,11 @@
         "date": "2026-07-03",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-07-04",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -8250,6 +8307,11 @@
         "date": "2026-07-03",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-07-04",
+        "total": 1,
+        "unique": 1
       }
     ],
     "referrers": [
@@ -9538,6 +9600,16 @@
       },
       {
         "date": "2026-07-04",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 5,
+            "unique": 4
+          }
+        ]
+      },
+      {
+        "date": "2026-07-05",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -12797,6 +12869,26 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-07-05",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 4,
+            "unique": 4
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/blob/main/CLAUDE.md",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -13235,6 +13327,10 @@
       {
         "date": "2026-07-04",
         "count": 3
+      },
+      {
+        "date": "2026-07-05",
+        "count": 3
       }
     ],
     "forks": [
@@ -13373,6 +13469,10 @@
       {
         "date": "2026-07-04",
         "count": 0
+      },
+      {
+        "date": "2026-07-05",
+        "count": 0
       }
     ],
     "watchers": [
@@ -13510,6 +13610,10 @@
       },
       {
         "date": "2026-07-04",
+        "count": 0
+      },
+      {
+        "date": "2026-07-05",
         "count": 0
       }
     ],

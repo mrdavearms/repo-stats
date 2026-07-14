@@ -32,7 +32,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          REPOS=("mrdavearms/bulk-pdf-extractor-and-generator" "mrdavearms/student-doc-redactor")
+          REPOS=("mrdavearms/bulk-pdf-extractor-and-generator" "mrdavearms/student-doc-redactor" "mrdavearms/naplan-cohort-tracker")
           TODAY=$(date -u +%Y-%m-%d)
 
           TRAFFIC_FILE="data/traffic.json"
@@ -403,12 +403,12 @@ jobs:
           }
 
           # Public repos: read from the committed data/*.json files.
-          for REPO_NAME in "bulk-pdf-extractor-and-generator" "student-doc-redactor"; do
-            if [ "$REPO_NAME" = "bulk-pdf-extractor-and-generator" ]; then
-              LABEL="Bulk PDF Extractor"
-            else
-              LABEL="Student Doc Redactor"
-            fi
+          for REPO_NAME in "bulk-pdf-extractor-and-generator" "student-doc-redactor" "naplan-cohort-tracker"; do
+            case "$REPO_NAME" in
+              bulk-pdf-extractor-and-generator) LABEL="Bulk PDF Extractor" ;;
+              student-doc-redactor) LABEL="Student Doc Redactor" ;;
+              naplan-cohort-tracker) LABEL="NAPLAN Cohort Tracker" ;;
+            esac
 
             # Yesterday = last COMPLETE UTC day (today's bucket is partial + lags, so it
             # reads ~0 and is misleading; yesterday is the most recent reliable daily figure).
@@ -442,57 +442,6 @@ jobs:
 
             build_repo_row "$LABEL" "$META" "$YDAY_VIEWS" "$YDAY_VIEWS_U" "$YDAY_CLONES" "$YDAY_CLONES_U" "$DOWNLOADS" "$(dl_delta_html "$DL_DELTA")" "$SUMMARY" "$(trend_html "$THIS_WEEK" "$LAST_WEEK")" "$REF_LINE" "$PATH_LINE"
           done
-
-          # --- NAPLAN Cohort Tracker (private repo) ---
-          # Fetched fresh from the API at send time and NEVER persisted to the public
-          # data/*.json files, so its numbers stay private. View history is therefore
-          # limited to GitHub's rolling 14-day traffic window. If any fetch fails
-          # (e.g. the token lacks 'repo' scope) we emit a visible warning row rather
-          # than silently reporting zeros that look like a quiet traffic day.
-          NAPLAN_REPO="mrdavearms/naplan-cohort-tracker"
-          NAPLAN_OK=1
-          N_VIEWS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}/traffic/views") || NAPLAN_OK=0
-          N_CLONES=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}/traffic/clones") || NAPLAN_OK=0
-          N_RELEASES=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}/releases") || NAPLAN_OK=0
-          N_REPO=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}") || NAPLAN_OK=0
-          N_REFS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}/traffic/popular/referrers") || NAPLAN_OK=0
-          N_PATHS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "https://api.github.com/repos/${NAPLAN_REPO}/traffic/popular/paths") || NAPLAN_OK=0
-
-          if [ "$NAPLAN_OK" -eq 1 ]; then
-            YDAY_VIEWS=$(echo "$N_VIEWS" | jq -r --arg d "$YESTERDAY" '[.views[] | select((.timestamp|split("T")[0]) == $d) | .count] | add // 0')
-            YDAY_VIEWS_U=$(echo "$N_VIEWS" | jq -r --arg d "$YESTERDAY" '[.views[] | select((.timestamp|split("T")[0]) == $d) | .uniques] | add // 0')
-            YDAY_CLONES=$(echo "$N_CLONES" | jq -r --arg d "$YESTERDAY" '[.clones[] | select((.timestamp|split("T")[0]) == $d) | .count] | add // 0')
-            YDAY_CLONES_U=$(echo "$N_CLONES" | jq -r --arg d "$YESTERDAY" '[.clones[] | select((.timestamp|split("T")[0]) == $d) | .uniques] | add // 0')
-            VIEWS_7D=$(echo "$N_VIEWS" | jq -r --arg from "$WEEK_AGO" '[.views[] | select((.timestamp|split("T")[0]) >= $from) | .count] | add // 0')
-            VIEWS_7D_U=$(echo "$N_VIEWS" | jq -r --arg from "$WEEK_AGO" '[.views[] | select((.timestamp|split("T")[0]) >= $from) | .uniques] | add // 0')
-            CLONES_7D=$(echo "$N_CLONES" | jq -r --arg from "$WEEK_AGO" '[.clones[] | select((.timestamp|split("T")[0]) >= $from) | .count] | add // 0')
-            DOWNLOADS=$(echo "$N_RELEASES" | jq -r --arg re "$INSTALLER_REGEX" '[.[].assets[] | select((.name // "") | test($re; "i")) | .download_count] | add // 0')
-            TOTAL_VIEWS=$(echo "$N_VIEWS" | jq -r '.count // 0')
-            TOTAL_UNIQUE=$(echo "$N_VIEWS" | jq -r '.uniques // 0')
-            STAR_COUNT=$(echo "$N_REPO" | jq -r '.stargazers_count // 0')
-            FORK_COUNT=$(echo "$N_REPO" | jq -r '.forks_count // 0')
-            WATCH_COUNT=$(echo "$N_REPO" | jq -r '.subscribers_count // 0')
-            THIS_WEEK="$VIEWS_7D"
-            LAST_WEEK=$(echo "$N_VIEWS" | jq -r --arg from "$TWO_WEEKS_AGO" --arg to "$WEEK_AGO" '[.views[] | select((.timestamp|split("T")[0]) >= $from and (.timestamp|split("T")[0]) < $to) | .count] | add // 0')
-            REF_LINE=$(top3_line referrer "$N_REFS")
-            PATH_LINE=$(top3_line path "$N_PATHS")
-
-            META="${STAR_COUNT} stars &middot; ${FORK_COUNT} forks &middot; ${WATCH_COUNT} watching &middot; private"
-            SUMMARY="Last 7d: ${VIEWS_7D} views (${VIEWS_7D_U} unique) &middot; ${CLONES_7D} clones<br>Last 14 days: ${TOTAL_VIEWS} views (${TOTAL_UNIQUE} unique)"
-
-            build_repo_row "NAPLAN Cohort Tracker" "$META" "$YDAY_VIEWS" "$YDAY_VIEWS_U" "$YDAY_CLONES" "$YDAY_CLONES_U" "$DOWNLOADS" "all time" "$SUMMARY" "$(trend_html "$THIS_WEEK" "$LAST_WEEK")" "$REF_LINE" "$PATH_LINE"
-          else
-            echo "WARNING: could not fetch stats for ${NAPLAN_REPO} (token scope or network?)" >&2
-            REPO_ROWS="${REPO_ROWS}
-            <tr><td colspan=\"3\" style=\"padding:16px 0 8px 0;border-bottom:none;\">
-              <strong style=\"font-size:16px;color:#e6edf3;\">NAPLAN Cohort Tracker</strong>
-              <span style=\"color:#8b949e;font-size:13px;margin-left:8px;\">private</span>
-            </td></tr>
-            <tr><td colspan=\"3\" style=\"padding:12px 14px;background:#bb800922;border:1px solid #bb8009;border-radius:6px;color:#d29922;font-size:13px;\">
-              &#9888; Couldn't fetch stats. Check that <strong>GH_STATS_TOKEN</strong> has full <strong>repo</strong> scope (required to read private repos).
-            </td></tr>
-            <tr><td colspan=\"3\" style=\"padding:4px;border-bottom:none;\"></td></tr>"
-          fi
 
           # Token warning banner
           TOKEN_BANNER=""

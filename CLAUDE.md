@@ -2,7 +2,7 @@
 
 ## What This Is
 
-A self-hosted GitHub Pages dashboard tracking traffic (views, clones, referrers, paths), release downloads, and star counts for two public repos. No backend, no database, no build step. A third repo (`naplan-cohort-tracker`, private) is **email-only**: its stats are fetched fresh during the email step and never written to the public `data/*.json` files or the dashboard, so they stay private. The PAT needs `repo` scope to read private-repo traffic.
+A self-hosted GitHub Pages dashboard tracking traffic (views, clones, referrers, paths), release downloads, and star counts for three public repos (`bulk-pdf-extractor-and-generator`, `student-doc-redactor`, `naplan-cohort-tracker`). No backend, no database, no build step. The PAT still needs `repo` scope — GitHub's traffic API requires it even for public repos. (Historical note: `naplan-cohort-tracker` used to be a private, email-only repo handled by a dedicated block that fetched fresh at send time and never persisted; it went public and was promoted to a normal tracked repo on 2026-07-14, so it now persists history and appears on the dashboard like the others.)
 
 **Live:** https://mrdavearms.github.io/repo-stats/
 **Repo:** https://github.com/mrdavearms/repo-stats
@@ -39,7 +39,7 @@ The workflow checks token expiry via the `github-authentication-token-expiration
 
 When adding a new public repo, update both files.
 
-**Private / email-only repos** (e.g. `naplan-cohort-tracker`) are handled differently to keep them off the public dashboard and out of git: they are NOT in the `REPOS` array or the dashboard. Instead, a dedicated block in the "Send daily email summary" step fetches their stats fresh from the API at send time and appends an email row (built with the shared `build_repo_row` helper). Nothing is persisted. View history for these is limited to GitHub's rolling 14-day traffic window (the email labels their summary line "Last 14 days" rather than "All-time"). The email step needs `GH_TOKEN` in its `env:` for this. If a fetch fails (e.g. token lacks `repo` scope), the email shows a visible warning row instead of silently reporting zeros.
+**Private / email-only repos:** there are currently none. This project previously supported an email-only mode (used for `naplan-cohort-tracker` while it was private) via a dedicated block in the "Send daily email summary" step that fetched stats fresh at send time and persisted nothing, keeping the repo off the public dashboard and out of git. That block was removed on 2026-07-14 when NAPLAN went public and was promoted to a normal tracked repo. If a genuinely private repo needs email-only tracking again, restore that pattern (fetch fresh at send time, build the row with `build_repo_row`, persist nothing) rather than adding it to the `REPOS` array — see git history for the original implementation.
 
 ## Data Shapes
 
@@ -68,9 +68,9 @@ Each repo has: `releases[]` (current snapshot of all releases/assets), `history[
 ## Email Report
 
 The daily email (`build_repo_row` helper) shows per repo:
-- Meta line: stars · forks · watching (· private for NAPLAN)
+- Meta line: stars · forks · watching
 - 3 cards: **Views (yesterday)**, **Clones (yesterday)**, **Downloads** (all-time, with a coloured "▲ +N today" delta from the last two `history` points)
-- Summary line: **Last 7d** views/unique/clones + **All-time** (NAPLAN: "Last 14 days" instead of all-time)
+- Summary line: **Last 7d** views/unique/clones + **All-time**
 - Engagement line: **Top sources** + **Top pages** (top 3 each, from the latest referrer/path snapshot)
 
 **Why "yesterday", not "today":** GitHub buckets traffic by UTC midnight and lags by hours, so the current-UTC-day ("today") count reads ~0 and is misleading. Yesterday is the most recent *complete* day. The 7-day window uses `date >= WEEK_AGO`.
@@ -85,7 +85,6 @@ The daily email (`build_repo_row` helper) shows per repo:
 - **Views/clones lag GitHub's API by ~1–2 days**, so the newest `views`/`clones` date is normally a couple of days behind today's `stars`/`forks`/`watchers` date (those are written with `$TODAY` every run). This is GitHub's traffic pipeline, not a collection bug.
 - **`actions/checkout` is pinned to `@v5`** (bumped from v4 on 2026-06-13, ahead of GitHub forcing Node 20 actions off after 2026-06-16). It's the only external Action; keep it current.
 - **GitHub Pages CDN caches** for 1-2 minutes after a push. Hard-refresh if the dashboard seems stale.
-- **A green workflow run ≠ a correct email.** The email step renders a warning row (not a failure) when a private-repo fetch (e.g. `naplan-cohort-tracker`) fails, so `success` can hide a broken/under-scoped token. Grep the email-step log for `could not fetch stats for` to confirm private fetches worked.
 
 ## Common Tasks
 

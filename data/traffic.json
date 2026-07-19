@@ -680,6 +680,11 @@
         "date": "2026-07-17",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-07-18",
+        "total": 2,
+        "unique": 1
       }
     ],
     "clones": [
@@ -1361,6 +1366,11 @@
       {
         "date": "2026-07-17",
         "total": 75,
+        "unique": 2
+      },
+      {
+        "date": "2026-07-18",
+        "total": 3,
         "unique": 2
       }
     ],
@@ -3385,6 +3395,26 @@
             "referrer": "Google",
             "count": 3,
             "unique": 1
+          },
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-07-19",
+        "sources": [
+          {
+            "referrer": "Google",
+            "count": 5,
+            "unique": 2
+          },
+          {
+            "referrer": "github.com",
+            "count": 3,
+            "unique": 2
           },
           {
             "referrer": "whs.vic.edu.au",
@@ -6929,6 +6959,41 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-07-19",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 11,
+            "unique": 7
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/fork",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/blob/main/preview_renderer.py",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/blob/main/samples/Sample Files.zip",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.13",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.14",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -7423,6 +7488,10 @@
       {
         "date": "2026-07-18",
         "count": 2
+      },
+      {
+        "date": "2026-07-19",
+        "count": 2
       }
     ],
     "forks": [
@@ -7617,6 +7686,10 @@
       {
         "date": "2026-07-18",
         "count": 1
+      },
+      {
+        "date": "2026-07-19",
+        "count": 1
       }
     ],
     "watchers": [
@@ -7810,6 +7883,10 @@
       },
       {
         "date": "2026-07-18",
+        "count": 0
+      },
+      {
+        "date": "2026-07-19",
         "count": 0
       }
     ],
@@ -8505,6 +8582,11 @@
         "date": "2026-07-17",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-07-18",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -9187,6 +9269,11 @@
         "date": "2026-07-17",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-07-18",
+        "total": 30,
+        "unique": 4
       }
     ],
     "referrers": [
@@ -10675,6 +10762,26 @@
       },
       {
         "date": "2026-07-18",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 9,
+            "unique": 5
+          },
+          {
+            "referrer": "github.com",
+            "count": 5,
+            "unique": 1
+          },
+          {
+            "referrer": "chatgpt.com",
+            "count": 2,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-07-19",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -14204,6 +14311,26 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-07-19",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 13,
+            "unique": 6
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/upload/main",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/new/main",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -14698,6 +14825,10 @@
       {
         "date": "2026-07-18",
         "count": 3
+      },
+      {
+        "date": "2026-07-19",
+        "count": 3
       }
     ],
     "forks": [
@@ -14892,6 +15023,10 @@
       {
         "date": "2026-07-18",
         "count": 1
+      },
+      {
+        "date": "2026-07-19",
+        "count": 1
       }
     ],
     "watchers": [
@@ -15085,6 +15220,10 @@
       },
       {
         "date": "2026-07-18",
+        "count": 0
+      },
+      {
+        "date": "2026-07-19",
         "count": 0
       }
     ],
@@ -15199,6 +15338,11 @@
         "date": "2026-07-17",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-07-18",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -15296,6 +15440,11 @@
         "date": "2026-07-17",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-07-18",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -15341,6 +15490,16 @@
       },
       {
         "date": "2026-07-18",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 5,
+            "unique": 3
+          }
+        ]
+      },
+      {
+        "date": "2026-07-19",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -15400,6 +15559,16 @@
             "unique": 3
           }
         ]
+      },
+      {
+        "date": "2026-07-19",
+        "paths": [
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker",
+            "count": 5,
+            "unique": 3
+          }
+        ]
       }
     ],
     "stars": [
@@ -15421,6 +15590,10 @@
       },
       {
         "date": "2026-07-18",
+        "count": 0
+      },
+      {
+        "date": "2026-07-19",
         "count": 0
       }
     ],
@@ -15444,6 +15617,10 @@
       {
         "date": "2026-07-18",
         "count": 0
+      },
+      {
+        "date": "2026-07-19",
+        "count": 0
       }
     ],
     "watchers": [
@@ -15465,6 +15642,10 @@
       },
       {
         "date": "2026-07-18",
+        "count": 0
+      },
+      {
+        "date": "2026-07-19",
         "count": 0
       }
     ],

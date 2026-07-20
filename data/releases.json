@@ -12590,5 +12590,406 @@
         "assets": []
       }
     ]
+  },
+  "naplan-cohort-tracker-releases": {
+    "releases": [
+      {
+        "tag": "v1.3.0",
+        "name": "NAPLAN Cohort Tracker v1.3.0",
+        "published_at": "2026-07-19T21:46:30Z",
+        "assets": [
+          {
+            "name": "latest.json",
+            "download_count": 2,
+            "size_bytes": 4782
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_universal.dmg",
+            "download_count": 1,
+            "size_bytes": 15899963
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_x64-setup.exe",
+            "download_count": 1,
+            "size_bytes": 6383002
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_x64-setup.exe.sig",
+            "download_count": 0,
+            "size_bytes": 436
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_x64_en-US.msi",
+            "download_count": 1,
+            "size_bytes": 7761920
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_x64_en-US.msi.sig",
+            "download_count": 0,
+            "size_bytes": 436
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz",
+            "download_count": 1,
+            "size_bytes": 15928554
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz.sig",
+            "download_count": 0,
+            "size_bytes": 424
+          },
+          {
+            "name": "NOTES.md",
+            "download_count": 0,
+            "size_bytes": 2238
+          }
+        ]
+      },
+      {
+        "tag": "v1.2.1",
+        "name": "NAPLAN Cohort Tracker v1.2.1",
+        "published_at": "2026-06-17T02:15:58Z",
+        "assets": [
+          {
+            "name": "latest.json",
+            "download_count": 39,
+            "size_bytes": 4782
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_universal.dmg",
+            "download_count": 3,
+            "size_bytes": 16289059
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_x64-setup.exe",
+            "download_count": 23,
+            "size_bytes": 6397183
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_x64-setup.exe.sig",
+            "download_count": 0,
+            "size_bytes": 436
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_x64_en-US.msi",
+            "download_count": 1,
+            "size_bytes": 7802880
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_x64_en-US.msi.sig",
+            "download_count": 0,
+            "size_bytes": 436
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz",
+            "download_count": 1,
+            "size_bytes": 16309225
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz.sig",
+            "download_count": 0,
+            "size_bytes": 424
+          },
+          {
+            "name": "NOTES.md",
+            "download_count": 0,
+            "size_bytes": 1832
+          }
+        ]
+      },
+      {
+        "tag": "v1.2.0",
+        "name": "NAPLAN Cohort Tracker v1.2.0",
+        "published_at": "2026-06-13T08:19:07Z",
+        "assets": [
+          {
+            "name": "latest.json",
+            "download_count": 8,
+            "size_bytes": 4782
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_universal.dmg",
+            "download_count": 0,
+            "size_bytes": 16288429
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_x64-setup.exe",
+            "download_count": 6,
+            "size_bytes": 6395957
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_x64-setup.exe.sig",
+            "download_count": 0,
+            "size_bytes": 436
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_x64_en-US.msi",
+            "download_count": 0,
+            "size_bytes": 7802880
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_x64_en-US.msi.sig",
+            "download_count": 0,
+            "size_bytes": 436
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz",
+            "download_count": 0,
+            "size_bytes": 16311960
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz.sig",
+            "download_count": 0,
+            "size_bytes": 424
+          },
+          {
+            "name": "NOTES.md",
+            "download_count": 0,
+            "size_bytes": 2246
+          }
+        ]
+      },
+      {
+        "tag": "v1.1.1",
+        "name": "NAPLAN Cohort Tracker v1.1.1",
+        "published_at": "2026-05-31T00:06:14Z",
+        "assets": [
+          {
+            "name": "latest.json",
+            "download_count": 30,
+            "size_bytes": 4782
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_universal.dmg",
+            "download_count": 2,
+            "size_bytes": 16288364
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_x64-setup.exe",
+            "download_count": 25,
+            "size_bytes": 6393196
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_x64-setup.exe.sig",
+            "download_count": 0,
+            "size_bytes": 436
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_x64_en-US.msi",
+            "download_count": 0,
+            "size_bytes": 7802880
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_x64_en-US.msi.sig",
+            "download_count": 0,
+            "size_bytes": 436
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz",
+            "download_count": 1,
+            "size_bytes": 16311203
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz.sig",
+            "download_count": 0,
+            "size_bytes": 424
+          },
+          {
+            "name": "NOTES.md",
+            "download_count": 0,
+            "size_bytes": 1538
+          }
+        ]
+      },
+      {
+        "tag": "v1.1.0",
+        "name": "NAPLAN Cohort Tracker v1.1.0",
+        "published_at": "2026-05-30T23:14:09Z",
+        "assets": [
+          {
+            "name": "latest.json",
+            "download_count": 2,
+            "size_bytes": 4782
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_universal.dmg",
+            "download_count": 2,
+            "size_bytes": 16286050
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_x64-setup.exe",
+            "download_count": 3,
+            "size_bytes": 6392705
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_x64-setup.exe.sig",
+            "download_count": 0,
+            "size_bytes": 436
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_x64_en-US.msi",
+            "download_count": 2,
+            "size_bytes": 7802880
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_x64_en-US.msi.sig",
+            "download_count": 0,
+            "size_bytes": 436
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz",
+            "download_count": 3,
+            "size_bytes": 16309161
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz.sig",
+            "download_count": 0,
+            "size_bytes": 424
+          },
+          {
+            "name": "NOTES.md",
+            "download_count": 2,
+            "size_bytes": 1538
+          }
+        ]
+      },
+      {
+        "tag": "v1.0.1",
+        "name": "NAPLAN Cohort Tracker v1.0.1",
+        "published_at": "2026-05-29T10:16:11Z",
+        "assets": [
+          {
+            "name": "latest.json",
+            "download_count": 5,
+            "size_bytes": 4782
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_universal.dmg",
+            "download_count": 0,
+            "size_bytes": 16279052
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_x64-setup.exe",
+            "download_count": 2,
+            "size_bytes": 6389045
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_x64-setup.exe.sig",
+            "download_count": 0,
+            "size_bytes": 436
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_x64_en-US.msi",
+            "download_count": 0,
+            "size_bytes": 7802880
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_x64_en-US.msi.sig",
+            "download_count": 0,
+            "size_bytes": 436
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz",
+            "download_count": 1,
+            "size_bytes": 16303301
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz.sig",
+            "download_count": 0,
+            "size_bytes": 424
+          },
+          {
+            "name": "NOTES.md",
+            "download_count": 0,
+            "size_bytes": 1538
+          }
+        ]
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-07-20",
+        "total_downloads": 72
+      }
+    ],
+    "asset_history": [
+      {
+        "date": "2026-07-20",
+        "assets": [
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_universal.dmg",
+            "download_count": 1
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_x64-setup.exe",
+            "download_count": 1
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_x64_en-US.msi",
+            "download_count": 1
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_universal.dmg",
+            "download_count": 3
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_x64-setup.exe",
+            "download_count": 23
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_x64_en-US.msi",
+            "download_count": 1
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_universal.dmg",
+            "download_count": 0
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_x64-setup.exe",
+            "download_count": 6
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_x64_en-US.msi",
+            "download_count": 0
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_universal.dmg",
+            "download_count": 2
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_x64-setup.exe",
+            "download_count": 25
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_x64_en-US.msi",
+            "download_count": 0
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_universal.dmg",
+            "download_count": 2
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_x64-setup.exe",
+            "download_count": 3
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_x64_en-US.msi",
+            "download_count": 2
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_universal.dmg",
+            "download_count": 0
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_x64-setup.exe",
+            "download_count": 2
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_x64_en-US.msi",
+            "download_count": 0
+          }
+        ]
+      }
+    ]
   }
 }

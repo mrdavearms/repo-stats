@@ -10869,7 +10869,23 @@
       },
       {
         "date": "2026-07-20",
-        "sources": []
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 9,
+            "unique": 5
+          },
+          {
+            "referrer": "github.com",
+            "count": 5,
+            "unique": 1
+          },
+          {
+            "referrer": "chatgpt.com",
+            "count": 2,
+            "unique": 1
+          }
+        ]
       }
     ],
     "popular_paths": [
@@ -14405,7 +14421,23 @@
       },
       {
         "date": "2026-07-20",
-        "paths": []
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 13,
+            "unique": 6
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/upload/main",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/new/main",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -15843,11 +15875,93 @@
         "unique": 0
       }
     ],
-    "clones": [],
+    "clones": [
+      {
+        "date": "2026-07-05",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-06",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-07",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-08",
+        "total": 1,
+        "unique": 1
+      },
+      {
+        "date": "2026-07-09",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-10",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-11",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-12",
+        "total": 2,
+        "unique": 2
+      },
+      {
+        "date": "2026-07-13",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-14",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-15",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-16",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-17",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-18",
+        "total": 0,
+        "unique": 0
+      }
+    ],
     "referrers": [
       {
         "date": "2026-07-20",
-        "sources": []
+        "sources": [
+          {
+            "referrer": "Bing",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "referrer": "github.com",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "popular_paths": [

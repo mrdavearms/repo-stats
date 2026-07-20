@@ -42,6 +42,30 @@ jobs:
           TRAFFIC_FILE="data/traffic.json"
           RELEASES_FILE="data/releases.json"
 
+          # Fetch a GitHub API URL, retrying transient failures (5xx / network) with
+          # backoff. Echoes the response body and returns 0 on success; returns 1 if
+          # every attempt fails.
+          #
+          # Callers MUST check the return code and skip writing that day's data point
+          # rather than substituting an empty body. A silent `|| echo '[]'` fallback
+          # records a transient GitHub outage as a genuine ZERO — that is how a real
+          # outage on 2026-07-20 wrote "0 downloads" over the true figure. Absence of
+          # data is not zero: skipping leaves the previous point intact and the next
+          # run fills the gap.
+          gh_fetch() {
+            local url="$1" accept="${2:-application/vnd.github+json}" body attempt
+            for attempt in 1 2 3 4 5; do
+              if body=$(curl -sf --max-time 30 \
+                    -H "Authorization: Bearer $GH_TOKEN" \
+                    -H "Accept: $accept" "$url"); then
+                printf '%s' "$body"
+                return 0
+              fi
+              [ "$attempt" -lt 5 ] && sleep $(( attempt * 4 ))
+            done
+            return 1
+          }
+
           # Initialize files if empty or missing
           if [ ! -s "$TRAFFIC_FILE" ]; then
             echo '{}' > "$TRAFFIC_FILE"
@@ -54,38 +78,43 @@ jobs:
             REPO_NAME=$(echo "$FULL_REPO" | cut -d'/' -f2)
             echo "=== Collecting data for $REPO_NAME ==="
 
+            # Per-repo fetch status. Anything that fails after retries leaves its
+            # *_OK flag at 0, and the corresponding write below is skipped so a
+            # transient outage never overwrites a real figure with a zero.
+            REPO_FETCH_FAILED=0
+
             # --- Traffic: Views ---
             echo "  Fetching views..."
-            VIEWS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${FULL_REPO}/traffic/views" || echo '{"views":[]}')
+            VIEWS_OK=1
+            VIEWS=$(gh_fetch "https://api.github.com/repos/${FULL_REPO}/traffic/views") \
+              || { VIEWS_OK=0; REPO_FETCH_FAILED=1; VIEWS='{"views":[]}'; echo "    WARNING: views fetch failed"; }
 
             # --- Traffic: Clones ---
             echo "  Fetching clones..."
-            CLONES=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${FULL_REPO}/traffic/clones" || echo '{"clones":[]}')
+            CLONES_OK=1
+            CLONES=$(gh_fetch "https://api.github.com/repos/${FULL_REPO}/traffic/clones") \
+              || { CLONES_OK=0; REPO_FETCH_FAILED=1; CLONES='{"clones":[]}'; echo "    WARNING: clones fetch failed"; }
 
             # --- Traffic: Referrers ---
             echo "  Fetching referrers..."
-            REFERRERS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${FULL_REPO}/traffic/popular/referrers" || echo '[]')
+            REFS_OK=1
+            REFERRERS=$(gh_fetch "https://api.github.com/repos/${FULL_REPO}/traffic/popular/referrers") \
+              || { REFS_OK=0; REPO_FETCH_FAILED=1; REFERRERS='[]'; echo "    WARNING: referrers fetch failed"; }
 
             # --- Traffic: Popular Paths ---
             echo "  Fetching popular paths..."
-            PATHS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${FULL_REPO}/traffic/popular/paths" || echo '[]')
+            PATHS_OK=1
+            PATHS=$(gh_fetch "https://api.github.com/repos/${FULL_REPO}/traffic/popular/paths") \
+              || { PATHS_OK=0; REPO_FETCH_FAILED=1; PATHS='[]'; echo "    WARNING: paths fetch failed"; }
 
             # --- Repo meta: stars, forks, watchers (subscribers) ---
             # One call to the repo object gives all three engagement counters.
             # NOTE: the API's "watchers_count" is a legacy alias of stars; the real
             # "Watch" count is "subscribers_count".
             echo "  Fetching repo meta (stars/forks/watchers)..."
-            REPO_JSON=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${FULL_REPO}" || echo '{}')
+            META_OK=1
+            REPO_JSON=$(gh_fetch "https://api.github.com/repos/${FULL_REPO}") \
+              || { META_OK=0; REPO_FETCH_FAILED=1; REPO_JSON='{}'; echo "    WARNING: repo meta fetch failed"; }
             STARS=$(echo "$REPO_JSON" | jq '.stargazers_count // 0')
             FORKS=$(echo "$REPO_JSON" | jq '.forks_count // 0')
             WATCHERS=$(echo "$REPO_JSON" | jq '.subscribers_count // 0')
@@ -94,9 +123,9 @@ jobs:
             # The star+json media type adds a "starred_at" timestamp per stargazer.
             # One page of 100 is plenty for these low-star repos.
             echo "  Fetching stargazers (with timestamps)..."
-            STARGAZERS=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
-              -H "Accept: application/vnd.github.star+json" \
-              "https://api.github.com/repos/${FULL_REPO}/stargazers?per_page=100" || echo '[]')
+            STARGAZERS=$(gh_fetch "https://api.github.com/repos/${FULL_REPO}/stargazers?per_page=100" \
+                  "application/vnd.github.star+json") \
+              || { REPO_FETCH_FAILED=1; STARGAZERS='[]'; echo "    WARNING: stargazers fetch failed"; }
 
             # --- Merge views into traffic.json ---
             EXISTING=$(cat "$TRAFFIC_FILE")
@@ -139,50 +168,59 @@ jobs:
               )
             ')
 
-            # Store today's referrer snapshot (replace if same date)
-            EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson refs "$REFERRERS" '
-              .[$repo].referrers = (
-                [(.[$repo].referrers // [] | .[] | select(.date != $today)),
-                 {date: $today, sources: ($refs | map({referrer, count: (.count // 0), unique: (.uniques // 0)}))}]
-                | sort_by(.date)
-              )
-            ')
+            # Store today's referrer snapshot (replace if same date).
+            # Skipped on fetch failure: writing an empty snapshot would erase a real
+            # one already collected today and report "no sources" on the dashboard.
+            if [ "$REFS_OK" -eq 1 ]; then
+              EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson refs "$REFERRERS" '
+                .[$repo].referrers = (
+                  [(.[$repo].referrers // [] | .[] | select(.date != $today)),
+                   {date: $today, sources: ($refs | map({referrer, count: (.count // 0), unique: (.uniques // 0)}))}]
+                  | sort_by(.date)
+                )
+              ')
+            fi
 
             # Store today's popular paths snapshot (replace if same date)
-            EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson paths "$PATHS" '
-              .[$repo].popular_paths = (
-                [(.[$repo].popular_paths // [] | .[] | select(.date != $today)),
-                 {date: $today, paths: ($paths | map({path, count: .count, unique: .uniques}))}]
-                | sort_by(.date)
-              )
-            ')
+            if [ "$PATHS_OK" -eq 1 ]; then
+              EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson paths "$PATHS" '
+                .[$repo].popular_paths = (
+                  [(.[$repo].popular_paths // [] | .[] | select(.date != $today)),
+                   {date: $today, paths: ($paths | map({path, count: .count, unique: .uniques}))}]
+                  | sort_by(.date)
+                )
+              ')
+            fi
 
-            # Store today's star count (replace if same date)
-            EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson stars "$STARS" '
-              .[$repo].stars = (
-                [(.[$repo].stars // [] | .[] | select(.date != $today)),
-                 {date: $today, count: $stars}]
-                | sort_by(.date)
-              )
-            ')
+            # Store today's star / fork / watcher counts (replace if same date).
+            # All three come from the one repo-meta call, so they share META_OK.
+            # On failure we skip rather than record 0 — a zero here would look like
+            # everyone unstarred the repo overnight.
+            if [ "$META_OK" -eq 1 ]; then
+              EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson stars "$STARS" '
+                .[$repo].stars = (
+                  [(.[$repo].stars // [] | .[] | select(.date != $today)),
+                   {date: $today, count: $stars}]
+                  | sort_by(.date)
+                )
+              ')
 
-            # Store today's fork count (replace if same date)
-            EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson forks "$FORKS" '
-              .[$repo].forks = (
-                [(.[$repo].forks // [] | .[] | select(.date != $today)),
-                 {date: $today, count: $forks}]
-                | sort_by(.date)
-              )
-            ')
+              EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson forks "$FORKS" '
+                .[$repo].forks = (
+                  [(.[$repo].forks // [] | .[] | select(.date != $today)),
+                   {date: $today, count: $forks}]
+                  | sort_by(.date)
+                )
+              ')
 
-            # Store today's watcher (subscriber) count (replace if same date)
-            EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson watchers "$WATCHERS" '
-              .[$repo].watchers = (
-                [(.[$repo].watchers // [] | .[] | select(.date != $today)),
-                 {date: $today, count: $watchers}]
-                | sort_by(.date)
-              )
-            ')
+              EXISTING=$(echo "$EXISTING" | jq --arg repo "$REPO_NAME" --arg today "$TODAY" --argjson watchers "$WATCHERS" '
+                .[$repo].watchers = (
+                  [(.[$repo].watchers // [] | .[] | select(.date != $today)),
+                   {date: $today, count: $watchers}]
+                  | sort_by(.date)
+                )
+              ')
+            fi
 
             # Merge star events (one row per stargazer: when they starred + who).
             # Dedup by login (keep latest seen), so re-runs never duplicate. Stargazers
@@ -203,9 +241,9 @@ jobs:
 
             # --- Releases ---
             echo "  Fetching releases..."
-            RELEASES=$(curl -sf -H "Authorization: Bearer $GH_TOKEN" \
-              -H "Accept: application/vnd.github+json" \
-              "https://api.github.com/repos/${FULL_REPO}/releases" || echo '[]')
+            RELEASES_OK=1
+            RELEASES=$(gh_fetch "https://api.github.com/repos/${FULL_REPO}/releases") \
+              || { RELEASES_OK=0; REPO_FETCH_FAILED=1; RELEASES='[]'; echo "    WARNING: releases fetch failed"; }
 
             EXISTING_REL=$(cat "$RELEASES_FILE")
             if ! echo "$EXISTING_REL" | jq -e --arg repo "$REPO_NAME" '.[$repo]' > /dev/null 2>&1; then
@@ -232,29 +270,41 @@ jobs:
             # Calculate total downloads across all releases
             TOTAL_DL=$(echo "$RELEASE_DATA" | jq --arg re "$INSTALLER_REGEX" '[.[].assets[] | select((.name // "") | test($re; "i")) | .download_count] | add // 0')
 
-            # Update releases and history
-            EXISTING_REL=$(echo "$EXISTING_REL" | jq \
-              --arg repo "$REPO_NAME" \
-              --argjson rel "$RELEASE_DATA" \
-              --argjson total "$TOTAL_DL" \
-              --arg re "$INSTALLER_REGEX" \
-              --arg today "$TODAY" '
-              .[$repo].releases = $rel |
-              .[$repo].history = (
-                [(.[$repo].history // [] | .[] | select(.date != $today)),
-                 {date: $today, total_downloads: $total}]
-                | sort_by(.date)
-              ) |
-              .[$repo].asset_history = (
-                [(.[$repo].asset_history // [] | .[] | select(.date != $today)),
-                 {date: $today, assets: [$rel[].assets[]
-                    | select((.name // "") | test($re; "i"))
-                    | {name, download_count}]}]
-                | sort_by(.date)
-              )
-            ')
+            # Update releases and history.
+            # Skipped entirely when the releases fetch failed: download_count is a
+            # cumulative all-time counter, so writing 0 from an empty response both
+            # destroys today's true figure and shows a large negative delta in the
+            # email. Leaving the point unwritten is always the safer failure mode.
+            if [ "$RELEASES_OK" -eq 1 ]; then
+              EXISTING_REL=$(echo "$EXISTING_REL" | jq \
+                --arg repo "$REPO_NAME" \
+                --argjson rel "$RELEASE_DATA" \
+                --argjson total "$TOTAL_DL" \
+                --arg re "$INSTALLER_REGEX" \
+                --arg today "$TODAY" '
+                .[$repo].releases = $rel |
+                .[$repo].history = (
+                  [(.[$repo].history // [] | .[] | select(.date != $today)),
+                   {date: $today, total_downloads: $total}]
+                  | sort_by(.date)
+                ) |
+                .[$repo].asset_history = (
+                  [(.[$repo].asset_history // [] | .[] | select(.date != $today)),
+                   {date: $today, assets: [$rel[].assets[]
+                      | select((.name // "") | test($re; "i"))
+                      | {name, download_count}]}]
+                  | sort_by(.date)
+                )
+              ')
 
-            echo "$EXISTING_REL" > "$RELEASES_FILE"
+              echo "$EXISTING_REL" > "$RELEASES_FILE"
+            else
+              echo "    SKIPPED release history write (fetch failed; previous data kept)"
+            fi
+
+            if [ "$REPO_FETCH_FAILED" -eq 1 ]; then
+              echo "  NOTE: $REPO_NAME had at least one failed fetch; affected data points were skipped, not zeroed."
+            fi
 
             echo "  Done with $REPO_NAME"
           done

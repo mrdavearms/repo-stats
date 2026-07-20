@@ -12600,7 +12600,7 @@
         "assets": [
           {
             "name": "latest.json",
-            "download_count": 2,
+            "download_count": 5,
             "size_bytes": 4782
           },
           {
@@ -12610,7 +12610,7 @@
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.3.0_x64-setup.exe",
-            "download_count": 1,
+            "download_count": 2,
             "size_bytes": 6383002
           },
           {
@@ -12630,7 +12630,7 @@
           },
           {
             "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz",
-            "download_count": 1,
+            "download_count": 2,
             "size_bytes": 15928554
           },
           {
@@ -12909,7 +12909,7 @@
     "history": [
       {
         "date": "2026-07-20",
-        "total_downloads": 72
+        "total_downloads": 73
       }
     ],
     "asset_history": [
@@ -12922,7 +12922,7 @@
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.3.0_x64-setup.exe",
-            "download_count": 1
+            "download_count": 2
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.3.0_x64_en-US.msi",

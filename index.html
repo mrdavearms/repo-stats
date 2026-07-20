@@ -223,7 +223,8 @@
     <button class="repo-btn active" data-repo="all">All</button>
     <button class="repo-btn" data-repo="bulk-pdf-extractor-and-generator">Bulk PDF</button>
     <button class="repo-btn" data-repo="student-doc-redactor">Doc Redactor</button>
-    <button class="repo-btn" data-repo="naplan-cohort-tracker">NAPLAN Tracker</button>
+    <button class="repo-btn" data-repo="naplan-cohort-tracker">NAPLAN (source)</button>
+    <button class="repo-btn" data-repo="naplan-cohort-tracker-releases">NAPLAN (downloads)</button>
     <span class="label" style="margin-left: 0.75rem;">Range:</span>
     <button class="range-btn" data-range="7">7d</button>
     <button class="range-btn" data-range="30">30d</button>
@@ -311,11 +312,12 @@
     let selectedRange = 'all';
     let charts = {};
 
-    const REPO_NAMES = ['bulk-pdf-extractor-and-generator', 'student-doc-redactor', 'naplan-cohort-tracker'];
+    const REPO_NAMES = ['bulk-pdf-extractor-and-generator', 'student-doc-redactor', 'naplan-cohort-tracker', 'naplan-cohort-tracker-releases'];
     const REPO_LABELS = {
       'bulk-pdf-extractor-and-generator': 'Bulk PDF',
       'student-doc-redactor': 'Doc Redactor',
-      'naplan-cohort-tracker': 'NAPLAN Tracker',
+      'naplan-cohort-tracker': 'NAPLAN (source)',
+      'naplan-cohort-tracker-releases': 'NAPLAN (downloads)',
     };
 
     // Chart.js defaults for dark theme
@@ -587,7 +589,7 @@
 
       const repos = getRepos();
       const datasets = [];
-      const colors = ['#58a6ff', '#3fb950', '#d2a8ff'];
+      const colors = ['#58a6ff', '#3fb950', '#d2a8ff', '#f0883e'];
 
       for (let i = 0; i < repos.length; i++) {
         const history = filterByRange(releasesData[repos[i]]?.history || []);

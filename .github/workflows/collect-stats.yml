@@ -32,7 +32,11 @@ jobs:
         run: |
           set -euo pipefail
 
-          REPOS=("mrdavearms/bulk-pdf-extractor-and-generator" "mrdavearms/student-doc-redactor" "mrdavearms/naplan-cohort-tracker")
+          # naplan-cohort-tracker stages builds as DRAFT releases and mirrors the
+          # public downloads to naplan-cohort-tracker-releases (which also serves the
+          # Pages install page). So the source repo supplies traffic/stars and the
+          # mirror supplies the real download numbers — both are tracked.
+          REPOS=("mrdavearms/bulk-pdf-extractor-and-generator" "mrdavearms/student-doc-redactor" "mrdavearms/naplan-cohort-tracker" "mrdavearms/naplan-cohort-tracker-releases")
           TODAY=$(date -u +%Y-%m-%d)
 
           TRAFFIC_FILE="data/traffic.json"
@@ -208,8 +212,13 @@ jobs:
               EXISTING_REL=$(echo "$EXISTING_REL" | jq --arg repo "$REPO_NAME" '.[$repo] = {"releases":[],"history":[]}')
             fi
 
-            # Build current release snapshot
-            RELEASE_DATA=$(echo "$RELEASES" | jq '[.[] | {
+            # Build current release snapshot.
+            # DRAFT releases are excluded: their assets are only reachable by users
+            # with push access, so their download_count reflects the maintainer/CI,
+            # never the public. Counting them reports phantom installs (this bit us
+            # on naplan-cohort-tracker, which stages every build as a draft and
+            # publishes via a separate mirror repo).
+            RELEASE_DATA=$(echo "$RELEASES" | jq '[.[] | select(.draft | not) | {
               tag: .tag_name,
               name: .name,
               published_at: .published_at,
@@ -403,11 +412,12 @@ jobs:
           }
 
           # Public repos: read from the committed data/*.json files.
-          for REPO_NAME in "bulk-pdf-extractor-and-generator" "student-doc-redactor" "naplan-cohort-tracker"; do
+          for REPO_NAME in "bulk-pdf-extractor-and-generator" "student-doc-redactor" "naplan-cohort-tracker" "naplan-cohort-tracker-releases"; do
             case "$REPO_NAME" in
               bulk-pdf-extractor-and-generator) LABEL="Bulk PDF Extractor" ;;
               student-doc-redactor) LABEL="Student Doc Redactor" ;;
-              naplan-cohort-tracker) LABEL="NAPLAN Cohort Tracker" ;;
+              naplan-cohort-tracker) LABEL="NAPLAN Cohort Tracker (source)" ;;
+              naplan-cohort-tracker-releases) LABEL="NAPLAN Cohort Tracker (downloads)" ;;
             esac
 
             # Yesterday = last COMPLETE UTC day (today's bucket is partial + lags, so it

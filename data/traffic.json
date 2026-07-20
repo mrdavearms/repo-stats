@@ -3422,6 +3422,26 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-07-20",
+        "sources": [
+          {
+            "referrer": "Google",
+            "count": 5,
+            "unique": 2
+          },
+          {
+            "referrer": "github.com",
+            "count": 3,
+            "unique": 2
+          },
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "popular_paths": [
@@ -6994,6 +7014,41 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-07-20",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 11,
+            "unique": 7
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/fork",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/blob/main/preview_renderer.py",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/blob/main/samples/Sample Files.zip",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.13",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.14",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -7492,6 +7547,10 @@
       {
         "date": "2026-07-19",
         "count": 2
+      },
+      {
+        "date": "2026-07-20",
+        "count": 2
       }
     ],
     "forks": [
@@ -7690,6 +7749,10 @@
       {
         "date": "2026-07-19",
         "count": 1
+      },
+      {
+        "date": "2026-07-20",
+        "count": 1
       }
     ],
     "watchers": [
@@ -7887,6 +7950,10 @@
       },
       {
         "date": "2026-07-19",
+        "count": 0
+      },
+      {
+        "date": "2026-07-20",
         "count": 0
       }
     ],
@@ -10799,6 +10866,10 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-07-20",
+        "sources": []
       }
     ],
     "popular_paths": [
@@ -14331,6 +14402,10 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-07-20",
+        "paths": []
       }
     ],
     "stars": [
@@ -14829,6 +14904,10 @@
       {
         "date": "2026-07-19",
         "count": 3
+      },
+      {
+        "date": "2026-07-20",
+        "count": 3
       }
     ],
     "forks": [
@@ -15027,6 +15106,10 @@
       {
         "date": "2026-07-19",
         "count": 1
+      },
+      {
+        "date": "2026-07-20",
+        "count": 1
       }
     ],
     "watchers": [
@@ -15224,6 +15307,10 @@
       },
       {
         "date": "2026-07-19",
+        "count": 0
+      },
+      {
+        "date": "2026-07-20",
         "count": 0
       }
     ],
@@ -15507,6 +15594,16 @@
             "unique": 3
           }
         ]
+      },
+      {
+        "date": "2026-07-20",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 5,
+            "unique": 3
+          }
+        ]
       }
     ],
     "popular_paths": [
@@ -15569,6 +15666,16 @@
             "unique": 3
           }
         ]
+      },
+      {
+        "date": "2026-07-20",
+        "paths": [
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker",
+            "count": 5,
+            "unique": 3
+          }
+        ]
       }
     ],
     "stars": [
@@ -15594,6 +15701,10 @@
       },
       {
         "date": "2026-07-19",
+        "count": 0
+      },
+      {
+        "date": "2026-07-20",
         "count": 0
       }
     ],
@@ -15621,6 +15732,10 @@
       {
         "date": "2026-07-19",
         "count": 0
+      },
+      {
+        "date": "2026-07-20",
+        "count": 0
       }
     ],
     "watchers": [
@@ -15646,6 +15761,127 @@
       },
       {
         "date": "2026-07-19",
+        "count": 0
+      },
+      {
+        "date": "2026-07-20",
+        "count": 0
+      }
+    ],
+    "star_events": []
+  },
+  "naplan-cohort-tracker-releases": {
+    "views": [
+      {
+        "date": "2026-07-05",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-06",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-07",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-08",
+        "total": 1,
+        "unique": 1
+      },
+      {
+        "date": "2026-07-09",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-10",
+        "total": 1,
+        "unique": 1
+      },
+      {
+        "date": "2026-07-11",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-12",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-13",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-14",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-15",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-16",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-17",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-18",
+        "total": 0,
+        "unique": 0
+      }
+    ],
+    "clones": [],
+    "referrers": [
+      {
+        "date": "2026-07-20",
+        "sources": []
+      }
+    ],
+    "popular_paths": [
+      {
+        "date": "2026-07-20",
+        "paths": [
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker-releases",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker-releases/releases/tag/v1.2.1",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      }
+    ],
+    "stars": [
+      {
+        "date": "2026-07-20",
+        "count": 0
+      }
+    ],
+    "forks": [
+      {
+        "date": "2026-07-20",
+        "count": 0
+      }
+    ],
+    "watchers": [
+      {
+        "date": "2026-07-20",
         "count": 0
       }
     ],

@@ -12590,20 +12590,5 @@
         "assets": []
       }
     ]
-  },
-  "naplan-cohort-tracker-releases": {
-    "releases": [],
-    "history": [
-      {
-        "date": "2026-07-20",
-        "total_downloads": 0
-      }
-    ],
-    "asset_history": [
-      {
-        "date": "2026-07-20",
-        "assets": []
-      }
-    ]
   }
 }

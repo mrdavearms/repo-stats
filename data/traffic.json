@@ -740,6 +740,11 @@
         "date": "2026-07-29",
         "total": 3,
         "unique": 2
+      },
+      {
+        "date": "2026-07-30",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -1482,6 +1487,11 @@
         "date": "2026-07-29",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-07-30",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -3715,6 +3725,21 @@
       },
       {
         "date": "2026-07-30",
+        "sources": [
+          {
+            "referrer": "Google",
+            "count": 4,
+            "unique": 3
+          },
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 3,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-07-31",
         "sources": [
           {
             "referrer": "Google",
@@ -7644,6 +7669,31 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-07-31",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 6,
+            "unique": 5
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases",
+            "count": 2,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/blob/main/preview_renderer.py",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/tree/main/tests",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -8186,6 +8236,10 @@
       {
         "date": "2026-07-30",
         "count": 2
+      },
+      {
+        "date": "2026-07-31",
+        "count": 2
       }
     ],
     "forks": [
@@ -8428,6 +8482,10 @@
       {
         "date": "2026-07-30",
         "count": 1
+      },
+      {
+        "date": "2026-07-31",
+        "count": 1
       }
     ],
     "watchers": [
@@ -8669,6 +8727,10 @@
       },
       {
         "date": "2026-07-30",
+        "count": 0
+      },
+      {
+        "date": "2026-07-31",
         "count": 0
       }
     ],
@@ -9419,6 +9481,16 @@
         "date": "2026-07-28",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-07-29",
+        "total": 2,
+        "unique": 1
+      },
+      {
+        "date": "2026-07-30",
+        "total": 5,
+        "unique": 4
       }
     ],
     "clones": [
@@ -10156,6 +10228,16 @@
         "date": "2026-07-28",
         "total": 2,
         "unique": 2
+      },
+      {
+        "date": "2026-07-29",
+        "total": 12,
+        "unique": 2
+      },
+      {
+        "date": "2026-07-30",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -11869,6 +11951,21 @@
             "referrer": "whs.vic.edu.au",
             "count": 4,
             "unique": 2
+          },
+          {
+            "referrer": "Google",
+            "count": 4,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-07-31",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 6,
+            "unique": 5
           },
           {
             "referrer": "Google",
@@ -15658,6 +15755,31 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-07-31",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 13,
+            "unique": 8
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 5,
+            "unique": 4
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases/tag/v1.5.0",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases/tag/v1.5.1",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -16200,6 +16322,10 @@
       {
         "date": "2026-07-30",
         "count": 3
+      },
+      {
+        "date": "2026-07-31",
+        "count": 3
       }
     ],
     "forks": [
@@ -16441,6 +16567,10 @@
       },
       {
         "date": "2026-07-30",
+        "count": 1
+      },
+      {
+        "date": "2026-07-31",
         "count": 1
       }
     ],
@@ -16684,6 +16814,10 @@
       {
         "date": "2026-07-30",
         "count": 0
+      },
+      {
+        "date": "2026-07-31",
+        "count": 0
       }
     ],
     "star_events": [
@@ -16852,6 +16986,16 @@
         "date": "2026-07-28",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-07-29",
+        "total": 1,
+        "unique": 1
+      },
+      {
+        "date": "2026-07-30",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -17004,6 +17148,16 @@
         "date": "2026-07-28",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-07-29",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-07-30",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -17189,6 +17343,21 @@
       },
       {
         "date": "2026-07-30",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 15,
+            "unique": 5
+          },
+          {
+            "referrer": "Google",
+            "count": 2,
+            "unique": 2
+          }
+        ]
+      },
+      {
+        "date": "2026-07-31",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -17623,6 +17792,41 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-07-31",
+        "paths": [
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker",
+            "count": 8,
+            "unique": 7
+          },
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker/tree/main/.claude",
+            "count": 4,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker/tree/main",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker/blob/main/.claude/launch.json",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker/blob/main/HANDOFF.md",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker/tree/main/docs",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -17692,6 +17896,10 @@
       },
       {
         "date": "2026-07-30",
+        "count": 0
+      },
+      {
+        "date": "2026-07-31",
         "count": 0
       }
     ],
@@ -17763,6 +17971,10 @@
       {
         "date": "2026-07-30",
         "count": 0
+      },
+      {
+        "date": "2026-07-31",
+        "count": 0
       }
     ],
     "watchers": [
@@ -17832,6 +18044,10 @@
       },
       {
         "date": "2026-07-30",
+        "count": 0
+      },
+      {
+        "date": "2026-07-31",
         "count": 0
       }
     ],
@@ -17963,6 +18179,11 @@
         "date": "2026-07-29",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-07-30",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -18090,6 +18311,11 @@
         "date": "2026-07-29",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-07-30",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -18180,6 +18406,10 @@
       },
       {
         "date": "2026-07-30",
+        "sources": []
+      },
+      {
+        "date": "2026-07-31",
         "sources": []
       }
     ],
@@ -18272,6 +18502,10 @@
       {
         "date": "2026-07-30",
         "paths": []
+      },
+      {
+        "date": "2026-07-31",
+        "paths": []
       }
     ],
     "stars": [
@@ -18317,6 +18551,10 @@
       },
       {
         "date": "2026-07-30",
+        "count": 0
+      },
+      {
+        "date": "2026-07-31",
         "count": 0
       }
     ],
@@ -18364,6 +18602,10 @@
       {
         "date": "2026-07-30",
         "count": 0
+      },
+      {
+        "date": "2026-07-31",
+        "count": 0
       }
     ],
     "watchers": [
@@ -18409,6 +18651,10 @@
       },
       {
         "date": "2026-07-30",
+        "count": 0
+      },
+      {
+        "date": "2026-07-31",
         "count": 0
       }
     ],

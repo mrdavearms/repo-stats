@@ -961,6 +961,10 @@
       {
         "date": "2026-08-02",
         "total_downloads": 144
+      },
+      {
+        "date": "2026-08-03",
+        "total_downloads": 144
       }
     ],
     "asset_history": [
@@ -11350,6 +11354,179 @@
             "download_count": 0
           }
         ]
+      },
+      {
+        "date": "2026-08-03",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 5
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 2
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 1
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 3
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 12
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 3
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 4
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 6
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 1
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 2
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 3
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 49
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 5
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 4
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 3
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 10
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 1
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 4
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 3
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 4
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 1
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 2
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 4
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 2
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 2
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "download_count": 3
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 2
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "download_count": 2
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.Mac.dmg",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 1
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.Mac.dmg",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          },
+          {
+            "name": "Sample.Files.zip",
+            "download_count": 0
+          },
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0
+          }
+        ]
       }
     ]
   },
@@ -11367,7 +11544,7 @@
           },
           {
             "name": "latest.yml",
-            "download_count": 8,
+            "download_count": 9,
             "size_bytes": 357
           },
           {
@@ -12228,6 +12405,10 @@
       {
         "date": "2026-08-02",
         "total_downloads": 198
+      },
+      {
+        "date": "2026-08-03",
+        "total_downloads": 198
       }
     ],
     "asset_history": [
@@ -15929,6 +16110,83 @@
             "download_count": 1
           }
         ]
+      },
+      {
+        "date": "2026-08-03",
+        "assets": [
+          {
+            "name": "Redaction-Tool-1.5.1-arm64.dmg",
+            "download_count": 0
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.5.1.exe",
+            "download_count": 4
+          },
+          {
+            "name": "Redaction-Tool-1.5.0-arm64.dmg",
+            "download_count": 4
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.5.0.exe",
+            "download_count": 2
+          },
+          {
+            "name": "Redaction-Tool-1.4.0-arm64.dmg",
+            "download_count": 0
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.4.0.exe",
+            "download_count": 1
+          },
+          {
+            "name": "Redaction-Tool-1.3.2-arm64.dmg",
+            "download_count": 11
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.3.2.exe",
+            "download_count": 22
+          },
+          {
+            "name": "Redaction-Tool-1.3.1-arm64.dmg",
+            "download_count": 0
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.3.1.exe",
+            "download_count": 1
+          },
+          {
+            "name": "Redaction-Tool-1.3.0-arm64.dmg",
+            "download_count": 122
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.3.0.exe",
+            "download_count": 3
+          },
+          {
+            "name": "Redaction-Tool-1.2.0-arm64.dmg",
+            "download_count": 9
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.2.0.exe",
+            "download_count": 14
+          },
+          {
+            "name": "Redaction-Tool-1.1.0-arm64.dmg",
+            "download_count": 1
+          },
+          {
+            "name": "Redaction-Tool-Setup-1.1.0.exe",
+            "download_count": 2
+          },
+          {
+            "name": "Redaction.Tool-1.0.0-arm64.dmg",
+            "download_count": 1
+          },
+          {
+            "name": "Redaction.Tool-0.1.0-arm64.dmg",
+            "download_count": 1
+          }
+        ]
       }
     ]
   },
@@ -15990,6 +16248,10 @@
       {
         "date": "2026-08-02",
         "total_downloads": 0
+      },
+      {
+        "date": "2026-08-03",
+        "total_downloads": 0
       }
     ],
     "asset_history": [
@@ -16048,6 +16310,10 @@
       {
         "date": "2026-08-02",
         "assets": []
+      },
+      {
+        "date": "2026-08-03",
+        "assets": []
       }
     ]
   },
@@ -16060,7 +16326,7 @@
         "assets": [
           {
             "name": "latest.json",
-            "download_count": 19,
+            "download_count": 22,
             "size_bytes": 4782
           },
           {
@@ -16070,7 +16336,7 @@
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.3.0_x64-setup.exe",
-            "download_count": 4,
+            "download_count": 5,
             "size_bytes": 6383002
           },
           {
@@ -16422,6 +16688,10 @@
       {
         "date": "2026-08-02",
         "total_downloads": 75
+      },
+      {
+        "date": "2026-08-03",
+        "total_downloads": 76
       }
     ],
     "asset_history": [
@@ -17436,6 +17706,83 @@
           {
             "name": "NAPLAN.Cohort.Tracker_1.3.0_x64-setup.exe",
             "download_count": 4
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_x64_en-US.msi",
+            "download_count": 1
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_universal.dmg",
+            "download_count": 3
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_x64-setup.exe",
+            "download_count": 23
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_x64_en-US.msi",
+            "download_count": 1
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_universal.dmg",
+            "download_count": 0
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_x64-setup.exe",
+            "download_count": 6
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_x64_en-US.msi",
+            "download_count": 0
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_universal.dmg",
+            "download_count": 2
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_x64-setup.exe",
+            "download_count": 25
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_x64_en-US.msi",
+            "download_count": 0
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_universal.dmg",
+            "download_count": 2
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_x64-setup.exe",
+            "download_count": 3
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_x64_en-US.msi",
+            "download_count": 2
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_universal.dmg",
+            "download_count": 0
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_x64-setup.exe",
+            "download_count": 2
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_x64_en-US.msi",
+            "download_count": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-08-03",
+        "assets": [
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_universal.dmg",
+            "download_count": 1
+          },
+          {
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_x64-setup.exe",
+            "download_count": 5
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.3.0_x64_en-US.msi",

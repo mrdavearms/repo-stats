@@ -800,6 +800,16 @@
         "date": "2026-08-10",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-08-11",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-08-12",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -1600,6 +1610,16 @@
       },
       {
         "date": "2026-08-10",
+        "total": 1,
+        "unique": 1
+      },
+      {
+        "date": "2026-08-11",
+        "total": 1,
+        "unique": 1
+      },
+      {
+        "date": "2026-08-12",
         "total": 1,
         "unique": 1
       }
@@ -4030,6 +4050,16 @@
       },
       {
         "date": "2026-08-12",
+        "sources": [
+          {
+            "referrer": "Google",
+            "count": 3,
+            "unique": 3
+          }
+        ]
+      },
+      {
+        "date": "2026-08-13",
         "sources": [
           {
             "referrer": "Google",
@@ -8239,6 +8269,21 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-08-13",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 4,
+            "unique": 4
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/issues",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -8833,6 +8878,10 @@
       {
         "date": "2026-08-12",
         "count": 2
+      },
+      {
+        "date": "2026-08-13",
+        "count": 2
       }
     ],
     "forks": [
@@ -9127,6 +9176,10 @@
       {
         "date": "2026-08-12",
         "count": 1
+      },
+      {
+        "date": "2026-08-13",
+        "count": 1
       }
     ],
     "watchers": [
@@ -9420,6 +9473,10 @@
       },
       {
         "date": "2026-08-12",
+        "count": 0
+      },
+      {
+        "date": "2026-08-13",
         "count": 0
       }
     ],
@@ -10240,6 +10297,11 @@
         "date": "2026-08-11",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-08-12",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -11047,6 +11109,11 @@
         "date": "2026-08-11",
         "total": 11,
         "unique": 4
+      },
+      {
+        "date": "2026-08-12",
+        "total": 1,
+        "unique": 1
       }
     ],
     "referrers": [
@@ -12980,6 +13047,21 @@
             "referrer": "whs.vic.edu.au",
             "count": 14,
             "unique": 7
+          },
+          {
+            "referrer": "github.com",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-08-13",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 13,
+            "unique": 6
           },
           {
             "referrer": "github.com",
@@ -17184,6 +17266,56 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-08-13",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 12,
+            "unique": 8
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 5,
+            "unique": 4
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases/tag/v1.6.2",
+            "count": 3,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/blob/main/CLAUDE.md",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/blob/main/docs/screenshots/screenshot-select-folder.png",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases/tag/v1.5.1",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases/tag/v1.7.1",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/tree/main",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/tree/main/scripts",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -17778,6 +17910,10 @@
       {
         "date": "2026-08-12",
         "count": 3
+      },
+      {
+        "date": "2026-08-13",
+        "count": 3
       }
     ],
     "forks": [
@@ -18071,6 +18207,10 @@
       },
       {
         "date": "2026-08-12",
+        "count": 1
+      },
+      {
+        "date": "2026-08-13",
         "count": 1
       }
     ],
@@ -18366,6 +18506,10 @@
       {
         "date": "2026-08-12",
         "count": 0
+      },
+      {
+        "date": "2026-08-13",
+        "count": 0
       }
     ],
     "star_events": [
@@ -18599,6 +18743,16 @@
         "date": "2026-08-10",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-08-11",
+        "total": 2,
+        "unique": 2
+      },
+      {
+        "date": "2026-08-12",
+        "total": 2,
+        "unique": 2
       }
     ],
     "clones": [
@@ -18814,6 +18968,16 @@
       },
       {
         "date": "2026-08-10",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-08-11",
+        "total": 1,
+        "unique": 1
+      },
+      {
+        "date": "2026-08-12",
         "total": 0,
         "unique": 0
       }
@@ -19221,6 +19385,21 @@
             "referrer": "Google",
             "count": 1,
             "unique": 1
+          },
+          {
+            "referrer": "teams.public.onecdn.static.microsoft",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-08-13",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 16,
+            "unique": 11
           },
           {
             "referrer": "teams.public.onecdn.static.microsoft",
@@ -19985,6 +20164,26 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-08-13",
+        "paths": [
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker",
+            "count": 15,
+            "unique": 12
+          },
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker/blob/main/docs/USER-GUIDE.md",
+            "count": 2,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker/pulls",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -20106,6 +20305,10 @@
       },
       {
         "date": "2026-08-12",
+        "count": 0
+      },
+      {
+        "date": "2026-08-13",
         "count": 0
       }
     ],
@@ -20229,6 +20432,10 @@
       {
         "date": "2026-08-12",
         "count": 0
+      },
+      {
+        "date": "2026-08-13",
+        "count": 0
       }
     ],
     "watchers": [
@@ -20350,6 +20557,10 @@
       },
       {
         "date": "2026-08-12",
+        "count": 0
+      },
+      {
+        "date": "2026-08-13",
         "count": 0
       }
     ],
@@ -20541,6 +20752,11 @@
         "date": "2026-08-10",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-08-11",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -20728,6 +20944,11 @@
         "date": "2026-08-10",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-08-11",
+        "total": 1,
+        "unique": 1
       }
     ],
     "referrers": [
@@ -20870,6 +21091,10 @@
       },
       {
         "date": "2026-08-12",
+        "sources": []
+      },
+      {
+        "date": "2026-08-13",
         "sources": []
       }
     ],
@@ -21014,6 +21239,10 @@
       {
         "date": "2026-08-12",
         "paths": []
+      },
+      {
+        "date": "2026-08-13",
+        "paths": []
       }
     ],
     "stars": [
@@ -21111,6 +21340,10 @@
       },
       {
         "date": "2026-08-12",
+        "count": 0
+      },
+      {
+        "date": "2026-08-13",
         "count": 0
       }
     ],
@@ -21210,6 +21443,10 @@
       {
         "date": "2026-08-12",
         "count": 0
+      },
+      {
+        "date": "2026-08-13",
+        "count": 0
       }
     ],
     "watchers": [
@@ -21307,6 +21544,10 @@
       },
       {
         "date": "2026-08-12",
+        "count": 0
+      },
+      {
+        "date": "2026-08-13",
         "count": 0
       }
     ],

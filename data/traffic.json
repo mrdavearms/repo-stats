@@ -815,6 +815,16 @@
         "date": "2026-08-13",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-08-14",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-08-15",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -1630,6 +1640,16 @@
       },
       {
         "date": "2026-08-13",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-08-14",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-08-15",
         "total": 0,
         "unique": 0
       }
@@ -4095,6 +4115,16 @@
             "referrer": "Google",
             "count": 3,
             "unique": 3
+          }
+        ]
+      },
+      {
+        "date": "2026-08-16",
+        "sources": [
+          {
+            "referrer": "Google",
+            "count": 2,
+            "unique": 2
           }
         ]
       }
@@ -8344,6 +8374,21 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-08-16",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 2,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/issues",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -8950,6 +8995,10 @@
       {
         "date": "2026-08-15",
         "count": 2
+      },
+      {
+        "date": "2026-08-16",
+        "count": 2
       }
     ],
     "forks": [
@@ -9256,6 +9305,10 @@
       {
         "date": "2026-08-15",
         "count": 1
+      },
+      {
+        "date": "2026-08-16",
+        "count": 1
       }
     ],
     "watchers": [
@@ -9561,6 +9614,10 @@
       },
       {
         "date": "2026-08-15",
+        "count": 0
+      },
+      {
+        "date": "2026-08-16",
         "count": 0
       }
     ],
@@ -13191,6 +13248,26 @@
       },
       {
         "date": "2026-08-15",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 13,
+            "unique": 6
+          },
+          {
+            "referrer": "Google",
+            "count": 2,
+            "unique": 2
+          },
+          {
+            "referrer": "github.com",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-08-16",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -17555,6 +17632,56 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-08-16",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 13,
+            "unique": 9
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 7,
+            "unique": 5
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases/tag/v1.6.2",
+            "count": 3,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/blob/main/CLAUDE.md",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/blob/main/docs/screenshots/screenshot-select-folder.png",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases/tag/v1.5.1",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases/tag/v1.7.1",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/tree/main",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/tree/main/scripts",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -18161,6 +18288,10 @@
       {
         "date": "2026-08-15",
         "count": 3
+      },
+      {
+        "date": "2026-08-16",
+        "count": 3
       }
     ],
     "forks": [
@@ -18466,6 +18597,10 @@
       },
       {
         "date": "2026-08-15",
+        "count": 1
+      },
+      {
+        "date": "2026-08-16",
         "count": 1
       }
     ],
@@ -18773,6 +18908,10 @@
       {
         "date": "2026-08-15",
         "count": 0
+      },
+      {
+        "date": "2026-08-16",
+        "count": 0
       }
     ],
     "star_events": [
@@ -19026,6 +19165,11 @@
         "date": "2026-08-14",
         "total": 2,
         "unique": 1
+      },
+      {
+        "date": "2026-08-15",
+        "total": 2,
+        "unique": 1
       }
     ],
     "clones": [
@@ -19261,6 +19405,11 @@
       },
       {
         "date": "2026-08-14",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-08-15",
         "total": 0,
         "unique": 0
       }
@@ -19712,6 +19861,26 @@
           {
             "referrer": "whs.vic.edu.au",
             "count": 13,
+            "unique": 10
+          },
+          {
+            "referrer": "Google",
+            "count": 2,
+            "unique": 1
+          },
+          {
+            "referrer": "teams.public.onecdn.static.microsoft",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-08-16",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 15,
             "unique": 10
           },
           {
@@ -20537,6 +20706,21 @@
             "unique": 3
           }
         ]
+      },
+      {
+        "date": "2026-08-16",
+        "paths": [
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker",
+            "count": 17,
+            "unique": 13
+          },
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker/blob/main/docs/USER-GUIDE.md",
+            "count": 3,
+            "unique": 3
+          }
+        ]
       }
     ],
     "stars": [
@@ -20670,6 +20854,10 @@
       },
       {
         "date": "2026-08-15",
+        "count": 0
+      },
+      {
+        "date": "2026-08-16",
         "count": 0
       }
     ],
@@ -20805,6 +20993,10 @@
       {
         "date": "2026-08-15",
         "count": 0
+      },
+      {
+        "date": "2026-08-16",
+        "count": 0
       }
     ],
     "watchers": [
@@ -20938,6 +21130,10 @@
       },
       {
         "date": "2026-08-15",
+        "count": 0
+      },
+      {
+        "date": "2026-08-16",
         "count": 0
       }
     ],
@@ -21144,6 +21340,11 @@
         "date": "2026-08-13",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-08-14",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -21346,6 +21547,11 @@
         "date": "2026-08-13",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-08-14",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -21500,6 +21706,10 @@
       },
       {
         "date": "2026-08-15",
+        "sources": []
+      },
+      {
+        "date": "2026-08-16",
         "sources": []
       }
     ],
@@ -21656,6 +21866,10 @@
       {
         "date": "2026-08-15",
         "paths": []
+      },
+      {
+        "date": "2026-08-16",
+        "paths": []
       }
     ],
     "stars": [
@@ -21765,6 +21979,10 @@
       },
       {
         "date": "2026-08-15",
+        "count": 0
+      },
+      {
+        "date": "2026-08-16",
         "count": 0
       }
     ],
@@ -21876,6 +22094,10 @@
       {
         "date": "2026-08-15",
         "count": 0
+      },
+      {
+        "date": "2026-08-16",
+        "count": 0
       }
     ],
     "watchers": [
@@ -21985,6 +22207,10 @@
       },
       {
         "date": "2026-08-15",
+        "count": 0
+      },
+      {
+        "date": "2026-08-16",
         "count": 0
       }
     ],

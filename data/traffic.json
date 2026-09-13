@@ -960,6 +960,11 @@
         "date": "2026-09-11",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-09-12",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -1920,6 +1925,11 @@
       },
       {
         "date": "2026-09-11",
+        "total": 3,
+        "unique": 3
+      },
+      {
+        "date": "2026-09-12",
         "total": 3,
         "unique": 3
       }
@@ -4805,6 +4815,26 @@
       },
       {
         "date": "2026-09-12",
+        "sources": [
+          {
+            "referrer": "chatgpt.com",
+            "count": 2,
+            "unique": 2
+          },
+          {
+            "referrer": "Google",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-09-13",
         "sources": [
           {
             "referrer": "chatgpt.com",
@@ -9514,6 +9544,16 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-09-13",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 4,
+            "unique": 4
+          }
+        ]
       }
     ],
     "stars": [
@@ -10232,6 +10272,10 @@
       {
         "date": "2026-09-12",
         "count": 2
+      },
+      {
+        "date": "2026-09-13",
+        "count": 2
       }
     ],
     "forks": [
@@ -10650,6 +10694,10 @@
       {
         "date": "2026-09-12",
         "count": 1
+      },
+      {
+        "date": "2026-09-13",
+        "count": 1
       }
     ],
     "watchers": [
@@ -11067,6 +11115,10 @@
       },
       {
         "date": "2026-09-12",
+        "count": 0
+      },
+      {
+        "date": "2026-09-13",
         "count": 0
       }
     ],
@@ -12042,6 +12094,11 @@
         "date": "2026-09-11",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-09-12",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -13004,6 +13061,11 @@
         "date": "2026-09-11",
         "total": 6,
         "unique": 6
+      },
+      {
+        "date": "2026-09-12",
+        "total": 3,
+        "unique": 3
       }
     ],
     "referrers": [
@@ -15392,6 +15454,16 @@
       },
       {
         "date": "2026-09-12",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 12,
+            "unique": 9
+          }
+        ]
+      },
+      {
+        "date": "2026-09-13",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -20736,6 +20808,21 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-09-13",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 14,
+            "unique": 10
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 10,
+            "unique": 8
+          }
+        ]
       }
     ],
     "stars": [
@@ -21454,6 +21541,10 @@
       {
         "date": "2026-09-12",
         "count": 3
+      },
+      {
+        "date": "2026-09-13",
+        "count": 3
       }
     ],
     "forks": [
@@ -21872,6 +21963,10 @@
       {
         "date": "2026-09-12",
         "count": 1
+      },
+      {
+        "date": "2026-09-13",
+        "count": 1
       }
     ],
     "watchers": [
@@ -22289,6 +22384,10 @@
       },
       {
         "date": "2026-09-12",
+        "count": 1
+      },
+      {
+        "date": "2026-09-13",
         "count": 1
       }
     ],
@@ -22683,6 +22782,11 @@
         "date": "2026-09-11",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-09-12",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -23060,6 +23164,11 @@
         "date": "2026-09-11",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-09-12",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -23970,6 +24079,21 @@
       },
       {
         "date": "2026-09-12",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 9,
+            "unique": 5
+          },
+          {
+            "referrer": "Google",
+            "count": 2,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-09-13",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -25459,6 +25583,26 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-09-13",
+        "paths": [
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker",
+            "count": 9,
+            "unique": 6
+          },
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker/actions",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker/tree/main/docs",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -25704,6 +25848,10 @@
       },
       {
         "date": "2026-09-12",
+        "count": 0
+      },
+      {
+        "date": "2026-09-13",
         "count": 0
       }
     ],
@@ -25951,6 +26099,10 @@
       {
         "date": "2026-09-12",
         "count": 0
+      },
+      {
+        "date": "2026-09-13",
+        "count": 0
       }
     ],
     "watchers": [
@@ -26196,6 +26348,10 @@
       },
       {
         "date": "2026-09-12",
+        "count": 0
+      },
+      {
+        "date": "2026-09-13",
         "count": 0
       }
     ],
@@ -26547,6 +26703,11 @@
         "date": "2026-09-11",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-09-12",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -26892,6 +27053,11 @@
       },
       {
         "date": "2026-09-11",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-09-12",
         "total": 0,
         "unique": 0
       }
@@ -27245,6 +27411,10 @@
       {
         "date": "2026-09-12",
         "sources": []
+      },
+      {
+        "date": "2026-09-13",
+        "sources": []
       }
     ],
     "popular_paths": [
@@ -27596,6 +27766,10 @@
       {
         "date": "2026-09-12",
         "paths": []
+      },
+      {
+        "date": "2026-09-13",
+        "paths": []
       }
     ],
     "stars": [
@@ -27817,6 +27991,10 @@
       },
       {
         "date": "2026-09-12",
+        "count": 0
+      },
+      {
+        "date": "2026-09-13",
         "count": 0
       }
     ],
@@ -28040,6 +28218,10 @@
       {
         "date": "2026-09-12",
         "count": 0
+      },
+      {
+        "date": "2026-09-13",
+        "count": 0
       }
     ],
     "watchers": [
@@ -28261,6 +28443,10 @@
       },
       {
         "date": "2026-09-12",
+        "count": 0
+      },
+      {
+        "date": "2026-09-13",
         "count": 0
       }
     ],

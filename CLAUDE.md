@@ -74,14 +74,25 @@ Each repo has: `releases[]` (current snapshot of all releases/assets; every asse
 
 ## Email Report
 
-The daily email (`build_repo_row` helper) shows per repo:
-- Meta line: stars · forks · watching
-- 3 cards: **Views (yesterday)**, **Clones (yesterday)**, **Downloads** (all-time, with a coloured "▲ +N today" delta from the last two `history` points)
-- Summary line: **Last 7d** views/unique/clones + **All-time** + **Installers**: Windows / Mac split and update checks (from the `installer`/`platform`/`updater` flags, with name-regex fallbacks)
-- A one-day download jump of **15 or more** is shown in orange as "unusually large, likely automated" instead of green
-- Engagement line: **Top sources** + **Top pages** (top 3 each, from the latest referrer/path snapshot)
+**The email is the primary product; the dashboard is secondary.** It is built in the "Send daily email summary" step from the committed `data/*.json` files plus `/tmp/collect_warnings.txt` (written by the collect step's `warn()` on every fetch failure).
 
-**Why "yesterday", not "today":** GitHub buckets traffic by UTC midnight and lags by hours, so the current-UTC-day ("today") count reads ~0 and is misleading. Yesterday is the most recent *complete* day. The 7-day window uses `date >= WEEK_AGO`.
+It shows **one card per app**, not per repo: the `APPS` array maps a label to a traffic repo and a downloads repo (`label|traffic_repo|downloads_repo`). NAPLAN is one card fed by `naplan-cohort-tracker` (views/clones/stars/referrers) and `naplan-cohort-tracker-releases` (downloads/update checks). When adding a repo, add it to `REPOS` in the collect step, to `APPS` here, and to the dashboard.
+
+Layout, top to bottom:
+- **Warning banner** (orange) if any fetch failed today or an app's newest page-view day is 4+ days old. The subject gets "- data incomplete".
+- **At a glance**: yesterday's installer downloads across all apps with a Windows/Mac split, the 7-day figure, 7-day update checks, and a count of flagged jumps. The subject line carries the yesterday figure.
+- **Per app**: stars/forks/watching; three cards **Views (date)**, **Clones (date)**, **Downloads (all-time)** with the change since the previous snapshot; then **New downloads** (yesterday, per version and platform, e.g. "v1.9.2 Windows ×2, v1.9.2 Mac ×1", plus update checks), **Last 7 days** (downloads with Windows/Mac split and top versions; update checks; views/unique/clones; views trend vs last week), **All-time** (downloads with platform split, update checks, views), **Where visitors came from (14d)** (top 5 referrers with unique counts), **Release pages (14d)** (views/unique of `/releases*` paths = people who went looking for the download) and **Top pages**.
+- **Legend** explaining what downloads, update checks, views/clones and referrers do and do not mean.
+
+**Rules the email follows (keep them):**
+- **Views/clones show the latest COMPLETE day GitHub has published, labelled with its date** (`latest_day()`), never "yesterday". GitHub's traffic feed lags 1–2 days; the old email read `.date == YESTERDAY` and silently showed 0 on lag days.
+- **Per-version download deltas** (`asset_window()`) compare the latest `asset_history` snapshot with the latest snapshot on/before the cutoff, keyed by `tag|name`. Snapshots written before 2026-09-22 have no `tag`; they are matched by name only, and if names repeat (bulk-pdf) the function returns no baseline and the email falls back to the plain history total with "per-version split not available yet". This clears itself as tagged history accrues (yesterday from 2026-09-23, 7-day window from 2026-09-29).
+- **Update checks** deltas (`checks_window()`) return empty, shown as "not enough history yet", when either side predates the field. Never 0.
+- **Negative daily delta** is reported as "GitHub revised the total down by N", not as a red loss.
+- **A one-day jump of 15+** is orange "unusually large, likely a crawler" and adds "- check for crawler" to the subject.
+- **"Yesterday" wording** is only used when the previous snapshot really is yesterday's; otherwise "since <date>" / "Since last report".
+
+**Offline test** (no mail, no API): extract the step, stub `curl`, run it in a copy of the repo. See "Common Tasks". To exercise the per-version deltas, clone the last `asset_history` entry as yesterday with a few counts subtracted.
 
 ## Things to Watch Out For
 

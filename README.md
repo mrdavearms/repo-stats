@@ -157,8 +157,12 @@ The `history` array records the cumulative **installer** download total each day
 
 After each data collection run, an HTML email is sent via Gmail SMTP with:
 
-- Per-repo cards showing yesterday's views, clones, and cumulative installer downloads (a one-day jump of 15+ is flagged as likely automated)
-- Windows / Mac installer split and total update checks per repo
+- An at-a-glance line: yesterday's and last 7 days' installer downloads across all apps, split Windows / Mac, with update checks (the subject line carries yesterday's figure)
+- One card per app (NAPLAN's two repos are combined): the latest complete day of views and clones, labelled with its date; all-time downloads with the change since the previous snapshot (a one-day jump of 15+ is flagged as likely a crawler; a drop is reported as GitHub revising its counter)
+- New downloads yesterday and over 7 days, per version and platform (e.g. "v1.9.2 Windows ×2, v1.9.2 Mac ×1"), plus update checks
+- Where visitors came from (GitHub's 14-day referrer list, with unique counts), visits to the Releases pages, and top pages
+- A warning banner, and "- data incomplete" in the subject, if any fetch failed or the traffic feed is stale
+- A legend explaining what each figure does and does not mean
 - Star counts and 7-day view trends with percentage change
 - A "View Dashboard" button linking to the live site
 - **Token expiry warning** — if the `GH_STATS_TOKEN` is within 30 days of expiring, a red alert banner appears with direct links to rotate the token and update the secret

@@ -9,12 +9,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 6,
-            "size_bytes": 65238641
+            "size_bytes": 65238641,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 1,
-            "size_bytes": 62715954
+            "size_bytes": 62715954,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -26,12 +32,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 2,
-            "size_bytes": 65238724
+            "size_bytes": 65238724,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 0,
-            "size_bytes": 62716194
+            "size_bytes": 62716194,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -43,12 +55,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 8,
-            "size_bytes": 64496385
+            "size_bytes": 64496385,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 4,
-            "size_bytes": 62078409
+            "size_bytes": 62078409,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -60,12 +78,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 1,
-            "size_bytes": 60348635
+            "size_bytes": 60348635,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 3,
-            "size_bytes": 57823731
+            "size_bytes": 57823731,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -77,12 +101,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 12,
-            "size_bytes": 60340329
+            "size_bytes": 60340329,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 3,
-            "size_bytes": 57805292
+            "size_bytes": 57805292,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -94,12 +124,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 6,
-            "size_bytes": 60341879
+            "size_bytes": 60341879,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 6,
-            "size_bytes": 57803089
+            "size_bytes": 57803089,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -111,12 +147,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 1,
-            "size_bytes": 60340944
+            "size_bytes": 60340944,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 2,
-            "size_bytes": 57803021
+            "size_bytes": 57803021,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -128,12 +170,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 3,
-            "size_bytes": 60333635
+            "size_bytes": 60333635,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 49,
-            "size_bytes": 57807380
+            "size_bytes": 57807380,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -145,12 +193,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 5,
-            "size_bytes": 60350593
+            "size_bytes": 60350593,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 4,
-            "size_bytes": 57851427
+            "size_bytes": 57851427,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -162,12 +216,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 3,
-            "size_bytes": 60263331
+            "size_bytes": 60263331,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 10,
-            "size_bytes": 57765391
+            "size_bytes": 57765391,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -179,12 +239,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 1,
-            "size_bytes": 60262674
+            "size_bytes": 60262674,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 4,
-            "size_bytes": 57765722
+            "size_bytes": 57765722,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -196,12 +262,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 3,
-            "size_bytes": 60257863
+            "size_bytes": 60257863,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 4,
-            "size_bytes": 57769075
+            "size_bytes": 57769075,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -213,12 +285,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 1,
-            "size_bytes": 60254394
+            "size_bytes": 60254394,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 2,
-            "size_bytes": 57769635
+            "size_bytes": 57769635,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -230,12 +308,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 0,
-            "size_bytes": 60253883
+            "size_bytes": 60253883,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 4,
-            "size_bytes": 57770480
+            "size_bytes": 57770480,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -247,12 +331,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 0,
-            "size_bytes": 60254842
+            "size_bytes": 60254842,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.dmg",
             "download_count": 2,
-            "size_bytes": 63718522
+            "size_bytes": 63718522,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -264,12 +354,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 0,
-            "size_bytes": 60254325
+            "size_bytes": 60254325,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.zip",
             "download_count": 0,
-            "size_bytes": 169757958
+            "size_bytes": 169757958,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -281,12 +377,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 2,
-            "size_bytes": 60103501
+            "size_bytes": 60103501,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.zip",
             "download_count": 3,
-            "size_bytes": 169457160
+            "size_bytes": 169457160,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -298,12 +400,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 0,
-            "size_bytes": 60104068
+            "size_bytes": 60104068,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.zip",
             "download_count": 0,
-            "size_bytes": 169457036
+            "size_bytes": 169457036,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -315,12 +423,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 2,
-            "size_bytes": 60100789
+            "size_bytes": 60100789,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.macOS.zip",
             "download_count": 2,
-            "size_bytes": 169453346
+            "size_bytes": 169453346,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -332,12 +446,18 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 0,
-            "size_bytes": 63043288
+            "size_bytes": 63043288,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Bulk.PDF.Generator.Mac.dmg",
             "download_count": 0,
-            "size_bytes": 66067727
+            "size_bytes": 66067727,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -355,7 +475,10 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 1,
-            "size_bytes": 63033996
+            "size_bytes": 63033996,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           }
         ]
       },
@@ -367,7 +490,10 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 0,
-            "size_bytes": 63036192
+            "size_bytes": 63036192,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           }
         ]
       },
@@ -379,7 +505,10 @@
           {
             "name": "Bulk.PDF.Generator.Mac.dmg",
             "download_count": 0,
-            "size_bytes": 66067851
+            "size_bytes": 66067851,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -391,42 +520,66 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 0,
-            "size_bytes": 62243463
+            "size_bytes": 62243463,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Duis_Ex_Evidence.Application.Wangaratta.High.School.2026.pdf",
             "download_count": 0,
-            "size_bytes": 560890
+            "size_bytes": 560890,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Evidence.Application.sample.PDF.from.VCAA.pdf",
             "download_count": 0,
-            "size_bytes": 544425
+            "size_bytes": 544425,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Evidence.Application.spreadsheet.with.data.xlsx",
             "download_count": 0,
-            "size_bytes": 15686
+            "size_bytes": 15686,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Minim_Elit_Evidence.Application.Wangaratta.High.School.2026.pdf",
             "download_count": 0,
-            "size_bytes": 560898
+            "size_bytes": 560898,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "sample.data.xlsx",
             "download_count": 0,
-            "size_bytes": 15195
+            "size_bytes": 15195,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Sample.Files.zip",
             "download_count": 0,
-            "size_bytes": 2067641
+            "size_bytes": 2067641,
+            "installer": true,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Sunt_Culpa_Evidence.Application.Wangaratta.High.School.2026.pdf",
             "download_count": 0,
-            "size_bytes": 560881
+            "size_bytes": 560881,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -438,7 +591,10 @@
           {
             "name": "Bulk.PDF.Generator.exe",
             "download_count": 0,
-            "size_bytes": 62240475
+            "size_bytes": 62240475,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           }
         ]
       }
@@ -1195,6 +1351,11 @@
       {
         "date": "2026-09-21",
         "total_downloads": 160
+      },
+      {
+        "date": "2026-09-22",
+        "total_downloads": 160,
+        "update_checks": 0
       }
     ],
     "asset_history": [
@@ -20466,6 +20627,287 @@
             "download_count": 0
           }
         ]
+      },
+      {
+        "date": "2026-09-22",
+        "assets": [
+          {
+            "tag": "v2.16",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 6
+          },
+          {
+            "tag": "v2.16",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.15",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v2.15",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 0
+          },
+          {
+            "tag": "v2.14",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 8
+          },
+          {
+            "tag": "v2.14",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 4
+          },
+          {
+            "tag": "v2.13",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.13",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v2.12.2",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 12
+          },
+          {
+            "tag": "v2.12.2",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v2.12.1",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 6
+          },
+          {
+            "tag": "v2.12.1",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 6
+          },
+          {
+            "tag": "v2.12",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.12",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v2.11.1",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v2.11.1",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 49
+          },
+          {
+            "tag": "v2.11",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 5
+          },
+          {
+            "tag": "v2.11",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 4
+          },
+          {
+            "tag": "v2.10",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v2.10",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 10
+          },
+          {
+            "tag": "v2.9",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.9",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 4
+          },
+          {
+            "tag": "v2.8",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v2.8",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 4
+          },
+          {
+            "tag": "v2.7.5",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.7.5",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v2.7.4",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 0
+          },
+          {
+            "tag": "v2.7.4",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 4
+          },
+          {
+            "tag": "v2.7.3",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 0
+          },
+          {
+            "tag": "v2.7.3",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v2.7.2",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 0
+          },
+          {
+            "tag": "v2.7.2",
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "platform": "mac",
+            "download_count": 0
+          },
+          {
+            "tag": "v2.7.1",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v2.7.1",
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v2.7",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 0
+          },
+          {
+            "tag": "v2.7",
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "platform": "mac",
+            "download_count": 0
+          },
+          {
+            "tag": "v2.6",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v2.6",
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v2.5.6",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 0
+          },
+          {
+            "tag": "v2.5.6",
+            "name": "Bulk.PDF.Generator.Mac.dmg",
+            "platform": "mac",
+            "download_count": 0
+          },
+          {
+            "tag": "v2.5.4",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.5.3",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 0
+          },
+          {
+            "tag": "v2.5",
+            "name": "Bulk.PDF.Generator.Mac.dmg",
+            "platform": "mac",
+            "download_count": 0
+          },
+          {
+            "tag": "v2.1",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 0
+          },
+          {
+            "tag": "v2.1",
+            "name": "Sample.Files.zip",
+            "platform": "other",
+            "download_count": 0
+          },
+          {
+            "tag": "v2.0",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 0
+          }
+        ]
       }
     ]
   },
@@ -20478,33 +20920,51 @@
         "assets": [
           {
             "name": "latest-mac.yml",
-            "download_count": 3,
-            "size_bytes": 357
+            "download_count": 4,
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 44,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.9.2-arm64.dmg",
             "download_count": 5,
-            "size_bytes": 602403740
+            "size_bytes": 602403740,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.9.2-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 626769
+            "size_bytes": 626769,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.9.2.exe",
             "download_count": 27,
-            "size_bytes": 562032567
+            "size_bytes": 562032567,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.9.2.exe.blockmap",
             "download_count": 3,
-            "size_bytes": 587727
+            "size_bytes": 587727,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -20516,32 +20976,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 2,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 1,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.9.1-arm64.dmg",
             "download_count": 2,
-            "size_bytes": 602412457
+            "size_bytes": 602412457,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.9.1-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 626086
+            "size_bytes": 626086,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.9.1.exe",
             "download_count": 1,
-            "size_bytes": 562030251
+            "size_bytes": 562030251,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.9.1.exe.blockmap",
             "download_count": 0,
-            "size_bytes": 587597
+            "size_bytes": 587597,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -20553,32 +21031,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 3,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 3,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.9.0-arm64.dmg",
             "download_count": 2,
-            "size_bytes": 602445076
+            "size_bytes": 602445076,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.9.0-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 623253
+            "size_bytes": 623253,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.9.0.exe",
             "download_count": 2,
-            "size_bytes": 562050850
+            "size_bytes": 562050850,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.9.0.exe.blockmap",
             "download_count": 1,
-            "size_bytes": 587435
+            "size_bytes": 587435,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -20590,32 +21086,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 8,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 23,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.8.0-arm64.dmg",
             "download_count": 3,
-            "size_bytes": 602003761
+            "size_bytes": 602003761,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.8.0-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 624843
+            "size_bytes": 624843,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.8.0.exe",
             "download_count": 24,
-            "size_bytes": 561312194
+            "size_bytes": 561312194,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.8.0.exe.blockmap",
             "download_count": 3,
-            "size_bytes": 586654
+            "size_bytes": 586654,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -20627,32 +21141,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 5,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 0,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.7.1-arm64.dmg",
             "download_count": 5,
-            "size_bytes": 594518888
+            "size_bytes": 594518888,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.7.1-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 617487
+            "size_bytes": 617487,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.7.1.exe",
             "download_count": 1,
-            "size_bytes": 555987033
+            "size_bytes": 555987033,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.7.1.exe.blockmap",
             "download_count": 0,
-            "size_bytes": 580261
+            "size_bytes": 580261,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -20664,32 +21196,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 1,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 0,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.7.0-arm64.dmg",
             "download_count": 2,
-            "size_bytes": 595392352
+            "size_bytes": 595392352,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.7.0-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 618147
+            "size_bytes": 618147,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.7.0.exe",
             "download_count": 1,
-            "size_bytes": 555987508
+            "size_bytes": 555987508,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.7.0.exe.blockmap",
             "download_count": 0,
-            "size_bytes": 580301
+            "size_bytes": 580301,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -20701,32 +21251,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 8,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 2,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.6.2-arm64.dmg",
             "download_count": 5,
-            "size_bytes": 595385203
+            "size_bytes": 595385203,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.6.2-arm64.dmg.blockmap",
             "download_count": 1,
-            "size_bytes": 619638
+            "size_bytes": 619638,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.6.2.exe",
             "download_count": 3,
-            "size_bytes": 555978628
+            "size_bytes": 555978628,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.6.2.exe.blockmap",
             "download_count": 2,
-            "size_bytes": 579914
+            "size_bytes": 579914,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -20738,32 +21306,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 2,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 2,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.6.1-arm64.dmg",
             "download_count": 3,
-            "size_bytes": 595385722
+            "size_bytes": 595385722,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.6.1-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 619835
+            "size_bytes": 619835,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.6.1.exe",
             "download_count": 3,
-            "size_bytes": 555979248
+            "size_bytes": 555979248,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.6.1.exe.blockmap",
             "download_count": 0,
-            "size_bytes": 580123
+            "size_bytes": 580123,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -20775,32 +21361,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 4,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 6,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.6.0-arm64.dmg",
             "download_count": 1,
-            "size_bytes": 594366934
+            "size_bytes": 594366934,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.6.0-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 618177
+            "size_bytes": 618177,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.6.0.exe",
             "download_count": 4,
-            "size_bytes": 558469313
+            "size_bytes": 558469313,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.6.0.exe.blockmap",
             "download_count": 2,
-            "size_bytes": 582153
+            "size_bytes": 582153,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -20812,32 +21416,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 4,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 13,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.5.1-arm64.dmg",
             "download_count": 3,
-            "size_bytes": 594260477
+            "size_bytes": 594260477,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.5.1-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 617654
+            "size_bytes": 617654,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.5.1.exe",
             "download_count": 6,
-            "size_bytes": 558215674
+            "size_bytes": 558215674,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.5.1.exe.blockmap",
             "download_count": 2,
-            "size_bytes": 581497
+            "size_bytes": 581497,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -20849,32 +21471,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 2,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 0,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.5.0-arm64.dmg",
             "download_count": 5,
-            "size_bytes": 594849636
+            "size_bytes": 594849636,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.5.0-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 618569
+            "size_bytes": 618569,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.5.0.exe",
             "download_count": 3,
-            "size_bytes": 553512602
+            "size_bytes": 553512602,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.5.0.exe.blockmap",
             "download_count": 0,
-            "size_bytes": 577389
+            "size_bytes": 577389,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -20886,32 +21526,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 0,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 1,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.4.0-arm64.dmg",
             "download_count": 1,
-            "size_bytes": 594172618
+            "size_bytes": 594172618,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.4.0-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 620989
+            "size_bytes": 620989,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.4.0.exe",
             "download_count": 2,
-            "size_bytes": 552908324
+            "size_bytes": 552908324,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.4.0.exe.blockmap",
             "download_count": 1,
-            "size_bytes": 575838
+            "size_bytes": 575838,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -20923,32 +21581,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 12,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 20,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.3.2-arm64.dmg",
             "download_count": 11,
-            "size_bytes": 594757353
+            "size_bytes": 594757353,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.3.2-arm64.dmg.blockmap",
             "download_count": 3,
-            "size_bytes": 620219
+            "size_bytes": 620219,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.3.2.exe",
             "download_count": 22,
-            "size_bytes": 552221639
+            "size_bytes": 552221639,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.3.2.exe.blockmap",
             "download_count": 5,
-            "size_bytes": 576794
+            "size_bytes": 576794,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -20960,32 +21636,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 3,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 0,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.3.1-arm64.dmg",
             "download_count": 0,
-            "size_bytes": 594732668
+            "size_bytes": 594732668,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.3.1-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 620903
+            "size_bytes": 620903,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.3.1.exe",
             "download_count": 1,
-            "size_bytes": 552219306
+            "size_bytes": 552219306,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.3.1.exe.blockmap",
             "download_count": 0,
-            "size_bytes": 577500
+            "size_bytes": 577500,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -20997,32 +21691,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 3,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 1,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.3.0-arm64.dmg",
             "download_count": 122,
-            "size_bytes": 594643176
+            "size_bytes": 594643176,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.3.0-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 623143
+            "size_bytes": 623143,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.3.0.exe",
             "download_count": 3,
-            "size_bytes": 551916848
+            "size_bytes": 551916848,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.3.0.exe.blockmap",
             "download_count": 1,
-            "size_bytes": 576144
+            "size_bytes": 576144,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -21034,32 +21746,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 5,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 8,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.2.0-arm64.dmg",
             "download_count": 9,
-            "size_bytes": 594636423
+            "size_bytes": 594636423,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.2.0-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 623036
+            "size_bytes": 623036,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.2.0.exe",
             "download_count": 14,
-            "size_bytes": 551549461
+            "size_bytes": 551549461,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.2.0.exe.blockmap",
             "download_count": 3,
-            "size_bytes": 576838
+            "size_bytes": 576838,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -21071,32 +21801,50 @@
           {
             "name": "latest-mac.yml",
             "download_count": 0,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
           },
           {
             "name": "latest.yml",
             "download_count": 2,
-            "size_bytes": 357
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-1.1.0-arm64.dmg",
             "download_count": 1,
-            "size_bytes": 710528103
+            "size_bytes": 710528103,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "Redaction-Tool-1.1.0-arm64.dmg.blockmap",
             "download_count": 0,
-            "size_bytes": 740645
+            "size_bytes": 740645,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "Redaction-Tool-Setup-1.1.0.exe",
             "download_count": 2,
-            "size_bytes": 710998050
+            "size_bytes": 710998050,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "Redaction-Tool-Setup-1.1.0.exe.blockmap",
             "download_count": 2,
-            "size_bytes": 742313
+            "size_bytes": 742313,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -21108,7 +21856,10 @@
           {
             "name": "Redaction.Tool-1.0.0-arm64.dmg",
             "download_count": 1,
-            "size_bytes": 769157684
+            "size_bytes": 769157684,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       },
@@ -21120,7 +21871,10 @@
           {
             "name": "Redaction.Tool-0.1.0-arm64.dmg",
             "download_count": 1,
-            "size_bytes": 1054525007
+            "size_bytes": 1054525007,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           }
         ]
       }
@@ -21877,6 +22631,11 @@
       {
         "date": "2026-09-21",
         "total_downloads": 301
+      },
+      {
+        "date": "2026-09-22",
+        "total_downloads": 301,
+        "update_checks": 192
       }
     ],
     "asset_history": [
@@ -32100,6 +32859,227 @@
             "download_count": 1
           }
         ]
+      },
+      {
+        "date": "2026-09-22",
+        "assets": [
+          {
+            "tag": "v1.9.2",
+            "name": "Redaction-Tool-1.9.2-arm64.dmg",
+            "platform": "mac",
+            "download_count": 5
+          },
+          {
+            "tag": "v1.9.2",
+            "name": "Redaction-Tool-Setup-1.9.2.exe",
+            "platform": "windows",
+            "download_count": 27
+          },
+          {
+            "tag": "v1.9.1",
+            "name": "Redaction-Tool-1.9.1-arm64.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.9.1",
+            "name": "Redaction-Tool-Setup-1.9.1.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.9.0",
+            "name": "Redaction-Tool-1.9.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.9.0",
+            "name": "Redaction-Tool-Setup-1.9.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.8.0",
+            "name": "Redaction-Tool-1.8.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.8.0",
+            "name": "Redaction-Tool-Setup-1.8.0.exe",
+            "platform": "windows",
+            "download_count": 24
+          },
+          {
+            "tag": "v1.7.1",
+            "name": "Redaction-Tool-1.7.1-arm64.dmg",
+            "platform": "mac",
+            "download_count": 5
+          },
+          {
+            "tag": "v1.7.1",
+            "name": "Redaction-Tool-Setup-1.7.1.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.7.0",
+            "name": "Redaction-Tool-1.7.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.7.0",
+            "name": "Redaction-Tool-Setup-1.7.0.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.6.2",
+            "name": "Redaction-Tool-1.6.2-arm64.dmg",
+            "platform": "mac",
+            "download_count": 5
+          },
+          {
+            "tag": "v1.6.2",
+            "name": "Redaction-Tool-Setup-1.6.2.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.6.1",
+            "name": "Redaction-Tool-1.6.1-arm64.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.6.1",
+            "name": "Redaction-Tool-Setup-1.6.1.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.6.0",
+            "name": "Redaction-Tool-1.6.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.6.0",
+            "name": "Redaction-Tool-Setup-1.6.0.exe",
+            "platform": "windows",
+            "download_count": 4
+          },
+          {
+            "tag": "v1.5.1",
+            "name": "Redaction-Tool-1.5.1-arm64.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.5.1",
+            "name": "Redaction-Tool-Setup-1.5.1.exe",
+            "platform": "windows",
+            "download_count": 6
+          },
+          {
+            "tag": "v1.5.0",
+            "name": "Redaction-Tool-1.5.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 5
+          },
+          {
+            "tag": "v1.5.0",
+            "name": "Redaction-Tool-Setup-1.5.0.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.4.0",
+            "name": "Redaction-Tool-1.4.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.4.0",
+            "name": "Redaction-Tool-Setup-1.4.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.3.2",
+            "name": "Redaction-Tool-1.3.2-arm64.dmg",
+            "platform": "mac",
+            "download_count": 11
+          },
+          {
+            "tag": "v1.3.2",
+            "name": "Redaction-Tool-Setup-1.3.2.exe",
+            "platform": "windows",
+            "download_count": 22
+          },
+          {
+            "tag": "v1.3.1",
+            "name": "Redaction-Tool-1.3.1-arm64.dmg",
+            "platform": "mac",
+            "download_count": 0
+          },
+          {
+            "tag": "v1.3.1",
+            "name": "Redaction-Tool-Setup-1.3.1.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.3.0",
+            "name": "Redaction-Tool-1.3.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 122
+          },
+          {
+            "tag": "v1.3.0",
+            "name": "Redaction-Tool-Setup-1.3.0.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.2.0",
+            "name": "Redaction-Tool-1.2.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 9
+          },
+          {
+            "tag": "v1.2.0",
+            "name": "Redaction-Tool-Setup-1.2.0.exe",
+            "platform": "windows",
+            "download_count": 14
+          },
+          {
+            "tag": "v1.1.0",
+            "name": "Redaction-Tool-1.1.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.1.0",
+            "name": "Redaction-Tool-Setup-1.1.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.0.0",
+            "name": "Redaction.Tool-1.0.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.1.0",
+            "name": "Redaction.Tool-0.1.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 1
+          }
+        ]
       }
     ]
   },
@@ -32361,6 +33341,11 @@
       {
         "date": "2026-09-21",
         "total_downloads": 0
+      },
+      {
+        "date": "2026-09-22",
+        "total_downloads": 0,
+        "update_checks": 0
       }
     ],
     "asset_history": [
@@ -32619,6 +33604,10 @@
       {
         "date": "2026-09-21",
         "assets": []
+      },
+      {
+        "date": "2026-09-22",
+        "assets": []
       }
     ]
   },
@@ -32632,47 +33621,74 @@
           {
             "name": "latest.json",
             "download_count": 49,
-            "size_bytes": 4782
+            "size_bytes": 4782,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.3.0_universal.dmg",
             "download_count": 2,
-            "size_bytes": 15899963
+            "size_bytes": 15899963,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.3.0_x64-setup.exe",
             "download_count": 12,
-            "size_bytes": 6383002
+            "size_bytes": 6383002,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.3.0_x64-setup.exe.sig",
             "download_count": 0,
-            "size_bytes": 436
+            "size_bytes": 436,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.3.0_x64_en-US.msi",
             "download_count": 1,
-            "size_bytes": 7761920
+            "size_bytes": 7761920,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.3.0_x64_en-US.msi.sig",
             "download_count": 0,
-            "size_bytes": 436
+            "size_bytes": 436,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz",
             "download_count": 2,
-            "size_bytes": 15928554
+            "size_bytes": 15928554,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz.sig",
             "download_count": 0,
-            "size_bytes": 424
+            "size_bytes": 424,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NOTES.md",
             "download_count": 0,
-            "size_bytes": 2238
+            "size_bytes": 2238,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -32684,47 +33700,74 @@
           {
             "name": "latest.json",
             "download_count": 39,
-            "size_bytes": 4782
+            "size_bytes": 4782,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.2.1_universal.dmg",
             "download_count": 3,
-            "size_bytes": 16289059
+            "size_bytes": 16289059,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.2.1_x64-setup.exe",
             "download_count": 23,
-            "size_bytes": 6397183
+            "size_bytes": 6397183,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.2.1_x64-setup.exe.sig",
             "download_count": 0,
-            "size_bytes": 436
+            "size_bytes": 436,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.2.1_x64_en-US.msi",
             "download_count": 1,
-            "size_bytes": 7802880
+            "size_bytes": 7802880,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.2.1_x64_en-US.msi.sig",
             "download_count": 0,
-            "size_bytes": 436
+            "size_bytes": 436,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz",
             "download_count": 1,
-            "size_bytes": 16309225
+            "size_bytes": 16309225,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz.sig",
             "download_count": 0,
-            "size_bytes": 424
+            "size_bytes": 424,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NOTES.md",
             "download_count": 0,
-            "size_bytes": 1832
+            "size_bytes": 1832,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -32736,47 +33779,74 @@
           {
             "name": "latest.json",
             "download_count": 8,
-            "size_bytes": 4782
+            "size_bytes": 4782,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.2.0_universal.dmg",
             "download_count": 0,
-            "size_bytes": 16288429
+            "size_bytes": 16288429,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.2.0_x64-setup.exe",
             "download_count": 6,
-            "size_bytes": 6395957
+            "size_bytes": 6395957,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.2.0_x64-setup.exe.sig",
             "download_count": 0,
-            "size_bytes": 436
+            "size_bytes": 436,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.2.0_x64_en-US.msi",
             "download_count": 0,
-            "size_bytes": 7802880
+            "size_bytes": 7802880,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.2.0_x64_en-US.msi.sig",
             "download_count": 0,
-            "size_bytes": 436
+            "size_bytes": 436,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz",
             "download_count": 0,
-            "size_bytes": 16311960
+            "size_bytes": 16311960,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz.sig",
             "download_count": 0,
-            "size_bytes": 424
+            "size_bytes": 424,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NOTES.md",
             "download_count": 0,
-            "size_bytes": 2246
+            "size_bytes": 2246,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -32788,47 +33858,74 @@
           {
             "name": "latest.json",
             "download_count": 30,
-            "size_bytes": 4782
+            "size_bytes": 4782,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.1.1_universal.dmg",
             "download_count": 2,
-            "size_bytes": 16288364
+            "size_bytes": 16288364,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.1.1_x64-setup.exe",
             "download_count": 25,
-            "size_bytes": 6393196
+            "size_bytes": 6393196,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.1.1_x64-setup.exe.sig",
             "download_count": 0,
-            "size_bytes": 436
+            "size_bytes": 436,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.1.1_x64_en-US.msi",
             "download_count": 0,
-            "size_bytes": 7802880
+            "size_bytes": 7802880,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.1.1_x64_en-US.msi.sig",
             "download_count": 0,
-            "size_bytes": 436
+            "size_bytes": 436,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz",
             "download_count": 1,
-            "size_bytes": 16311203
+            "size_bytes": 16311203,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz.sig",
             "download_count": 0,
-            "size_bytes": 424
+            "size_bytes": 424,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NOTES.md",
             "download_count": 0,
-            "size_bytes": 1538
+            "size_bytes": 1538,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -32840,47 +33937,74 @@
           {
             "name": "latest.json",
             "download_count": 2,
-            "size_bytes": 4782
+            "size_bytes": 4782,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.1.0_universal.dmg",
             "download_count": 2,
-            "size_bytes": 16286050
+            "size_bytes": 16286050,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.1.0_x64-setup.exe",
             "download_count": 3,
-            "size_bytes": 6392705
+            "size_bytes": 6392705,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.1.0_x64-setup.exe.sig",
             "download_count": 0,
-            "size_bytes": 436
+            "size_bytes": 436,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.1.0_x64_en-US.msi",
             "download_count": 2,
-            "size_bytes": 7802880
+            "size_bytes": 7802880,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.1.0_x64_en-US.msi.sig",
             "download_count": 0,
-            "size_bytes": 436
+            "size_bytes": 436,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz",
             "download_count": 3,
-            "size_bytes": 16309161
+            "size_bytes": 16309161,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz.sig",
             "download_count": 0,
-            "size_bytes": 424
+            "size_bytes": 424,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NOTES.md",
             "download_count": 2,
-            "size_bytes": 1538
+            "size_bytes": 1538,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       },
@@ -32892,47 +34016,74 @@
           {
             "name": "latest.json",
             "download_count": 5,
-            "size_bytes": 4782
+            "size_bytes": 4782,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.0.1_universal.dmg",
             "download_count": 0,
-            "size_bytes": 16279052
+            "size_bytes": 16279052,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.0.1_x64-setup.exe",
             "download_count": 2,
-            "size_bytes": 6389045
+            "size_bytes": 6389045,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.0.1_x64-setup.exe.sig",
             "download_count": 0,
-            "size_bytes": 436
+            "size_bytes": 436,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.0.1_x64_en-US.msi",
             "download_count": 0,
-            "size_bytes": 7802880
+            "size_bytes": 7802880,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.0.1_x64_en-US.msi.sig",
             "download_count": 0,
-            "size_bytes": 436
+            "size_bytes": 436,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz",
             "download_count": 1,
-            "size_bytes": 16303301
+            "size_bytes": 16303301,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NAPLAN.Cohort.Tracker_universal.app.tar.gz.sig",
             "download_count": 0,
-            "size_bytes": 424
+            "size_bytes": 424,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           },
           {
             "name": "NOTES.md",
             "download_count": 0,
-            "size_bytes": 1538
+            "size_bytes": 1538,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
           }
         ]
       }
@@ -33193,6 +34344,11 @@
       {
         "date": "2026-09-21",
         "total_downloads": 84
+      },
+      {
+        "date": "2026-09-22",
+        "total_downloads": 84,
+        "update_checks": 133
       }
     ],
     "asset_history": [
@@ -38120,6 +39276,119 @@
           },
           {
             "name": "NAPLAN.Cohort.Tracker_1.0.1_x64_en-US.msi",
+            "download_count": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-09-22",
+        "assets": [
+          {
+            "tag": "v1.3.0",
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_universal.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.3.0",
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_x64-setup.exe",
+            "platform": "windows",
+            "download_count": 12
+          },
+          {
+            "tag": "v1.3.0",
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_x64_en-US.msi",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.2.1",
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_universal.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.2.1",
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_x64-setup.exe",
+            "platform": "windows",
+            "download_count": 23
+          },
+          {
+            "tag": "v1.2.1",
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_x64_en-US.msi",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.2.0",
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_universal.dmg",
+            "platform": "mac",
+            "download_count": 0
+          },
+          {
+            "tag": "v1.2.0",
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_x64-setup.exe",
+            "platform": "windows",
+            "download_count": 6
+          },
+          {
+            "tag": "v1.2.0",
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_x64_en-US.msi",
+            "platform": "windows",
+            "download_count": 0
+          },
+          {
+            "tag": "v1.1.1",
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_universal.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.1.1",
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_x64-setup.exe",
+            "platform": "windows",
+            "download_count": 25
+          },
+          {
+            "tag": "v1.1.1",
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_x64_en-US.msi",
+            "platform": "windows",
+            "download_count": 0
+          },
+          {
+            "tag": "v1.1.0",
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_universal.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.1.0",
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_x64-setup.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.1.0",
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_x64_en-US.msi",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.0.1",
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_universal.dmg",
+            "platform": "mac",
+            "download_count": 0
+          },
+          {
+            "tag": "v1.0.1",
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_x64-setup.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.0.1",
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_x64_en-US.msi",
+            "platform": "windows",
             "download_count": 0
           }
         ]

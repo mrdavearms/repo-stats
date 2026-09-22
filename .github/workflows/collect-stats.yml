@@ -699,7 +699,7 @@ jobs:
 
           LEGEND="<tr><td colspan=\"3\" style=\"padding:14px 0 0 0;color:#6e7681;font-size:11px;line-height:1.6;\">
             <strong>Downloads</strong> count every fetch of an installer file (.exe, .msi, .dmg), not people: the same person twice, a Windows copy updating itself, and crawlers all count. GitHub keeps no unique-downloader figure and occasionally revises its counter down.
-            <strong>Update checks</strong> are installed copies asking GitHub for a new version (usually once per launch), the best available sign that copies are in use. Only apps whose releases carry an updater file (Doc Redactor, NAPLAN) can be measured; Bulk PDF checks in a way GitHub does not count.
+            <strong>Update checks</strong> are installed copies asking GitHub for a new version (usually once per launch), the best available sign that copies are in use. Only copies that fetch an updater file are counted: Doc Redactor and NAPLAN always have; Bulk PDF only from v2.17 (22 Sep 2026), so its figure grows as people update.
             <strong>Views</strong> and <strong>clones</strong> show the latest complete day GitHub has published; the feed lags 1&ndash;2 days. Most clones are automated.
             <strong>Where visitors came from</strong> is GitHub's referrer list for the last 14 days; GitHub does not publish visitor locations.
           </td></tr>"

@@ -20920,7 +20920,7 @@
         "assets": [
           {
             "name": "latest-mac.yml",
-            "download_count": 4,
+            "download_count": 6,
             "size_bytes": 357,
             "installer": false,
             "updater": true,
@@ -20928,7 +20928,7 @@
           },
           {
             "name": "latest.yml",
-            "download_count": 44,
+            "download_count": 45,
             "size_bytes": 357,
             "installer": false,
             "updater": true,
@@ -22635,7 +22635,7 @@
       {
         "date": "2026-09-22",
         "total_downloads": 301,
-        "update_checks": 192
+        "update_checks": 195
       }
     ],
     "asset_history": [

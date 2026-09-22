@@ -267,7 +267,7 @@
       <div class="card-label">Update Checks</div>
       <div class="card-value" id="updateChecks">—</div>
       <div class="card-trend" id="trendUpdateChecks"></div>
-      <div class="card-note">installed copies asking for a new version</div>
+      <div class="card-note" id="noteUpdateChecks"></div>
     </div>
     <div class="card">
       <div class="card-label">Total Page Views</div>
@@ -352,7 +352,7 @@
     <ul>
       <li><strong>Installer downloads</strong> counts every time GitHub served an installer file (.exe, .msi, .dmg and similar). GitHub does not record who downloaded, so there is no unique figure. One person who downloads twice counts twice. A Windows copy that updates itself counts once more, because the updater fetches the new installer. Security scanners and web crawlers count too. GitHub sometimes revises a count downwards a day later, which shows as a negative day.</li>
       <li><strong>Suspected automated bursts</strong> are days when one repo gained at least 15 downloads and at least 8 times its usual day. Every burst so far has looked like a crawler, not people: on 27 May 2026 one 600 MB Mac installer of Doc Redactor was fetched 92 times in a day, and on 10 Jul 2026 every Mac installer of Bulk PDF back to v2.7 gained exactly one download on the same day. The "excluding bursts" figure replaces each burst day with a typical day.</li>
-      <li><strong>Update checks</strong> counts fetches of the small manifest file (latest.yml or latest.json) that an installed copy reads when it checks for a new version, usually once per launch. It is the best available sign that copies are installed and in use. It is a count of checks, not of computers.</li>
+      <li><strong>Update checks</strong> counts fetches of the small manifest file (latest.yml or latest.json) that an installed copy reads when it checks for a new version, usually once per launch. It is the best available sign that copies are installed and in use. It is a count of checks, not of computers. Only Doc Redactor and NAPLAN publish such a file. Bulk PDF checks for updates with a lightweight request to its releases page, which GitHub does not count anywhere, so its update checks cannot be measured.</li>
       <li><strong>Page views and unique visitors</strong> come from GitHub's traffic data, which only covers the last 14 days at any time. GitHub counts unique visitors per day, so the daily sum counts a person once for every day they visited.</li>
       <li><strong>Clones</strong> are almost all automated: mirrors, search indexers and build systems. Clones running many times higher than page views are not people.</li>
       <li><strong>NAPLAN (source)</strong> shows zero downloads by design. Its releases are drafts; the public installers and their counts live under NAPLAN (downloads).</li>
@@ -419,6 +419,16 @@
         for (const a of rel.assets) if (isUpdater(a)) n += a.download_count || 0;
       }
       return n;
+    }
+
+    // Only apps whose releases carry an updater manifest can be measured. Bulk PDF
+    // checks for updates with a HEAD request to the releases page, which GitHub
+    // does not count anywhere, so its figure is "not measurable", never 0.
+    function hasUpdater(repo) {
+      for (const rel of (releasesData[repo]?.releases || [])) {
+        for (const a of rel.assets) if (isUpdater(a)) return true;
+      }
+      return false;
     }
 
     // Chart.js defaults for dark theme
@@ -619,8 +629,14 @@
           checksPrev += withChecks[withChecks.length - 2].update_checks;
         }
       }
-      document.getElementById('updateChecks').textContent = checks.toLocaleString();
-      if (haveTrend) {
+      const measurable = repos.some(hasUpdater);
+      document.getElementById('updateChecks').textContent = measurable ? checks.toLocaleString() : '\u2014';
+      document.getElementById('noteUpdateChecks').textContent = measurable
+        ? 'installed copies asking for a new version' + (repos.every(hasUpdater) ? '' : ' (Bulk PDF not measurable)')
+        : 'not measurable: this app checks for updates without fetching a file';
+      if (!measurable) {
+        document.getElementById('trendUpdateChecks').textContent = '';
+      } else if (haveTrend) {
         const d = checksNow - checksPrev;
         setTrend('trendUpdateChecks', d > 0 ? { label: '+' + d + ' since yesterday', cls: 'up' }
           : d < 0 ? { label: d + ' since yesterday', cls: 'down' } : { label: 'No change', cls: 'flat' });
@@ -973,7 +989,7 @@
             cells: [
               (repos.length > 1 ? label + ' ' : '') + rel.tag,
               rel.published_at ? formatDate(rel.published_at.slice(0, 10)) : '\u2014',
-              String(win), String(mac), String(total), String(checks)
+              String(win), String(mac), String(total), hasUpdater(repo) ? String(checks) : '\u2014'
             ]
           });
         }

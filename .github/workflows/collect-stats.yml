@@ -572,8 +572,13 @@ jobs:
               [.[$r].releases[]?.assets[]?] as $a
               | { win: ([$a[] | select(inst) | select(plat == "windows") | .download_count] | add // 0),
                   mac: ([$a[] | select(inst) | select(plat == "mac") | .download_count] | add // 0),
-                  checks: ([$a[] | select(isupd) | .download_count] | add // 0) }' "$R")
+                  checks: ([$a[] | select(isupd) | .download_count] | add // 0),
+                  has_updater: ([$a[] | select(isupd)] | length > 0) }' "$R")
             ALL_WIN=$(echo "$PLAT" | jq -r .win); ALL_MAC=$(echo "$PLAT" | jq -r .mac); ALL_CHECKS=$(echo "$PLAT" | jq -r .checks)
+            # An app whose releases carry no updater manifest (Bulk PDF checks for
+            # updates with a HEAD request to the releases page, which GitHub does not
+            # count anywhere) has NO measurable update checks. Say so; never print 0.
+            HAS_UPDATER=$(echo "$PLAT" | jq -r .has_updater)
 
             YD=$(asset_window "$DR" "$YESTERDAY")
             YD_FROM=$(echo "$YD" | jq -r .from); YD_N=$(echo "$YD" | jq -r .total); YD_WIN=$(echo "$YD" | jq -r .win); YD_MAC=$(echo "$YD" | jq -r .mac); YD_DETAIL=$(echo "$YD" | jq -r .detail)
@@ -591,7 +596,7 @@ jobs:
 
             Y_TOTAL=$((Y_TOTAL + YD_N)); Y_WIN=$((Y_WIN + YD_WIN)); Y_MAC=$((Y_MAC + YD_MAC))
             W_TOTAL=$((W_TOTAL + WK_N)); W_WIN=$((W_WIN + WK_WIN)); W_MAC=$((W_MAC + WK_MAC))
-            if [ -n "$WK_CHECKS" ]; then W_CHECKS=$((W_CHECKS + WK_CHECKS)); W_CHECKS_KNOWN=1; fi
+            if [ -n "$WK_CHECKS" ] && [ "$HAS_UPDATER" = "true" ]; then W_CHECKS=$((W_CHECKS + WK_CHECKS)); W_CHECKS_KNOWN=1; fi
             [ "$DL_DELTA" -ge 15 ] 2>/dev/null && FLAGGED=$((FLAGGED + 1))
 
             # Wording: "yesterday" only when the previous snapshot really is yesterday's.
@@ -614,8 +619,15 @@ jobs:
             else
               WK_LINE="none"
             fi
-            if [ -n "$WK_CHECKS" ]; then WK_CHECKS_TXT="${WK_CHECKS} update checks"; else WK_CHECKS_TXT="update checks: not enough history yet"; fi
-            if [ -n "$YD_CHECKS" ]; then YD_CHECKS_TXT=" &middot; ${YD_CHECKS} update checks"; else YD_CHECKS_TXT=""; fi
+            if [ "$HAS_UPDATER" != "true" ]; then
+              WK_CHECKS_TXT="update checks not measurable for this app"
+              YD_CHECKS_TXT=""
+              ALL_CHECKS_TXT="update checks not measurable (no updater file on its releases)"
+            else
+              if [ -n "$WK_CHECKS" ]; then WK_CHECKS_TXT="${WK_CHECKS} update checks"; else WK_CHECKS_TXT="update checks: not enough history yet"; fi
+              if [ -n "$YD_CHECKS" ]; then YD_CHECKS_TXT=" &middot; ${YD_CHECKS} update checks"; else YD_CHECKS_TXT=""; fi
+              ALL_CHECKS_TXT="${ALL_CHECKS} update checks"
+            fi
 
             META="&#9733; ${STAR_COUNT} &middot; ${FORK_COUNT} forks &middot; ${WATCH_COUNT} watching"
             if [ "$TR" != "$DR" ]; then META="${META} &middot; downloads counted on ${DR}"; fi
@@ -647,7 +659,7 @@ jobs:
                 <span style=\"color:#6e7681;\">New downloads:</span> ${YD_LINE}${YD_CHECKS_TXT}<br>
                 <span style=\"color:#6e7681;\">Last 7 days:</span> ${WK_LINE}<br>
                 <span style=\"color:#6e7681;\">&nbsp;</span> ${WK_CHECKS_TXT} &middot; ${VIEWS_7D} views (${VIEWS_7D_U} unique) &middot; ${CLONES_7D} clones (${CLONES_7D_U} unique) &middot; $(trend_html "$VIEWS_7D" "$LAST_WEEK")<br>
-                <span style=\"color:#6e7681;\">All-time:</span> ${DL} downloads (Windows ${ALL_WIN} &middot; Mac ${ALL_MAC}) &middot; ${ALL_CHECKS} update checks &middot; ${TOTAL_VIEWS} views (${TOTAL_UNIQUE} unique)<br>
+                <span style=\"color:#6e7681;\">All-time:</span> ${DL} downloads (Windows ${ALL_WIN} &middot; Mac ${ALL_MAC}) &middot; ${ALL_CHECKS_TXT} &middot; ${TOTAL_VIEWS} views (${TOTAL_UNIQUE} unique)<br>
                 <span style=\"color:#6e7681;\">Where visitors came from (14d):</span> ${REF_LINE}<br>
                 <span style=\"color:#6e7681;\">Release pages (14d):</span> ${REL_PAGES} &middot; <span style=\"color:#6e7681;\">Top pages:</span> ${PATH_LINE}
               </td>
@@ -687,7 +699,7 @@ jobs:
 
           LEGEND="<tr><td colspan=\"3\" style=\"padding:14px 0 0 0;color:#6e7681;font-size:11px;line-height:1.6;\">
             <strong>Downloads</strong> count every fetch of an installer file (.exe, .msi, .dmg), not people: the same person twice, a Windows copy updating itself, and crawlers all count. GitHub keeps no unique-downloader figure and occasionally revises its counter down.
-            <strong>Update checks</strong> are installed copies asking GitHub for a new version (usually once per launch), the best available sign that copies are in use.
+            <strong>Update checks</strong> are installed copies asking GitHub for a new version (usually once per launch), the best available sign that copies are in use. Only apps whose releases carry an updater file (Doc Redactor, NAPLAN) can be measured; Bulk PDF checks in a way GitHub does not count.
             <strong>Views</strong> and <strong>clones</strong> show the latest complete day GitHub has published; the feed lags 1&ndash;2 days. Most clones are automated.
             <strong>Where visitors came from</strong> is GitHub's referrer list for the last 14 days; GitHub does not publish visitor locations.
           </td></tr>"

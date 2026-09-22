@@ -127,6 +127,29 @@
     .card .card-trend.down { color: var(--trend-down); }
     .card .card-trend.flat { color: var(--text-muted); }
 
+    .card .card-note {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .burst { color: var(--trend-down); }
+
+    .notes {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .notes h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--text); }
+    .notes ul { padding-left: 1.2rem; }
+    .notes li { margin-bottom: 0.5rem; }
+    .notes strong { color: var(--text); }
+
     .charts-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -235,9 +258,16 @@
 
   <div class="summary-cards">
     <div class="card">
-      <div class="card-label">Total Downloads</div>
+      <div class="card-label">Installer Downloads</div>
       <div class="card-value" id="totalDownloads">—</div>
       <div class="card-trend" id="trendDownloads"></div>
+      <div class="card-note" id="noteDownloads"></div>
+    </div>
+    <div class="card">
+      <div class="card-label">Update Checks</div>
+      <div class="card-value" id="updateChecks">—</div>
+      <div class="card-trend" id="trendUpdateChecks"></div>
+      <div class="card-note">installed copies asking for a new version</div>
     </div>
     <div class="card">
       <div class="card-label">Total Page Views</div>
@@ -245,7 +275,7 @@
       <div class="card-trend" id="trendViews"></div>
     </div>
     <div class="card">
-      <div class="card-label">Unique Visitors</div>
+      <div class="card-label">Unique Visitors (daily sum)</div>
       <div class="card-value" id="uniqueVisitors">—</div>
       <div class="card-trend" id="trendUnique"></div>
     </div>
@@ -273,7 +303,11 @@
 
   <div class="charts-grid">
     <div class="chart-container">
-      <h3>Downloads Over Time</h3>
+      <h3>New Downloads per Day <span style="font-weight:400;color:var(--text-muted);font-size:0.8rem;">(red = suspected automated burst)</span></h3>
+      <div class="chart-wrapper"><canvas id="dailyDownloadsChart"></canvas></div>
+    </div>
+    <div class="chart-container">
+      <h3>Downloads Over Time (cumulative)</h3>
       <div class="chart-wrapper"><canvas id="downloadsChart"></canvas></div>
     </div>
     <div class="chart-container">
@@ -287,6 +321,14 @@
   </div>
 
   <div class="tables-grid">
+    <div class="table-container">
+      <h3>Downloads by Version</h3>
+      <div id="versionsTable"></div>
+    </div>
+    <div class="table-container">
+      <h3>Suspected Automated Bursts</h3>
+      <div id="burstsTable"></div>
+    </div>
     <div class="table-container">
       <h3>Referral Sources</h3>
       <div id="referrersTable"></div>
@@ -305,6 +347,18 @@
     </div>
   </div>
 
+  <div class="notes">
+    <h3>What these numbers can and cannot tell you</h3>
+    <ul>
+      <li><strong>Installer downloads</strong> counts every time GitHub served an installer file (.exe, .msi, .dmg and similar). GitHub does not record who downloaded, so there is no unique figure. One person who downloads twice counts twice. A Windows copy that updates itself counts once more, because the updater fetches the new installer. Security scanners and web crawlers count too. GitHub sometimes revises a count downwards a day later, which shows as a negative day.</li>
+      <li><strong>Suspected automated bursts</strong> are days when one repo gained at least 15 downloads and at least 8 times its usual day. Every burst so far has looked like a crawler, not people: on 27 May 2026 one 600 MB Mac installer of Doc Redactor was fetched 92 times in a day, and on 10 Jul 2026 every Mac installer of Bulk PDF back to v2.7 gained exactly one download on the same day. The "excluding bursts" figure replaces each burst day with a typical day.</li>
+      <li><strong>Update checks</strong> counts fetches of the small manifest file (latest.yml or latest.json) that an installed copy reads when it checks for a new version, usually once per launch. It is the best available sign that copies are installed and in use. It is a count of checks, not of computers.</li>
+      <li><strong>Page views and unique visitors</strong> come from GitHub's traffic data, which only covers the last 14 days at any time. GitHub counts unique visitors per day, so the daily sum counts a person once for every day they visited.</li>
+      <li><strong>Clones</strong> are almost all automated: mirrors, search indexers and build systems. Clones running many times higher than page views are not people.</li>
+      <li><strong>NAPLAN (source)</strong> shows zero downloads by design. Its releases are drafts; the public installers and their counts live under NAPLAN (downloads).</li>
+    </ul>
+  </div>
+
   <script>
     let trafficData = {};
     let releasesData = {};
@@ -319,6 +373,53 @@
       'naplan-cohort-tracker': 'NAPLAN (source)',
       'naplan-cohort-tracker-releases': 'NAPLAN (downloads)',
     };
+
+    // Asset classification. The collector writes installer/updater/platform flags on
+    // every asset; the name-based fallbacks only apply to data written before it did.
+    function isInstaller(a) {
+      return a.installer !== undefined ? a.installer : /\.(dmg|exe|msi|pkg|appimage|deb|rpm|zip)$/i.test(a.name || '');
+    }
+    function isUpdater(a) {
+      return a.updater !== undefined ? a.updater : /^latest(-[a-z0-9]+)?\.(yml|json)$/i.test(a.name || '');
+    }
+    function platformOf(a) {
+      if (a.platform) return a.platform;
+      const n = a.name || '';
+      if (/\.(exe|msi)$/i.test(n)) return 'windows';
+      if (/\.(dmg|pkg)$/i.test(n) || /mac/i.test(n)) return 'mac';
+      if (/\.(appimage|deb|rpm)$/i.test(n)) return 'linux';
+      return 'other';
+    }
+
+    // Day-by-day change in the cumulative installer total.
+    function dailyDownloads(repo) {
+      const hist = releasesData[repo]?.history || [];
+      const out = [];
+      for (let i = 1; i < hist.length; i++) {
+        out.push({ date: hist[i].date, delta: hist[i].total_downloads - hist[i - 1].total_downloads });
+      }
+      return out;
+    }
+
+    // A burst is a day that gained at least 15 downloads AND at least 8x the repo's
+    // median active day. These repos normally see 1-2 downloads a day; every day
+    // this rule has flagged so far had the fingerprints of a crawler (see notes).
+    function detectBursts(repo) {
+      const days = dailyDownloads(repo);
+      const positive = days.map(d => d.delta).filter(d => d > 0).sort((a, b) => a - b);
+      const median = positive.length ? positive[Math.floor(positive.length / 2)] : 1;
+      const threshold = Math.max(15, 8 * median);
+      return days.filter(d => d.delta >= threshold)
+        .map(d => ({ date: d.date, delta: d.delta, repo, median, excess: d.delta - median }));
+    }
+
+    function updateChecksTotal(repo) {
+      let n = 0;
+      for (const rel of (releasesData[repo]?.releases || [])) {
+        for (const a of rel.assets) if (isUpdater(a)) n += a.download_count || 0;
+      }
+      return n;
+    }
 
     // Chart.js defaults for dark theme
     Chart.defaults.color = '#8b949e';
@@ -498,6 +599,35 @@
         document.getElementById('trendDownloads').textContent = '';
       }
 
+      // Burst-adjusted download figure
+      let bursts = [];
+      for (const repo of repos) bursts = bursts.concat(detectBursts(repo));
+      const excess = bursts.reduce((s, b) => s + b.excess, 0);
+      document.getElementById('noteDownloads').textContent = bursts.length
+        ? '\u2248 ' + (downloads - excess).toLocaleString() + ' excluding ' + bursts.length + ' suspected automated burst' + (bursts.length === 1 ? '' : 's')
+        : 'no suspected automated bursts';
+
+      // Update checks: current total from the release snapshot, trend from history
+      let checks = 0, checksNow = 0, checksPrev = 0, haveTrend = false;
+      for (const repo of repos) {
+        checks += updateChecksTotal(repo);
+        const hist = releasesData[repo]?.history || [];
+        const withChecks = hist.filter(h => h.update_checks !== undefined);
+        if (withChecks.length >= 2) {
+          haveTrend = true;
+          checksNow += withChecks[withChecks.length - 1].update_checks;
+          checksPrev += withChecks[withChecks.length - 2].update_checks;
+        }
+      }
+      document.getElementById('updateChecks').textContent = checks.toLocaleString();
+      if (haveTrend) {
+        const d = checksNow - checksPrev;
+        setTrend('trendUpdateChecks', d > 0 ? { label: '+' + d + ' since yesterday', cls: 'up' }
+          : d < 0 ? { label: d + ' since yesterday', cls: 'down' } : { label: 'No change', cls: 'flat' });
+      } else {
+        document.getElementById('trendUpdateChecks').textContent = '';
+      }
+
       // Star trend (compare first and last entries)
       let starFirst = 0, starLast = 0;
       for (const repo of repos) {
@@ -546,6 +676,7 @@
     }
 
     function renderCharts() {
+      renderDailyDownloadsChart();
       renderDownloadsChart();
       renderViewsChart();
       renderClonesChart();
@@ -581,6 +712,32 @@
           }
         }
       };
+    }
+
+    function renderDailyDownloadsChart() {
+      const ctx = document.getElementById('dailyDownloadsChart');
+      if (charts.daily) charts.daily.destroy();
+
+      const repos = getRepos();
+      const colors = ['#58a6ff', '#3fb950', '#d2a8ff', '#f0883e'];
+      const datasets = [];
+
+      for (let i = 0; i < repos.length; i++) {
+        const days = filterByRange(dailyDownloads(repos[i]));
+        if (days.length === 0) continue;
+        const burstDates = new Set(detectBursts(repos[i]).map(b => b.date));
+        datasets.push({
+          label: REPO_LABELS[repos[i]] || repos[i],
+          data: days.map(d => ({ x: d.date, y: d.delta })),
+          backgroundColor: days.map(d => burstDates.has(d.date) ? '#f85149' : colors[i]),
+          borderWidth: 0
+        });
+      }
+
+      const options = makeChartOptions();
+      options.scales.x.stacked = true;
+      options.scales.y.stacked = true;
+      charts.daily = new Chart(ctx, { type: 'bar', data: { datasets }, options });
     }
 
     function renderDownloadsChart() {
@@ -682,6 +839,8 @@
     }
 
     function renderTables() {
+      renderVersionsTable();
+      renderBurstsTable();
       renderReferrersTable();
       renderPathsTable();
       renderReleasesTable();
@@ -789,6 +948,70 @@
       );
     }
 
+    // One row per release: installer downloads split by platform, plus update checks.
+    function renderVersionsTable() {
+      const repos = getRepos();
+      const rows = [];
+
+      for (const repo of repos) {
+        const label = REPO_LABELS[repo] || repo;
+        for (const rel of (releasesData[repo]?.releases || [])) {
+          let win = 0, mac = 0, total = 0, checks = 0;
+          for (const a of rel.assets) {
+            const n = a.download_count || 0;
+            if (isInstaller(a)) {
+              total += n;
+              const p = platformOf(a);
+              if (p === 'windows') win += n;
+              else if (p === 'mac') mac += n;
+            } else if (isUpdater(a)) {
+              checks += n;
+            }
+          }
+          rows.push({
+            date: rel.published_at || '',
+            cells: [
+              (repos.length > 1 ? label + ' ' : '') + rel.tag,
+              rel.published_at ? formatDate(rel.published_at.slice(0, 10)) : '\u2014',
+              String(win), String(mac), String(total), String(checks)
+            ]
+          });
+        }
+      }
+
+      if (rows.length === 0) {
+        setEmptyState('versionsTable', 'No release data yet');
+        return;
+      }
+
+      rows.sort((a, b) => b.date.localeCompare(a.date));
+      const container = document.getElementById('versionsTable');
+      container.textContent = '';
+      container.appendChild(
+        buildTable(['Release', 'Released', 'Windows', 'Mac', 'Total', 'Update checks'], rows.map(r => r.cells))
+      );
+    }
+
+    function renderBurstsTable() {
+      const repos = getRepos();
+      let bursts = [];
+      for (const repo of repos) bursts = bursts.concat(detectBursts(repo));
+
+      if (bursts.length === 0) {
+        setEmptyState('burstsTable', 'None detected');
+        return;
+      }
+
+      bursts.sort((a, b) => b.date.localeCompare(a.date));
+      const container = document.getElementById('burstsTable');
+      container.textContent = '';
+      container.appendChild(
+        buildTable(['Date', 'Repo', 'Downloads that day', 'Typical day'],
+          bursts.map(b => [formatDate(b.date), REPO_LABELS[b.repo] || b.repo, '+' + b.delta, String(b.median)])
+        )
+      );
+    }
+
     function renderReleasesTable() {
       const repos = getRepos();
       const rows = [];
@@ -801,6 +1024,7 @@
             rows.push([
               label + ' ' + rel.tag,
               asset.name,
+              isInstaller(asset) ? 'installer' : isUpdater(asset) ? 'update check' : 'other',
               String(asset.download_count),
               formatBytes(asset.size_bytes)
             ]);
@@ -816,7 +1040,7 @@
       const container = document.getElementById('releasesTable');
       container.textContent = '';
       container.appendChild(
-        buildTable(['Release', 'Asset', 'Downloads', 'Size'], rows)
+        buildTable(['Release', 'Asset', 'Type', 'Downloads', 'Size'], rows)
       );
     }
 
@@ -849,7 +1073,7 @@
     // CSV Export
     function exportCsv() {
       const repos = getRepos();
-      const rows = [['Date', 'Repo', 'Views', 'Unique Views', 'Clones', 'Unique Clones', 'Total Downloads', 'Stars', 'Forks', 'Watchers']];
+      const rows = [['Date', 'Repo', 'Views', 'Unique Views', 'Clones', 'Unique Clones', 'Total Downloads', 'Update Checks', 'Stars', 'Forks', 'Watchers']];
 
       // Collect all dates across all data types
       const allDates = new Set();
@@ -892,6 +1116,7 @@
             c ? c.total : '',
             c ? c.unique : '',
             d ? d.total_downloads : '',
+            d && d.update_checks !== undefined ? d.update_checks : '',
             s ? s.count : '',
             f ? f.count : '',
             w ? w.count : ''

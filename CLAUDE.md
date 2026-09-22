@@ -54,16 +54,21 @@ Each repo has: `views[]`, `clones[]`, `referrers[]`, `popular_paths[]`, `stars[]
 - star_events: `[{date, login}]` — one row per stargazer (when they starred + who), deduped by login. Built from the `stargazers` endpoint with the `application/vnd.github.star+json` media type, which adds `starred_at`. This is true historical star timing (not just a daily count). Stargazers of a public repo are already public, so the login is not a leak.
 
 ### releases.json
-Each repo has: `releases[]` (current snapshot of all releases/assets), `history[]` (`{date, total_downloads}` — cumulative daily), `asset_history[]` (`{date, assets: [{name, download_count}]}` — daily per-installer-asset snapshot, filtered by `INSTALLER_REGEX`, so you can see which installer/platform people choose over time)
+Each repo has: `releases[]` (current snapshot of all releases/assets; every asset carries `installer`, `updater` and `platform` flags written by the collector), `history[]` (`{date, total_downloads, update_checks}` — cumulative daily), `asset_history[]` (`{date, assets: [{tag, name, platform, download_count}]}` — daily per-installer-asset snapshot, filtered by `INSTALLER_REGEX`). Entries written before 2026-09-22 lack the flags, `update_checks` and the `tag`/`platform` fields; the dashboard falls back to name-based classification for those. NOTE: `bulk-pdf-extractor-and-generator` reuses the same asset file name in every release, so pre-2026-09-22 `asset_history` entries for it cannot be attributed to a version.
+
+**Asset classification lives in one place: the collector.** `INSTALLER_REGEX` and `UPDATER_REGEX` (job-level env) stamp each asset with `installer` / `updater` / `platform` (windows | mac | linux | other) in `releases[]`. The dashboard and the email read the flags. The dashboard's `isInstaller()` / `platformOf()` helpers carry a copy of the rules only as a fallback for old data — if you change the regexes, change the helpers too.
+
+**Update checks.** `update_checks` is the summed `download_count` of auto-updater manifests (`latest.yml`, `latest-mac.yml`, `latest.json`). An installed copy fetches one of these every time it checks for a new version (typically each launch), so it is the best available proxy for the *active installed base*. It is a count of checks, not of machines.
 
 **Download counting (important).** `total_downloads` (and the NAPLAN email figure) counts only real **installer/package** assets — those matching `INSTALLER_REGEX` (job-level env in the workflow: `.dmg/.exe/.msi/.pkg/.appimage/.deb/.rpm/.zip`, case-insensitive). Auto-updater manifests (`latest.json`, `latest*.yml`), detached signatures (`.sig`), electron diff blockmaps (`.blockmap`) and Tauri/electron update bundles (`.tar.gz`) are **excluded** — they are fetched automatically by installed apps/CI and would otherwise inflate the count several-fold (e.g. a Tauri app with 8 assets reported 8× its real installs). `releases[]` still stores **all** assets (the dashboard's Release Assets table shows everything); only the aggregate total is filtered. The filter is defined once in `INSTALLER_REGEX` (job-level env) and applied during collection for every tracked repo; the separate NAPLAN email block that also used it was removed on 2026-07-14. Draft releases are filtered out before this stage — see "Things to Watch Out For". Caveat: `.zip` is assumed to be an app package, so a sample-data `.zip` attached to a release would be miscounted as an install. This filter applies **going forward only** — historical `history[]` points collected before the fix remain inflated and are not recomputed (per-asset history was never stored, so they can't be reconstructed without fabricating data). Expected one-time artefact: on the first run after the fix, the corrected (lower) total replaces the inflated one, so the dashboard's "since yesterday" download trend shows a transient negative delta for ~1–2 days (e.g. student-doc-redactor 159 → 134). This is the metric correction, not lost downloads.
 
 ## Dashboard Features
 
 - Repo selector (All / individual) and date range filter (7d / 30d / 90d / All)
-- 7 summary cards with trend indicators (views, unique visitors, clones, downloads, stars, forks, watchers)
-- 3 charts (downloads, views, clones over time)
-- 4 tables (referrers, popular paths, release assets, recent stars)
+- 8 summary cards with trend indicators (installer downloads with a burst-adjusted "≈ N excluding bursts" note, update checks, views, unique visitors (daily sum), clones, stars, forks, watchers)
+- 4 charts (new downloads per day as stacked bars with suspected bursts in red, cumulative downloads, views, clones)
+- 6 tables (downloads by version with Windows/Mac split + update checks, suspected automated bursts, referrers, popular paths, release assets with a type column, recent stars)
+- A plain-English "What these numbers can and cannot tell you" section at the foot of the page
 - CSV export button (respects current filters; includes forks/watchers columns)
 - Dark mode, mobile responsive
 
@@ -72,13 +77,16 @@ Each repo has: `releases[]` (current snapshot of all releases/assets), `history[
 The daily email (`build_repo_row` helper) shows per repo:
 - Meta line: stars · forks · watching
 - 3 cards: **Views (yesterday)**, **Clones (yesterday)**, **Downloads** (all-time, with a coloured "▲ +N today" delta from the last two `history` points)
-- Summary line: **Last 7d** views/unique/clones + **All-time**
+- Summary line: **Last 7d** views/unique/clones + **All-time** + **Installers**: Windows / Mac split and update checks (from the `installer`/`platform`/`updater` flags, with name-regex fallbacks)
+- A one-day download jump of **15 or more** is shown in orange as "unusually large, likely automated" instead of green
 - Engagement line: **Top sources** + **Top pages** (top 3 each, from the latest referrer/path snapshot)
 
 **Why "yesterday", not "today":** GitHub buckets traffic by UTC midnight and lags by hours, so the current-UTC-day ("today") count reads ~0 and is misleading. Yesterday is the most recent *complete* day. The 7-day window uses `date >= WEEK_AGO`.
 
 ## Things to Watch Out For
 
+- **Download counts are fetches, not people, and crawlers sweep the installers.** GitHub has no unique-downloader figure. The count includes a person downloading twice, a Windows copy auto-updating (both electron-updater and the Tauri updater fetch the full installer), and security scanners / crawlers. Confirmed crawler sweeps: 2026-05-27/28 (+92 on one 600 MB Doc Redactor .dmg and +42 on one Bulk PDF .dmg, same two days) and 2026-07-10 (every Bulk PDF Mac .dmg back to v2.7 gained exactly +1 in one day). The dashboard's burst rule (day gains ≥ 15 AND ≥ 8× the repo's median active day, `detectBursts()` in `index.html`) flags these and the Downloads card shows a total with each burst day replaced by a typical day. The rule is a heuristic: a genuine launch day would be flagged too, which is why it says "suspected". GitHub also revises counts downwards occasionally (e.g. 155 → 148 on 2026-05-28), which shows as a negative day.
+- **Mac download counts are the least trustworthy.** Both crawler sweeps hit `.dmg` files only. As of 2026-09-22 Mac counts were 182 of 301 for Doc Redactor and 103 of 160 for Bulk PDF; Windows counts (119 and 57) and NAPLAN's (75 Windows / 9 Mac) look like people.
 - **Absence of data is never zero.** Two separate bugs came from the same mistake and both are now guarded — keep the rule in mind before adding any new metric:
   1. **Draft releases are excluded from download counts** (`select(.draft | not)` when building the release snapshot). Draft assets are reachable only with push access, so their `download_count` is the maintainer/CI, never the public. Counting them reported phantom installs for `naplan-cohort-tracker`.
   2. **A failed fetch skips its write rather than recording 0.** All API calls go through `gh_fetch()` (5 attempts, linear backoff, non-zero return on total failure); each write is guarded by a `*_OK` flag. A GitHub partial outage on 2026-07-20 previously wrote `0 downloads` over the mirror's true 72 and zeroed star/fork/watcher counts. `views`/`clones`/`star_events` merge additively so an empty body is already a no-op there and they need no guard.

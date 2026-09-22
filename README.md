@@ -112,34 +112,44 @@ This means the JSON files grow over time, accumulating history that GitHub's API
         "name": "Release Name",
         "published_at": "2026-01-15T00:00:00Z",
         "assets": [
-          { "name": "tool.zip", "download_count": 47, "size_bytes": 1234567 }
+          { "name": "tool.exe", "download_count": 47, "size_bytes": 1234567,
+            "installer": true, "updater": false, "platform": "windows" }
         ]
       }
     ],
     "history": [
-      { "date": "2026-03-18", "total_downloads": 47 }
+      { "date": "2026-03-18", "total_downloads": 47, "update_checks": 12 }
+    ],
+    "asset_history": [
+      { "date": "2026-03-18", "assets": [
+        { "tag": "v2.6", "name": "tool.exe", "platform": "windows", "download_count": 47 }
+      ] }
     ]
   }
 }
 ```
 
-The `history` array records the cumulative download total each day. The dashboard can derive daily deltas from this.
+The `history` array records the cumulative **installer** download total each day (`total_downloads`) plus the cumulative count of auto-updater manifest fetches (`update_checks`). The dashboard derives daily deltas from `total_downloads` and flags burst days. `asset_history` is a daily per-installer snapshot keyed by release tag and file name.
 
 ## Dashboard Features
 
 - **Dark mode** UI styled to match GitHub's aesthetic
 - **Repo selector** — toggle between individual repos or view combined "All" data
 - **Date range filter** — last 7 days, 30 days, 90 days, or all time
-- **Summary cards** — total downloads, page views, unique visitors, total clones, stars
+- **Summary cards** — installer downloads (with a burst-adjusted figure), update checks, page views, unique visitors (daily sum), total clones, stars, forks, watchers
 - **Trend indicators** — each card shows percentage change vs the prior period (e.g., "+23% vs prior period" in green, "-15%" in red)
 - **Charts** (Chart.js):
+  - New downloads per day (stacked bars, suspected automated bursts in red)
   - Downloads over time (cumulative, one line per repo)
   - Page views over time (total views + unique visitors)
   - Clones over time (total clones + unique clones)
 - **Tables**:
+  - Downloads by version (Windows / Mac split + update checks per release)
+  - Suspected automated bursts (days with 15+ downloads and 8x the usual day)
   - Referral sources (most recent snapshot)
   - Popular paths (most recent snapshot)
-  - Release assets with download counts and file sizes
+  - Release assets with type (installer / update check / other), download counts and file sizes
+- **Plain-English notes** at the foot of the page explaining what each number can and cannot tell you
 - **CSV export** — button exports all data for current repo/date range selection
 - **Mobile responsive**
 
@@ -147,7 +157,8 @@ The `history` array records the cumulative download total each day. The dashboar
 
 After each data collection run, an HTML email is sent via Gmail SMTP with:
 
-- Per-repo cards showing today's views, clones, and cumulative downloads
+- Per-repo cards showing yesterday's views, clones, and cumulative installer downloads (a one-day jump of 15+ is flagged as likely automated)
+- Windows / Mac installer split and total update checks per repo
 - Star counts and 7-day view trends with percentage change
 - A "View Dashboard" button linking to the live site
 - **Token expiry warning** — if the `GH_STATS_TOKEN` is within 30 days of expiring, a red alert banner appears with direct links to rotate the token and update the secret
@@ -250,8 +261,10 @@ GitHub's clone count includes **all** git operations against the repo — your o
 ### Referrer and Path Data Is a Snapshot, Not a Time Series
 The referrer and popular paths endpoints return the **top 10** for the trailing 14-day period, not per-day data. The Action stores each day's snapshot, but small referrers may appear and disappear from the top 10 on different days. This means the historical referrer data is approximate, not comprehensive.
 
-### Download Counts Are Cumulative
-GitHub's release API returns the **running total** of downloads per asset, not per-day downloads. The Action records this total each day in the `history` array. The dashboard shows the cumulative curve. Daily deltas could be derived but aren't currently displayed.
+### Download Counts Are Cumulative, and They Count Fetches, Not People
+GitHub's release API returns the **running total** of downloads per asset, not per-day downloads. The Action records this total each day in the `history` array. The dashboard shows both the cumulative curve and the per-day change.
+
+GitHub counts every completed fetch of the file and has no unique-downloader figure. The count includes a person downloading twice, an installed Windows copy fetching the new installer when it auto-updates, and security scanners or crawlers sweeping the release page. Two crawler sweeps have been observed so far (27–28 May 2026 across both older repos, and 10 July 2026 across every Bulk PDF Mac installer); the dashboard flags such days and shows a total that leaves them out. GitHub also occasionally revises a count downwards, which shows as a negative day.
 
 ### Auto-Generated Source Archives Aren't Tracked
 Every GitHub release automatically generates "Source code (zip)" and "Source code (tar.gz)" downloads. These are **not counted** by the API — only explicitly uploaded release assets are tracked.

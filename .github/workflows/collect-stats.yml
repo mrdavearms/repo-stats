@@ -21,6 +21,11 @@ jobs:
       # NOTE: .zip is assumed to be an app package; a sample-data .zip attached to
       # a release would be counted (acceptable — see CLAUDE.md "Download counting").
       INSTALLER_REGEX: '\.(dmg|exe|msi|pkg|appimage|deb|rpm|zip)$'
+      # Auto-updater manifests: electron-updater's latest.yml / latest-mac.yml and
+      # Tauri's latest.json. Every installed copy fetches one of these when it
+      # checks for a new version, so their download_count is a rough measure of
+      # the ACTIVE INSTALLED BASE ("update checks"), tracked separately.
+      UPDATER_REGEX: '^latest(-[a-z0-9]+)?\.(yml|json)$'
 
     steps:
       - name: Checkout repo
@@ -256,19 +261,30 @@ jobs:
             # never the public. Counting them reports phantom installs (this bit us
             # on naplan-cohort-tracker, which stages every build as a draft and
             # publishes via a separate mirror repo).
-            RELEASE_DATA=$(echo "$RELEASES" | jq '[.[] | select(.draft | not) | {
+            # Each asset is classified once here (installer / updater / platform) so
+            # the dashboard and the email never need their own copy of the regexes.
+            RELEASE_DATA=$(echo "$RELEASES" | jq --arg re "$INSTALLER_REGEX" --arg upd "$UPDATER_REGEX" '[.[] | select(.draft | not) | {
               tag: .tag_name,
               name: .name,
               published_at: .published_at,
-              assets: [.assets[] | {
+              assets: [.assets[] | (.name // "") as $n | {
                 name: .name,
                 download_count: .download_count,
-                size_bytes: .size
+                size_bytes: .size,
+                installer: ($n | test($re; "i")),
+                updater: ($n | test($upd; "i")),
+                platform: (if ($n | test("\\.(exe|msi)$"; "i")) then "windows"
+                           elif ($n | test("\\.(dmg|pkg)$"; "i")) or ($n | test("mac"; "i")) then "mac"
+                           elif ($n | test("\\.(appimage|deb|rpm)$"; "i")) then "linux"
+                           else "other" end)
               }]
             }]')
 
-            # Calculate total downloads across all releases
-            TOTAL_DL=$(echo "$RELEASE_DATA" | jq --arg re "$INSTALLER_REGEX" '[.[].assets[] | select((.name // "") | test($re; "i")) | .download_count] | add // 0')
+            # Total installer downloads across all releases (what a person clicking
+            # "download" produces), and total update checks (installed copies
+            # asking whether a newer version exists).
+            TOTAL_DL=$(echo "$RELEASE_DATA" | jq '[.[].assets[] | select(.installer) | .download_count] | add // 0')
+            UPDATE_CHECKS=$(echo "$RELEASE_DATA" | jq '[.[].assets[] | select(.updater) | .download_count] | add // 0')
 
             # Update releases and history.
             # Skipped entirely when the releases fetch failed: download_count is a
@@ -280,19 +296,19 @@ jobs:
                 --arg repo "$REPO_NAME" \
                 --argjson rel "$RELEASE_DATA" \
                 --argjson total "$TOTAL_DL" \
-                --arg re "$INSTALLER_REGEX" \
+                --argjson checks "$UPDATE_CHECKS" \
                 --arg today "$TODAY" '
                 .[$repo].releases = $rel |
                 .[$repo].history = (
                   [(.[$repo].history // [] | .[] | select(.date != $today)),
-                   {date: $today, total_downloads: $total}]
+                   {date: $today, total_downloads: $total, update_checks: $checks}]
                   | sort_by(.date)
                 ) |
                 .[$repo].asset_history = (
                   [(.[$repo].asset_history // [] | .[] | select(.date != $today)),
-                   {date: $today, assets: [$rel[].assets[]
-                      | select((.name // "") | test($re; "i"))
-                      | {name, download_count}]}]
+                   {date: $today, assets: [$rel[] | .tag as $t | .assets[]
+                      | select(.installer)
+                      | {tag: $t, name, platform, download_count}]}]
                   | sort_by(.date)
                 )
               ')
@@ -393,9 +409,15 @@ jobs:
           }
 
           # Coloured download delta (new installs since the previous snapshot).
+          # A jump of 15+ in one day is far above these repos' normal 1-2/day and
+          # has always turned out to be a crawler sweeping the installers (e.g.
+          # 27 May 2026: +92 on one Mac .dmg), so it is flagged rather than
+          # celebrated.
           dl_delta_html() {
             local delta="$1"
-            if [ "$delta" -gt 0 ] 2>/dev/null; then
+            if [ "$delta" -ge 15 ] 2>/dev/null; then
+              printf '<span style="color:#f0883e;">&#9650; +%s today &mdash; unusually large, likely automated</span>' "$delta"
+            elif [ "$delta" -gt 0 ] 2>/dev/null; then
               printf '<span style="color:#3fb950;">&#9650; +%s today</span>' "$delta"
             elif [ "$delta" -lt 0 ] 2>/dev/null; then
               printf '<span style="color:#f85149;">&#9660; %s today</span>' "$delta"
@@ -483,6 +505,12 @@ jobs:
             CLONES_7D=$(jq -r --arg repo "$REPO_NAME" --arg from "$WEEK_AGO" '[.[$repo].clones[] | select(.date >= $from) | .total] | add // 0' data/traffic.json)
 
             DOWNLOADS=$(jq -r --arg repo "$REPO_NAME" '(.[$repo].history | last | .total_downloads) // 0' data/releases.json)
+            # Platform split + update checks from the current release snapshot. The
+            # installer/platform flags are written by the collect step; the regex
+            # fallbacks only matter if that step skipped its write today.
+            DL_WIN=$(jq -r --arg repo "$REPO_NAME" --arg re "$INSTALLER_REGEX" '[.[$repo].releases[]?.assets[]? | select(.installer // (.name | test($re; "i"))) | select((.platform // (if (.name | test("\\.(exe|msi)$"; "i")) then "windows" else "" end)) == "windows") | .download_count] | add // 0' data/releases.json)
+            DL_MAC=$(jq -r --arg repo "$REPO_NAME" --arg re "$INSTALLER_REGEX" '[.[$repo].releases[]?.assets[]? | select(.installer // (.name | test($re; "i"))) | select((.platform // (if (.name | test("\\.(dmg|pkg)$"; "i")) or (.name | test("mac"; "i")) then "mac" else "" end)) == "mac") | .download_count] | add // 0' data/releases.json)
+            UPD_CHECKS=$(jq -r --arg repo "$REPO_NAME" --arg upd "$UPDATER_REGEX" '[.[$repo].releases[]?.assets[]? | select(.updater // (.name | test($upd; "i"))) | .download_count] | add // 0' data/releases.json)
             DL_DELTA=$(jq -r --arg repo "$REPO_NAME" '(.[$repo].history // []) as $h | if ($h | length) >= 2 then ($h[-1].total_downloads - $h[-2].total_downloads) else 0 end' data/releases.json)
             TOTAL_VIEWS=$(jq -r --arg repo "$REPO_NAME" '[.[$repo].views[].total] | add // 0' data/traffic.json)
             TOTAL_UNIQUE=$(jq -r --arg repo "$REPO_NAME" '[.[$repo].views[].unique] | add // 0' data/traffic.json)
@@ -498,7 +526,7 @@ jobs:
             PATH_LINE=$(top3_line path "$PATHS_JSON")
 
             META="${STAR_COUNT} stars &middot; ${FORK_COUNT} forks &middot; ${WATCH_COUNT} watching"
-            SUMMARY="Last 7d: ${VIEWS_7D} views (${VIEWS_7D_U} unique) &middot; ${CLONES_7D} clones<br>All-time: ${TOTAL_VIEWS} views (${TOTAL_UNIQUE} unique)"
+            SUMMARY="Last 7d: ${VIEWS_7D} views (${VIEWS_7D_U} unique) &middot; ${CLONES_7D} clones<br>All-time: ${TOTAL_VIEWS} views (${TOTAL_UNIQUE} unique)<br>Installers: Windows ${DL_WIN} &middot; Mac ${DL_MAC} &middot; ${UPD_CHECKS} update checks"
 
             build_repo_row "$LABEL" "$META" "$YDAY_VIEWS" "$YDAY_VIEWS_U" "$YDAY_CLONES" "$YDAY_CLONES_U" "$DOWNLOADS" "$(dl_delta_html "$DL_DELTA")" "$SUMMARY" "$(trend_html "$THIS_WEEK" "$LAST_WEEK")" "$REF_LINE" "$PATH_LINE"
           done

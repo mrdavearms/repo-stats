@@ -2,6 +2,37 @@
   "bulk-pdf-extractor-and-generator": {
     "releases": [
       {
+        "tag": "v2.17",
+        "name": "v2.17",
+        "published_at": "2026-09-22T05:11:30Z",
+        "assets": [
+          {
+            "name": "Bulk.PDF.Generator.exe",
+            "download_count": 0,
+            "size_bytes": 65898481,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
+          },
+          {
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "download_count": 0,
+            "size_bytes": 62975378,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
+          },
+          {
+            "name": "latest.json",
+            "download_count": 2,
+            "size_bytes": 118,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
+          }
+        ]
+      },
+      {
         "tag": "v2.16",
         "name": "v2.16",
         "published_at": "2026-09-07T11:11:48Z",
@@ -1355,7 +1386,7 @@
       {
         "date": "2026-09-22",
         "total_downloads": 160,
-        "update_checks": 0
+        "update_checks": 2
       }
     ],
     "asset_history": [
@@ -20631,6 +20662,18 @@
       {
         "date": "2026-09-22",
         "assets": [
+          {
+            "tag": "v2.17",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 0
+          },
+          {
+            "tag": "v2.17",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 0
+          },
           {
             "tag": "v2.16",
             "name": "Bulk.PDF.Generator.exe",

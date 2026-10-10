@@ -51673,5 +51673,1019 @@
         ]
       }
     ]
+  },
+  "locker-manager": {
+    "releases": [
+      {
+        "tag": "v0.11.0",
+        "name": "Locker Manager 0.11.0",
+        "published_at": "2026-10-08T20:21:00Z",
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 2,
+            "size_bytes": 534,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 3,
+            "size_bytes": 360,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.11.0-universal.dmg",
+            "download_count": 1,
+            "size_bytes": 249096416,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
+          },
+          {
+            "name": "Locker-Manager-0.11.0-universal.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 259026,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.11.0-universal.zip",
+            "download_count": 0,
+            "size_bytes": 248602714,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.11.0-universal.zip.blockmap",
+            "download_count": 0,
+            "size_bytes": 259584,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.11.0.exe",
+            "download_count": 1,
+            "size_bytes": 243591390,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.11.0.exe.blockmap",
+            "download_count": 1,
+            "size_bytes": 253880,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          }
+        ]
+      },
+      {
+        "tag": "v0.10.0",
+        "name": "Locker Manager 0.10.0",
+        "published_at": "2026-10-06T22:40:00Z",
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 2,
+            "size_bytes": 534,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 3,
+            "size_bytes": 360,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.10.0-universal.dmg",
+            "download_count": 1,
+            "size_bytes": 249076285,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
+          },
+          {
+            "name": "Locker-Manager-0.10.0-universal.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 259761,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.10.0-universal.zip",
+            "download_count": 0,
+            "size_bytes": 248578979,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.10.0-universal.zip.blockmap",
+            "download_count": 0,
+            "size_bytes": 260251,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.10.0.exe",
+            "download_count": 2,
+            "size_bytes": 243556161,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.10.0.exe.blockmap",
+            "download_count": 2,
+            "size_bytes": 254020,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          }
+        ]
+      },
+      {
+        "tag": "v0.9.0",
+        "name": "Locker Manager 0.9.0",
+        "published_at": "2026-10-06T20:33:24Z",
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 0,
+            "size_bytes": 530,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 1,
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.9.0-universal.dmg",
+            "download_count": 1,
+            "size_bytes": 249088290,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
+          },
+          {
+            "name": "Locker-Manager-0.9.0-universal.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 257715,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.9.0-universal.zip",
+            "download_count": 0,
+            "size_bytes": 248576248,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.9.0-universal.zip.blockmap",
+            "download_count": 0,
+            "size_bytes": 259608,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.9.0.exe",
+            "download_count": 2,
+            "size_bytes": 243552618,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.9.0.exe.blockmap",
+            "download_count": 2,
+            "size_bytes": 253771,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          }
+        ]
+      },
+      {
+        "tag": "v0.8.0",
+        "name": "Locker Manager 0.8.0",
+        "published_at": "2026-10-06T20:10:36Z",
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 2,
+            "size_bytes": 530,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 2,
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.8.0-universal.dmg",
+            "download_count": 1,
+            "size_bytes": 249056832,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
+          },
+          {
+            "name": "Locker-Manager-0.8.0-universal.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 256317,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.8.0-universal.zip",
+            "download_count": 0,
+            "size_bytes": 248570735,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.8.0-universal.zip.blockmap",
+            "download_count": 0,
+            "size_bytes": 259833,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.8.0.exe",
+            "download_count": 2,
+            "size_bytes": 243541771,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.8.0.exe.blockmap",
+            "download_count": 2,
+            "size_bytes": 253842,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          }
+        ]
+      },
+      {
+        "tag": "v0.7.0",
+        "name": "Locker Manager 0.7.0",
+        "published_at": "2026-10-06T19:56:02Z",
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 2,
+            "size_bytes": 530,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 2,
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.7.0-universal.dmg",
+            "download_count": 1,
+            "size_bytes": 249047356,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
+          },
+          {
+            "name": "Locker-Manager-0.7.0-universal.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 258478,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.7.0-universal.zip",
+            "download_count": 0,
+            "size_bytes": 248545266,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.7.0-universal.zip.blockmap",
+            "download_count": 0,
+            "size_bytes": 259650,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.7.0.exe",
+            "download_count": 2,
+            "size_bytes": 243501212,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.7.0.exe.blockmap",
+            "download_count": 2,
+            "size_bytes": 253822,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          }
+        ]
+      },
+      {
+        "tag": "v0.6.0",
+        "name": "Locker Manager 0.6.0",
+        "published_at": "2026-10-06T19:43:16Z",
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 2,
+            "size_bytes": 530,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 2,
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.6.0-universal.dmg",
+            "download_count": 1,
+            "size_bytes": 249022195,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
+          },
+          {
+            "name": "Locker-Manager-0.6.0-universal.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 259170,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.6.0-universal.zip",
+            "download_count": 0,
+            "size_bytes": 248536183,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.6.0-universal.zip.blockmap",
+            "download_count": 0,
+            "size_bytes": 259756,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.6.0.exe",
+            "download_count": 2,
+            "size_bytes": 243488016,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.6.0.exe.blockmap",
+            "download_count": 2,
+            "size_bytes": 253831,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          }
+        ]
+      },
+      {
+        "tag": "v0.5.0",
+        "name": "Locker Manager 0.5.0",
+        "published_at": "2026-10-06T10:29:52Z",
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 2,
+            "size_bytes": 530,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 2,
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.5.0-universal.dmg",
+            "download_count": 1,
+            "size_bytes": 248999495,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
+          },
+          {
+            "name": "Locker-Manager-0.5.0-universal.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 260313,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.5.0-universal.zip",
+            "download_count": 0,
+            "size_bytes": 248497621,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.5.0-universal.zip.blockmap",
+            "download_count": 0,
+            "size_bytes": 259433,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.5.0.exe",
+            "download_count": 2,
+            "size_bytes": 243435800,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.5.0.exe.blockmap",
+            "download_count": 2,
+            "size_bytes": 253858,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          }
+        ]
+      },
+      {
+        "tag": "v0.4.0",
+        "name": "Locker Manager 0.4.0",
+        "published_at": "2026-10-06T10:04:50Z",
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 2,
+            "size_bytes": 530,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 2,
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.4.0-universal.dmg",
+            "download_count": 1,
+            "size_bytes": 244880785,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
+          },
+          {
+            "name": "Locker-Manager-0.4.0-universal.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 253495,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.4.0-universal.zip",
+            "download_count": 0,
+            "size_bytes": 244377278,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.4.0-universal.zip.blockmap",
+            "download_count": 0,
+            "size_bytes": 256059,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.4.0.exe",
+            "download_count": 2,
+            "size_bytes": 239320411,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.4.0.exe.blockmap",
+            "download_count": 2,
+            "size_bytes": 249400,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          }
+        ]
+      },
+      {
+        "tag": "v0.2.0",
+        "name": "Locker Manager 0.2.0",
+        "published_at": "2026-10-06T09:33:52Z",
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 2,
+            "size_bytes": 530,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 2,
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.2.0-universal.dmg",
+            "download_count": 1,
+            "size_bytes": 240188545,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
+          },
+          {
+            "name": "Locker-Manager-0.2.0-universal.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 248007,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.2.0-universal.zip",
+            "download_count": 0,
+            "size_bytes": 239666772,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.2.0-universal.zip.blockmap",
+            "download_count": 0,
+            "size_bytes": 251658,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.2.0.exe",
+            "download_count": 2,
+            "size_bytes": 233737553,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.2.0.exe.blockmap",
+            "download_count": 2,
+            "size_bytes": 239240,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          }
+        ]
+      },
+      {
+        "tag": "v0.1.0",
+        "name": "Locker Manager 0.1.0",
+        "published_at": "2026-10-06T09:04:47Z",
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 4,
+            "size_bytes": 530,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 2,
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.1.0-universal.dmg",
+            "download_count": 1,
+            "size_bytes": 240136442,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
+          },
+          {
+            "name": "Locker-Manager-0.1.0-universal.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 249244,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.1.0-universal.zip",
+            "download_count": 0,
+            "size_bytes": 239605890,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.1.0-universal.zip.blockmap",
+            "download_count": 0,
+            "size_bytes": 251435,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.1.0.exe",
+            "download_count": 2,
+            "size_bytes": 233637524,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.1.0.exe.blockmap",
+            "download_count": 2,
+            "size_bytes": 239115,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          }
+        ]
+      },
+      {
+        "tag": "v0.0.2",
+        "name": "Locker Manager 0.0.2",
+        "published_at": "2026-10-06T08:03:48Z",
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 2,
+            "size_bytes": 530,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 1,
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.0.2-universal.dmg",
+            "download_count": 3,
+            "size_bytes": 230349511,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
+          },
+          {
+            "name": "Locker-Manager-0.0.2-universal.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 242372,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.0.2-universal.zip",
+            "download_count": 0,
+            "size_bytes": 229815294,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.0.2-universal.zip.blockmap",
+            "download_count": 0,
+            "size_bytes": 241507,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.0.2.exe",
+            "download_count": 2,
+            "size_bytes": 217935729,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.0.2.exe.blockmap",
+            "download_count": 1,
+            "size_bytes": 224516,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          }
+        ]
+      },
+      {
+        "tag": "v0.0.1",
+        "name": "Locker Manager 0.0.1",
+        "published_at": "2026-10-06T07:57:19Z",
+        "assets": [
+          {
+            "name": "latest-mac.yml",
+            "download_count": 3,
+            "size_bytes": 530,
+            "installer": false,
+            "updater": true,
+            "platform": "mac"
+          },
+          {
+            "name": "latest.yml",
+            "download_count": 2,
+            "size_bytes": 357,
+            "installer": false,
+            "updater": true,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.0.1-universal.dmg",
+            "download_count": 1,
+            "size_bytes": 230349622,
+            "installer": true,
+            "updater": false,
+            "platform": "mac"
+          },
+          {
+            "name": "Locker-Manager-0.0.1-universal.dmg.blockmap",
+            "download_count": 0,
+            "size_bytes": 242521,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.0.1-universal.zip",
+            "download_count": 0,
+            "size_bytes": 229815313,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-0.0.1-universal.zip.blockmap",
+            "download_count": 0,
+            "size_bytes": 241624,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.0.1.exe",
+            "download_count": 0,
+            "size_bytes": 217936454,
+            "installer": true,
+            "updater": false,
+            "platform": "windows"
+          },
+          {
+            "name": "Locker-Manager-Setup-0.0.1.exe.blockmap",
+            "download_count": 0,
+            "size_bytes": 224691,
+            "installer": false,
+            "updater": false,
+            "platform": "other"
+          }
+        ]
+      }
+    ],
+    "history": [
+      {
+        "date": "2026-10-10",
+        "total_downloads": 35,
+        "update_checks": 49
+      }
+    ],
+    "asset_history": [
+      {
+        "date": "2026-10-10",
+        "assets": [
+          {
+            "tag": "v0.11.0",
+            "name": "Locker-Manager-0.11.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.11.0",
+            "name": "Locker-Manager-Setup-0.11.0.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.10.0",
+            "name": "Locker-Manager-0.10.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.10.0",
+            "name": "Locker-Manager-Setup-0.10.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.9.0",
+            "name": "Locker-Manager-0.9.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.9.0",
+            "name": "Locker-Manager-Setup-0.9.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.8.0",
+            "name": "Locker-Manager-0.8.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.8.0",
+            "name": "Locker-Manager-Setup-0.8.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.7.0",
+            "name": "Locker-Manager-0.7.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.7.0",
+            "name": "Locker-Manager-Setup-0.7.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.6.0",
+            "name": "Locker-Manager-0.6.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.6.0",
+            "name": "Locker-Manager-Setup-0.6.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.5.0",
+            "name": "Locker-Manager-0.5.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.5.0",
+            "name": "Locker-Manager-Setup-0.5.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.4.0",
+            "name": "Locker-Manager-0.4.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.4.0",
+            "name": "Locker-Manager-Setup-0.4.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.2.0",
+            "name": "Locker-Manager-0.2.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.2.0",
+            "name": "Locker-Manager-Setup-0.2.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.1.0",
+            "name": "Locker-Manager-0.1.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.1.0",
+            "name": "Locker-Manager-Setup-0.1.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.0.2",
+            "name": "Locker-Manager-0.0.2-universal.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v0.0.2",
+            "name": "Locker-Manager-Setup-0.0.2.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.0.1",
+            "name": "Locker-Manager-0.0.1-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.0.1",
+            "name": "Locker-Manager-Setup-0.0.1.exe",
+            "platform": "windows",
+            "download_count": 0
+          }
+        ]
+      }
+    ]
   }
 }

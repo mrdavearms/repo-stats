@@ -1095,6 +1095,11 @@
         "date": "2026-10-08",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-09",
+        "total": 1,
+        "unique": 1
       }
     ],
     "clones": [
@@ -2190,6 +2195,11 @@
       },
       {
         "date": "2026-10-08",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-10-09",
         "total": 0,
         "unique": 0
       }
@@ -5512,6 +5522,16 @@
       {
         "date": "2026-10-09",
         "sources": []
+      },
+      {
+        "date": "2026-10-10",
+        "sources": [
+          {
+            "referrer": "Google",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "popular_paths": [
@@ -10999,6 +11019,21 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-10-10",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.17",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -11825,6 +11860,10 @@
       {
         "date": "2026-10-09",
         "count": 2
+      },
+      {
+        "date": "2026-10-10",
+        "count": 2
       }
     ],
     "forks": [
@@ -12351,6 +12390,10 @@
       {
         "date": "2026-10-09",
         "count": 1
+      },
+      {
+        "date": "2026-10-10",
+        "count": 1
       }
     ],
     "watchers": [
@@ -12876,6 +12919,10 @@
       },
       {
         "date": "2026-10-09",
+        "count": 0
+      },
+      {
+        "date": "2026-10-10",
         "count": 0
       }
     ],
@@ -13986,6 +14033,11 @@
         "date": "2026-10-08",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-09",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -15083,6 +15135,11 @@
         "date": "2026-10-08",
         "total": 6,
         "unique": 6
+      },
+      {
+        "date": "2026-10-09",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -17876,6 +17933,21 @@
       },
       {
         "date": "2026-10-09",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 6,
+            "unique": 5
+          },
+          {
+            "referrer": "github.com",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-10-10",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -23865,6 +23937,21 @@
             "unique": 2
           }
         ]
+      },
+      {
+        "date": "2026-10-10",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 11,
+            "unique": 6
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 2,
+            "unique": 2
+          }
+        ]
       }
     ],
     "stars": [
@@ -24691,6 +24778,10 @@
       {
         "date": "2026-10-09",
         "count": 4
+      },
+      {
+        "date": "2026-10-10",
+        "count": 4
       }
     ],
     "forks": [
@@ -25217,6 +25308,10 @@
       {
         "date": "2026-10-09",
         "count": 1
+      },
+      {
+        "date": "2026-10-10",
+        "count": 1
       }
     ],
     "watchers": [
@@ -25742,6 +25837,10 @@
       },
       {
         "date": "2026-10-09",
+        "count": 1
+      },
+      {
+        "date": "2026-10-10",
         "count": 1
       }
     ],
@@ -26275,6 +26374,11 @@
         "date": "2026-10-08",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-09",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -26787,6 +26891,11 @@
         "date": "2026-10-08",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-09",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -28027,6 +28136,10 @@
       },
       {
         "date": "2026-10-09",
+        "sources": []
+      },
+      {
+        "date": "2026-10-10",
         "sources": []
       }
     ],
@@ -29869,6 +29982,10 @@
       {
         "date": "2026-10-09",
         "paths": []
+      },
+      {
+        "date": "2026-10-10",
+        "paths": []
       }
     ],
     "stars": [
@@ -30222,6 +30339,10 @@
       },
       {
         "date": "2026-10-09",
+        "count": 0
+      },
+      {
+        "date": "2026-10-10",
         "count": 0
       }
     ],
@@ -30577,6 +30698,10 @@
       {
         "date": "2026-10-09",
         "count": 0
+      },
+      {
+        "date": "2026-10-10",
+        "count": 0
       }
     ],
     "watchers": [
@@ -30930,6 +31055,10 @@
       },
       {
         "date": "2026-10-09",
+        "count": 0
+      },
+      {
+        "date": "2026-10-10",
         "count": 0
       }
     ],
@@ -31416,6 +31545,11 @@
         "date": "2026-10-08",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-09",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -31898,6 +32032,11 @@
         "date": "2026-10-08",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-10-09",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -32356,6 +32495,10 @@
       },
       {
         "date": "2026-10-09",
+        "sources": []
+      },
+      {
+        "date": "2026-10-10",
         "sources": []
       }
     ],
@@ -32816,6 +32959,10 @@
       {
         "date": "2026-10-09",
         "paths": []
+      },
+      {
+        "date": "2026-10-10",
+        "paths": []
       }
     ],
     "stars": [
@@ -33145,6 +33292,10 @@
       },
       {
         "date": "2026-10-09",
+        "count": 0
+      },
+      {
+        "date": "2026-10-10",
         "count": 0
       }
     ],
@@ -33476,6 +33627,10 @@
       {
         "date": "2026-10-09",
         "count": 0
+      },
+      {
+        "date": "2026-10-10",
+        "count": 0
       }
     ],
     "watchers": [
@@ -33805,6 +33960,10 @@
       },
       {
         "date": "2026-10-09",
+        "count": 0
+      },
+      {
+        "date": "2026-10-10",
         "count": 0
       }
     ],

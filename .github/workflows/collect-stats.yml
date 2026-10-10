@@ -20,6 +20,10 @@ jobs:
       # they are fetched automatically and must not inflate the count.
       # NOTE: .zip is assumed to be an app package; a sample-data .zip attached to
       # a release would be counted (acceptable — see CLAUDE.md "Download counting").
+      # EXCEPTION (applied in the collect step, not here): a .zip that has a sibling
+      # "<name>.blockmap" on the same release is electron-updater's Mac UPDATE bundle
+      # (installed Mac copies fetch it to update themselves; people download the
+      # .dmg). It is classified as not-an-installer, like Tauri's .app.tar.gz.
       INSTALLER_REGEX: '\.(dmg|exe|msi|pkg|appimage|deb|rpm|zip)$'
       # Auto-updater manifests: electron-updater's latest.yml / latest-mac.yml and
       # Tauri's latest.json. Every installed copy fetches one of these when it
@@ -41,7 +45,8 @@ jobs:
           # public downloads to naplan-cohort-tracker-releases (which also serves the
           # Pages install page). So the source repo supplies traffic/stars and the
           # mirror supplies the real download numbers — both are tracked.
-          REPOS=("mrdavearms/bulk-pdf-extractor-and-generator" "mrdavearms/student-doc-redactor" "mrdavearms/naplan-cohort-tracker" "mrdavearms/naplan-cohort-tracker-releases")
+          # locker-manager publishes its own releases (one repo, like Doc Redactor).
+          REPOS=("mrdavearms/bulk-pdf-extractor-and-generator" "mrdavearms/student-doc-redactor" "mrdavearms/naplan-cohort-tracker" "mrdavearms/naplan-cohort-tracker-releases" "mrdavearms/locker-manager")
           TODAY=$(date -u +%Y-%m-%d)
 
           TRAFFIC_FILE="data/traffic.json"
@@ -267,7 +272,9 @@ jobs:
             # publishes via a separate mirror repo).
             # Each asset is classified once here (installer / updater / platform) so
             # the dashboard and the email never need their own copy of the regexes.
-            RELEASE_DATA=$(echo "$RELEASES" | jq --arg re "$INSTALLER_REGEX" --arg upd "$UPDATER_REGEX" '[.[] | select(.draft | not) | {
+            # A .zip with a sibling "<name>.blockmap" is electron-updater's Mac update
+            # bundle (Locker Manager), fetched by installed copies, not by people.
+            RELEASE_DATA=$(echo "$RELEASES" | jq --arg re "$INSTALLER_REGEX" --arg upd "$UPDATER_REGEX" '[.[] | select(.draft | not) | [.assets[].name] as $names | {
               tag: .tag_name,
               name: .name,
               published_at: .published_at,
@@ -275,7 +282,8 @@ jobs:
                 name: .name,
                 download_count: .download_count,
                 size_bytes: .size,
-                installer: ($n | test($re; "i")),
+                installer: (($n | test($re; "i"))
+                            and ((($n | test("\\.zip$"; "i")) and ($names | any(. == ($n + ".blockmap")))) | not)),
                 updater: ($n | test($upd; "i")),
                 platform: (if ($n | test("\\.(exe|msi)$"; "i")) then "windows"
                            elif ($n | test("\\.(dmg|pkg)$"; "i")) or ($n | test("mac"; "i")) then "mac"
@@ -405,7 +413,8 @@ jobs:
           # traffic/stars, releases mirror for downloads), so it is one card fed by both.
           APPS=("Bulk PDF Extractor|bulk-pdf-extractor-and-generator|bulk-pdf-extractor-and-generator"
                 "Student Doc Redactor|student-doc-redactor|student-doc-redactor"
-                "NAPLAN Cohort Tracker|naplan-cohort-tracker|naplan-cohort-tracker-releases")
+                "NAPLAN Cohort Tracker|naplan-cohort-tracker|naplan-cohort-tracker-releases"
+                "Locker Manager|locker-manager|locker-manager")
 
           # "22 Sep" from "2026-09-22" (GNU date on the runner, BSD fallback for local tests)
           short_date() { date -u -d "$1" +"%-d %b" 2>/dev/null || date -u -j -f "%Y-%m-%d" "$1" +"%-d %b" 2>/dev/null || echo "$1"; }
@@ -699,7 +708,7 @@ jobs:
 
           LEGEND="<tr><td colspan=\"3\" style=\"padding:14px 0 0 0;color:#6e7681;font-size:11px;line-height:1.6;\">
             <strong>Downloads</strong> count every fetch of an installer file (.exe, .msi, .dmg), not people: the same person twice, a Windows copy updating itself, and crawlers all count. GitHub keeps no unique-downloader figure and occasionally revises its counter down.
-            <strong>Update checks</strong> are installed copies asking GitHub for a new version (usually once per launch), the best available sign that copies are in use. Only copies that fetch an updater file are counted: Doc Redactor and NAPLAN always have; Bulk PDF only from v2.17 (22 Sep 2026), so its figure grows as people update.
+            <strong>Update checks</strong> are installed copies asking GitHub for a new version (usually once per launch), the best available sign that copies are in use. Only copies that fetch an updater file are counted: Doc Redactor, NAPLAN and Locker Manager always have; Bulk PDF only from v2.17 (22 Sep 2026), so its figure grows as people update. Locker Manager also checks every 4 hours while open, so its count per computer runs higher than the others.
             <strong>Views</strong> and <strong>clones</strong> show the latest complete day GitHub has published; the feed lags 1&ndash;2 days. Most clones are automated.
             <strong>Where visitors came from</strong> is GitHub's referrer list for the last 14 days; GitHub does not publish visitor locations.
           </td></tr>"

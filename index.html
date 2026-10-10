@@ -248,6 +248,7 @@
     <button class="repo-btn" data-repo="student-doc-redactor">Doc Redactor</button>
     <button class="repo-btn" data-repo="naplan-cohort-tracker">NAPLAN (source)</button>
     <button class="repo-btn" data-repo="naplan-cohort-tracker-releases">NAPLAN (downloads)</button>
+    <button class="repo-btn" data-repo="locker-manager">Locker Manager</button>
     <span class="label" style="margin-left: 0.75rem;">Range:</span>
     <button class="range-btn" data-range="7">7d</button>
     <button class="range-btn" data-range="30">30d</button>
@@ -350,9 +351,9 @@
   <div class="notes">
     <h3>What these numbers can and cannot tell you</h3>
     <ul>
-      <li><strong>Installer downloads</strong> counts every time GitHub served an installer file (.exe, .msi, .dmg and similar). GitHub does not record who downloaded, so there is no unique figure. One person who downloads twice counts twice. A Windows copy that updates itself counts once more, because the updater fetches the new installer. Security scanners and web crawlers count too. GitHub sometimes revises a count downwards a day later, which shows as a negative day.</li>
+      <li><strong>Installer downloads</strong> counts every time GitHub served an installer file (.exe, .msi, .dmg and similar). GitHub does not record who downloaded, so there is no unique figure. One person who downloads twice counts twice. A Windows copy that updates itself counts once more, because the updater fetches the new installer. A Mac copy of Locker Manager updates from a separate .zip file, which is not counted. Security scanners and web crawlers count too. GitHub sometimes revises a count downwards a day later, which shows as a negative day.</li>
       <li><strong>Suspected automated bursts</strong> are days when one repo gained at least 15 downloads and at least 8 times its usual day. Every burst so far has looked like a crawler, not people: on 27 May 2026 one 600 MB Mac installer of Doc Redactor was fetched 92 times in a day, and on 10 Jul 2026 every Mac installer of Bulk PDF back to v2.7 gained exactly one download on the same day. The "excluding bursts" figure replaces each burst day with a typical day.</li>
-      <li><strong>Update checks</strong> counts fetches of the small manifest file (latest.yml or latest.json) that an installed copy reads when it checks for a new version, usually once per launch. It is the best available sign that copies are installed and in use. It is a count of checks, not of computers. Doc Redactor and NAPLAN have always published such a file. Bulk PDF publishes one from v2.17 (22 Sep 2026); copies older than that check in a way GitHub does not count, so its figure starts near zero and grows as people update.</li>
+      <li><strong>Update checks</strong> counts fetches of the small manifest file (latest.yml or latest.json) that an installed copy reads when it checks for a new version, usually once per launch. It is the best available sign that copies are installed and in use. It is a count of checks, not of computers. Doc Redactor, NAPLAN and Locker Manager have always published such a file. Locker Manager also checks every 4 hours while it is open, so it records more checks per computer than the others. Bulk PDF publishes one from v2.17 (22 Sep 2026); copies older than that check in a way GitHub does not count, so its figure starts near zero and grows as people update.</li>
       <li><strong>Page views and unique visitors</strong> come from GitHub's traffic data, which only covers the last 14 days at any time. GitHub counts unique visitors per day, so the daily sum counts a person once for every day they visited.</li>
       <li><strong>Clones</strong> are almost all automated: mirrors, search indexers and build systems. Clones running many times higher than page views are not people.</li>
       <li><strong>NAPLAN (source)</strong> shows zero downloads by design. Its releases are drafts; the public installers and their counts live under NAPLAN (downloads).</li>
@@ -366,12 +367,13 @@
     let selectedRange = 'all';
     let charts = {};
 
-    const REPO_NAMES = ['bulk-pdf-extractor-and-generator', 'student-doc-redactor', 'naplan-cohort-tracker', 'naplan-cohort-tracker-releases'];
+    const REPO_NAMES = ['bulk-pdf-extractor-and-generator', 'student-doc-redactor', 'naplan-cohort-tracker', 'naplan-cohort-tracker-releases', 'locker-manager'];
     const REPO_LABELS = {
       'bulk-pdf-extractor-and-generator': 'Bulk PDF',
       'student-doc-redactor': 'Doc Redactor',
       'naplan-cohort-tracker': 'NAPLAN (source)',
       'naplan-cohort-tracker-releases': 'NAPLAN (downloads)',
+      'locker-manager': 'Locker Manager',
     };
 
     // Asset classification. The collector writes installer/updater/platform flags on

@@ -1105,6 +1105,11 @@
         "date": "2026-10-10",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-11",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -2212,6 +2217,11 @@
         "date": "2026-10-10",
         "total": 4,
         "unique": 3
+      },
+      {
+        "date": "2026-10-11",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -5545,6 +5555,16 @@
       },
       {
         "date": "2026-10-11",
+        "sources": [
+          {
+            "referrer": "Google",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-10-12",
         "sources": [
           {
             "referrer": "Google",
@@ -11069,6 +11089,21 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-10-12",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.17",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -11903,6 +11938,10 @@
       {
         "date": "2026-10-11",
         "count": 2
+      },
+      {
+        "date": "2026-10-12",
+        "count": 2
       }
     ],
     "forks": [
@@ -12437,6 +12476,10 @@
       {
         "date": "2026-10-11",
         "count": 1
+      },
+      {
+        "date": "2026-10-12",
+        "count": 1
       }
     ],
     "watchers": [
@@ -12970,6 +13013,10 @@
       },
       {
         "date": "2026-10-11",
+        "count": 0
+      },
+      {
+        "date": "2026-10-12",
         "count": 0
       }
     ],
@@ -14090,6 +14137,11 @@
         "date": "2026-10-10",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-11",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -15196,6 +15248,11 @@
       {
         "date": "2026-10-10",
         "total": 2,
+        "unique": 1
+      },
+      {
+        "date": "2026-10-11",
+        "total": 1,
         "unique": 1
       }
     ],
@@ -18020,6 +18077,21 @@
       },
       {
         "date": "2026-10-11",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 6,
+            "unique": 5
+          },
+          {
+            "referrer": "github.com",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-10-12",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -24039,6 +24111,21 @@
             "unique": 2
           }
         ]
+      },
+      {
+        "date": "2026-10-12",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 11,
+            "unique": 6
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 2,
+            "unique": 2
+          }
+        ]
       }
     ],
     "stars": [
@@ -24873,6 +24960,10 @@
       {
         "date": "2026-10-11",
         "count": 4
+      },
+      {
+        "date": "2026-10-12",
+        "count": 4
       }
     ],
     "forks": [
@@ -25407,6 +25498,10 @@
       {
         "date": "2026-10-11",
         "count": 1
+      },
+      {
+        "date": "2026-10-12",
+        "count": 1
       }
     ],
     "watchers": [
@@ -25940,6 +26035,10 @@
       },
       {
         "date": "2026-10-11",
+        "count": 1
+      },
+      {
+        "date": "2026-10-12",
         "count": 1
       }
     ],
@@ -26483,6 +26582,11 @@
         "date": "2026-10-10",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-11",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -27005,6 +27109,11 @@
         "date": "2026-10-10",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-11",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -28253,6 +28362,10 @@
       },
       {
         "date": "2026-10-11",
+        "sources": []
+      },
+      {
+        "date": "2026-10-12",
         "sources": []
       }
     ],
@@ -30103,6 +30216,10 @@
       {
         "date": "2026-10-11",
         "paths": []
+      },
+      {
+        "date": "2026-10-12",
+        "paths": []
       }
     ],
     "stars": [
@@ -30464,6 +30581,10 @@
       },
       {
         "date": "2026-10-11",
+        "count": 0
+      },
+      {
+        "date": "2026-10-12",
         "count": 0
       }
     ],
@@ -30827,6 +30948,10 @@
       {
         "date": "2026-10-11",
         "count": 0
+      },
+      {
+        "date": "2026-10-12",
+        "count": 0
       }
     ],
     "watchers": [
@@ -31188,6 +31313,10 @@
       },
       {
         "date": "2026-10-11",
+        "count": 0
+      },
+      {
+        "date": "2026-10-12",
         "count": 0
       }
     ],
@@ -31684,6 +31813,11 @@
         "date": "2026-10-10",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-11",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -32176,6 +32310,11 @@
         "date": "2026-10-10",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-11",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -32642,6 +32781,10 @@
       },
       {
         "date": "2026-10-11",
+        "sources": []
+      },
+      {
+        "date": "2026-10-12",
         "sources": []
       }
     ],
@@ -33110,6 +33253,10 @@
       {
         "date": "2026-10-11",
         "paths": []
+      },
+      {
+        "date": "2026-10-12",
+        "paths": []
       }
     ],
     "stars": [
@@ -33447,6 +33594,10 @@
       },
       {
         "date": "2026-10-11",
+        "count": 0
+      },
+      {
+        "date": "2026-10-12",
         "count": 0
       }
     ],
@@ -33786,6 +33937,10 @@
       {
         "date": "2026-10-11",
         "count": 0
+      },
+      {
+        "date": "2026-10-12",
+        "count": 0
       }
     ],
     "watchers": [
@@ -34123,6 +34278,10 @@
       },
       {
         "date": "2026-10-11",
+        "count": 0
+      },
+      {
+        "date": "2026-10-12",
         "count": 0
       }
     ],
@@ -34204,6 +34363,11 @@
         "date": "2026-10-10",
         "total": 4,
         "unique": 1
+      },
+      {
+        "date": "2026-10-11",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -34281,6 +34445,11 @@
         "date": "2026-10-10",
         "total": 15,
         "unique": 9
+      },
+      {
+        "date": "2026-10-11",
+        "total": 16,
+        "unique": 10
       }
     ],
     "referrers": [
@@ -34290,6 +34459,16 @@
       },
       {
         "date": "2026-10-11",
+        "sources": [
+          {
+            "referrer": "github.com",
+            "count": 2,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-10-12",
         "sources": [
           {
             "referrer": "github.com",
@@ -34313,6 +34492,16 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-10-12",
+        "paths": [
+          {
+            "path": "/mrdavearms/locker-manager",
+            "count": 3,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -34322,6 +34511,10 @@
       },
       {
         "date": "2026-10-11",
+        "count": 1
+      },
+      {
+        "date": "2026-10-12",
         "count": 1
       }
     ],
@@ -34333,6 +34526,10 @@
       {
         "date": "2026-10-11",
         "count": 0
+      },
+      {
+        "date": "2026-10-12",
+        "count": 0
       }
     ],
     "watchers": [
@@ -34342,6 +34539,10 @@
       },
       {
         "date": "2026-10-11",
+        "count": 0
+      },
+      {
+        "date": "2026-10-12",
         "count": 0
       }
     ],

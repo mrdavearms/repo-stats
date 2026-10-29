@@ -1190,6 +1190,11 @@
         "date": "2026-10-27",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-10-28",
+        "total": 1,
+        "unique": 1
       }
     ],
     "clones": [
@@ -2382,6 +2387,11 @@
         "date": "2026-10-27",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-28",
+        "total": 2,
+        "unique": 1
       }
     ],
     "referrers": [
@@ -5866,6 +5876,16 @@
             "referrer": "aocr.org",
             "count": 1,
             "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-10-29",
+        "sources": [
+          {
+            "referrer": "aocr.org",
+            "count": 2,
+            "unique": 2
           }
         ]
       }
@@ -11590,6 +11610,16 @@
             "unique": 3
           }
         ]
+      },
+      {
+        "date": "2026-10-29",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 4,
+            "unique": 4
+          }
+        ]
       }
     ],
     "stars": [
@@ -12492,6 +12522,10 @@
       {
         "date": "2026-10-28",
         "count": 2
+      },
+      {
+        "date": "2026-10-29",
+        "count": 2
       }
     ],
     "forks": [
@@ -13094,6 +13128,10 @@
       {
         "date": "2026-10-28",
         "count": 1
+      },
+      {
+        "date": "2026-10-29",
+        "count": 1
       }
     ],
     "watchers": [
@@ -13695,6 +13733,10 @@
       },
       {
         "date": "2026-10-28",
+        "count": 0
+      },
+      {
+        "date": "2026-10-29",
         "count": 0
       }
     ],
@@ -14900,6 +14942,11 @@
         "date": "2026-10-27",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-28",
+        "total": 12,
+        "unique": 8
       }
     ],
     "clones": [
@@ -16092,6 +16139,11 @@
         "date": "2026-10-27",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-28",
+        "total": 7,
+        "unique": 2
       }
     ],
     "referrers": [
@@ -19115,6 +19167,26 @@
             "referrer": "whs.vic.edu.au",
             "count": 4,
             "unique": 4
+          }
+        ]
+      },
+      {
+        "date": "2026-10-29",
+        "sources": [
+          {
+            "referrer": "aocr.org",
+            "count": 6,
+            "unique": 6
+          },
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 5,
+            "unique": 5
+          },
+          {
+            "referrer": "github.com",
+            "count": 1,
+            "unique": 1
           }
         ]
       }
@@ -25374,6 +25446,21 @@
             "unique": 2
           }
         ]
+      },
+      {
+        "date": "2026-10-29",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 14,
+            "unique": 12
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 5,
+            "unique": 3
+          }
+        ]
       }
     ],
     "stars": [
@@ -26276,6 +26363,10 @@
       {
         "date": "2026-10-28",
         "count": 4
+      },
+      {
+        "date": "2026-10-29",
+        "count": 4
       }
     ],
     "forks": [
@@ -26878,6 +26969,10 @@
       {
         "date": "2026-10-28",
         "count": 1
+      },
+      {
+        "date": "2026-10-29",
+        "count": 1
       }
     ],
     "watchers": [
@@ -27479,6 +27574,10 @@
       },
       {
         "date": "2026-10-28",
+        "count": 1
+      },
+      {
+        "date": "2026-10-29",
         "count": 1
       }
     ],
@@ -28107,6 +28206,11 @@
         "date": "2026-10-27",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-28",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -28714,6 +28818,11 @@
         "date": "2026-10-27",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-28",
+        "total": 1,
+        "unique": 1
       }
     ],
     "referrers": [
@@ -30119,6 +30228,21 @@
       },
       {
         "date": "2026-10-28",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 3,
+            "unique": 3
+          },
+          {
+            "referrer": "Google",
+            "count": 2,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-10-29",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -32153,6 +32277,21 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-10-29",
+        "paths": [
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker",
+            "count": 5,
+            "unique": 4
+          },
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker/commit/b628dc6ce0bea87fa51bed0424b494bf8ff54cd0",
+            "count": 2,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -32582,6 +32721,10 @@
       },
       {
         "date": "2026-10-28",
+        "count": 0
+      },
+      {
+        "date": "2026-10-29",
         "count": 0
       }
     ],
@@ -33013,6 +33156,10 @@
       {
         "date": "2026-10-28",
         "count": 0
+      },
+      {
+        "date": "2026-10-29",
+        "count": 0
       }
     ],
     "watchers": [
@@ -33442,6 +33589,10 @@
       },
       {
         "date": "2026-10-28",
+        "count": 0
+      },
+      {
+        "date": "2026-10-29",
         "count": 0
       }
     ],
@@ -34023,6 +34174,11 @@
         "date": "2026-10-27",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-28",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -34600,6 +34756,11 @@
         "date": "2026-10-27",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-10-28",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -35134,6 +35295,10 @@
       },
       {
         "date": "2026-10-28",
+        "sources": []
+      },
+      {
+        "date": "2026-10-29",
         "sources": []
       }
     ],
@@ -35670,6 +35835,10 @@
       {
         "date": "2026-10-28",
         "paths": []
+      },
+      {
+        "date": "2026-10-29",
+        "paths": []
       }
     ],
     "stars": [
@@ -36075,6 +36244,10 @@
       },
       {
         "date": "2026-10-28",
+        "count": 0
+      },
+      {
+        "date": "2026-10-29",
         "count": 0
       }
     ],
@@ -36482,6 +36655,10 @@
       {
         "date": "2026-10-28",
         "count": 0
+      },
+      {
+        "date": "2026-10-29",
+        "count": 0
       }
     ],
     "watchers": [
@@ -36887,6 +37064,10 @@
       },
       {
         "date": "2026-10-28",
+        "count": 0
+      },
+      {
+        "date": "2026-10-29",
         "count": 0
       }
     ],
@@ -37053,6 +37234,11 @@
         "date": "2026-10-27",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-28",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -37213,6 +37399,11 @@
       },
       {
         "date": "2026-10-27",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-10-28",
         "total": 0,
         "unique": 0
       }
@@ -37424,6 +37615,16 @@
       },
       {
         "date": "2026-10-28",
+        "sources": [
+          {
+            "referrer": "mrdavearms.github.io",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-10-29",
         "sources": [
           {
             "referrer": "mrdavearms.github.io",
@@ -37662,6 +37863,21 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-10-29",
+        "paths": [
+          {
+            "path": "/mrdavearms/locker-manager",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/locker-manager/releases",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -37739,6 +37955,10 @@
       },
       {
         "date": "2026-10-28",
+        "count": 1
+      },
+      {
+        "date": "2026-10-29",
         "count": 1
       }
     ],
@@ -37818,6 +38038,10 @@
       {
         "date": "2026-10-28",
         "count": 0
+      },
+      {
+        "date": "2026-10-29",
+        "count": 0
       }
     ],
     "watchers": [
@@ -37895,6 +38119,10 @@
       },
       {
         "date": "2026-10-28",
+        "count": 0
+      },
+      {
+        "date": "2026-10-29",
         "count": 0
       }
     ],

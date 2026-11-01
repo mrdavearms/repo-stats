@@ -1205,6 +1205,11 @@
         "date": "2026-10-30",
         "total": 3,
         "unique": 3
+      },
+      {
+        "date": "2026-10-31",
+        "total": 2,
+        "unique": 2
       }
     ],
     "clones": [
@@ -2410,6 +2415,11 @@
       },
       {
         "date": "2026-10-30",
+        "total": 0,
+        "unique": 0
+      },
+      {
+        "date": "2026-10-31",
         "total": 0,
         "unique": 0
       }
@@ -5926,6 +5936,21 @@
       },
       {
         "date": "2026-10-31",
+        "sources": [
+          {
+            "referrer": "aocr.org",
+            "count": 14,
+            "unique": 14
+          },
+          {
+            "referrer": "Google",
+            "count": 7,
+            "unique": 3
+          }
+        ]
+      },
+      {
+        "date": "2026-11-01",
         "sources": [
           {
             "referrer": "aocr.org",
@@ -11765,6 +11790,56 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-11-01",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 18,
+            "unique": 14
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/pull/10/files",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/pull/11/files",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/pull/20/files",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/pull/21/files",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/pull/23/files",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/releases/tag/v2.17",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/tree/main/.github",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -12679,6 +12754,10 @@
       {
         "date": "2026-10-31",
         "count": 2
+      },
+      {
+        "date": "2026-11-01",
+        "count": 2
       }
     ],
     "forks": [
@@ -13293,6 +13372,10 @@
       {
         "date": "2026-10-31",
         "count": 1
+      },
+      {
+        "date": "2026-11-01",
+        "count": 1
       }
     ],
     "watchers": [
@@ -13906,6 +13989,10 @@
       },
       {
         "date": "2026-10-31",
+        "count": 0
+      },
+      {
+        "date": "2026-11-01",
         "count": 0
       }
     ],
@@ -15126,6 +15213,11 @@
         "date": "2026-10-30",
         "total": 3,
         "unique": 3
+      },
+      {
+        "date": "2026-10-31",
+        "total": 1,
+        "unique": 1
       }
     ],
     "clones": [
@@ -16333,6 +16425,11 @@
         "date": "2026-10-30",
         "total": 73,
         "unique": 15
+      },
+      {
+        "date": "2026-10-31",
+        "total": 1,
+        "unique": 1
       }
     ],
     "referrers": [
@@ -19401,6 +19498,26 @@
       },
       {
         "date": "2026-10-31",
+        "sources": [
+          {
+            "referrer": "aocr.org",
+            "count": 12,
+            "unique": 12
+          },
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 4,
+            "unique": 4
+          },
+          {
+            "referrer": "github.com",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-11-01",
         "sources": [
           {
             "referrer": "aocr.org",
@@ -25720,6 +25837,21 @@
             "unique": 7
           }
         ]
+      },
+      {
+        "date": "2026-11-01",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 16,
+            "unique": 14
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 9,
+            "unique": 7
+          }
+        ]
       }
     ],
     "stars": [
@@ -26634,6 +26766,10 @@
       {
         "date": "2026-10-31",
         "count": 4
+      },
+      {
+        "date": "2026-11-01",
+        "count": 4
       }
     ],
     "forks": [
@@ -27248,6 +27384,10 @@
       {
         "date": "2026-10-31",
         "count": 1
+      },
+      {
+        "date": "2026-11-01",
+        "count": 1
       }
     ],
     "watchers": [
@@ -27861,6 +28001,10 @@
       },
       {
         "date": "2026-10-31",
+        "count": 1
+      },
+      {
+        "date": "2026-11-01",
         "count": 1
       }
     ],
@@ -28504,6 +28648,11 @@
         "date": "2026-10-30",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-31",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -29126,6 +29275,11 @@
         "date": "2026-10-30",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-31",
+        "total": 1,
+        "unique": 1
       }
     ],
     "referrers": [
@@ -30576,6 +30730,21 @@
       },
       {
         "date": "2026-10-31",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 3,
+            "unique": 3
+          },
+          {
+            "referrer": "Google",
+            "count": 2,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-11-01",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -32655,6 +32824,21 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-11-01",
+        "paths": [
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker",
+            "count": 5,
+            "unique": 4
+          },
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker/commit/b628dc6ce0bea87fa51bed0424b494bf8ff54cd0",
+            "count": 2,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -33096,6 +33280,10 @@
       },
       {
         "date": "2026-10-31",
+        "count": 0
+      },
+      {
+        "date": "2026-11-01",
         "count": 0
       }
     ],
@@ -33539,6 +33727,10 @@
       {
         "date": "2026-10-31",
         "count": 0
+      },
+      {
+        "date": "2026-11-01",
+        "count": 0
       }
     ],
     "watchers": [
@@ -33980,6 +34172,10 @@
       },
       {
         "date": "2026-10-31",
+        "count": 0
+      },
+      {
+        "date": "2026-11-01",
         "count": 0
       }
     ],
@@ -34576,6 +34772,11 @@
         "date": "2026-10-30",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-31",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -35168,6 +35369,11 @@
         "date": "2026-10-30",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-31",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -35714,6 +35920,10 @@
       },
       {
         "date": "2026-10-31",
+        "sources": []
+      },
+      {
+        "date": "2026-11-01",
         "sources": []
       }
     ],
@@ -36262,6 +36472,10 @@
       {
         "date": "2026-10-31",
         "paths": []
+      },
+      {
+        "date": "2026-11-01",
+        "paths": []
       }
     ],
     "stars": [
@@ -36679,6 +36893,10 @@
       },
       {
         "date": "2026-10-31",
+        "count": 0
+      },
+      {
+        "date": "2026-11-01",
         "count": 0
       }
     ],
@@ -37098,6 +37316,10 @@
       {
         "date": "2026-10-31",
         "count": 0
+      },
+      {
+        "date": "2026-11-01",
+        "count": 0
       }
     ],
     "watchers": [
@@ -37515,6 +37737,10 @@
       },
       {
         "date": "2026-10-31",
+        "count": 0
+      },
+      {
+        "date": "2026-11-01",
         "count": 0
       }
     ],
@@ -37696,6 +37922,11 @@
         "date": "2026-10-30",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-31",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -37873,6 +38104,11 @@
         "date": "2026-10-30",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-10-31",
+        "total": 52,
+        "unique": 12
       }
     ],
     "referrers": [
@@ -38112,6 +38348,16 @@
       },
       {
         "date": "2026-10-31",
+        "sources": [
+          {
+            "referrer": "mrdavearms.github.io",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-11-01",
         "sources": [
           {
             "referrer": "mrdavearms.github.io",
@@ -38395,6 +38641,21 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-11-01",
+        "paths": [
+          {
+            "path": "/mrdavearms/locker-manager",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/locker-manager/releases",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -38484,6 +38745,10 @@
       },
       {
         "date": "2026-10-31",
+        "count": 1
+      },
+      {
+        "date": "2026-11-01",
         "count": 1
       }
     ],
@@ -38575,6 +38840,10 @@
       {
         "date": "2026-10-31",
         "count": 0
+      },
+      {
+        "date": "2026-11-01",
+        "count": 0
       }
     ],
     "watchers": [
@@ -38664,6 +38933,10 @@
       },
       {
         "date": "2026-10-31",
+        "count": 0
+      },
+      {
+        "date": "2026-11-01",
         "count": 0
       }
     ],

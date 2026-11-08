@@ -1679,6 +1679,11 @@
         "date": "2026-11-07",
         "total_downloads": 243,
         "update_checks": 5
+      },
+      {
+        "date": "2026-11-08",
+        "total_downloads": 243,
+        "update_checks": 5
       }
     ],
     "asset_history": [
@@ -34865,6 +34870,323 @@
             "download_count": 1
           }
         ]
+      },
+      {
+        "date": "2026-11-08",
+        "assets": [
+          {
+            "tag": "v2.18",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.18",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.18-beta",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.18-beta",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.17",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 11
+          },
+          {
+            "tag": "v2.17",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 12
+          },
+          {
+            "tag": "v2.16",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 7
+          },
+          {
+            "tag": "v2.16",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v2.15",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v2.15",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v2.14",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 9
+          },
+          {
+            "tag": "v2.14",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 6
+          },
+          {
+            "tag": "v2.13",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v2.13",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 5
+          },
+          {
+            "tag": "v2.12.2",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 13
+          },
+          {
+            "tag": "v2.12.2",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 5
+          },
+          {
+            "tag": "v2.12.1",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 7
+          },
+          {
+            "tag": "v2.12.1",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 8
+          },
+          {
+            "tag": "v2.12",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v2.12",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 4
+          },
+          {
+            "tag": "v2.11.1",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 4
+          },
+          {
+            "tag": "v2.11.1",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 52
+          },
+          {
+            "tag": "v2.11",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 6
+          },
+          {
+            "tag": "v2.11",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 6
+          },
+          {
+            "tag": "v2.10",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 4
+          },
+          {
+            "tag": "v2.10",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 11
+          },
+          {
+            "tag": "v2.9",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v2.9",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 5
+          },
+          {
+            "tag": "v2.8",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 4
+          },
+          {
+            "tag": "v2.8",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 5
+          },
+          {
+            "tag": "v2.7.5",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v2.7.5",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v2.7.4",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.7.4",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 5
+          },
+          {
+            "tag": "v2.7.3",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.7.3",
+            "name": "Bulk.PDF.Generator.macOS.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v2.7.2",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.7.2",
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.7.1",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v2.7.1",
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "platform": "mac",
+            "download_count": 4
+          },
+          {
+            "tag": "v2.7",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.7",
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.6",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v2.6",
+            "name": "Bulk.PDF.Generator.macOS.zip",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v2.5.6",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.5.6",
+            "name": "Bulk.PDF.Generator.Mac.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.5.4",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v2.5.3",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.5",
+            "name": "Bulk.PDF.Generator.Mac.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.1",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.1",
+            "name": "Sample.Files.zip",
+            "platform": "other",
+            "download_count": 1
+          },
+          {
+            "tag": "v2.0",
+            "name": "Bulk.PDF.Generator.exe",
+            "platform": "windows",
+            "download_count": 1
+          }
+        ]
       }
     ]
   },
@@ -34877,7 +35199,7 @@
         "assets": [
           {
             "name": "latest-mac.yml",
-            "download_count": 1,
+            "download_count": 2,
             "size_bytes": 357,
             "installer": false,
             "updater": true,
@@ -34885,7 +35207,7 @@
           },
           {
             "name": "latest.yml",
-            "download_count": 7,
+            "download_count": 10,
             "size_bytes": 357,
             "installer": false,
             "updater": true,
@@ -34893,7 +35215,7 @@
           },
           {
             "name": "Redaction-Tool-1.9.7-arm64.dmg",
-            "download_count": 3,
+            "download_count": 4,
             "size_bytes": 615663072,
             "installer": true,
             "updater": false,
@@ -34901,7 +35223,7 @@
           },
           {
             "name": "Redaction-Tool-1.9.7-arm64.dmg.blockmap",
-            "download_count": 0,
+            "download_count": 1,
             "size_bytes": 641675,
             "installer": false,
             "updater": false,
@@ -34909,7 +35231,7 @@
           },
           {
             "name": "Redaction-Tool-Setup-1.9.7.exe",
-            "download_count": 2,
+            "download_count": 3,
             "size_bytes": 573964534,
             "installer": true,
             "updater": false,
@@ -34917,7 +35239,7 @@
           },
           {
             "name": "Redaction-Tool-Setup-1.9.7.exe.blockmap",
-            "download_count": 1,
+            "download_count": 2,
             "size_bytes": 599440,
             "installer": false,
             "updater": false,
@@ -34948,7 +35270,7 @@
           },
           {
             "name": "Redaction-Tool-1.9.6-arm64.dmg",
-            "download_count": 2,
+            "download_count": 4,
             "size_bytes": 615665796,
             "installer": true,
             "updater": false,
@@ -34964,7 +35286,7 @@
           },
           {
             "name": "Redaction-Tool-Setup-1.9.6.exe",
-            "download_count": 9,
+            "download_count": 10,
             "size_bytes": 573963525,
             "installer": true,
             "updater": false,
@@ -35003,7 +35325,7 @@
           },
           {
             "name": "Redaction-Tool-1.9.5-arm64.dmg",
-            "download_count": 1,
+            "download_count": 2,
             "size_bytes": 615664570,
             "installer": true,
             "updater": false,
@@ -35019,7 +35341,7 @@
           },
           {
             "name": "Redaction-Tool-Setup-1.9.5.exe",
-            "download_count": 1,
+            "download_count": 3,
             "size_bytes": 573949936,
             "installer": true,
             "updater": false,
@@ -35058,7 +35380,7 @@
           },
           {
             "name": "Redaction-Tool-1.9.4-arm64.dmg",
-            "download_count": 7,
+            "download_count": 10,
             "size_bytes": 606072581,
             "installer": true,
             "updater": false,
@@ -35074,7 +35396,7 @@
           },
           {
             "name": "Redaction-Tool-Setup-1.9.4.exe",
-            "download_count": 24,
+            "download_count": 25,
             "size_bytes": 562160948,
             "installer": true,
             "updater": false,
@@ -35113,7 +35435,7 @@
           },
           {
             "name": "Redaction-Tool-1.9.3-arm64.dmg",
-            "download_count": 2,
+            "download_count": 3,
             "size_bytes": 606045912,
             "installer": true,
             "updater": false,
@@ -35129,7 +35451,7 @@
           },
           {
             "name": "Redaction-Tool-Setup-1.9.3.exe",
-            "download_count": 5,
+            "download_count": 6,
             "size_bytes": 562132019,
             "installer": true,
             "updater": false,
@@ -35168,7 +35490,7 @@
           },
           {
             "name": "Redaction-Tool-1.9.2-arm64.dmg",
-            "download_count": 5,
+            "download_count": 7,
             "size_bytes": 602403740,
             "installer": true,
             "updater": false,
@@ -35184,7 +35506,7 @@
           },
           {
             "name": "Redaction-Tool-Setup-1.9.2.exe",
-            "download_count": 27,
+            "download_count": 28,
             "size_bytes": 562032567,
             "installer": true,
             "updater": false,
@@ -35239,7 +35561,7 @@
           },
           {
             "name": "Redaction-Tool-Setup-1.9.1.exe",
-            "download_count": 1,
+            "download_count": 2,
             "size_bytes": 562030251,
             "installer": true,
             "updater": false,
@@ -35278,7 +35600,7 @@
           },
           {
             "name": "Redaction-Tool-1.9.0-arm64.dmg",
-            "download_count": 2,
+            "download_count": 3,
             "size_bytes": 602445076,
             "installer": true,
             "updater": false,
@@ -35294,7 +35616,7 @@
           },
           {
             "name": "Redaction-Tool-Setup-1.9.0.exe",
-            "download_count": 2,
+            "download_count": 3,
             "size_bytes": 562050850,
             "installer": true,
             "updater": false,
@@ -35333,7 +35655,7 @@
           },
           {
             "name": "Redaction-Tool-1.8.0-arm64.dmg",
-            "download_count": 3,
+            "download_count": 4,
             "size_bytes": 602003761,
             "installer": true,
             "updater": false,
@@ -35349,7 +35671,7 @@
           },
           {
             "name": "Redaction-Tool-Setup-1.8.0.exe",
-            "download_count": 24,
+            "download_count": 25,
             "size_bytes": 561312194,
             "installer": true,
             "updater": false,
@@ -35404,7 +35726,7 @@
           },
           {
             "name": "Redaction-Tool-Setup-1.7.1.exe",
-            "download_count": 1,
+            "download_count": 2,
             "size_bytes": 555987033,
             "installer": true,
             "updater": false,
@@ -37098,6 +37420,11 @@
         "date": "2026-11-07",
         "total_downloads": 358,
         "update_checks": 314
+      },
+      {
+        "date": "2026-11-08",
+        "total_downloads": 381,
+        "update_checks": 318
       }
     ],
     "asset_history": [
@@ -59256,6 +59583,287 @@
             "download_count": 1
           }
         ]
+      },
+      {
+        "date": "2026-11-08",
+        "assets": [
+          {
+            "tag": "v1.9.7",
+            "name": "Redaction-Tool-1.9.7-arm64.dmg",
+            "platform": "mac",
+            "download_count": 4
+          },
+          {
+            "tag": "v1.9.7",
+            "name": "Redaction-Tool-Setup-1.9.7.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.9.6",
+            "name": "Redaction-Tool-1.9.6-arm64.dmg",
+            "platform": "mac",
+            "download_count": 4
+          },
+          {
+            "tag": "v1.9.6",
+            "name": "Redaction-Tool-Setup-1.9.6.exe",
+            "platform": "windows",
+            "download_count": 10
+          },
+          {
+            "tag": "v1.9.5",
+            "name": "Redaction-Tool-1.9.5-arm64.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.9.5",
+            "name": "Redaction-Tool-Setup-1.9.5.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.9.4",
+            "name": "Redaction-Tool-1.9.4-arm64.dmg",
+            "platform": "mac",
+            "download_count": 10
+          },
+          {
+            "tag": "v1.9.4",
+            "name": "Redaction-Tool-Setup-1.9.4.exe",
+            "platform": "windows",
+            "download_count": 25
+          },
+          {
+            "tag": "v1.9.3",
+            "name": "Redaction-Tool-1.9.3-arm64.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.9.3",
+            "name": "Redaction-Tool-Setup-1.9.3.exe",
+            "platform": "windows",
+            "download_count": 6
+          },
+          {
+            "tag": "v1.9.2",
+            "name": "Redaction-Tool-1.9.2-arm64.dmg",
+            "platform": "mac",
+            "download_count": 7
+          },
+          {
+            "tag": "v1.9.2",
+            "name": "Redaction-Tool-Setup-1.9.2.exe",
+            "platform": "windows",
+            "download_count": 28
+          },
+          {
+            "tag": "v1.9.1",
+            "name": "Redaction-Tool-1.9.1-arm64.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.9.1",
+            "name": "Redaction-Tool-Setup-1.9.1.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.9.0",
+            "name": "Redaction-Tool-1.9.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.9.0",
+            "name": "Redaction-Tool-Setup-1.9.0.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.8.0",
+            "name": "Redaction-Tool-1.8.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 4
+          },
+          {
+            "tag": "v1.8.0",
+            "name": "Redaction-Tool-Setup-1.8.0.exe",
+            "platform": "windows",
+            "download_count": 25
+          },
+          {
+            "tag": "v1.7.1",
+            "name": "Redaction-Tool-1.7.1-arm64.dmg",
+            "platform": "mac",
+            "download_count": 5
+          },
+          {
+            "tag": "v1.7.1",
+            "name": "Redaction-Tool-Setup-1.7.1.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.7.0",
+            "name": "Redaction-Tool-1.7.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.7.0",
+            "name": "Redaction-Tool-Setup-1.7.0.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.6.2",
+            "name": "Redaction-Tool-1.6.2-arm64.dmg",
+            "platform": "mac",
+            "download_count": 5
+          },
+          {
+            "tag": "v1.6.2",
+            "name": "Redaction-Tool-Setup-1.6.2.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.6.1",
+            "name": "Redaction-Tool-1.6.1-arm64.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.6.1",
+            "name": "Redaction-Tool-Setup-1.6.1.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.6.0",
+            "name": "Redaction-Tool-1.6.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.6.0",
+            "name": "Redaction-Tool-Setup-1.6.0.exe",
+            "platform": "windows",
+            "download_count": 4
+          },
+          {
+            "tag": "v1.5.1",
+            "name": "Redaction-Tool-1.5.1-arm64.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.5.1",
+            "name": "Redaction-Tool-Setup-1.5.1.exe",
+            "platform": "windows",
+            "download_count": 6
+          },
+          {
+            "tag": "v1.5.0",
+            "name": "Redaction-Tool-1.5.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 5
+          },
+          {
+            "tag": "v1.5.0",
+            "name": "Redaction-Tool-Setup-1.5.0.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.4.0",
+            "name": "Redaction-Tool-1.4.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.4.0",
+            "name": "Redaction-Tool-Setup-1.4.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.3.2",
+            "name": "Redaction-Tool-1.3.2-arm64.dmg",
+            "platform": "mac",
+            "download_count": 11
+          },
+          {
+            "tag": "v1.3.2",
+            "name": "Redaction-Tool-Setup-1.3.2.exe",
+            "platform": "windows",
+            "download_count": 22
+          },
+          {
+            "tag": "v1.3.1",
+            "name": "Redaction-Tool-1.3.1-arm64.dmg",
+            "platform": "mac",
+            "download_count": 0
+          },
+          {
+            "tag": "v1.3.1",
+            "name": "Redaction-Tool-Setup-1.3.1.exe",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.3.0",
+            "name": "Redaction-Tool-1.3.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 122
+          },
+          {
+            "tag": "v1.3.0",
+            "name": "Redaction-Tool-Setup-1.3.0.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.2.0",
+            "name": "Redaction-Tool-1.2.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 9
+          },
+          {
+            "tag": "v1.2.0",
+            "name": "Redaction-Tool-Setup-1.2.0.exe",
+            "platform": "windows",
+            "download_count": 14
+          },
+          {
+            "tag": "v1.1.0",
+            "name": "Redaction-Tool-1.1.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.1.0",
+            "name": "Redaction-Tool-Setup-1.1.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.0.0",
+            "name": "Redaction.Tool-1.0.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.1.0",
+            "name": "Redaction.Tool-0.1.0-arm64.dmg",
+            "platform": "mac",
+            "download_count": 1
+          }
+        ]
       }
     ]
   },
@@ -59752,6 +60360,11 @@
         "date": "2026-11-07",
         "total_downloads": 0,
         "update_checks": 0
+      },
+      {
+        "date": "2026-11-08",
+        "total_downloads": 0,
+        "update_checks": 0
       }
     ],
     "asset_history": [
@@ -60197,6 +60810,10 @@
       },
       {
         "date": "2026-11-07",
+        "assets": []
+      },
+      {
+        "date": "2026-11-08",
         "assets": []
       }
     ]
@@ -61169,6 +61786,11 @@
         "date": "2026-11-07",
         "total_downloads": 88,
         "update_checks": 143
+      },
+      {
+        "date": "2026-11-08",
+        "total_downloads": 88,
+        "update_checks": 143
       }
     ],
     "asset_history": [
@@ -71300,6 +71922,119 @@
       },
       {
         "date": "2026-11-07",
+        "assets": [
+          {
+            "tag": "v1.3.0",
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_universal.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.3.0",
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_x64-setup.exe",
+            "platform": "windows",
+            "download_count": 15
+          },
+          {
+            "tag": "v1.3.0",
+            "name": "NAPLAN.Cohort.Tracker_1.3.0_x64_en-US.msi",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.2.1",
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_universal.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.2.1",
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_x64-setup.exe",
+            "platform": "windows",
+            "download_count": 23
+          },
+          {
+            "tag": "v1.2.1",
+            "name": "NAPLAN.Cohort.Tracker_1.2.1_x64_en-US.msi",
+            "platform": "windows",
+            "download_count": 1
+          },
+          {
+            "tag": "v1.2.0",
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_universal.dmg",
+            "platform": "mac",
+            "download_count": 0
+          },
+          {
+            "tag": "v1.2.0",
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_x64-setup.exe",
+            "platform": "windows",
+            "download_count": 6
+          },
+          {
+            "tag": "v1.2.0",
+            "name": "NAPLAN.Cohort.Tracker_1.2.0_x64_en-US.msi",
+            "platform": "windows",
+            "download_count": 0
+          },
+          {
+            "tag": "v1.1.1",
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_universal.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.1.1",
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_x64-setup.exe",
+            "platform": "windows",
+            "download_count": 25
+          },
+          {
+            "tag": "v1.1.1",
+            "name": "NAPLAN.Cohort.Tracker_1.1.1_x64_en-US.msi",
+            "platform": "windows",
+            "download_count": 0
+          },
+          {
+            "tag": "v1.1.0",
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_universal.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.1.0",
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_x64-setup.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v1.1.0",
+            "name": "NAPLAN.Cohort.Tracker_1.1.0_x64_en-US.msi",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.0.1",
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_universal.dmg",
+            "platform": "mac",
+            "download_count": 0
+          },
+          {
+            "tag": "v1.0.1",
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_x64-setup.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v1.0.1",
+            "name": "NAPLAN.Cohort.Tracker_1.0.1_x64_en-US.msi",
+            "platform": "windows",
+            "download_count": 0
+          }
+        ]
+      },
+      {
+        "date": "2026-11-08",
         "assets": [
           {
             "tag": "v1.3.0",
@@ -72768,6 +73503,11 @@
         "date": "2026-11-07",
         "total_downloads": 91,
         "update_checks": 162
+      },
+      {
+        "date": "2026-11-08",
+        "total_downloads": 91,
+        "update_checks": 162
       }
     ],
     "asset_history": [
@@ -77929,6 +78669,215 @@
       },
       {
         "date": "2026-11-07",
+        "assets": [
+          {
+            "tag": "v0.13.2",
+            "name": "Locker-Manager-0.13.2-universal.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v0.13.2",
+            "name": "Locker-Manager-Setup-0.13.2.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.13.1",
+            "name": "Locker-Manager-0.13.1-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.13.1",
+            "name": "Locker-Manager-Setup-0.13.1.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v0.13.0",
+            "name": "Locker-Manager-0.13.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.13.0",
+            "name": "Locker-Manager-Setup-0.13.0.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.12.1",
+            "name": "Locker-Manager-0.12.1-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.12.1",
+            "name": "Locker-Manager-Setup-0.12.1.exe",
+            "platform": "windows",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.12.0",
+            "name": "Locker-Manager-0.12.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v0.12.0",
+            "name": "Locker-Manager-Setup-0.12.0.exe",
+            "platform": "windows",
+            "download_count": 4
+          },
+          {
+            "tag": "v0.11.4",
+            "name": "Locker-Manager-0.11.4-universal.dmg",
+            "platform": "mac",
+            "download_count": 1
+          },
+          {
+            "tag": "v0.11.4",
+            "name": "Locker-Manager-Setup-0.11.4.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v0.10.0",
+            "name": "Locker-Manager-0.10.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 5
+          },
+          {
+            "tag": "v0.10.0",
+            "name": "Locker-Manager-Setup-0.10.0.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v0.9.0",
+            "name": "Locker-Manager-0.9.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.9.0",
+            "name": "Locker-Manager-Setup-0.9.0.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v0.8.0",
+            "name": "Locker-Manager-0.8.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v0.8.0",
+            "name": "Locker-Manager-Setup-0.8.0.exe",
+            "platform": "windows",
+            "download_count": 4
+          },
+          {
+            "tag": "v0.7.0",
+            "name": "Locker-Manager-0.7.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.7.0",
+            "name": "Locker-Manager-Setup-0.7.0.exe",
+            "platform": "windows",
+            "download_count": 4
+          },
+          {
+            "tag": "v0.6.0",
+            "name": "Locker-Manager-0.6.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.6.0",
+            "name": "Locker-Manager-Setup-0.6.0.exe",
+            "platform": "windows",
+            "download_count": 4
+          },
+          {
+            "tag": "v0.5.0",
+            "name": "Locker-Manager-0.5.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.5.0",
+            "name": "Locker-Manager-Setup-0.5.0.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v0.4.0",
+            "name": "Locker-Manager-0.4.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.4.0",
+            "name": "Locker-Manager-Setup-0.4.0.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v0.2.0",
+            "name": "Locker-Manager-0.2.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.2.0",
+            "name": "Locker-Manager-Setup-0.2.0.exe",
+            "platform": "windows",
+            "download_count": 4
+          },
+          {
+            "tag": "v0.1.0",
+            "name": "Locker-Manager-0.1.0-universal.dmg",
+            "platform": "mac",
+            "download_count": 2
+          },
+          {
+            "tag": "v0.1.0",
+            "name": "Locker-Manager-Setup-0.1.0.exe",
+            "platform": "windows",
+            "download_count": 3
+          },
+          {
+            "tag": "v0.0.2",
+            "name": "Locker-Manager-0.0.2-universal.dmg",
+            "platform": "mac",
+            "download_count": 4
+          },
+          {
+            "tag": "v0.0.2",
+            "name": "Locker-Manager-Setup-0.0.2.exe",
+            "platform": "windows",
+            "download_count": 4
+          },
+          {
+            "tag": "v0.0.1",
+            "name": "Locker-Manager-0.0.1-universal.dmg",
+            "platform": "mac",
+            "download_count": 3
+          },
+          {
+            "tag": "v0.0.1",
+            "name": "Locker-Manager-Setup-0.0.1.exe",
+            "platform": "windows",
+            "download_count": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-11-08",
         "assets": [
           {
             "tag": "v0.13.2",

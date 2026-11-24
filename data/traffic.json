@@ -1320,6 +1320,11 @@
         "date": "2026-11-22",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-11-23",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -2640,6 +2645,11 @@
       },
       {
         "date": "2026-11-22",
+        "total": 1,
+        "unique": 1
+      },
+      {
+        "date": "2026-11-23",
         "total": 1,
         "unique": 1
       }
@@ -6518,6 +6528,10 @@
       },
       {
         "date": "2026-11-23",
+        "sources": []
+      },
+      {
+        "date": "2026-11-24",
         "sources": []
       }
     ],
@@ -13461,6 +13475,31 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-11-24",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/discussions",
+            "count": 3,
+            "unique": 3
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/blob/main/samples/Minim_Elit_Evidence Application Wangaratta High School 2026.pdf",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/issues",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -14467,6 +14506,10 @@
       {
         "date": "2026-11-23",
         "count": 2
+      },
+      {
+        "date": "2026-11-24",
+        "count": 2
       }
     ],
     "forks": [
@@ -15173,6 +15216,10 @@
       {
         "date": "2026-11-23",
         "count": 1
+      },
+      {
+        "date": "2026-11-24",
+        "count": 1
       }
     ],
     "watchers": [
@@ -15878,6 +15925,10 @@
       },
       {
         "date": "2026-11-23",
+        "count": 0
+      },
+      {
+        "date": "2026-11-24",
         "count": 0
       }
     ],
@@ -17213,6 +17264,11 @@
         "date": "2026-11-22",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-11-23",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -18535,6 +18591,11 @@
         "date": "2026-11-22",
         "total": 1,
         "unique": 1
+      },
+      {
+        "date": "2026-11-23",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -22063,6 +22124,16 @@
       },
       {
         "date": "2026-11-23",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 2,
+            "unique": 2
+          }
+        ]
+      },
+      {
+        "date": "2026-11-24",
         "sources": [
           {
             "referrer": "whs.vic.edu.au",
@@ -29332,6 +29403,26 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-11-24",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 4,
+            "unique": 4
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 3,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases/tag/v1.9.7",
+            "count": 3,
+            "unique": 2
+          }
+        ]
       }
     ],
     "stars": [
@@ -30338,6 +30429,10 @@
       {
         "date": "2026-11-23",
         "count": 4
+      },
+      {
+        "date": "2026-11-24",
+        "count": 4
       }
     ],
     "forks": [
@@ -31044,6 +31139,10 @@
       {
         "date": "2026-11-23",
         "count": 1
+      },
+      {
+        "date": "2026-11-24",
+        "count": 1
       }
     ],
     "watchers": [
@@ -31749,6 +31848,10 @@
       },
       {
         "date": "2026-11-23",
+        "count": 1
+      },
+      {
+        "date": "2026-11-24",
         "count": 1
       }
     ],
@@ -32507,6 +32610,11 @@
         "date": "2026-11-22",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-11-23",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -33244,6 +33352,11 @@
         "date": "2026-11-22",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-11-23",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -35042,6 +35155,16 @@
           },
           {
             "referrer": "whs.vic.edu.au",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-11-24",
+        "sources": [
+          {
+            "referrer": "Google",
             "count": 1,
             "unique": 1
           }
@@ -37383,6 +37506,16 @@
             "unique": 2
           }
         ]
+      },
+      {
+        "date": "2026-11-24",
+        "paths": [
+          {
+            "path": "/mrdavearms/naplan-cohort-tracker",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -37916,6 +38049,10 @@
       },
       {
         "date": "2026-11-23",
+        "count": 0
+      },
+      {
+        "date": "2026-11-24",
         "count": 0
       }
     ],
@@ -38451,6 +38588,10 @@
       {
         "date": "2026-11-23",
         "count": 0
+      },
+      {
+        "date": "2026-11-24",
+        "count": 0
       }
     ],
     "watchers": [
@@ -38984,6 +39125,10 @@
       },
       {
         "date": "2026-11-23",
+        "count": 0
+      },
+      {
+        "date": "2026-11-24",
         "count": 0
       }
     ],
@@ -39695,6 +39840,11 @@
         "date": "2026-11-22",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-11-23",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -40402,6 +40552,11 @@
         "date": "2026-11-22",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-11-23",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -41040,6 +41195,10 @@
       },
       {
         "date": "2026-11-23",
+        "sources": []
+      },
+      {
+        "date": "2026-11-24",
         "sources": []
       }
     ],
@@ -41680,6 +41839,10 @@
       {
         "date": "2026-11-23",
         "paths": []
+      },
+      {
+        "date": "2026-11-24",
+        "paths": []
       }
     ],
     "stars": [
@@ -42189,6 +42352,10 @@
       },
       {
         "date": "2026-11-23",
+        "count": 0
+      },
+      {
+        "date": "2026-11-24",
         "count": 0
       }
     ],
@@ -42700,6 +42867,10 @@
       {
         "date": "2026-11-23",
         "count": 0
+      },
+      {
+        "date": "2026-11-24",
+        "count": 0
       }
     ],
     "watchers": [
@@ -43209,6 +43380,10 @@
       },
       {
         "date": "2026-11-23",
+        "count": 0
+      },
+      {
+        "date": "2026-11-24",
         "count": 0
       }
     ],
@@ -43505,6 +43680,11 @@
         "date": "2026-11-22",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-11-23",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -43797,6 +43977,11 @@
         "date": "2026-11-22",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-11-23",
+        "total": 1,
+        "unique": 1
       }
     ],
     "referrers": [
@@ -44326,6 +44511,16 @@
       },
       {
         "date": "2026-11-23",
+        "sources": [
+          {
+            "referrer": "Google",
+            "count": 1,
+            "unique": 1
+          }
+        ]
+      },
+      {
+        "date": "2026-11-24",
         "sources": [
           {
             "referrer": "Google",
@@ -44934,6 +45129,21 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-11-24",
+        "paths": [
+          {
+            "path": "/mrdavearms/locker-manager",
+            "count": 2,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/locker-manager/blob/main/SPEC.md",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -45115,6 +45325,10 @@
       },
       {
         "date": "2026-11-23",
+        "count": 1
+      },
+      {
+        "date": "2026-11-24",
         "count": 1
       }
     ],
@@ -45298,6 +45512,10 @@
       {
         "date": "2026-11-23",
         "count": 0
+      },
+      {
+        "date": "2026-11-24",
+        "count": 0
       }
     ],
     "watchers": [
@@ -45479,6 +45697,10 @@
       },
       {
         "date": "2026-11-23",
+        "count": 0
+      },
+      {
+        "date": "2026-11-24",
         "count": 0
       }
     ],

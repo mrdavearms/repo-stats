@@ -1335,6 +1335,11 @@
         "date": "2026-11-25",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-11-26",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -2672,6 +2677,11 @@
         "date": "2026-11-25",
         "total": 7,
         "unique": 7
+      },
+      {
+        "date": "2026-11-26",
+        "total": 4,
+        "unique": 3
       }
     ],
     "referrers": [
@@ -6560,6 +6570,10 @@
       },
       {
         "date": "2026-11-26",
+        "sources": []
+      },
+      {
+        "date": "2026-11-27",
         "sources": []
       }
     ],
@@ -13568,6 +13582,26 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-11-27",
+        "paths": [
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/discussions",
+            "count": 3,
+            "unique": 3
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/bulk-pdf-extractor-and-generator/blob/main/samples/Minim_Elit_Evidence Application Wangaratta High School 2026.pdf",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -14586,6 +14620,10 @@
       {
         "date": "2026-11-26",
         "count": 2
+      },
+      {
+        "date": "2026-11-27",
+        "count": 2
       }
     ],
     "forks": [
@@ -15304,6 +15342,10 @@
       {
         "date": "2026-11-26",
         "count": 1
+      },
+      {
+        "date": "2026-11-27",
+        "count": 1
       }
     ],
     "watchers": [
@@ -16021,6 +16063,10 @@
       },
       {
         "date": "2026-11-26",
+        "count": 0
+      },
+      {
+        "date": "2026-11-27",
         "count": 0
       }
     ],
@@ -17371,6 +17417,11 @@
         "date": "2026-11-25",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-11-26",
+        "total": 1,
+        "unique": 1
       }
     ],
     "clones": [
@@ -18708,6 +18759,11 @@
         "date": "2026-11-25",
         "total": 8,
         "unique": 7
+      },
+      {
+        "date": "2026-11-26",
+        "total": 1,
+        "unique": 1
       }
     ],
     "referrers": [
@@ -22271,6 +22327,16 @@
             "referrer": "whs.vic.edu.au",
             "count": 2,
             "unique": 2
+          }
+        ]
+      },
+      {
+        "date": "2026-11-27",
+        "sources": [
+          {
+            "referrer": "whs.vic.edu.au",
+            "count": 3,
+            "unique": 3
           }
         ]
       }
@@ -29595,6 +29661,26 @@
             "unique": 2
           }
         ]
+      },
+      {
+        "date": "2026-11-27",
+        "paths": [
+          {
+            "path": "/mrdavearms/student-doc-redactor",
+            "count": 4,
+            "unique": 4
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases",
+            "count": 3,
+            "unique": 2
+          },
+          {
+            "path": "/mrdavearms/student-doc-redactor/releases/tag/v1.9.7",
+            "count": 3,
+            "unique": 2
+          }
+        ]
       }
     ],
     "stars": [
@@ -30613,6 +30699,10 @@
       {
         "date": "2026-11-26",
         "count": 4
+      },
+      {
+        "date": "2026-11-27",
+        "count": 4
       }
     ],
     "forks": [
@@ -31331,6 +31421,10 @@
       {
         "date": "2026-11-26",
         "count": 1
+      },
+      {
+        "date": "2026-11-27",
+        "count": 1
       }
     ],
     "watchers": [
@@ -32048,6 +32142,10 @@
       },
       {
         "date": "2026-11-26",
+        "count": 1
+      },
+      {
+        "date": "2026-11-27",
         "count": 1
       }
     ],
@@ -32821,6 +32919,11 @@
         "date": "2026-11-25",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-11-26",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -33573,6 +33676,11 @@
         "date": "2026-11-25",
         "total": 3,
         "unique": 3
+      },
+      {
+        "date": "2026-11-26",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -35392,6 +35500,10 @@
       },
       {
         "date": "2026-11-26",
+        "sources": []
+      },
+      {
+        "date": "2026-11-27",
         "sources": []
       }
     ],
@@ -37748,6 +37860,10 @@
       {
         "date": "2026-11-26",
         "paths": []
+      },
+      {
+        "date": "2026-11-27",
+        "paths": []
       }
     ],
     "stars": [
@@ -38293,6 +38409,10 @@
       },
       {
         "date": "2026-11-26",
+        "count": 0
+      },
+      {
+        "date": "2026-11-27",
         "count": 0
       }
     ],
@@ -38840,6 +38960,10 @@
       {
         "date": "2026-11-26",
         "count": 0
+      },
+      {
+        "date": "2026-11-27",
+        "count": 0
       }
     ],
     "watchers": [
@@ -39385,6 +39509,10 @@
       },
       {
         "date": "2026-11-26",
+        "count": 0
+      },
+      {
+        "date": "2026-11-27",
         "count": 0
       }
     ],
@@ -40111,6 +40239,11 @@
         "date": "2026-11-25",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-11-26",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -40833,6 +40966,11 @@
         "date": "2026-11-25",
         "total": 2,
         "unique": 1
+      },
+      {
+        "date": "2026-11-26",
+        "total": 0,
+        "unique": 0
       }
     ],
     "referrers": [
@@ -41483,6 +41621,10 @@
       },
       {
         "date": "2026-11-26",
+        "sources": []
+      },
+      {
+        "date": "2026-11-27",
         "sources": []
       }
     ],
@@ -42135,6 +42277,10 @@
       {
         "date": "2026-11-26",
         "paths": []
+      },
+      {
+        "date": "2026-11-27",
+        "paths": []
       }
     ],
     "stars": [
@@ -42656,6 +42802,10 @@
       },
       {
         "date": "2026-11-26",
+        "count": 0
+      },
+      {
+        "date": "2026-11-27",
         "count": 0
       }
     ],
@@ -43179,6 +43329,10 @@
       {
         "date": "2026-11-26",
         "count": 0
+      },
+      {
+        "date": "2026-11-27",
+        "count": 0
       }
     ],
     "watchers": [
@@ -43700,6 +43854,10 @@
       },
       {
         "date": "2026-11-26",
+        "count": 0
+      },
+      {
+        "date": "2026-11-27",
         "count": 0
       }
     ],
@@ -44011,6 +44169,11 @@
         "date": "2026-11-25",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-11-26",
+        "total": 0,
+        "unique": 0
       }
     ],
     "clones": [
@@ -44318,6 +44481,11 @@
         "date": "2026-11-25",
         "total": 0,
         "unique": 0
+      },
+      {
+        "date": "2026-11-26",
+        "total": 1,
+        "unique": 1
       }
     ],
     "referrers": [
@@ -44884,6 +45052,10 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-11-27",
+        "sources": []
       }
     ],
     "popular_paths": [
@@ -45530,6 +45702,21 @@
             "unique": 1
           }
         ]
+      },
+      {
+        "date": "2026-11-27",
+        "paths": [
+          {
+            "path": "/mrdavearms/locker-manager",
+            "count": 1,
+            "unique": 1
+          },
+          {
+            "path": "/mrdavearms/locker-manager/blob/main/SPEC.md",
+            "count": 1,
+            "unique": 1
+          }
+        ]
       }
     ],
     "stars": [
@@ -45723,6 +45910,10 @@
       },
       {
         "date": "2026-11-26",
+        "count": 1
+      },
+      {
+        "date": "2026-11-27",
         "count": 1
       }
     ],
@@ -45918,6 +46109,10 @@
       {
         "date": "2026-11-26",
         "count": 0
+      },
+      {
+        "date": "2026-11-27",
+        "count": 0
       }
     ],
     "watchers": [
@@ -46111,6 +46306,10 @@
       },
       {
         "date": "2026-11-26",
+        "count": 0
+      },
+      {
+        "date": "2026-11-27",
         "count": 0
       }
     ],
